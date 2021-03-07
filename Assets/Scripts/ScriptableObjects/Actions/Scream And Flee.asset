@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a99a6182e6aa64c95da2bad2b09859, type: 3}
+  m_Name: Scream And Flee
+  m_EditorClassIdentifier: 
+  environment: 0
+  state: 1
+  courage: 0
+  fearfull: 1
+  carefull: 0
+  detectionLevel: 0
+  changeDirectionTimer: 5
+  waypoints:
+  - {fileID: 3674664487647558550, guid: 0f1ad8955a844344990bbc9a6f740280, type: 3}
+  - {fileID: 4250899908854560646, guid: e9b14b88f6248bc40aec4e991a967352, type: 3}
