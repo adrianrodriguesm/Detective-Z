@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowCameraController2D : MonoBehaviour
+public class CameraController2D : MonoBehaviour
 {
     public Transform target;
 

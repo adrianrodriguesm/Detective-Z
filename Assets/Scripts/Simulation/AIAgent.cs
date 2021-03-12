@@ -14,11 +14,13 @@ public class AIAgent : MonoBehaviour
 {
 
     public Transform target;
+    [Header("Default asset(sprite)")]
     public Transform enemyGFX;
-
+    [Header("Pathfinding parameters")]
     public float speed = 5f;
     public float nextWaypointDistance = 3f;
-    public static float health = 40f;
+    [Header("Agent's health")]
+    public float health = 40f;
     // AI path
     [HideInInspector]
     Path path;
@@ -32,8 +34,9 @@ public class AIAgent : MonoBehaviour
     public List<Action> actions;
     Action currAction;
     // Environment
-    EnvironmentType currentEnvironment;
-    // Detection level
+    EnvironmentType currentEnvironment = EnvironmentType.Garden;
+    [HideInInspector]
+    // Detection level this value changed depending on the executed action
     public float detectionLevel
     {
         set { detectionLevel = value; }
@@ -47,14 +50,14 @@ public class AIAgent : MonoBehaviour
         set { currentEnvironment = value; }
     }
     State currentState;
+    public State State
+    {
+        set { currentState = value; }
+        get { return currentState; }
+    }
     [Header("Personality paremeter")]
     // Behavior
-    [Range(0, 1)]
-    public float courage;
-    [Range(0, 1)]
-    public float fearfull;
-    [Range(0, 1)]
-    public float carefull;
+    public Behaviour behaviour;
 
     // Start is called before the first frame update
     void Start()
@@ -98,17 +101,14 @@ public class AIAgent : MonoBehaviour
         }
         // Process Actions
         // -- Choose action
-        if (currAction.IsComplete())
+        if (currentState != currAction.state || currAction.IsComplete(this))
         {
             List<Action> possibleActions = actions.Where(x => x.environment == currentEnvironment && x.state == currentState).ToList();
             float currWellfareDif = Mathf.Infinity;
             foreach (Action action in possibleActions)
             {
-                float courageDif = courage - action.courage;
-                float fearfullDif = fearfull - action.fearfull;
-                float carefullDif = carefull - action.carefull;
-                // Calculate the average proximity between the behaviour parameters
-                float wellfareDif = (courageDif + fearfullDif + carefullDif)/3f;
+                Debug.Log(action.GetType());
+                float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour);
                 if (wellfareDif < currWellfareDif)
                     currAction = action;
 
@@ -127,4 +127,15 @@ public class AIAgent : MonoBehaviour
             currentWaypoint = 0;
         }
     }
+
+    public bool IsDead()
+    {
+        return health == 0;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
 }

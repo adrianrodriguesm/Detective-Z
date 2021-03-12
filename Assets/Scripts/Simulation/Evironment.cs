@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public enum EnvironmentType
 {
     Any,
@@ -16,7 +18,7 @@ public class Evironment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Agent")
+        if (other.CompareTag("Agent"))
             other.GetComponent<AIAgent>().Environment = environment;
     }
 

@@ -6,6 +6,6 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(menuName = "TileData")]
 public class TileData : ScriptableObject
 {
-    public TileBase[] tiles;
-    public float walkingSpeed;
+    public List<TileBase> tiles;
+   
 }

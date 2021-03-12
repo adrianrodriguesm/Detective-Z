@@ -9,20 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a99a6182e6aa64c95da2bad2b09859, type: 3}
-  m_Name: Scream And Flee
+  m_Script: {fileID: 11500000, guid: a967d51e262ca394bbb07b251bc1c793, type: 3}
+  m_Name: Attack With Body
   m_EditorClassIdentifier: 
   environment: 4
-  state: 1
+  state: 2
   behaviour:
     courage: 0
-    fearfull: 1
+    fearfull: 0.54
     carefull: 0
-  detectionLevel: 0
+  detectionLevel: 1
   tilesToAffect: {fileID: 11400000, guid: 70ff62fb84e43a64aa36f1b5f84fbbc0, type: 2}
-  storytellingElementGenerated: {fileID: 11400000, guid: 00a5f9196f1e88340b4d868874c78e3d,
+  storytellingElementGenerated: {fileID: 11400000, guid: 265b7516e4aae3f4d9d4a78815a19729,
     type: 2}
-  changeDirectionTimer: 5
-  waypoints:
-  - {fileID: 3674664487647558550, guid: 0f1ad8955a844344990bbc9a6f740280, type: 3}
-  - {fileID: 4250899908854560646, guid: e9b14b88f6248bc40aec4e991a967352, type: 3}
+  damage: 3
+  radiusAttack: 1
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
+  offsetRadius: 1
