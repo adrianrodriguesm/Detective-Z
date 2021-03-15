@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a99a6182e6aa64c95da2bad2b09859, type: 3}
   m_Name: Scream And Flee
   m_EditorClassIdentifier: 
-  environment: 4
+  environment: 0
   state: 1
   behaviour:
     courage: 0

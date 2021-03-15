@@ -26,10 +26,11 @@ public class ScreamAndFlee : Action
         // Get the agent world position
         Vector3 agentPosition = agent.gameObject.transform.position;
         // Obtatin the current tile
-        TileBase currTile = EnvironmentManager.Instance.GetTileFromWorldPosition(agentPosition, environment);
+        TileBase currTile = EnvironmentManager.Instance.GetTileFromWorldPosition(agentPosition, agent.Environment);
         // Define the storytelling element
+        // TODO: THIS clue is wet the floar
         if (tilesToAffect.tiles.Contains(currTile))
-            EnvironmentManager.Instance.SetTile(storytellingElementGenerated, environment, agentPosition);
+            EnvironmentManager.Instance.SetTile(storytellingElementGenerated, agent.Environment, agentPosition);
     }
 
     public override bool IsComplete(AIAgent agent)

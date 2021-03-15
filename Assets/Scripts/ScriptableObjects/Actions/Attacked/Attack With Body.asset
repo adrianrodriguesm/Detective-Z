@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a967d51e262ca394bbb07b251bc1c793, type: 3}
   m_Name: Attack With Body
   m_EditorClassIdentifier: 
-  environment: 4
-  state: 2
+  environment: 0
+  state: 3
   behaviour:
     courage: 0
     fearfull: 0.54
@@ -28,3 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   offsetRadius: 1
+  deadCharacter: {fileID: 377364330430909328, guid: 8923a979a52b6164ea83dd579c91f036,
+    type: 3}

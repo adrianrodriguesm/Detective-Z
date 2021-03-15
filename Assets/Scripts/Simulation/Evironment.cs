@@ -14,7 +14,7 @@ public enum EnvironmentType
 }
 public class Evironment : MonoBehaviour
 {
-    public EnvironmentType environment = EnvironmentType.Any;
+    public EnvironmentType environment;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

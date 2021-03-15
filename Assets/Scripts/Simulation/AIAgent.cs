@@ -8,11 +8,12 @@ public enum State
 {
     Calm,
     Alert,
+    Seeking,
     Attacked
 }
 public class AIAgent : MonoBehaviour
 {
-
+    InfectedAgent infected;
     public Transform target;
     [Header("Default asset(sprite)")]
     public Transform enemyGFX;
@@ -21,6 +22,7 @@ public class AIAgent : MonoBehaviour
     public float nextWaypointDistance = 3f;
     [Header("Agent's health")]
     public float health = 40f;
+    bool dead = false;
     // AI path
     [HideInInspector]
     Path path;
@@ -35,14 +37,12 @@ public class AIAgent : MonoBehaviour
     Action currAction;
     // Environment
     EnvironmentType currentEnvironment = EnvironmentType.Garden;
+    public float detectionRadious;
     [HideInInspector]
     // Detection level this value changed depending on the executed action
-    public float detectionLevel
-    {
-        set { detectionLevel = value; }
-        get { return detectionLevel;  }
-    }
+    public float detectionLevel;
 
+   
     [HideInInspector]
     public EnvironmentType Environment
     {
@@ -64,9 +64,17 @@ public class AIAgent : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        currAction = actions[0];
+        infected = StoryManager.Instance.Infected;
+        ChooseFirstAction();
         // Call UpdatePath function every 0.5f in order to update the path
         InvokeRepeating("UpdatePath", 0f, 0.5f);
+        
+    }
+    // Fist action is random
+    void ChooseFirstAction()
+    { 
+        List<Action> possibleActions = actions.Where(x => x.environment == currentEnvironment && x.state == currentState).ToList();
+        currAction = possibleActions[Random.Range(0, possibleActions.Count)];
     }
     private void UpdatePath()
     {
@@ -77,8 +85,56 @@ public class AIAgent : MonoBehaviour
     }
     // Update is called once per frame
     private void FixedUpdate()
-    {    
-        if (path == null)
+    {
+        if (dead)
+            return;
+
+        // Start Condition
+        if (infected.Environment == Environment && State == State.Calm)
+        {
+            currentState = State.Alert;
+        }
+
+
+        ProcessMovement();
+        ProcessAction();
+        
+    }
+
+    private void ProcessAction()
+    {
+        if(IsDead())
+        {
+           
+            dead = true;
+            currAction.OnActionFinish(this);
+            return;
+        }
+        // Process Actions
+        // -- Choose action
+        if (currentState != currAction.state || currAction.IsComplete(this))
+        {
+            
+            currAction.OnActionFinish(this);
+            actions.Remove(currAction);
+            List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState).ToList();
+            float currWellfareDif = Mathf.Infinity;
+            foreach (Action action in possibleActions)
+            {
+                float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour);
+                if (wellfareDif < currWellfareDif)
+                    currAction = action;
+
+                currWellfareDif = wellfareDif;
+            }
+        }
+        // -- Execute action
+        currAction.Execute(this);
+    }
+
+    void ProcessMovement()
+    {
+        if (path == null || IsDead())
             return;
         // Process Movement
         if (currentWaypoint < path.vectorPath.Count)
@@ -99,43 +155,41 @@ public class AIAgent : MonoBehaviour
             else if (force.x >= 0.01f)
                 enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
-        // Process Actions
-        // -- Choose action
-        if (currentState != currAction.state || currAction.IsComplete(this))
-        {
-            List<Action> possibleActions = actions.Where(x => x.environment == currentEnvironment && x.state == currentState).ToList();
-            float currWellfareDif = Mathf.Infinity;
-            foreach (Action action in possibleActions)
-            {
-                Debug.Log(action.GetType());
-                float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour);
-                if (wellfareDif < currWellfareDif)
-                    currAction = action;
-
-                currWellfareDif = wellfareDif;
-            }
-        }
-        // -- Execute action
-        currAction.Execute(this);
     }
 
     private void OnPathComplete(Path p)
     {
-        if(!p.error)
+        if(IsDead())
+            CancelInvoke("UpdatePath");
+
+        if (!p.error)
         {
             path = p;
             currentWaypoint = 0;
         }
+        
     }
 
+    public void OnAgentDead()
+    {
+        infected = StoryManager.Instance.Infected;
+
+    }
     public bool IsDead()
     {
-        return health == 0;
+        return health <= 0;
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if (IsDead())
+            GetComponent<Collider2D>().enabled = false;
+    }
+    // TODO IMPLEMENT
+    public void ForceExecutionOfKeyAction(Action action)
+    {
+
     }
 
 }
