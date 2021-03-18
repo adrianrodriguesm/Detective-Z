@@ -13,6 +13,9 @@ public class ScreamAndFlee : Action
     int currWaypointIndex = 0;
     [Header("Set of positions that the agent will go")]
     public List<Transform> waypoints;
+    [Header("Timer in which the storytelling elemented will be generated")]
+    public float timer = 1f;
+    float currTimer = 0f;
     public override void Execute(AIAgent agent)
     {
         if (dirTimer <= 0f)
@@ -23,16 +26,15 @@ public class ScreamAndFlee : Action
             dirTimer = changeDirectionTimer;
         }
         dirTimer -= Time.fixedDeltaTime;
-        // Get the agent world position
-        Vector3 agentPosition = agent.gameObject.transform.position;
-        // Obtatin the current tile
-        TileBase currTile = EnvironmentManager.Instance.GetTileFromWorldPosition(agentPosition, agent.Environment);
-        // Define the storytelling element
-        // TODO: THIS clue is wet the floar
-        if (tilesToAffect.tiles.Contains(currTile))
-            EnvironmentManager.Instance.SetTile(storytellingElementGenerated, agent.Environment, agentPosition);
+       
+        currTimer += Time.fixedDeltaTime;
+        if(currTimer > timer)
+        {
+            Instantiate(storytellingElement, agent.gameObject.transform.position, Quaternion.identity);
+            currTimer = 0;
+        }
+        
     }
-
     public override bool IsComplete(AIAgent agent)
     {
         return false;

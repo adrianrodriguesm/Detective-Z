@@ -12,7 +12,7 @@ public class AttackWithBody : Action
     public int damage = 3;
     public float radiusAttack = 20f;
     public LayerMask layer;
-    public int offsetRadius = 1;
+    public float offsetRadius = 1f;
 
     public GameObject deadCharacter;
     public override void Execute(AIAgent agent)
@@ -28,21 +28,24 @@ public class AttackWithBody : Action
             infected.TakeDamage(damage, AttackType.Body);
 
             Vector3Int positionInCell = EnvironmentManager.Instance.GetTileCellPosition(agent.transform.position, agent.Environment);
-            for (int index = 1; index <= offsetRadius; index++)
-            {
-                // Top
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x + offsetRadius, positionInCell.y + offsetRadius, positionInCell.z));
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x - offsetRadius, positionInCell.y + offsetRadius, positionInCell.z));
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x,                positionInCell.y + offsetRadius, positionInCell.z));
-                // Center
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x + offsetRadius, positionInCell.y, positionInCell.z));
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x,                positionInCell.y, positionInCell.z));
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x - offsetRadius, positionInCell.y, positionInCell.z));
-                // Bottom
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x + offsetRadius, positionInCell.y - offsetRadius, positionInCell.z));
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x,                positionInCell.y - offsetRadius, positionInCell.z));
-                EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x - offsetRadius, positionInCell.y - offsetRadius, positionInCell.z));
-            }
+
+            float offsetX = Random.Range(-offsetRadius, offsetRadius);
+            float offsetY = Random.Range(-offsetRadius, offsetRadius);
+            Instantiate(storytellingElement, new Vector3(agent.transform.position.x + offsetX, agent.transform.position.y + offsetY, positionInCell.z), Quaternion.identity);
+            /** /
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x + offsetRadius, positionInCell.y + offsetRadius, positionInCell.z));
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x - offsetRadius, positionInCell.y + offsetRadius, positionInCell.z));
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x,                positionInCell.y + offsetRadius, positionInCell.z));
+            // Center
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x + offsetRadius, positionInCell.y, positionInCell.z));
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x,                positionInCell.y, positionInCell.z));
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x - offsetRadius, positionInCell.y, positionInCell.z));
+            // Bottom
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x + offsetRadius, positionInCell.y - offsetRadius, positionInCell.z));
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x,                positionInCell.y - offsetRadius, positionInCell.z));
+            EnvironmentManager.Instance.SetTileCellPosition(storytellingElementGenerated, agent.Environment, new Vector3Int(positionInCell.x - offsetRadius, positionInCell.y - offsetRadius, positionInCell.z));
+            /**/
+            
         }    
     }
 

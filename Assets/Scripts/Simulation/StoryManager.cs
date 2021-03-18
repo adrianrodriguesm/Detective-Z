@@ -31,8 +31,6 @@ public class StoryManager : Singleton<StoryManager>
     // Update is called once per frame
     void Update()
     {
-      
-
         foreach (var agent in agents.ToList())
         {
            if(agent.IsDead())
@@ -41,10 +39,13 @@ public class StoryManager : Singleton<StoryManager>
                deadAgents.Add(agent);
            }
         }
-        
-        ///if(agents.Count == 0) START GAMEPLAY
 
-
+        if (agents.Count == 0)
+        {
+            // Generated sprite with scars due the different types of attacks
+            infected.enabled = false;
+        }
+           
     }
 
     public AIAgent GetAgentToSeek()

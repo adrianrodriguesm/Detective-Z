@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6138054e9d2f622488cea0547089612d, type: 3}
-  m_Name: New Drinking
+  m_Name: CalmAction
   m_EditorClassIdentifier: 
-  environment: 0
+  environment: 4
   state: 0
   behaviour:
     courage: 0
     fearfull: 0
     carefull: 0
   detectionLevel: 0
-  tilesToAffect: {fileID: 0}
-  storytellingElementGenerated: {fileID: 0}
-  drink: {fileID: 0}
+  storytellingElement: {fileID: 0}

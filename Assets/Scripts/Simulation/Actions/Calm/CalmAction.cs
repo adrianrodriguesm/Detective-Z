@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(menuName = "Actions/Smooking")]
-public class Smooking : Action
+[CreateAssetMenu(menuName = "Actions/CalmAction")]
+public class CalmAction : Action
 {
-
-    public GameObject cigarette;
    
     public override void Execute(AIAgent agent)
     {
-        agent.target = agent.transform;
+        
     }
 
 
@@ -23,7 +21,7 @@ public class Smooking : Action
 
     public override void OnActionFinish(AIAgent agent)
     {
-        Instantiate(cigarette, agent.transform.position, Quaternion.identity);
-        //EnvironmentManager.Instance.SetTile(storytellingElementGenerated, environment, agent.transform.position);
+        
+        
     }
 }

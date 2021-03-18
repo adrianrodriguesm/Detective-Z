@@ -2,11 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public class Item : MonoBehaviour
 {
-    public GameObject item;
+    public GameObject itemFall;
+    public GameObject itemDeath;
+    public float offsetX = 1f;
+    public float offsetY = 1f;
+    // Call when the agent changed its state from calm to alert/attacked
+    public void OnStateChanged(AIAgent agent)
+    {
+        if (!itemFall)
+            return;
 
-    public abstract bool OnDeath();
+        float offsetXDelta = Random.Range(-offsetX, offsetX);
+        float offsetYDelta = Random.Range(-offsetY, offsetY);
+        Instantiate(itemFall, new Vector3(agent.transform.position.x + offsetXDelta, agent.transform.position.y + offsetYDelta, agent.transform.position.z), Quaternion.identity);
+    }
+
+    public void OnDeath(AIAgent agent)
+    {
+        if (!itemDeath)
+            return;
+
+        float offsetXDelta = Random.Range(-offsetX, offsetX);
+        float offsetYDelta = Random.Range(-offsetY, offsetY);
+        Instantiate(itemDeath, new Vector3(agent.transform.position.x + offsetXDelta, agent.transform.position.y + offsetYDelta, agent.transform.position.z), Quaternion.identity);
+    }
 
     
     // Cigaratte

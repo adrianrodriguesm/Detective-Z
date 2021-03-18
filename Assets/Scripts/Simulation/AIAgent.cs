@@ -23,6 +23,7 @@ public class AIAgent : MonoBehaviour
     [Header("Agent's health")]
     public float health = 40f;
     bool dead = false;
+    public List<Item> items;
     // AI path
     [HideInInspector]
     Path path;
@@ -93,6 +94,10 @@ public class AIAgent : MonoBehaviour
         if (infected.Environment == Environment && State == State.Calm)
         {
             currentState = State.Alert;
+            foreach(var item in items)
+            {
+                item.OnStateChanged(this);
+            }
         }
 
 
@@ -170,11 +175,6 @@ public class AIAgent : MonoBehaviour
         
     }
 
-    public void OnAgentDead()
-    {
-        infected = StoryManager.Instance.Infected;
-
-    }
     public bool IsDead()
     {
         return health <= 0;
@@ -184,7 +184,14 @@ public class AIAgent : MonoBehaviour
     {
         health -= damage;
         if (IsDead())
+        {
+            foreach(var item in items)
+            {
+                item.OnDeath(this);
+            }
             GetComponent<Collider2D>().enabled = false;
+        }
+           
     }
     // TODO IMPLEMENT
     public void ForceExecutionOfKeyAction(Action action)

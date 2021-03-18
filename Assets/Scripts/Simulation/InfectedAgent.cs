@@ -110,13 +110,6 @@ public class InfectedAgent : MonoBehaviour
 
     }
 
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, radiusAttack);
-    }
-
-
     public bool IsDead()
     {
         return health <= 0f;

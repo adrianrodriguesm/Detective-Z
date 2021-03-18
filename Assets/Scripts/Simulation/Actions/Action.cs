@@ -14,11 +14,8 @@ public abstract class Action : ScriptableObject
     public Behaviour behaviour;
     [Range(0, 1)]
     public float detectionLevel;
-    [Header("Set of tile that this action will change")]
-    public TileData tilesToAffect;
-    [Header("Storytelling element generated")]
-    public TileBase storytellingElementGenerated;
 
+    public GameObject storytellingElement;
     public abstract void Execute(AIAgent a);
     public abstract bool IsComplete(AIAgent agent);
     public abstract void OnActionFinish(AIAgent agent);
