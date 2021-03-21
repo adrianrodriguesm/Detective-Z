@@ -42,4 +42,6 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
     {
        return tileMaps[type].WorldToCell(worldposition);   
     }
+
+    
 }

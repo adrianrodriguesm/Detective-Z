@@ -8,9 +8,12 @@ public enum EnvironmentType
 {
     Any,
     Room,
+    SafeRoom,
     Lobby,
     Corridor,
     Garden,
+    Kitchen,
+    Bathroom
 }
 public class Evironment : MonoBehaviour
 {

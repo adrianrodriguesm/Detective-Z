@@ -9,13 +9,15 @@ public abstract class Action : ScriptableObject
     public EnvironmentType environment;
     // State of execution of action
     public State state;
-
     // Behavior
     public Behaviour behaviour;
     [Range(0, 1)]
     public float detectionLevel;
 
     public GameObject storytellingElement;
+
+    public bool attackAction = false;
+
     public abstract void Execute(AIAgent a);
     public abstract bool IsComplete(AIAgent agent);
     public abstract void OnActionFinish(AIAgent agent);

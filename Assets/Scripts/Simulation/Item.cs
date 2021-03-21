@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public GameObject itemDeath;
     public float offsetX = 1f;
     public float offsetY = 1f;
+
     // Call when the agent changed its state from calm to alert/attacked
     public void OnStateChanged(AIAgent agent)
     {

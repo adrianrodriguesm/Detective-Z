@@ -37,7 +37,7 @@ public class AIAgent : MonoBehaviour
     public List<Action> actions;
     Action currAction;
     // Environment
-    EnvironmentType currentEnvironment = EnvironmentType.Garden;
+    EnvironmentType currentEnvironment;
     public float detectionRadious;
     [HideInInspector]
     // Detection level this value changed depending on the executed action
@@ -73,9 +73,9 @@ public class AIAgent : MonoBehaviour
     }
     // Fist action is random
     void ChooseFirstAction()
-    { 
-        List<Action> possibleActions = actions.Where(x => x.environment == currentEnvironment && x.state == currentState).ToList();
-        currAction = possibleActions[Random.Range(0, possibleActions.Count)];
+    {
+        List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState).ToList();
+        currAction = possibleActions[Random.Range(0, possibleActions.Count)];    
     }
     private void UpdatePath()
     {
@@ -117,9 +117,8 @@ public class AIAgent : MonoBehaviour
         }
         // Process Actions
         // -- Choose action
-        if (currentState != currAction.state || currAction.IsComplete(this))
-        {
-            
+        if (currAction.IsComplete(this) || currentState != currAction.state)
+        {   
             currAction.OnActionFinish(this);
             actions.Remove(currAction);
             List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState).ToList();
@@ -153,12 +152,13 @@ public class AIAgent : MonoBehaviour
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
             if (distance < nextWaypointDistance)
                 currentWaypoint++;
-
+            /** /
             // Update the localScale of graphic in order to flip the sprite
             if (force.x <= 0.01f)
                 enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
             else if (force.x >= 0.01f)
                 enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+            /**/
         }
     }
 
@@ -193,10 +193,9 @@ public class AIAgent : MonoBehaviour
         }
            
     }
-    // TODO IMPLEMENT
-    public void ForceExecutionOfKeyAction(Action action)
+
+    public bool HasWeapon(Weapon item)
     {
-
+        return items.Contains(item);
     }
-
 }

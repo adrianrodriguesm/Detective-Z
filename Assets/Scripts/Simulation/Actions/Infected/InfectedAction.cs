@@ -8,6 +8,7 @@ public abstract class InfectedAction
     public InfectedAction(InfectedAgent agent)
     {
         m_Agent = agent;
+        m_Agent.CurrWayPoint = 0;
     }
 
     public abstract void OnUpdate();

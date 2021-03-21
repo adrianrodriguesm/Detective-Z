@@ -19,6 +19,5 @@ MonoBehaviour:
     fearfull: 0
     carefull: 1
   detectionLevel: 0
-  tilesToAffect: {fileID: 0}
-  storytellingElementGenerated: {fileID: 0}
-  room: {fileID: 8601260308084354831, guid: 09d9a32619c9b884799696c3731a4227, type: 3}
+  storytellingElement: {fileID: 0}
+  room: {fileID: 1794320460365832427, guid: 597a64ed9bd0a5f439d5cf3a6569d625, type: 3}

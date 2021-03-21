@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138054e9d2f622488cea0547089612d, type: 3}
   m_Name: CalmAction
   m_EditorClassIdentifier: 
-  environment: 4
+  environment: 0
   state: 0
   behaviour:
     courage: 0

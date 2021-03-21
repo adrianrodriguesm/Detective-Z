@@ -14,14 +14,14 @@ public enum AttackType
 public class InfectedAgent : MonoBehaviour
 {
     [Header("Infected Stats")]
-    public int health;
+    public float health;
     public float radiusAttack = 1f;
     public LayerMask layer;
     public int damage = 5;
-
-    public InfectedAction action;
-    private AIAgent targetAgent;
-
+    public float distanceThresholdToAttack = 3f;
+   
+    // TODO remove
+    public AIAgent targetDEBUG;
     private List<AIAgent> agents;
     // AI path
     [HideInInspector]
@@ -56,7 +56,7 @@ public class InfectedAgent : MonoBehaviour
         get { return rb; }
     }
     // TODO
-    EnvironmentType environment = EnvironmentType.Garden;
+    EnvironmentType environment = EnvironmentType.Any;
     public EnvironmentType Environment
     {
         set { environment = value; }
@@ -75,12 +75,23 @@ public class InfectedAgent : MonoBehaviour
     void Start()
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
-        // First Agent is randonly selected
-        targetAgent = agents[Random.Range(0, agents.Count)];
+       
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         attackTypeRecived = new HashSet<AttackType>();
-        currAction = new SeekAgent(this);
+        // First Agent is randonly selected
+        if (targetDEBUG)
+        {
+            AIAgent targetAgent = targetDEBUG;
+            currAction = new SeekAgent(this, targetAgent.transform);
+        }
+        else
+        {
+            AIAgent targetAgent = agents[Random.Range(0, agents.Count)];
+            currAction = new SeekAgent(this, targetAgent.transform);
+
+        }
+
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
@@ -105,7 +116,6 @@ public class InfectedAgent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         currAction.OnUpdate();
 
     }
@@ -115,19 +125,16 @@ public class InfectedAgent : MonoBehaviour
         return health <= 0f;
     }
 
-    public void TakeDamage(int damage, AttackType type)
+    public void TakeDamage(float damage, AttackType type)
     {
         attackTypeRecived.Add(type);
-        health -= damage;
-        if (IsDead())
-            GetComponent<Collider2D>().enabled = false;
     }
-
+    /** /
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Agent"))
             targetAgent = collision.collider.GetComponent<AIAgent>();
     }
-
+    /**/
 
 }
