@@ -8,9 +8,11 @@ using UnityEngine;
 public class Attack : Action
 {
     InfectedAgent infected;
-    public Weapon weapon;
+    public GameObject weaponObject;
+    [System.NonSerialized] Weapon weapon;
     Transform weaponLocation;
-    
+   
+
    [Header("Paremeter of body attack (in case of weapon not being assing or weapon impossible to use)")]
     public int damage = 3;
     public float radiusAttack = 1f;
@@ -19,7 +21,14 @@ public class Attack : Action
     public float offsetRadiusX = 1f;
     public float offsetRadiusY = 1f;
     public GameObject deadCharacter;
-    bool attackWithBody = false;
+    [System.NonSerialized] bool attackWithBody = false;
+    [System.NonSerialized] bool foundWeapon = false;
+
+    private void OnEnable()
+    {
+        if (weaponObject)
+            weapon = weaponObject.GetComponent<Weapon>();
+    }    
 
     public override void Execute(AIAgent agent)
     {
@@ -28,34 +37,43 @@ public class Attack : Action
 
         if (!infected)
             infected = StoryManager.Instance.Infected;
-              
 
-        if(weapon != null && !attackWithBody)
+        
+        if (weapon != null && !attackWithBody)
         {
-            if(agent.HasWeapon(weapon))
+            bool hasWeapon = agent.HasWeapon(weapon);
+            if (hasWeapon)
             {
                 // Updated target transform
                 agent.target = infected.transform;
-                AttackAndClueGeneration(weapon.damage, weapon.radiusAttack, weapon.attackType, agent.transform.position);
+                AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
             }
             // Othewise find a weapon in environment
             else
             {
-                if(!weaponLocation)
+                if(!foundWeapon)
                 {
-                    List<Weapon> weapons = (List<Weapon>)FindObjectsOfType<Weapon>().ToList().Where(x => x.attackType == weapon.attackType);
+                    Debug.Log("Unkonw weapon location!");
+                    Weapon[] weapons = FindObjectsOfType<Weapon>();
+                    //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
                     float minDistance = Mathf.Infinity;
-                    foreach(var weapon in weapons)
-                    {
-                        float distance = Vector2.Distance(agent.transform.position, weapon.transform.position);
-                        if(distance < minDistance)
-                        {
-                            this.weapon = weapon;
-                            weaponLocation = weapon.transform;
-                            minDistance = distance;
-                        }
-                    }
+                    
+                    foreach (var currWeapon in weapons)
+                    {  
+                       if(currWeapon.attackType == this.weapon.attackType)
+                       {
+                           float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
+                           if (distance < minDistance)
+                           {
+                               this.weapon = currWeapon;
+                               weaponLocation = currWeapon.transform;
+                               minDistance = distance;
+                             
+                           }
+                       }
 
+                    }
+                    foundWeapon = true;
                     // Check if the distance to the closest weapon is lower than the double of the distance to the infected
                     // otherwise attack with body (TODO: maybe force the execution of other action)
                     if (minDistance > 2 * Vector2.Distance(agent.transform.position, infected.transform.position))
@@ -63,7 +81,7 @@ public class Attack : Action
                         attackWithBody = true;
                         return;
                     }
-                        
+                    
              
                 }
                 // Updated the agent target in order to find the weapon
@@ -75,22 +93,22 @@ public class Attack : Action
         {
             attackWithBody = true;
             agent.target = infected.transform;
-            AttackAndClueGeneration(damage, radiusAttack, AttackType.Body, agent.transform.position);
+            AttackAndClueGeneration(radiusAttack, AttackType.Body, agent);
         }
 
         
     }
 
-    private void AttackAndClueGeneration(float damage, float radius, AttackType type, Vector3 position)
+    private void AttackAndClueGeneration(float radius, AttackType type, AIAgent agent)
     {
-        Collider2D hit = Physics2D.OverlapCircle(position, radius, layer);
+        Collider2D hit = Physics2D.OverlapCircle(agent.transform.position, radius, layer);
         if (hit)
         {
-            infected.TakeDamage(damage, type);
+            infected.TakeDamage(type, agent);
 
             float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
             float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
-            Instantiate(storytellingElement, new Vector3(position.x + offsetX, position.y + offsetY, position.z), Quaternion.identity);
+            Instantiate(storytellingElement, new Vector3(agent.transform.position.x + offsetX, agent.transform.position.y + offsetY, agent.transform.position.z), Quaternion.identity);
         }
             
     }

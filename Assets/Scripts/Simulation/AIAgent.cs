@@ -113,6 +113,10 @@ public class AIAgent : MonoBehaviour
            
             dead = true;
             currAction.OnActionFinish(this);
+            foreach(Item item in items)
+            {
+                item.gameObject.SetActive(false);
+            }
             return;
         }
         // Process Actions

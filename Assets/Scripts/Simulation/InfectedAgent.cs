@@ -125,8 +125,14 @@ public class InfectedAgent : MonoBehaviour
         return health <= 0f;
     }
 
-    public void TakeDamage(float damage, AttackType type)
+    public void TakeDamage(AttackType type, AIAgent agent)
     {
+        InfectedAction action = currAction as AttackAgent;
+        // If is attackes by an agent that is not a target
+        if(action == null)
+        {
+            currAction = new AttackAgent(this, agent);
+        }
         attackTypeRecived.Add(type);
     }
     /** /

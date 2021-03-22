@@ -17,6 +17,7 @@ public class Weapon : Item
             collision.GetComponent<AIAgent>().items.Add(this);
             isFree = false;
             GetComponent<Collider2D>().enabled = false;
+            this.transform.parent = collision.transform;
         }
            
     }

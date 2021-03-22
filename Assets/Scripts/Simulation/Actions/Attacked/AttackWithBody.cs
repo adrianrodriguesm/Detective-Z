@@ -25,7 +25,7 @@ public class AttackWithBody : Action
         Collider2D hit = Physics2D.OverlapCircle(agent.transform.position, radiusAttack, layer);
         if (hit != null && !agent.IsDead() && !infected.IsDead())
         {
-            infected.TakeDamage(damage, AttackType.Body);
+           // infected.TakeDamage(damage, AttackType.Body);
 
             Vector3Int positionInCell = EnvironmentManager.Instance.GetTileCellPosition(agent.transform.position, agent.Environment);
 
