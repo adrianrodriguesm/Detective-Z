@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 [System.Serializable]
 public abstract class Action : ScriptableObject
 {
@@ -18,7 +17,14 @@ public abstract class Action : ScriptableObject
 
     public bool attackAction = false;
 
-    public abstract void Execute(AIAgent a);
+    public bool CanRepeat = false;
+
+    public virtual void OnActionStart(AIAgent agent)
+    {
+        agent.detectionLevel += detectionLevel;
+    }
+    public abstract void OnActionPrepare(AIAgent agent);
+    public abstract void Execute(AIAgent agent);
     public abstract bool IsComplete(AIAgent agent);
     public abstract void OnActionFinish(AIAgent agent);
 

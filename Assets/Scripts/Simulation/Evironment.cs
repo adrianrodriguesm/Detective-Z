@@ -18,11 +18,19 @@ public enum EnvironmentType
 public class Evironment : MonoBehaviour
 {
     public EnvironmentType environment;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Agent"))
-            other.GetComponent<AIAgent>().Environment = environment;
+        {
+            AIAgent agent = other.GetComponent<AIAgent>();
+            agent.Environment = environment;
+            if(!EnvironmentManager.Instance.IsEnvironmentAvailable(environment))
+            {
+                agent.AddLockEnvironment(environment);
+                agent.ChangedAction();
+            }
+        }
+           
     }
 
 }

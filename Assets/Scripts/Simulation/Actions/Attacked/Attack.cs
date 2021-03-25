@@ -33,61 +33,67 @@ public class Attack : Action
     public override void Execute(AIAgent agent)
     {
         if (agent.IsDead())
-            return;
+            return;           
 
-        if (!infected)
-            infected = StoryManager.Instance.Infected;
-
-        
-        if (weapon != null && !attackWithBody)
+        if(!attackWithBody)
         {
-            bool hasWeapon = agent.HasWeapon(weapon);
-            if (hasWeapon)
+            if (weapon)
             {
+                if (agent.HasWeapon(weapon))
+                {
+                    // Updated target transform
+                    agent.target = infected.transform;
+                    AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
+                }
+                // Othewise find a weapon in environment
+                else
+                {
+                    if (!foundWeapon)
+                    {
+                        Debug.Log("Unkonw weapon location!");
+                        Weapon[] weapons = FindObjectsOfType<Weapon>();
+                        //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
+                        float minDistance = Mathf.Infinity;
+
+                        foreach (var currWeapon in weapons)
+                        {
+                            if (currWeapon.attackType == this.weapon.attackType)
+                            {
+                                float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
+                                if (distance < minDistance)
+                                {
+                                    this.weapon = currWeapon;
+                                    weaponLocation = currWeapon.transform;
+                                    minDistance = distance;
+
+                                }
+                            }
+
+                        }
+                        foundWeapon = true;
+                        // Check if the distance to the closest weapon is lower than the double of the distance to the infected
+                        // otherwise attack with body (TODO: maybe force the execution of other action)
+                        if (minDistance > 2 * Vector2.Distance(agent.transform.position, infected.transform.position))
+                        {
+                            attackWithBody = true;
+                            return;
+                        }
+
+
+                    }
+                    // Updated the agent target in order to find the weapon
+                    agent.target = weaponLocation;
+                }
+
+            }
+            else if (!weapon && !attackAction && agent.HasWeapons())
+            {
+                foundWeapon = true;
+                weapon = agent.TryGetWeapon();
                 // Updated target transform
                 agent.target = infected.transform;
                 AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
             }
-            // Othewise find a weapon in environment
-            else
-            {
-                if(!foundWeapon)
-                {
-                    Debug.Log("Unkonw weapon location!");
-                    Weapon[] weapons = FindObjectsOfType<Weapon>();
-                    //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
-                    float minDistance = Mathf.Infinity;
-                    
-                    foreach (var currWeapon in weapons)
-                    {  
-                       if(currWeapon.attackType == this.weapon.attackType)
-                       {
-                           float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
-                           if (distance < minDistance)
-                           {
-                               this.weapon = currWeapon;
-                               weaponLocation = currWeapon.transform;
-                               minDistance = distance;
-                             
-                           }
-                       }
-
-                    }
-                    foundWeapon = true;
-                    // Check if the distance to the closest weapon is lower than the double of the distance to the infected
-                    // otherwise attack with body (TODO: maybe force the execution of other action)
-                    if (minDistance > 2 * Vector2.Distance(agent.transform.position, infected.transform.position))
-                    {
-                        attackWithBody = true;
-                        return;
-                    }
-                    
-             
-                }
-                // Updated the agent target in order to find the weapon
-                agent.target = weaponLocation;
-            }
-           
         }
         else
         {
@@ -101,14 +107,20 @@ public class Attack : Action
 
     private void AttackAndClueGeneration(float radius, AttackType type, AIAgent agent)
     {
+       
         Collider2D hit = Physics2D.OverlapCircle(agent.transform.position, radius, layer);
         if (hit)
         {
-            infected.TakeDamage(type, agent);
-
+            /** /
             float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
             float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
             Instantiate(storytellingElement, new Vector3(agent.transform.position.x + offsetX, agent.transform.position.y + offsetY, agent.transform.position.z), Quaternion.identity);
+            /**/
+            // If the agent is mainly fearfull it won't attack the infected
+            if (agent.behaviour.fearfull > 0.5f)
+                return;
+
+            infected.TakeDamage(type, agent);
         }
             
     }
@@ -127,5 +139,10 @@ public class Attack : Action
             Instantiate(deadCharacter, agent.transform.position, Quaternion.identity, agent.transform);
 
         }
+    }
+
+    public override void OnActionPrepare(AIAgent agent)
+    {
+        infected = StoryManager.Instance.Infected;
     }
 }

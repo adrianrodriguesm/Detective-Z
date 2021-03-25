@@ -19,7 +19,11 @@ public class InfectedAgent : MonoBehaviour
     public LayerMask layer;
     public int damage = 5;
     public float distanceThresholdToAttack = 3f;
-   
+    [Header("Storytelling Element")]
+    public GameObject infectedBlood;
+    public GameObject infectedBloodWalking;
+    public float offsetRadiusX = 1f;
+    public float offsetRadiusY = 1f;
     // TODO remove
     public AIAgent targetDEBUG;
     private List<AIAgent> agents;
@@ -75,8 +79,8 @@ public class InfectedAgent : MonoBehaviour
     void Start()
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
-       
-        rb = GetComponent<Rigidbody2D>();
+        
+         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         attackTypeRecived = new HashSet<AttackType>();
         // First Agent is randonly selected
@@ -103,6 +107,9 @@ public class InfectedAgent : MonoBehaviour
         // Generates a new a path
         if (Seeker.IsDone())
             Seeker.StartPath(Rigidbody.position, Action.GetTargetPosition(), OnPathComplete);
+
+        if(attackTypeRecived.Count > 0)
+            Instantiate(infectedBlood, transform.position, Quaternion.identity);
     }
 
     private void OnPathComplete(Path p)
@@ -127,6 +134,10 @@ public class InfectedAgent : MonoBehaviour
 
     public void TakeDamage(AttackType type, AIAgent agent)
     {
+        float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
+        float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
+        Instantiate(infectedBlood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
+
         InfectedAction action = currAction as AttackAgent;
         // If is attackes by an agent that is not a target
         if(action == null)

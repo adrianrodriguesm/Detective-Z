@@ -24,4 +24,9 @@ public class CalmAction : Action
         
         
     }
+
+    public override void OnActionPrepare(AIAgent agent)
+    {
+       
+    }
 }

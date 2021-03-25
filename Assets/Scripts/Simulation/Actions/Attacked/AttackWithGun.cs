@@ -66,4 +66,9 @@ public class AttackWithGun : Action
 
         }
     }
+
+    public override void OnActionPrepare(AIAgent agent)
+    {
+        throw new System.NotImplementedException();
+    }
 }

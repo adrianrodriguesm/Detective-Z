@@ -66,4 +66,9 @@ public class AttackWithBody : Action
        
        }
     }
+
+    public override void OnActionPrepare(AIAgent agent)
+    {
+        throw new System.NotImplementedException();
+    }
 }

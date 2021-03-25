@@ -13,9 +13,9 @@ public struct Behaviour
 
     public static float CalculateWellfare(Behaviour b0, Behaviour b1)
     {
-        float courageDif = b0.courage - b1.courage;
-        float fearfullDif = b0.fearfull - b1.fearfull;
-        float carefullDif = b0.carefull - b1.carefull;
+        float courageDif =  Mathf.Abs(b0.courage - b1.courage);
+        float fearfullDif = Mathf.Abs(b0.fearfull - b1.fearfull);
+        float carefullDif = Mathf.Abs(b0.carefull - b1.carefull);
         // Calculate the average proximity between the behaviour parameters
         return (courageDif + fearfullDif + carefullDif) / 3f;
     }

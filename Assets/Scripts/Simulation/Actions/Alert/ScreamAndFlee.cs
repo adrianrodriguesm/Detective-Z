@@ -44,4 +44,9 @@ public class ScreamAndFlee : Action
     {
         
     }
+
+    public override void OnActionPrepare(AIAgent agent)
+    {
+       
+    }
 }

@@ -23,6 +23,11 @@ public class AIAgent : MonoBehaviour
     [Header("Agent's health")]
     public float health = 40f;
     bool dead = false;
+    [Header("Blood asset when hurt")]
+    public SpriteRenderer blood;
+    public float offsetRadiusX;
+    public float offsetRadiusY;
+
     public List<Item> items;
     // AI path
     [HideInInspector]
@@ -38,6 +43,7 @@ public class AIAgent : MonoBehaviour
     Action currAction;
     // Environment
     EnvironmentType currentEnvironment;
+    HashSet<EnvironmentType> lockEnvironments;
     public float detectionRadious;
     [HideInInspector]
     // Detection level this value changed depending on the executed action
@@ -66,9 +72,14 @@ public class AIAgent : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         infected = StoryManager.Instance.Infected;
+        lockEnvironments = new HashSet<EnvironmentType>();
         ChooseFirstAction();
         // Call UpdatePath function every 0.5f in order to update the path
         InvokeRepeating("UpdatePath", 0f, 0.5f);
+        foreach(var action in actions)
+        {
+            action.OnActionPrepare(this);
+        }
         
     }
     // Fist action is random
@@ -122,19 +133,8 @@ public class AIAgent : MonoBehaviour
         // Process Actions
         // -- Choose action
         if (currAction.IsComplete(this) || currentState != currAction.state)
-        {   
-            currAction.OnActionFinish(this);
-            actions.Remove(currAction);
-            List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState).ToList();
-            float currWellfareDif = Mathf.Infinity;
-            foreach (Action action in possibleActions)
-            {
-                float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour);
-                if (wellfareDif < currWellfareDif)
-                    currAction = action;
-
-                currWellfareDif = wellfareDif;
-            }
+        {
+            ChangedAction();
         }
         // -- Execute action
         currAction.Execute(this);
@@ -186,6 +186,9 @@ public class AIAgent : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
+        float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
+        Instantiate(blood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
         health -= damage;
         if (IsDead())
         {
@@ -202,4 +205,60 @@ public class AIAgent : MonoBehaviour
     {
         return items.Contains(item);
     }
+
+    public bool HasWeapons()
+    {
+        return items.Where(x => x is Weapon).Count() > 0;
+    }
+
+    public Weapon TryGetWeapon()
+    {
+        var weapons = items.Where(x => x is Weapon).ToList();
+        if (weapons.Count() == 0)
+            return null;
+
+        return weapons[Random.Range(0, weapons.Count())] as Weapon;
+    }
+
+    public Weapon TryGetWeaponByTypeAttack(AttackType type)
+    {
+        var weapons = items.Where(x => x is Weapon).ToList();
+        if (weapons.Count() == 0)
+            return null;
+
+       
+        foreach (Weapon weapon in weapons)
+        {
+            if (weapon.attackType == type)
+                return weapon;
+        }
+        // In case of not having the specific weapon result the fisrt of the list
+        Weapon result = weapons[0] as Weapon;
+        return result;
+    }
+
+    public void AddLockEnvironment(EnvironmentType environmentLock)
+    {
+        lockEnvironments.Add(environmentLock);
+    }
+
+    public void ChangedAction()
+    {
+        currAction.OnActionFinish(this);
+        if(!currAction.CanRepeat)
+            actions.Remove(currAction);
+
+        List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState 
+                                                                                            && !lockEnvironments.Contains(x.environment)).ToList();
+        float currWellfareDif = Mathf.Infinity;
+        foreach (Action action in possibleActions)
+        {
+            float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour);
+            if (wellfareDif < currWellfareDif)
+                currAction = action;
+
+            currWellfareDif = wellfareDif;
+        }
+    }
+
 }

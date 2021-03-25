@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9df05a0f638d7046bdcfcbb8161d368, type: 3}
-  m_Name: Go To Safe Room
+  m_Script: {fileID: 11500000, guid: 53b9d0ad2ddd4774ca8893c2b154e513, type: 3}
+  m_Name: Search Weapon
   m_EditorClassIdentifier: 
-  environment: 0
+  environment: 2
   state: 1
   behaviour:
-    courage: 0
+    courage: 0.528
     fearfull: 0
-    carefull: 1
+    carefull: 0.553
   detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0
-  room: {fileID: 1794320460365832427, guid: 597a64ed9bd0a5f439d5cf3a6569d625, type: 3}
-  distanceToMoveObject: 4
-  environmentOfTheRoom: 2
+  CanRepeat: 1
+  item: {fileID: 8056653398807689084, guid: 5e6589fbd09e328499c8e0d5a9f24851, type: 3}
