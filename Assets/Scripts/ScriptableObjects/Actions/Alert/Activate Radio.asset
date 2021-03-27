@@ -9,17 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b9d0ad2ddd4774ca8893c2b154e513, type: 3}
-  m_Name: Search Weapon
+  m_Script: {fileID: 11500000, guid: a10820976ae80cf4aa7c59517606b9c3, type: 3}
+  m_Name: Activate Radio
   m_EditorClassIdentifier: 
-  environment: 2
+  environment: 0
   state: 1
   behaviour:
-    courage: 0.592
-    fearfull: 0
-    carefull: 0.607
-  detectionLevel: 0
+    courage: 0.138
+    fearfull: 0.814
+    carefull: 0.456
+  detectionLevel: 0.256
   storytellingElement: {fileID: 0}
   attackAction: 0
-  CanRepeat: 1
-  item: {fileID: 8056653398807689084, guid: 5e6589fbd09e328499c8e0d5a9f24851, type: 3}
+  CanRepeat: 0

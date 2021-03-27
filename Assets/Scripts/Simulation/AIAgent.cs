@@ -23,6 +23,9 @@ public class AIAgent : MonoBehaviour
     [Header("Agent's health")]
     public float health = 40f;
     bool dead = false;
+    [Header("Action chooser delta")]
+    [Range(0.1f, 0.5f)]
+    public float deltaSelector;
     [Header("Blood asset when hurt")]
     public SpriteRenderer blood;
     public float offsetRadiusX;
@@ -41,6 +44,11 @@ public class AIAgent : MonoBehaviour
     [Header("Set of actions that are going to be executed")]
     public List<Action> actions;
     Action currAction;
+    public Action Action
+    {
+        get { return currAction; }
+        set { currAction = value; }
+    }
     // Environment
     EnvironmentType currentEnvironment;
     HashSet<EnvironmentType> lockEnvironments;
@@ -75,12 +83,13 @@ public class AIAgent : MonoBehaviour
         lockEnvironments = new HashSet<EnvironmentType>();
         ChooseFirstAction();
         // Call UpdatePath function every 0.5f in order to update the path
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        InvokeRepeating("UpdatePath", 0f, 0.4f);
+        /** /
         foreach(var action in actions)
         {
             action.OnActionPrepare(this);
         }
-        
+        /**/
     }
     // Fist action is random
     void ChooseFirstAction()
@@ -132,8 +141,9 @@ public class AIAgent : MonoBehaviour
         }
         // Process Actions
         // -- Choose action
-        if (currAction.IsComplete(this) || currentState != currAction.state)
+        if (currAction.IsComplete(this) || currentState != currAction.actionState)
         {
+            Debug.Log(gameObject.name + " Changed action");
             ChangedAction();
         }
         // -- Execute action
@@ -245,20 +255,25 @@ public class AIAgent : MonoBehaviour
     public void ChangedAction()
     {
         currAction.OnActionFinish(this);
-        if(!currAction.CanRepeat)
-            actions.Remove(currAction);
+        actions.Remove(currAction); 
 
         List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState 
-                                                                                            && !lockEnvironments.Contains(x.environment)).ToList();
+                                        && !lockEnvironments.Contains(x.environment)).ToList();
+
+        if (currAction.CanRepeat)
+            actions.Add(currAction);
+
         float currWellfareDif = Mathf.Infinity;
         foreach (Action action in possibleActions)
         {
-            float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour);
+            float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour) + Random.Range(0, deltaSelector);
             if (wellfareDif < currWellfareDif)
                 currAction = action;
 
             currWellfareDif = wellfareDif;
         }
+        currAction.OnActionStart(this);
+        currAction.OnActionPrepare(this);
     }
 
 }

@@ -18,12 +18,11 @@ MonoBehaviour:
     courage: 0
     fearfull: 1
     carefull: 0
-  detectionLevel: 0
-  tilesToAffect: {fileID: 11400000, guid: 70ff62fb84e43a64aa36f1b5f84fbbc0, type: 2}
-  storytellingElementGenerated: {fileID: 11400000, guid: 00a5f9196f1e88340b4d868874c78e3d,
-    type: 2}
+  detectionLevel: 0.39
   storytellingElement: {fileID: 1033774914276571212, guid: 60fed93ccb723f548bf1a48d9f02e9c5,
     type: 3}
+  attackAction: 0
+  CanRepeat: 1
   changeDirectionTimer: 5
   waypoints:
   - {fileID: 3674664487647558550, guid: 0f1ad8955a844344990bbc9a6f740280, type: 3}

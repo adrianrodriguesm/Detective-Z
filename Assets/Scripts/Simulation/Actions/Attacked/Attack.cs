@@ -51,7 +51,7 @@ public class Attack : Action
                     if (!foundWeapon)
                     {
                         Debug.Log("Unkonw weapon location!");
-                        Weapon[] weapons = FindObjectsOfType<Weapon>();
+                        var weapons = FindObjectsOfType<Weapon>().Where(x => x.isFree);
                         //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
                         float minDistance = Mathf.Infinity;
 
@@ -94,6 +94,10 @@ public class Attack : Action
                 agent.target = infected.transform;
                 AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
             }
+            else
+            {
+                attackWithBody = true;
+            }
         }
         else
         {
@@ -107,7 +111,8 @@ public class Attack : Action
 
     private void AttackAndClueGeneration(float radius, AttackType type, AIAgent agent)
     {
-       
+        actionState = State.Attacked;
+        agent.State = State.Attacked;
         Collider2D hit = Physics2D.OverlapCircle(agent.transform.position, radius, layer);
         if (hit)
         {
@@ -144,5 +149,6 @@ public class Attack : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         infected = StoryManager.Instance.Infected;
+        foundWeapon = false;
     }
 }

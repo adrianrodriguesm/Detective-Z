@@ -9,20 +9,22 @@ public class ScreamAndFlee : Action
 {
     [Header("Timer in which the direction will changed")]
     public float changeDirectionTimer;
-    float dirTimer = 0;
-    int currWaypointIndex = 0;
+    [System.NonSerialized]float dirTimer = 0;
+    [System.NonSerialized] int currWaypointIndex = 0;
     [Header("Set of positions that the agent will go")]
     public List<Transform> waypoints;
     [Header("Timer in which the storytelling elemented will be generated")]
     public float timer = 1f;
-    float currTimer = 0f;
+    [System.NonSerialized] float currTimer = 0f;
+    
     public override void Execute(AIAgent agent)
     {
         if (dirTimer <= 0f)
         {
-            agent.target = waypoints[currWaypointIndex];
+            int index = currWaypointIndex < waypoints.Count ? currWaypointIndex : 0;
+            agent.target = waypoints[index];
             ++currWaypointIndex;
-            currWaypointIndex = currWaypointIndex < waypoints.Count ? currWaypointIndex : 0;
+            
             dirTimer = changeDirectionTimer;
         }
         dirTimer -= Time.fixedDeltaTime;
@@ -37,7 +39,11 @@ public class ScreamAndFlee : Action
     }
     public override bool IsComplete(AIAgent agent)
     {
-        return false;
+        if(currWaypointIndex >= waypoints.Count)
+        {
+            Debug.Log("Epappa");
+        }
+        return currWaypointIndex >= waypoints.Count;
     }
 
     public override void OnActionFinish(AIAgent agent)
