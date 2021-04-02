@@ -39,10 +39,6 @@ public class ScreamAndFlee : Action
     }
     public override bool IsComplete(AIAgent agent)
     {
-        if(currWaypointIndex >= waypoints.Count)
-        {
-            Debug.Log("Epappa");
-        }
         return currWaypointIndex >= waypoints.Count;
     }
 

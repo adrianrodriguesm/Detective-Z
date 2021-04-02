@@ -9,7 +9,7 @@ public class Radio : MonoBehaviour
     // Turn on radio (audio)
     InfectedAgent infected;
     bool activated = false;
-
+    new AudioSource audio;
     public bool Active
     {
         get { return activated; }
@@ -18,6 +18,8 @@ public class Radio : MonoBehaviour
     void Start()
     {
         infected = StoryManager.Instance.Infected;
+        audio = GetComponent<AudioSource>();
+        audio.enabled = false;
     }
 
     // Update is called once per frame
@@ -29,8 +31,9 @@ public class Radio : MonoBehaviour
     public void ActivateRadio()
     {
         // Play audio
-        infected.Action = new SeekAgent(infected, transform);
+        infected.SuspectTarget = transform;
         activated = true;
+        audio.enabled = true;
     }
 
 }

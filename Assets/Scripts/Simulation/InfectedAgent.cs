@@ -21,9 +21,14 @@ public class InfectedAgent : MonoBehaviour
     public float distanceThresholdToAttack = 3f;
     [Header("Storytelling Element")]
     public GameObject infectedBlood;
-    public GameObject infectedBloodWalking;
+    public List<GameObject> infectedBloodWalking;
     public float offsetRadiusX = 1f;
     public float offsetRadiusY = 1f;
+    [Header("Timer for gradient of blood")]
+    [Range(0, 1)]
+    public float timer;
+    float currTimer = 0f;
+    int bloodWalkingIndex = 0;
     // TODO remove
     public AIAgent targetDEBUG;
     private List<AIAgent> agents;
@@ -75,6 +80,18 @@ public class InfectedAgent : MonoBehaviour
         get { return currAction; }
         set { currAction = value; }
     }
+
+    Transform suspectTarget;
+    public Transform SuspectTarget
+    {
+        get { return suspectTarget; }
+        set 
+        {
+            suspectTarget = value;
+            if(suspectTarget && Action is SeekAgent)
+                Action = new SeekAgent(this, suspectTarget);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -109,7 +126,27 @@ public class InfectedAgent : MonoBehaviour
             Seeker.StartPath(Rigidbody.position, Action.GetTargetPosition(), OnPathComplete);
 
         if(attackTypeRecived.Count > 0)
-            Instantiate(infectedBlood, transform.position, Quaternion.identity);
+        {
+            if (Action is AttackAgent)
+                return;
+
+            if(currTimer > timer)
+            {
+                currTimer = 0;
+                bloodWalkingIndex++;
+                bloodWalkingIndex = Mathf.Clamp(bloodWalkingIndex, 0, infectedBloodWalking.Count - 1);
+            }
+            if(bloodWalkingIndex < infectedBloodWalking.Count)
+                Instantiate(infectedBloodWalking[bloodWalkingIndex], transform.position, Quaternion.identity);
+            currTimer += Time.fixedDeltaTime;
+        }
+           
+    }
+
+    public void ResetBloodWalking()
+    {
+        currTimer = 0f;
+        bloodWalkingIndex = 0;
     }
 
     private void OnPathComplete(Path p)
@@ -123,6 +160,9 @@ public class InfectedAgent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (StoryManager.Instance.IsSimulationEnd())
+            return;
+
         currAction.OnUpdate();
 
     }

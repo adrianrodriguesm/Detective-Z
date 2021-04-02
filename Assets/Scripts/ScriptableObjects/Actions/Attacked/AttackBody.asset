@@ -14,15 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environment: 0
   state: 1
-  behaviour:
-    courage: 1
-    fearfull: 0
-    carefull: 0
-  detectionLevel: 0.145
+  detectionLevel: 0.42
   storytellingElement: {fileID: 6859568609309188784, guid: 89d61056f68a408499a65b609b9b3ab0,
     type: 3}
   attackAction: 1
-  weapon: {fileID: 0}
+  CanRepeat: 0
+  weaponObject: {fileID: 0}
   damage: 3
   radiusAttack: 1
   layer:

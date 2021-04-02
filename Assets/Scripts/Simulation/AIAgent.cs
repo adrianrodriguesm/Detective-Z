@@ -53,10 +53,14 @@ public class AIAgent : MonoBehaviour
     EnvironmentType currentEnvironment;
     HashSet<EnvironmentType> lockEnvironments;
     public float detectionRadious;
-    [HideInInspector]
-    // Detection level this value changed depending on the executed action
-    public float detectionLevel;
 
+    // Detection level this value changed depending on the executed action
+    float detectionLevel;
+    public float DetectionLevel
+    {
+        set { detectionLevel = Mathf.Clamp(value, 0f, 1f); }
+        get { return detectionLevel; }
+    }
    
     [HideInInspector]
     public EnvironmentType Environment
@@ -70,10 +74,6 @@ public class AIAgent : MonoBehaviour
         set { currentState = value; }
         get { return currentState; }
     }
-    [Header("Personality paremeter")]
-    // Behavior
-    public Behaviour behaviour;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -266,7 +266,7 @@ public class AIAgent : MonoBehaviour
         float currWellfareDif = Mathf.Infinity;
         foreach (Action action in possibleActions)
         {
-            float wellfareDif = Behaviour.CalculateWellfare(behaviour, action.behaviour) + Random.Range(0, deltaSelector);
+            float wellfareDif = action.detectionLevel;
             if (wellfareDif < currWellfareDif)
                 currAction = action;
 

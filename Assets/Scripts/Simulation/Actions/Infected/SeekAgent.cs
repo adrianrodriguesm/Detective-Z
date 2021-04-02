@@ -51,6 +51,7 @@ public class SeekAgent : InfectedAction
             }
             else
             {
+                m_Agent.SuspectTarget = null;
                 m_TargetPosition = StoryManager.Instance.GetAgentToSeek().transform;
             }
            

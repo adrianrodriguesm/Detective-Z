@@ -38,9 +38,16 @@ public class AttackAgent : InfectedAction
        {
             if(currTimer > timer)
             {
-                
-                m_TargetAgent = StoryManager.Instance.GetAgentToSeek();
-                m_Agent.Action = new SeekAgent(m_Agent, m_TargetAgent.transform);
+                m_Agent.ResetBloodWalking();
+                if (m_Agent.SuspectTarget != null)
+                {
+                    m_Agent.Action = new SeekAgent(m_Agent, m_Agent.SuspectTarget);
+                } 
+                else
+                {
+                    m_TargetAgent = StoryManager.Instance.GetAgentToSeek();
+                    m_Agent.Action = new SeekAgent(m_Agent, m_TargetAgent.transform);
+                }
                 return;
             }
             currTimer += Time.fixedDeltaTime;

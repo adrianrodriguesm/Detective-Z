@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environment: 0
   state: 1
-  behaviour:
-    courage: 0
-    fearfull: 1
-    carefull: 0
-  detectionLevel: 0.39
+  detectionLevel: 0.786
   storytellingElement: {fileID: 1033774914276571212, guid: 60fed93ccb723f548bf1a48d9f02e9c5,
     type: 3}
   attackAction: 0

@@ -9,8 +9,6 @@ public abstract class Action : ScriptableObject
     // State of execution of action
     public State state;
     [System.NonSerialized] public State actionState;
-    // Behavior
-    public Behaviour behaviour;
     [Range(0, 1)]
     public float detectionLevel;
 
@@ -22,7 +20,7 @@ public abstract class Action : ScriptableObject
 
     public virtual void OnActionStart(AIAgent agent)
     {
-        agent.detectionLevel += detectionLevel;
+        agent.DetectionLevel += detectionLevel;
         actionState = state;
     }
     public abstract void OnActionPrepare(AIAgent agent);

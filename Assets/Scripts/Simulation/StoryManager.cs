@@ -48,6 +48,11 @@ public class StoryManager : Singleton<StoryManager>
            
     }
 
+    public bool IsSimulationEnd()
+    {
+        return agents.Count == 0;
+    }
+
     public AIAgent GetAgentToSeek()
     {
         // Find an agent with the highest detection level
@@ -55,9 +60,9 @@ public class StoryManager : Singleton<StoryManager>
         float currDetectionLevel = Mathf.Infinity;
         foreach (var agent in agents)
         {
-            if (currDetectionLevel >= agent.detectionLevel)
+            if (currDetectionLevel >= agent.DetectionLevel)
             {
-                currDetectionLevel = agent.detectionLevel;
+                currDetectionLevel = agent.DetectionLevel;
                 targetAgent = agent;
             }
         }
