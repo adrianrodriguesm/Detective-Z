@@ -2,12 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemType
+{
+    Weapon, Drink, Book, Cigarette
+}
 public class Item : MonoBehaviour
 {
+    public ItemType type;
+    [Header("Storytelling elements")]
+    public GameObject itemAdded;
     public GameObject itemFall;
     public GameObject itemDeath;
     public float offsetX = 1f;
     public float offsetY = 1f;
+
+    public virtual void OnItemAdded(AIAgent agent)
+    {
+        agent.items.Add(this);
+        if (!itemAdded)
+            return;
+
+        Instantiate(itemAdded, transform.position, Quaternion.identity);
+    }
 
     // Call when the agent changed its state from calm to alert/attacked
     public void OnStateChanged(AIAgent agent)

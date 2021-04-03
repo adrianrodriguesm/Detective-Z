@@ -20,6 +20,7 @@ MonoBehaviour:
   attackAction: 1
   CanRepeat: 0
   weaponObject: {fileID: 0}
+  distanceToAdd: 1.5
   damage: 3
   radiusAttack: 1
   layer:

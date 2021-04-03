@@ -9,6 +9,9 @@ public class Attack : Action
 {
     InfectedAgent infected;
     public GameObject weaponObject;
+    [Header("Distance in which the agent will be able to catch the item")]
+    [Range(0, 5)]
+    public float distanceToAdd = 3f;
     [System.NonSerialized] Weapon weapon;
     Transform weaponLocation;
    
@@ -51,7 +54,7 @@ public class Attack : Action
                     if (!foundWeapon)
                     {
                         Debug.Log("Unkonw weapon location!");
-                        var weapons = FindObjectsOfType<Weapon>().Where(x => x.isFree);
+                        var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree);
                         //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
                         float minDistance = Mathf.Infinity;
 
@@ -83,6 +86,8 @@ public class Attack : Action
                     }
                     // Updated the agent target in order to find the weapon
                     agent.target = weaponLocation;
+                    if (Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
+                        weapon.OnItemAdded(agent);
                 }
 
             }

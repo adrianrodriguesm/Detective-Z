@@ -39,7 +39,8 @@ public class ScreamAndFlee : Action
     }
     public override bool IsComplete(AIAgent agent)
     {
-        return currWaypointIndex >= waypoints.Count;
+        //return currWaypointIndex >= waypoints.Count;
+        return false;
     }
 
     public override void OnActionFinish(AIAgent agent)

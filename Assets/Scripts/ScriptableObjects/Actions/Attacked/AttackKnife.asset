@@ -21,6 +21,7 @@ MonoBehaviour:
   CanRepeat: 0
   weaponObject: {fileID: 8404136696175157836, guid: dc469adbb2fc9c640a1ca0a026ddb454,
     type: 3}
+  distanceToAdd: 1.5
   damage: 3
   radiusAttack: 1
   layer:

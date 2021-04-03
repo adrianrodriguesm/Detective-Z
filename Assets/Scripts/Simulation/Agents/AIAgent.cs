@@ -41,6 +41,7 @@ public class AIAgent : MonoBehaviour
     // Action
     [Header("Set of actions that are going to be executed")]
     public List<Action> actions;
+    public DefaultAction defaultAction;
     Action currAction;
     public Action Action
     {
@@ -115,6 +116,8 @@ public class AIAgent : MonoBehaviour
 
         ProcessMovement();
         ProcessAction();
+
+       
         
     }
 
@@ -252,9 +255,10 @@ public class AIAgent : MonoBehaviour
         List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState 
                                         && !lockEnvironments.Contains(x.environment)).ToList();
 
-        if (currAction.CanRepeat)
+        if (currAction.CanRepeat && currAction != defaultAction)
             actions.Add(currAction);
 
+        currAction = null;
         float currWellfareDif = Mathf.Infinity;
         foreach (Action action in possibleActions)
         {
@@ -264,8 +268,13 @@ public class AIAgent : MonoBehaviour
 
             currWellfareDif = wellfareDif;
         }
+
+        if(!currAction)
+            currAction = defaultAction;
+        
         currAction.OnActionStart(this);
         currAction.OnActionPrepare(this);
+
     }
 
 }

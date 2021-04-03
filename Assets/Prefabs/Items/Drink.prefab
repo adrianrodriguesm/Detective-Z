@@ -9,6 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1988796560538912256, guid: 4e2e4087adbb8764582a4fe3f248094a,
         type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988796560538912256, guid: 4e2e4087adbb8764582a4fe3f248094a,
+        type: 3}
       propertyPath: offset
       value: 0.5
       objectReference: {fileID: 0}
@@ -26,7 +31,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemFall
       value: 
-      objectReference: {fileID: 4258047732984870498, guid: d18f91f07e00c864095b80fdb8219760,
+      objectReference: {fileID: 6188372433020920878, guid: 31dae3df282c2b240bd356e9a35e1726,
         type: 3}
     - target: {fileID: 6342257916114592570, guid: 4e2e4087adbb8764582a4fe3f248094a,
         type: 3}

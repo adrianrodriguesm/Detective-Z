@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b9d0ad2ddd4774ca8893c2b154e513, type: 3}
-  m_Name: Search Weapon
+  m_Script: {fileID: 11500000, guid: 416af5c729760fc44878e98b25c3c343, type: 3}
+  m_Name: New Default Action
   m_EditorClassIdentifier: 
-  environment: 2
-  state: 1
-  detectionLevel: 0.161
+  environment: 0
+  state: 0
+  detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0
-  CanRepeat: 1
-  weapon: {fileID: 8056653398807689084, guid: 5e6589fbd09e328499c8e0d5a9f24851, type: 3}
-  distanceToAdd: 1.99
+  CanRepeat: 0

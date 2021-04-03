@@ -1,17 +1,15 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
-
 [System.Serializable]
-[CreateAssetMenu(menuName = "Actions/SearchWeapon")]
-public class SearchWeapon : Action
+[CreateAssetMenu(menuName = "Actions/SearchItem")]
+public class SearchItem : Action
 {
     [Header("NOTE: This action needs the storytelling element of making the fact the weapon was found")]
-    public GameObject weaponObj;
-    [System.NonSerialized] Weapon weapon;
-    [System.NonSerialized] Transform weaponPosition;
+    public Item item;
+    [System.NonSerialized] Transform itemTrf;
     [System.NonSerialized] bool found = false;
     [System.NonSerialized] bool exitsInTheEnvironment = false;
     [Header("Distance in which the agent will be able to catch the item")]
@@ -19,22 +17,24 @@ public class SearchWeapon : Action
     public float distanceToAdd = 3f;
     public override void Execute(AIAgent agent)
     {
-        if (!exitsInTheEnvironment || found)
+        if (!exitsInTheEnvironment)
             return;
 
-        agent.target = weaponPosition;
+        agent.target = itemTrf;
 
-        if (Vector2.Distance(agent.transform.position, weaponPosition.position) <= distanceToAdd)
+        if (Vector2.Distance(agent.transform.position, itemTrf.position) < distanceToAdd)
         {
             found = true;
-            weapon.OnItemAdded(agent);
+            item.OnItemAdded(agent);
         }
-            
+           
     }
 
     public override bool IsComplete(AIAgent agent)
     {
-        if (!exitsInTheEnvironment || found || !weapon.IsFree)
+        if (!exitsInTheEnvironment)
+            return true;
+        else if (found)
             return true;
         else
             return false;
@@ -42,33 +42,32 @@ public class SearchWeapon : Action
 
     public override void OnActionFinish(AIAgent agent)
     {
-       
+        
     }
 
     public override void OnActionPrepare(AIAgent agent)
     {
-        if(!weaponObj)
+        if (!item)
         {
             exitsInTheEnvironment = false;
             return;
         }
-        weapon = weaponObj.GetComponent<Weapon>();
-        var weapons = FindObjectsOfType<Weapon>().Where(x => x.attackType == weapon.attackType && x.IsFree);
+
+        var items = FindObjectsOfType<Item>().Where(x => x.type == item.type);
         float minDistance = Mathf.Infinity;
-        foreach(Weapon weaponInEnv in weapons)
+        foreach (Item itemInEnv in items)
         {
-     
-            float distance = Vector2.Distance(weaponInEnv.transform.position, agent.transform.position);
+
+            float distance = Vector2.Distance(itemInEnv.transform.position, agent.transform.position);
             if (distance < minDistance)
             {
-                weapon = weaponInEnv;
                 minDistance = distance;
-                weaponPosition = weaponInEnv.transform;
+                itemTrf = itemInEnv.transform;
                 exitsInTheEnvironment = true;
-                
+
             }
-                
-            
+
+
         }
     }
 }
