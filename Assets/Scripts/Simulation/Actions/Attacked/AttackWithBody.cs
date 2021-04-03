@@ -23,7 +23,7 @@ public class AttackWithBody : Action
         // Updated target transform
         agent.target = infected.transform;
         Collider2D hit = Physics2D.OverlapCircle(agent.transform.position, radiusAttack, layer);
-        if (hit != null && !agent.IsDead() && !infected.IsDead())
+        if (hit != null && !agent.IsDead())
         {
            // infected.TakeDamage(damage, AttackType.Body);
 
@@ -53,7 +53,7 @@ public class AttackWithBody : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        return agent.IsDead() || infected.IsDead();
+        return agent.IsDead();
     }
 
     public override void OnActionFinish(AIAgent agent)

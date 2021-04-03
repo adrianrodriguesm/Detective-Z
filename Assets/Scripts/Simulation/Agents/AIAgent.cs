@@ -15,8 +15,6 @@ public class AIAgent : MonoBehaviour
 {
     InfectedAgent infected;
     public Transform target;
-    [Header("Default asset(sprite)")]
-    public Transform enemyGFX;
     [Header("Pathfinding parameters")]
     public float speed = 5f;
     public float nextWaypointDistance = 3f;
@@ -84,12 +82,6 @@ public class AIAgent : MonoBehaviour
         ChooseFirstAction();
         // Call UpdatePath function every 0.5f in order to update the path
         InvokeRepeating("UpdatePath", 0f, 0.4f);
-        /** /
-        foreach(var action in actions)
-        {
-            action.OnActionPrepare(this);
-        }
-        /**/
     }
     // Fist action is random
     void ChooseFirstAction()

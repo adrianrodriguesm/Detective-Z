@@ -121,12 +121,23 @@ MonoBehaviour:
   distanceThresholdToAttack: 2
   infectedBlood: {fileID: 6859568609309188784, guid: a23b5dd84c200414ca09b160023fc12b,
     type: 3}
-  infectedBloodWalking: {fileID: 8954526457630077391, guid: 53d328197e7d5374b91ceb77f5a5f364,
-    type: 3}
+  infectedBloodWalking:
+  - {fileID: 8954526457630077391, guid: 53d328197e7d5374b91ceb77f5a5f364, type: 3}
+  - {fileID: 8954526457630077391, guid: a12c0c59ad149904ea6022d70d6c2afb, type: 3}
+  - {fileID: 8954526457630077391, guid: b79dd284fc5454544a63d7eaf26dffeb, type: 3}
+  spacingBetweenWalkingBlood: 0.68
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
+  timerBloodWalkingGradient: 0.206
+  exitPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timeToEscape: 10
+  deadInfectedAgent: {fileID: 4616559148926361949, guid: e69b869e4695e274dad98507dcffba7c,
+    type: 3}
   targetDEBUG: {fileID: 0}
-  speed: 1000
+  speed: 300
   nextWaypointDistance: 3
 --- !u!1 &1994954259847681137
 GameObject:

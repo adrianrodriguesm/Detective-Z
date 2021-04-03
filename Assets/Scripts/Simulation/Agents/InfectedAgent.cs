@@ -21,14 +21,32 @@ public class InfectedAgent : MonoBehaviour
     public float distanceThresholdToAttack = 3f;
     [Header("Storytelling Element")]
     public GameObject infectedBlood;
-    public List<GameObject> infectedBloodWalking;
     public float offsetRadiusX = 1f;
     public float offsetRadiusY = 1f;
+    public List<GameObject> infectedBloodWalking;
+    public float spacingBetweenWalkingBlood;
+    Vector2 lastBloodInstatiatePos = Vector2.zero;
     [Header("Timer for gradient of blood")]
-    [Range(0, 1)]
-    public float timer;
+    [Range(0, 10)]
+    public float timerBloodWalkingGradient;
     float currTimer = 0f;
     int bloodWalkingIndex = 0;
+    [Header("Posibles exits point in which the infected can scape")]
+    public List<Transform> exitPoints;
+    public float timeToEscape = Mathf.Infinity;
+    [Header("Storytelling Elements")]
+    public GameObject deadInfectedAgent;
+    bool escaped = false;
+    public bool Escaped
+    {
+        get { return escaped; }
+        set { escaped = value; }
+    }
+    bool dead = false;
+    public bool Dead
+    {
+        get { return dead; }
+    }
     // TODO remove
     public AIAgent targetDEBUG;
     private List<AIAgent> agents;
@@ -92,6 +110,8 @@ public class InfectedAgent : MonoBehaviour
                 Action = new SeekAgent(this, suspectTarget);
         }
     }
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -123,24 +143,7 @@ public class InfectedAgent : MonoBehaviour
         // Check if the seeker is not currently calculating a path
         // Generates a new a path
         if (Seeker.IsDone())
-            Seeker.StartPath(Rigidbody.position, Action.GetTargetPosition(), OnPathComplete);
-
-        if(attackTypeRecived.Count > 0)
-        {
-            if (Action is AttackAgent)
-                return;
-
-            if(currTimer > timer)
-            {
-                currTimer = 0;
-                bloodWalkingIndex++;
-                bloodWalkingIndex = Mathf.Clamp(bloodWalkingIndex, 0, infectedBloodWalking.Count - 1);
-            }
-            if(bloodWalkingIndex < infectedBloodWalking.Count)
-                Instantiate(infectedBloodWalking[bloodWalkingIndex], transform.position, Quaternion.identity);
-            currTimer += Time.fixedDeltaTime;
-        }
-           
+            Seeker.StartPath(Rigidbody.position, Action.GetTargetPosition(), OnPathComplete);           
     }
 
     public void ResetBloodWalking()
@@ -160,16 +163,40 @@ public class InfectedAgent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (StoryManager.Instance.IsSimulationEnd())
-            return;
-
         currAction.OnUpdate();
 
+        if (attackTypeRecived.Count > 0)
+        {
+            if (Action is AttackAgent)
+                return;
+
+            if (currTimer > timerBloodWalkingGradient)
+            {
+                currTimer = 0;
+                bloodWalkingIndex++;
+                bloodWalkingIndex = Mathf.Clamp(bloodWalkingIndex, 0, infectedBloodWalking.Count - 1);
+            }
+            if (bloodWalkingIndex < infectedBloodWalking.Count && Vector2.Distance(lastBloodInstatiatePos, transform.position) > spacingBetweenWalkingBlood)
+            {
+                lastBloodInstatiatePos = transform.position;
+                Instantiate(infectedBloodWalking[bloodWalkingIndex], transform.position, Quaternion.identity);
+            }
+            currTimer += Time.fixedDeltaTime;
+        }
     }
 
-    public bool IsDead()
+    public bool IsDeadOrEscaped()
     {
-        return health <= 0f;
+        return dead || escaped;
+    }
+
+    public void InstatiateDeadAgent()
+    {
+        Debug.Log("Agent Dead");
+        dead = true;
+        var childGPX = transform.Find("InfectedGPX");
+        Destroy(childGPX.gameObject);
+        Instantiate(deadInfectedAgent, transform.position, Quaternion.identity, transform);
     }
 
     public void TakeDamage(AttackType type, AIAgent agent)
@@ -186,12 +213,4 @@ public class InfectedAgent : MonoBehaviour
         }
         attackTypeRecived.Add(type);
     }
-    /** /
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Agent"))
-            targetAgent = collision.collider.GetComponent<AIAgent>();
-    }
-    /**/
-
 }

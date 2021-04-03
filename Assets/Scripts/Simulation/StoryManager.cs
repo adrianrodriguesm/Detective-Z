@@ -39,18 +39,22 @@ public class StoryManager : Singleton<StoryManager>
                deadAgents.Add(agent);
            }
         }
-
-        if (agents.Count == 0)
+        /**/
+        if (agents.Count == 0 && infected.IsDeadOrEscaped())
         {
             // Generated sprite with scars due the different types of attacks
             infected.enabled = false;
         }
+        /**/
            
     }
-
-    public bool IsSimulationEnd()
+    public bool AllAgentAreDead()
     {
         return agents.Count == 0;
+    }
+    public bool IsSimulationEnd()
+    {
+        return agents.Count == 0 && infected.IsDeadOrEscaped();
     }
 
     public AIAgent GetAgentToSeek()
