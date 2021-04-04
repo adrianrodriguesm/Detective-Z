@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fdce6a5b900fc4e8b71df4f6851826, type: 3}
+  m_Name: GoToLivingAndRead
+  m_EditorClassIdentifier: 
+  environment: 1
+  state: 0
+  detectionLevel: 0
+  storytellingElement: {fileID: 0}
+  attackAction: 0
+  CanRepeat: 1
+  itemObj: {fileID: 2338710375785572391, guid: 421a2d1e993688f489463aead3360e0d, type: 3}
+  targetTrf: {fileID: 2042492661458651254, guid: 836ec3a4fc8d8ba43978cf8917190b73,
+    type: 3}
+  instatiationOffset: {x: 0, y: 0}
+  distanceToUse: 2.3

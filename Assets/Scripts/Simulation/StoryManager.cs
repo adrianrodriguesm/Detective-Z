@@ -19,15 +19,23 @@ public class StoryManager : Singleton<StoryManager>
         set { infected = value; }
     }
 
+    public float timerToStartTheAttack = 0f;
+
     // Start is called before the first frame update
     void Awake()
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
         deadAgents = new List<AIAgent>();
         infected = FindObjectOfType<InfectedAgent>();
-        
+        StartCoroutine(PrepareInfectedAttack());
     }
 
+    IEnumerator PrepareInfectedAttack()
+    {
+        infected.gameObject.SetActive(false);
+        yield return new WaitForSeconds(timerToStartTheAttack);
+        infected.gameObject.SetActive(true);
+    }
     // Update is called once per frame
     void Update()
     {

@@ -11,18 +11,38 @@ public class Item : MonoBehaviour
     public ItemType type;
     [Header("Storytelling elements")]
     public GameObject itemAdded;
-    public GameObject itemFall;
-    public GameObject itemDeath;
     public float offsetX = 1f;
     public float offsetY = 1f;
-
+    public GameObject itemFall;
+    public GameObject itemUse;
+    public GameObject itemDeath;
+    public float offsetDeadX = 1f;
+    public float offsetDeadY = 1f;
+    
     public virtual void OnItemAdded(AIAgent agent)
     {
         agent.items.Add(this);
         if (!itemAdded)
             return;
 
+        transform.GetChild(0).gameObject.SetActive(false);
         Instantiate(itemAdded, transform.position, Quaternion.identity);
+    }
+
+    public void OnItemUse(AIAgent agent, Vector3 position)
+    {
+        if (!itemUse)
+            return;
+
+        Instantiate(itemUse, position, Quaternion.identity);
+    }
+
+    public void OnItemUse(AIAgent agent)
+    {
+        if (!itemUse)
+            return;
+
+        Instantiate(itemUse, transform.position, Quaternion.identity);
     }
 
     // Call when the agent changed its state from calm to alert/attacked
@@ -41,8 +61,8 @@ public class Item : MonoBehaviour
         if (!itemDeath)
             return;
 
-        float offsetXDelta = Random.Range(-offsetX, offsetX);
-        float offsetYDelta = Random.Range(-offsetY, offsetY);
+        float offsetXDelta = Random.Range(-offsetDeadX, offsetDeadX);
+        float offsetYDelta = Random.Range(-offsetDeadY, offsetDeadY);
         Instantiate(itemDeath, new Vector3(agent.transform.position.x + offsetXDelta, agent.transform.position.y + offsetYDelta, agent.transform.position.z), Quaternion.identity);
     }
 

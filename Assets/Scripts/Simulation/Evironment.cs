@@ -30,6 +30,12 @@ public class Evironment : MonoBehaviour
                 agent.ChangedAction();
             }
         }
+        else if(other.CompareTag("InfectedAgent"))
+        {
+
+            InfectedAgent agent = other.GetComponent<InfectedAgent>();
+            agent.Environment = environment;
+        }
            
     }
 

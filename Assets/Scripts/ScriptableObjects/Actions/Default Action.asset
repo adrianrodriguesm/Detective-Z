@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416af5c729760fc44878e98b25c3c343, type: 3}
-  m_Name: New Default Action
+  m_Name: Default Action
   m_EditorClassIdentifier: 
   environment: 0
-  state: 0
+  state: 1
   detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0

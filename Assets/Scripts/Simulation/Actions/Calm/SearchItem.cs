@@ -8,7 +8,8 @@ using UnityEngine;
 public class SearchItem : Action
 {
     [Header("NOTE: This action needs the storytelling element of making the fact the weapon was found")]
-    public Item item;
+    public GameObject itemObj;
+    Item item;
     [System.NonSerialized] Transform itemTrf;
     [System.NonSerialized] bool found = false;
     [System.NonSerialized] bool exitsInTheEnvironment = false;
@@ -32,9 +33,7 @@ public class SearchItem : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        if (!exitsInTheEnvironment)
-            return true;
-        else if (found)
+        if (!exitsInTheEnvironment || found)
             return true;
         else
             return false;
@@ -47,12 +46,12 @@ public class SearchItem : Action
 
     public override void OnActionPrepare(AIAgent agent)
     {
-        if (!item)
+        if (!itemObj)
         {
             exitsInTheEnvironment = false;
             return;
         }
-
+        item = itemObj.GetComponent<Item>();
         var items = FindObjectsOfType<Item>().Where(x => x.type == item.type);
         float minDistance = Mathf.Infinity;
         foreach (Item itemInEnv in items)
@@ -61,6 +60,7 @@ public class SearchItem : Action
             float distance = Vector2.Distance(itemInEnv.transform.position, agent.transform.position);
             if (distance < minDistance)
             {
+                item = itemInEnv;
                 minDistance = distance;
                 itemTrf = itemInEnv.transform;
                 exitsInTheEnvironment = true;

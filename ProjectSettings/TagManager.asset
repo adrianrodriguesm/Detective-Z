@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Agent
   - AgentGPX
+  - InfectedAgent
   layers:
   - Default
   - TransparentFX

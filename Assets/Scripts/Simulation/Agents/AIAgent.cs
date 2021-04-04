@@ -88,7 +88,9 @@ public class AIAgent : MonoBehaviour
     void ChooseFirstAction()
     {
         List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState).ToList();
-        currAction = possibleActions[Random.Range(0, possibleActions.Count)];    
+        currAction = possibleActions[Random.Range(0, possibleActions.Count)];
+        currAction.OnActionStart(this);
+        currAction.OnActionPrepare(this);
     }
     private void UpdatePath()
     {
@@ -104,7 +106,7 @@ public class AIAgent : MonoBehaviour
             return;
 
         // Start Condition
-        if (infected.Environment == Environment && State == State.Calm)
+        if (infected.gameObject.activeSelf && infected.Environment == Environment && State == State.Calm)
         {
             currentState = State.Alert;
             foreach(var item in items)
