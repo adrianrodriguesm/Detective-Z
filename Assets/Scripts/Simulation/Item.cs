@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Weapon, Drink, Book, Cigarette
+    Weapon, Drink, Book, Cigarette, Kitchen
 }
 public class Item : MonoBehaviour
 {

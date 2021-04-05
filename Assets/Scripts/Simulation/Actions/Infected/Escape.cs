@@ -6,7 +6,7 @@ public class Escape : InfectedAction
 {
     Transform m_Exit;
     float m_Timer = 0f;
-    float m_ThresholdToEscape = 0.5f;
+    float m_ThresholdToEscape = 2f;
     public Escape(InfectedAgent agent) : base(agent)
     {
         float minDistance = Mathf.Infinity;
@@ -40,6 +40,7 @@ public class Escape : InfectedAction
         if(Vector2.Distance(m_Agent.transform.position, m_Exit.position) < m_ThresholdToEscape)
         {
             m_Agent.Escaped = true;
+            m_Agent.gameObject.SetActive(false);
         }
     }
 }

@@ -76,12 +76,13 @@ public class Attack : Action
                         foundWeapon = true;
                         // Check if the distance to the closest weapon is lower than the double of the distance to the infected
                         // otherwise attack with body (TODO: maybe force the execution of other action)
+                        /** /
                         if (minDistance > 2 * Vector2.Distance(agent.transform.position, infected.transform.position))
                         {
                             attackWithBody = true;
                             return;
                         }
-
+                        /**/
 
                     }
                     // Updated the agent target in order to find the weapon

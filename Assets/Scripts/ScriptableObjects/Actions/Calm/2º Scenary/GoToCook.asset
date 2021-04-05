@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51fdce6a5b900fc4e8b71df4f6851826, type: 3}
-  m_Name: GoToLivingAndRead
+  m_Script: {fileID: 11500000, guid: e1be48a11daa9534da5993b897b82d75, type: 3}
+  m_Name: GoToCook
   m_EditorClassIdentifier: 
-  environment: 1
+  environment: 0
   state: 0
   detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0
-  CanRepeat: 1
-  itemObj: {fileID: 2338710375785572391, guid: 421a2d1e993688f489463aead3360e0d, type: 3}
-  targetTrf: {fileID: 2042492661458651254, guid: 836ec3a4fc8d8ba43978cf8917190b73,
-    type: 3}
-  instatiationOffset: {x: 0, y: 0}
-  distanceToUse: 2.3
+  CanRepeat: 0
+  itemObj: {fileID: 6721228120475108630, guid: 174fad8612909ff48b0c9d7c52b019d9, type: 3}
+  distanceToAdd: 2

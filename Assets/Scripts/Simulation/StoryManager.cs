@@ -69,10 +69,10 @@ public class StoryManager : Singleton<StoryManager>
     {
         // Find an agent with the highest detection level
         AIAgent targetAgent = null;
-        float currDetectionLevel = Mathf.Infinity;
+        float currDetectionLevel = -1;
         foreach (var agent in agents)
         {
-            if (currDetectionLevel >= agent.DetectionLevel)
+            if (currDetectionLevel <= agent.DetectionLevel)
             {
                 currDetectionLevel = agent.DetectionLevel;
                 targetAgent = agent;

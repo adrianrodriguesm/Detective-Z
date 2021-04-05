@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51fdce6a5b900fc4e8b71df4f6851826, type: 3}
-  m_Name: GoToLivingRoomAndDrink
+  m_Name: ReadInKitchen
   m_EditorClassIdentifier: 
-  environment: 6
+  environment: 1
   state: 0
   detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 1
-  itemObj: {fileID: 2754115929241691357, guid: 3bc6231dec7cf6b4b8ad57f8d5b5d84f, type: 3}
-  targetTrf: {fileID: 365901949552313449, guid: daadb5c7170e7ad4eb34367da94e5f29,
+  itemObj: {fileID: 2338710375785572391, guid: 421a2d1e993688f489463aead3360e0d, type: 3}
+  targetTrf: {fileID: 265656036046868838, guid: bcaeb72dedf4a2e448dd72d60ac35df9,
     type: 3}
   instatiationOffset: {x: 0, y: 0}
-  distanceToUse: 1
+  distanceToUse: 2.3

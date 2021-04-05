@@ -15,8 +15,6 @@ public class GoToEnvironmentAndUseItem : Action
 
     private void OnEnable()
     {
-        CanRepeat = true;
-
 
     }
 

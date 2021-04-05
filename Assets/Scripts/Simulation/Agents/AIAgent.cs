@@ -51,8 +51,6 @@ public class AIAgent : MonoBehaviour
     // Environment
     EnvironmentType currentEnvironment;
     HashSet<EnvironmentType> lockEnvironments;
-    public float detectionRadious;
-
     // Detection level this value changed depending on the executed action
     float detectionLevel;
     public float DetectionLevel
@@ -106,7 +104,7 @@ public class AIAgent : MonoBehaviour
             return;
 
         // Start Condition
-        if (infected.gameObject.activeSelf && infected.Environment == Environment && State == State.Calm)
+        if (infected.gameObject.activeSelf && State == State.Calm)
         {
             currentState = State.Alert;
             foreach(var item in items)

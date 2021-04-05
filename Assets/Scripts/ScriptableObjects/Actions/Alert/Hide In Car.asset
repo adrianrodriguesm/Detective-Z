@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b7abb5a400c554e9f9a3fa9581295c, type: 3}
+  m_Name: Hide In Car
+  m_EditorClassIdentifier: 
+  environment: 0
+  state: 1
+  detectionLevel: 0.187
+  storytellingElement: {fileID: 0}
+  attackAction: 0
+  CanRepeat: 0
+  distanceToHide: 2
