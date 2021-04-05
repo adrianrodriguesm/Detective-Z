@@ -71,6 +71,11 @@ public class AIAgent : MonoBehaviour
         set { currentState = value; }
         get { return currentState; }
     }
+    [Header("Intatiate when walking")]
+    public List<GameObject> objectsToInstatiateWalking;
+    public float spacing;
+    Vector3 lastIntatiation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,8 +83,9 @@ public class AIAgent : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         infected = StoryManager.Instance.Infected;
         lockEnvironments = new HashSet<EnvironmentType>();
+        objectsToInstatiateWalking = new List<GameObject>();
         ChooseFirstAction();
-        // Call UpdatePath function every 0.5f in order to update the path
+        // Call UpdatePath function every 0.4f in order to update the path
         InvokeRepeating("UpdatePath", 0f, 0.4f);
     }
     // Fist action is random
@@ -161,6 +167,18 @@ public class AIAgent : MonoBehaviour
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
             if (distance < nextWaypointDistance)
                 currentWaypoint++;
+
+            // Instatiate walking storytelling element
+            if(objectsToInstatiateWalking.Count > 0 && Vector2.Distance(transform.position, lastIntatiation) >= spacing)
+            {
+                foreach(var storytellingElement in objectsToInstatiateWalking)
+                {
+                    lastIntatiation = transform.position;
+                    Instantiate(storytellingElement, transform.position, Quaternion.identity);
+                }
+                
+            }
+
             /** /
             // Update the localScale of graphic in order to flip the sprite
             if (force.x <= 0.01f)

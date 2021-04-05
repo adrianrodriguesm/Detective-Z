@@ -13,9 +13,6 @@ public class ScreamAndFlee : Action
     [System.NonSerialized] int currWaypointIndex = 0;
     [Header("Set of positions that the agent will go")]
     public List<Transform> waypoints;
-    [Header("Timer in which the storytelling elemented will be generated")]
-    public float timer = 1f;
-    [System.NonSerialized] float currTimer = 0f;
     
     public override void Execute(AIAgent agent)
     {
@@ -29,13 +26,6 @@ public class ScreamAndFlee : Action
         }
         dirTimer -= Time.fixedDeltaTime;
        
-        currTimer += Time.fixedDeltaTime;
-        if(currTimer > timer)
-        {
-            Instantiate(storytellingElement, agent.gameObject.transform.position, Quaternion.identity);
-            currTimer = 0;
-        }
-        
     }
     public override bool IsComplete(AIAgent agent)
     {
@@ -50,6 +40,7 @@ public class ScreamAndFlee : Action
 
     public override void OnActionPrepare(AIAgent agent)
     {
-       
+        if(!agent.objectsToInstatiateWalking.Contains(storytellingElement))
+            agent.objectsToInstatiateWalking.Add(storytellingElement);
     }
 }

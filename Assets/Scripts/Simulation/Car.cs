@@ -7,6 +7,8 @@ public class Car : MonoBehaviour
     public GameObject doorOpen;
     public GameObject doorBrokenAndOpen;
     public float distanceToBreakTheDoor;
+    public float distanceToEnter = 2f;
+    public float distanceToFix = 1f;
     bool isUsed, isBroken, infectedTargetIsHideAgent;
     AIAgent agent;
     InfectedAgent infected;
@@ -21,6 +23,7 @@ public class Car : MonoBehaviour
     {
         get { return doorBroken; }
     }
+    public Transform enginePoint;
     public bool IsUsed
     {
         get { return isUsed; }
@@ -36,6 +39,7 @@ public class Car : MonoBehaviour
     {
         infected = StoryManager.Instance.Infected;
         audio = GetComponent<AudioSource>();
+        audio.enabled = false;
     }
 
     // Update is called once per frame
@@ -58,9 +62,11 @@ public class Car : MonoBehaviour
 
         }
     }
-    public void TurnOn()
+    public void TurnOn(AIAgent agent)
     {
         audio.enabled = true;
+        transform.GetChild(0).gameObject.SetActive(false);
+        doorOpen = Instantiate(doorOpen, transform);
     }
     public void Hide(AIAgent agent)
     {
