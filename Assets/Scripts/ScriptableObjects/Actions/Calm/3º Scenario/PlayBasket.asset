@@ -18,5 +18,5 @@ MonoBehaviour:
   storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
-  itemObj: {fileID: 0}
-  distanceToAdd: 3
+  itemObj: {fileID: 7102260770606421222, guid: 032805fe2abf961409072123b07ffd27, type: 3}
+  distanceToAdd: 2.78
