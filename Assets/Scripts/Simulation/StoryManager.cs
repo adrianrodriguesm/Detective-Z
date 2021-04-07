@@ -20,7 +20,9 @@ public class StoryManager : Singleton<StoryManager>
     }
 
     public float timerToStartTheAttack = 0f;
-
+    [Range(1,5)]
+    public float timeScale;
+    float fixedDeltaTime;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,6 +30,9 @@ public class StoryManager : Singleton<StoryManager>
         deadAgents = new List<AIAgent>();
         infected = FindObjectOfType<InfectedAgent>();
         StartCoroutine(PrepareInfectedAttack());
+        Time.timeScale = timeScale;
+        fixedDeltaTime = Time.fixedDeltaTime;
+        Time.fixedDeltaTime *= Time.timeScale;
     }
 
     IEnumerator PrepareInfectedAttack()

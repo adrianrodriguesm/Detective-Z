@@ -7,7 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Actions/SearchItem")]
 public class SearchItem : Action
 {
-    [Header("NOTE: This action needs the storytelling element of making the fact the weapon was found")]
     public GameObject itemObj;
     Item item;
     [System.NonSerialized] Transform itemTrf;

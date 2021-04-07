@@ -22,4 +22,4 @@ MonoBehaviour:
   targetTrf: {fileID: 2042492661458651254, guid: 836ec3a4fc8d8ba43978cf8917190b73,
     type: 3}
   instatiationOffset: {x: 0, y: 0}
-  distanceToUse: 2.3
+  distanceToUse: 3

@@ -21,6 +21,7 @@ MonoBehaviour:
   CanRepeat: 1
   changeDirectionTimer: 5
   waypoints:
-  - {fileID: 3674664487647558550, guid: 0f1ad8955a844344990bbc9a6f740280, type: 3}
-  - {fileID: 4250899908854560646, guid: e9b14b88f6248bc40aec4e991a967352, type: 3}
-  timer: 0.3
+  - {fileID: 7200992348838394847, guid: 93ea6e461c4a5b341a439dda51ebdc5b, type: 3}
+  - {fileID: 8284782632801454042, guid: 00c665d76fdf25b438f48cc21f10c9c9, type: 3}
+  - {fileID: 5923879182029077744, guid: bd92cd02af08ccc438d78bc9f6b9d59d, type: 3}
+  - {fileID: 6505230369912390005, guid: 21fe108c13b88ff4b95d995df45a9858, type: 3}

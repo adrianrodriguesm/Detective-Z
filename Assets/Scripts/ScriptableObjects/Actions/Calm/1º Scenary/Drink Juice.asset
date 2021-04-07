@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51fdce6a5b900fc4e8b71df4f6851826, type: 3}
-  m_Name: DrinkInLivingRoom
+  m_Script: {fileID: 11500000, guid: 1fb9b1b774c76324eb6df359b88d0d51, type: 3}
+  m_Name: Drink Juice
   m_EditorClassIdentifier: 
-  environment: 6
+  environment: 0
   state: 0
   detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0
-  CanRepeat: 1
+  CanRepeat: 0
   itemObj: {fileID: 2754115929241691357, guid: 3bc6231dec7cf6b4b8ad57f8d5b5d84f, type: 3}
-  targetTrf: {fileID: 365901949552313449, guid: daadb5c7170e7ad4eb34367da94e5f29,
-    type: 3}
-  instatiationOffset: {x: 0, y: 0}
-  distanceToUse: 1
+  distanceToAdd: 2.6
+  pointsToUse:
+  - {fileID: 365901949552313449, guid: daadb5c7170e7ad4eb34367da94e5f29, type: 3}
+  instatiationUseOffset: {x: 0, y: 0}
+  distanceToUse: 3
