@@ -7,7 +7,8 @@ using UnityEngine;
 public class GoToSafeRoom : Action
 {
     public Transform room;
-    
+    [Range(1,5)]
+    public float distanceToArrive = 2f;
     private void OnEnable()
     {
         
@@ -23,7 +24,7 @@ public class GoToSafeRoom : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        return Vector2.Distance(agent.transform.position, room.position) <= 1f;
+        return Vector2.Distance(agent.transform.position, room.position) <= distanceToArrive;
     }
 
     public override void OnActionFinish(AIAgent agent)

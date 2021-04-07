@@ -44,6 +44,11 @@ public class StoryManager : Singleton<StoryManager>
     // Update is called once per frame
     void Update()
     {
+        if(IsSimulationEnd())
+        {
+            Time.fixedDeltaTime = fixedDeltaTime;
+            Time.timeScale = 1f;
+        }
         foreach (var agent in agents.ToList())
         {
            if(agent.IsDead())

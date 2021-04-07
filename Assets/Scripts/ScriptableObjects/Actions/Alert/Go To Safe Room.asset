@@ -18,4 +18,5 @@ MonoBehaviour:
   storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
-  room: {fileID: 1794320460365832427, guid: 597a64ed9bd0a5f439d5cf3a6569d625, type: 3}
+  room: {fileID: 5214918939746602184, guid: df7f04432768be742891f26d968eadfa, type: 3}
+  distanceToArrive: 2

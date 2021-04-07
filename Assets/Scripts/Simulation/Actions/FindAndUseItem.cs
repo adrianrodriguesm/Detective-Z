@@ -95,6 +95,5 @@ public class FindAndUseItem : Action
         }
         // Select a radom point to use
         pointToUse = pointsToUse[Random.Range(0, pointsToUse.Count())];
-        Debug.Log("Point index" + Random.Range(0, pointsToUse.Count()));
     }
 }
