@@ -18,7 +18,6 @@ public class FindAndUseItem : Action
     [Range(0, 5)]
     [Header("Distance in which the agent will be able to catch the item")]
     public float distanceToAdd = 3f;
-    [Tooltip("TODO: Maybe a list of possible places to use the item! And then choose one randomly")]
     [Header("Point in the enviornment in which the agent will use the item")]
     public List<Transform> pointsToUse;
     [System.NonSerialized] Transform pointToUse;

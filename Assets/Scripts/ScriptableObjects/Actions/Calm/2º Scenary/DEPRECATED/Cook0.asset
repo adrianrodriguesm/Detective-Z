@@ -9,19 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb9b1b774c76324eb6df359b88d0d51, type: 3}
-  m_Name: Cook
+  m_Script: {fileID: 11500000, guid: 51fdce6a5b900fc4e8b71df4f6851826, type: 3}
+  m_Name: Cook0
   m_EditorClassIdentifier: 
-  environment: 0
+  environment: 6
   state: 0
   detectionLevel: 0
   storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
   itemObj: {fileID: 6721228120475108630, guid: 174fad8612909ff48b0c9d7c52b019d9, type: 3}
-  useItem: 1
-  distanceToAdd: 3
-  pointsToUse:
-  - {fileID: 5795552465146510474, guid: c6f59ab642060e541b29c97e8df50f86, type: 3}
-  instatiationUseOffset: {x: 0, y: 0}
+  targetTrf: {fileID: 5795552465146510474, guid: c6f59ab642060e541b29c97e8df50f86,
+    type: 3}
+  instatiationOffset: {x: 0, y: 0}
   distanceToUse: 1

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fb9b1b774c76324eb6df359b88d0d51, type: 3}
-  m_Name: Cook
+  m_Name: DrinkKitchen
   m_EditorClassIdentifier: 
   environment: 0
   state: 0
@@ -18,10 +18,10 @@ MonoBehaviour:
   storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
-  itemObj: {fileID: 6721228120475108630, guid: 174fad8612909ff48b0c9d7c52b019d9, type: 3}
+  itemObj: {fileID: 2754115929241691357, guid: 3bc6231dec7cf6b4b8ad57f8d5b5d84f, type: 3}
   useItem: 1
   distanceToAdd: 3
   pointsToUse:
-  - {fileID: 5795552465146510474, guid: c6f59ab642060e541b29c97e8df50f86, type: 3}
+  - {fileID: 3256133807484274927, guid: dfd18d6f14abb4340bcf2242dcdba231, type: 3}
   instatiationUseOffset: {x: 0, y: 0}
   distanceToUse: 1
