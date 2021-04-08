@@ -9,6 +9,7 @@ public class FindAndUseItem : Action
 {
     [Header("Item to find")]
     public GameObject itemObj;
+    public bool useItem = true;
     Item item;   
     [System.NonSerialized] Transform itemTrf;
     [System.NonSerialized] bool found = false;
@@ -39,10 +40,11 @@ public class FindAndUseItem : Action
             if (Vector2.Distance(agent.transform.position, itemTrf.position) <= distanceToAdd)
             {
                 found = true;
+                isFinish = useItem ? false : true;
                 item.OnItemAdded(agent);
             }
         }
-        else 
+        else if(useItem)
         {
             agent.target = pointToUse;
             if (Vector2.Distance(agent.transform.position, pointToUse.position) <= distanceToUse)

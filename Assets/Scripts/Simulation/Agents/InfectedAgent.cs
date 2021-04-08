@@ -14,7 +14,6 @@ public enum AttackType
 public class InfectedAgent : MonoBehaviour
 {
     [Header("Infected Stats")]
-    public float health;
     public float radiusAttack = 1f;
     public LayerMask layer;
     public int damage = 5;
