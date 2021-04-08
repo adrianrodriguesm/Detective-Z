@@ -135,6 +135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481239221839823690, guid: 70046258f48d41444a90c77ae5941988,
         type: 3}
+      propertyPath: speed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481239221839823690, guid: 70046258f48d41444a90c77ae5941988,
+        type: 3}
       propertyPath: spacing
       value: 1
       objectReference: {fileID: 0}
@@ -222,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Brave_Agent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215662848218081219, guid: 5b9bcd390bfcc4c44a0e025b8d0fbe7b,
+        type: 3}
+      propertyPath: speed
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4215662848218081219, guid: 5b9bcd390bfcc4c44a0e025b8d0fbe7b,
         type: 3}
@@ -1247,6 +1257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072966216566764492, guid: 5ba45b71f9aba914c880d3d9f1dd0a81,
+        type: 3}
+      propertyPath: speed
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1072966216566764492, guid: 5ba45b71f9aba914c880d3d9f1dd0a81,
         type: 3}

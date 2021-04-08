@@ -39,6 +39,16 @@ PrefabInstance:
       propertyPath: attackType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2392963008027071648, guid: f81cc4a26f6168c46babee82ab803dec,
+        type: 3}
+      propertyPath: offsetDeadX
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392963008027071648, guid: f81cc4a26f6168c46babee82ab803dec,
+        type: 3}
+      propertyPath: offsetDeadY
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2392963008027071649, guid: f81cc4a26f6168c46babee82ab803dec,
         type: 3}
       propertyPath: m_RootOrder

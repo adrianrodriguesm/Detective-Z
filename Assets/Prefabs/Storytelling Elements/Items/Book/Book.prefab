@@ -54,8 +54,8 @@ MonoBehaviour:
   itemUse: {fileID: 0}
   itemDeath: {fileID: 3203748041003356671, guid: e9edc399bdf396b47a0895c64679ff62,
     type: 3}
-  offsetDeadX: 1
-  offsetDeadY: 3
+  offsetDeadX: 0.5
+  offsetDeadY: 1
 --- !u!1 &2338710376279859330
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: a6ec43b3c13ac9445b568679cee099e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d3ce8cde46986649af244e34692108d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
