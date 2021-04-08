@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678fd6261332b984f8027936d69ba3d3, type: 3}
+  m_Name: Oil
+  m_EditorClassIdentifier: 
+  gradientClue:
+  - {fileID: 6859568609309188784, guid: 83481d7535f8462429ad102f22d6c7ff, type: 3}
+  - {fileID: 6859568609309188784, guid: 668496ae38bc57b48b0ff2dcf6c9242c, type: 3}
+  - {fileID: 6859568609309188784, guid: 325385c6ec0791343ae61f85b5d92275, type: 3}
+  loop: 0
+  spacing: 0.5
+  gradientTimer: 1.69

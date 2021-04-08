@@ -15,10 +15,10 @@ MonoBehaviour:
   environment: 0
   state: 1
   detectionLevel: 0.786
-  storytellingElement: {fileID: 1033774914276571212, guid: 60fed93ccb723f548bf1a48d9f02e9c5,
-    type: 3}
   attackAction: 0
   CanRepeat: 1
+  storytellingElement: {fileID: 11400000, guid: 31495de77f6ca304d85c23f85578be67,
+    type: 2}
   changeDirectionTimer: 5
   waypoints:
   - {fileID: 7200992348838394847, guid: 93ea6e461c4a5b341a439dda51ebdc5b, type: 3}

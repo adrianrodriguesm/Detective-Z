@@ -72,9 +72,7 @@ public class AIAgent : MonoBehaviour
         get { return currentState; }
     }
     [Header("Intatiate when walking")]
-    public List<GameObject> objectsToInstatiateWalking;
-    public float spacing;
-    Vector3 lastIntatiation;
+    public List<WalkingObject> objectsToInstatiateWalking;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +81,7 @@ public class AIAgent : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         infected = StoryManager.Instance.Infected;
         lockEnvironments = new HashSet<EnvironmentType>();
-        objectsToInstatiateWalking = new List<GameObject>();
+        objectsToInstatiateWalking = new List<WalkingObject>();
         ChooseFirstAction();
         // Call UpdatePath function every 0.4f in order to update the path
         InvokeRepeating("UpdatePath", 0f, 0.4f);
@@ -168,7 +166,14 @@ public class AIAgent : MonoBehaviour
             if (distance < nextWaypointDistance)
                 currentWaypoint++;
 
-            // Instatiate walking storytelling element
+            if(State != State.Calm)
+            {
+                // Instatiate walking storytelling element
+                foreach (var storytellingElement in objectsToInstatiateWalking)
+                    storytellingElement.GenerateStorytellingElement(transform.position);
+            }
+
+            /** /
             if(objectsToInstatiateWalking.Count > 0 && Vector2.Distance(transform.position, lastIntatiation) >= spacing)
             {
                 foreach(var storytellingElement in objectsToInstatiateWalking)

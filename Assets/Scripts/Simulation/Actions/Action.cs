@@ -12,8 +12,6 @@ public abstract class Action : ScriptableObject
     [Range(0, 1)]
     public float detectionLevel;
 
-    public GameObject storytellingElement;
-
     public bool attackAction = false;
 
     public bool CanRepeat = false;

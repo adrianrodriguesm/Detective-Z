@@ -15,9 +15,8 @@ MonoBehaviour:
   environment: 0
   state: 0
   detectionLevel: 0
-  storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
   instruments: {fileID: 6258336106201213702, guid: 51756bf32daa1b84d9d74c806e794408,
     type: 3}
-  oil: {fileID: 6859568609309188784, guid: 83481d7535f8462429ad102f22d6c7ff, type: 3}
+  oil: {fileID: 11400000, guid: 77886b7b24158564993db0cd18720e75, type: 2}

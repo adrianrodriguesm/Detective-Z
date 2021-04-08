@@ -1522,6 +1522,41 @@ PrefabInstance:
       propertyPath: spacingBetweenWalkingBlood
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: infectedBloodWalking.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: infectedBloodWalking.Array.data[0]
+      value: 
+      objectReference: {fileID: 6859568609309188784, guid: a23b5dd84c200414ca09b160023fc12b,
+        type: 3}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: infectedBloodWalking.Array.data[1]
+      value: 
+      objectReference: {fileID: 8954526457630077391, guid: b79dd284fc5454544a63d7eaf26dffeb,
+        type: 3}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: infectedBloodWalking.Array.data[2]
+      value: 
+      objectReference: {fileID: 8954526457630077391, guid: a12c0c59ad149904ea6022d70d6c2afb,
+        type: 3}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: infectedBloodWalking.Array.data[3]
+      value: 
+      objectReference: {fileID: 8954526457630077391, guid: 53d328197e7d5374b91ceb77f5a5f364,
+        type: 3}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: infectedBloodWalking.Array.data[4]
+      value: 
+      objectReference: {fileID: 8954526457630077391, guid: 16fd552720a0e9e418c24c2afb07fa03,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92dcce8590a9764b8a8c8777723b9bf, type: 3}
 --- !u!1001 &1861375136

@@ -7,7 +7,7 @@ using UnityEngine;
 public class FixCar : Action
 {
     public Item instruments;
-    public GameObject oil;
+    public WalkingObject oil;
     [System.NonSerialized] bool fixing = false;
     [System.NonSerialized] Car car;
     [System.NonSerialized] Transform cartrf;

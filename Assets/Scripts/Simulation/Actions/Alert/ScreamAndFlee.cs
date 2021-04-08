@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(menuName = "Actions/ScreamAndFlee")]
 public class ScreamAndFlee : Action
 {
+    public WalkingObject storytellingElement;
     [Header("Timer in which the direction will changed")]
     public float changeDirectionTimer;
     [System.NonSerialized]float dirTimer = 0;
