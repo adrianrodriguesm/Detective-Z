@@ -142,7 +142,7 @@ public class AIAgent : MonoBehaviour
         // -- Choose action
         if (currAction.IsComplete(this) || currentState != currAction.actionState)
         {
-            Debug.Log(gameObject.name + " Changed action");
+            //Debug.Log(gameObject.name + " Changed action");
             ChangedAction();
         }
         // -- Execute action

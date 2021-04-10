@@ -22,7 +22,6 @@ public class Weapon : Item
     public override void OnItemAdded(AIAgent agent)
     {
         base.OnItemAdded(agent);
-        Debug.Log("Added!");
         isFree = false;
         this.transform.parent = agent.transform;
         //GetComponent<Collider2D>().enabled = false;
