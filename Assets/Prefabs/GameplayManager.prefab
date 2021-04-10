@@ -46,3 +46,4 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: aa8dca5b193d36746b37df4c8809afe6, type: 3}
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
+  player: {fileID: 0}
