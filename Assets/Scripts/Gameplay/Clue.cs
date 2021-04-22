@@ -13,12 +13,6 @@ public class Clue : MonoBehaviour
         localScale = transform.localScale;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnMouseEnter()
     {
         Debug.Log("Enter " + gameObject.name);

@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!58 &-8700571674824711973
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616559148926361949}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.24290287}
+  serializedVersion: 2
+  m_Radius: 0.7570971
 --- !u!1001 &4984916124944116429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,17 +26,17 @@ PrefabInstance:
     - target: {fileID: 377364330430909328, guid: 8923a979a52b6164ea83dd579c91f036,
         type: 3}
       propertyPath: m_Name
-      value: InfectedtDeadGPX Variant
+      value: InfectedtDeadGPX
       objectReference: {fileID: 0}
     - target: {fileID: 2630276153003516274, guid: 8923a979a52b6164ea83dd579c91f036,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.53386307
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2630276153003516274, guid: 8923a979a52b6164ea83dd579c91f036,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.8790504
       objectReference: {fileID: 0}
     - target: {fileID: 6894283102408576529, guid: 8923a979a52b6164ea83dd579c91f036,
         type: 3}
@@ -79,3 +95,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8923a979a52b6164ea83dd579c91f036, type: 3}
+--- !u!1 &4616559148926361949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 377364330430909328, guid: 8923a979a52b6164ea83dd579c91f036,
+    type: 3}
+  m_PrefabInstance: {fileID: 4984916124944116429}
+  m_PrefabAsset: {fileID: 0}

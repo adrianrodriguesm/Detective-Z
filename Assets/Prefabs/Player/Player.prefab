@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7689079103227646118}
   - component: {fileID: 7689079103227646117}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerGPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7689079104374209797}
   - component: {fileID: 7689079104374209798}
   - component: {fileID: 7689079104374209799}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
