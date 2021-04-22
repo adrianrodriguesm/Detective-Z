@@ -406,6 +406,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1208705352}
+    - target: {fileID: 7659762870336881854, guid: 6a16e798e1ccd854f84f5038f896b46d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659762870336881855, guid: 6a16e798e1ccd854f84f5038f896b46d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a16e798e1ccd854f84f5038f896b46d, type: 3}
 --- !u!1001 &133481553
@@ -785,6 +795,11 @@ PrefabInstance:
       propertyPath: imageDisplay
       value: 
       objectReference: {fileID: 387516139}
+    - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
+        type: 3}
+      propertyPath: timerForReplay
+      value: 0.06666667
+      objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: timerToStartTheAttack

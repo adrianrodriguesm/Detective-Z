@@ -37,7 +37,7 @@ public class StoryManager : Singleton<StoryManager>
     public Image imageDisplay;
     AnimationState animationState;
     float timer = 0;
-    float targetFramerate;
+    public float timerForReplay;
     // Start is called before the first frame update
     void Awake()
     {
@@ -56,7 +56,7 @@ public class StoryManager : Singleton<StoryManager>
         imageDisplay.enabled = false;
         animationState = AnimationState.Stop;
         timer = 0;
-        targetFramerate = 1f/60f;
+       
     }
     IEnumerator PrepareInfectedAttack()
     {
@@ -163,8 +163,8 @@ public class StoryManager : Singleton<StoryManager>
 
     void PlaySimulation()
     {
-        timer += Time.deltaTime;
-        if(timer > targetFramerate)
+        timer += Time.unscaledDeltaTime;
+        if(timer > timerForReplay)
         {
             imageDisplay.enabled = true;
             if (currIndex > spriteFrame.Count())
@@ -177,14 +177,14 @@ public class StoryManager : Singleton<StoryManager>
     }
     void RewindSimulation()
     {
-        timer += Time.deltaTime;
-        if (timer > targetFramerate)
+        timer += Time.unscaledDeltaTime;
+        if (timer > timerForReplay)
         {
             imageDisplay.enabled = true;
             if (currIndex < 0)
                 currIndex = 0;
 
-            imageDisplay.sprite = spriteFrame[currIndex++];
+            imageDisplay.sprite = spriteFrame[currIndex--];
             timer = 0;
         }
     }
