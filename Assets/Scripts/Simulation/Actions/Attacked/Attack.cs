@@ -147,9 +147,11 @@ public class Attack : Action
     {
         if (agent.IsDead())
         {
+            /** /
             var childGPX = agent.transform.Find("EnemyGPX");
             Destroy(childGPX.gameObject);
             Instantiate(deadCharacter, agent.transform.position, Quaternion.identity, agent.transform);
+            /**/
 
         }
     }

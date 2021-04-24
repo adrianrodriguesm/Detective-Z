@@ -29,7 +29,7 @@ public class AIAgent : MonoBehaviour
     public SpriteRenderer blood;
     public float offsetRadiusX;
     public float offsetRadiusY;
-
+    public GameObject deadCharacter;
     public List<Item> items;
     // AI path
     [HideInInspector]
@@ -231,6 +231,9 @@ public class AIAgent : MonoBehaviour
                 item.OnDeath(this);
             }
             GetComponent<Collider2D>().enabled = false;
+            var childGPX = transform.Find("EnemyGPX");
+            Destroy(childGPX.gameObject);
+            Instantiate(deadCharacter, transform.position, Quaternion.identity);
         }
            
     }

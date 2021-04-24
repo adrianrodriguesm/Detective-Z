@@ -46,8 +46,6 @@ public class InfectedAgent : MonoBehaviour
     {
         get { return dead; }
     }
-    // TODO remove
-    public AIAgent targetDEBUG;
     private List<AIAgent> agents;
     // AI path
     [HideInInspector]
@@ -120,17 +118,11 @@ public class InfectedAgent : MonoBehaviour
         seeker = GetComponent<Seeker>();
         attackTypeRecived = new HashSet<AttackType>();
         // First Agent is randonly selected
-        if (targetDEBUG)
-        {
-            AIAgent targetAgent = targetDEBUG;
-            currAction = new SeekAgent(this, targetAgent.transform);
-        }
-        else
-        {
-            AIAgent targetAgent = agents[Random.Range(0, agents.Count)];
-            currAction = new SeekAgent(this, targetAgent.transform);
 
-        }
+        AIAgent targetAgent = agents[Random.Range(0, agents.Count)];
+        currAction = new SeekAgent(this, targetAgent.transform);
+
+        
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }

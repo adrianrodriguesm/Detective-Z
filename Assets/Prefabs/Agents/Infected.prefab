@@ -196,7 +196,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   timeToEscape: 10
-  deadInfectedAgent: {fileID: 4616559148926361949, guid: e69b869e4695e274dad98507dcffba7c,
+  deadInfectedAgent: {fileID: 8209105817741315453, guid: 089348f66a6ac9b4882208dedc54ca10,
     type: 3}
   targetDEBUG: {fileID: 0}
   speed: 250
