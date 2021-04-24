@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 1994954258887984903}
   m_Layer: 9
   m_Name: Infected
-  m_TagString: Untagged
+  m_TagString: InfectedAgent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

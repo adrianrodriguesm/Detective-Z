@@ -48,6 +48,10 @@ public class Attack : Action
                     agent.target = infected.transform;
                     AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
                 }
+                else if(!agent.HasWeapon(weapon) && agent.IsHurt())
+                {
+                    attackWithBody = true;
+                }
                 // Othewise find a weapon in environment
                 else
                 {

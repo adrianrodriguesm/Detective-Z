@@ -132,6 +132,7 @@ public class StoryManager : Singleton<StoryManager>
         int width = Screen.width;
         int height = Screen.height;
         Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        texture.filterMode = FilterMode.Point;
         // Read screen contents into the texture
         texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         texture.Apply();
@@ -146,6 +147,10 @@ public class StoryManager : Singleton<StoryManager>
         //File.WriteAllBytes(Application.dataPath + "/SimulationFrames/SavedScreen" + ++frameCounter + ".png", bytes);
        
         yield return null;
+    }
+    public bool SomeAgentDied()
+    {
+        return deadAgents.Count() > 0;
     }
     public bool AllAgentAreDead()
     {

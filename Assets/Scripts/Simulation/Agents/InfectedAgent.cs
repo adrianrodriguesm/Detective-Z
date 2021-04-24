@@ -116,7 +116,7 @@ public class InfectedAgent : MonoBehaviour
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
         
-         rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         attackTypeRecived = new HashSet<AttackType>();
         // First Agent is randonly selected

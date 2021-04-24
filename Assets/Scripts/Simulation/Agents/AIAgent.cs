@@ -20,6 +20,7 @@ public class AIAgent : MonoBehaviour
     public float nextWaypointDistance = 3f;
     [Header("Agent's health")]
     public float health = 40f;
+    float initialHealth;
     bool dead = false;
     [Header("Action chooser delta")]
     [Range(0.1f, 0.5f)]
@@ -85,6 +86,7 @@ public class AIAgent : MonoBehaviour
         ChooseFirstAction();
         // Call UpdatePath function every 0.4f in order to update the path
         InvokeRepeating("UpdatePath", 0f, 0.4f);
+        initialHealth = health;
     }
     // Fist action is random
     void ChooseFirstAction()
@@ -108,7 +110,8 @@ public class AIAgent : MonoBehaviour
             return;
 
         // Start Condition
-        if (infected.gameObject.activeSelf && State == State.Calm)
+        if (infected.gameObject.activeSelf && (infected.Environment == currentEnvironment || StoryManager.Instance.SomeAgentDied())
+            && State == State.Calm)
         {
             currentState = State.Alert;
             foreach(var item in items)
@@ -211,7 +214,10 @@ public class AIAgent : MonoBehaviour
     {
         return health <= 0;
     }
-
+    public bool IsHurt()
+    {
+        return health != initialHealth;
+    }
     public void TakeDamage(int damage)
     {
         float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
