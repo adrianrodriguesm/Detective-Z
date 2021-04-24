@@ -7,19 +7,25 @@ public class InfectedEntrance : MonoBehaviour
 
     public GameObject beforeEntry;
     public GameObject afterEntry;
+    bool entered;
     // Start is called before the first frame update
     void Start()
     {
-        if(afterEntry)
-            afterEntry.SetActive(false);
+        entered = false;
+        if (beforeEntry)
+            beforeEntry = Instantiate(beforeEntry, transform.position, Quaternion.identity);
     }
 
     public void Entry()
     {
-        if(afterEntry)
-            afterEntry.SetActive(true);
-        
-        if(beforeEntry)
-            beforeEntry.SetActive(false);
+        if (entered)
+            return;
+
+        entered = true;
+        if (afterEntry)
+            afterEntry = Instantiate(afterEntry, transform.position, Quaternion.identity);
+
+        if (beforeEntry)
+            Destroy(beforeEntry);
     }
 }

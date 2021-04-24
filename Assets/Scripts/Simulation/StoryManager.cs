@@ -38,17 +38,24 @@ public class StoryManager : Singleton<StoryManager>
     AnimationState animationState;
     float timer = 0;
     public float timerForReplay;
+    List<InfectedEntrance> infectedEntrance;
+    public List<InfectedEntrance> ExitPoints
+    {
+        get { return infectedEntrance; }
+    }
     // Start is called before the first frame update
     void Awake()
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
         deadAgents = new List<AIAgent>();
         infected = FindObjectOfType<InfectedAgent>();
+        infectedEntrance = FindObjectsOfType<InfectedEntrance>().ToList();
         StartCoroutine(PrepareInfectedAttack());
         Time.timeScale = timeScale;
         fixedDeltaTime = Time.fixedDeltaTime;
         Time.fixedDeltaTime *= Time.timeScale;
         spriteFrame = new List<Sprite>();
+      
     }
 
     private void Start()
@@ -62,7 +69,11 @@ public class StoryManager : Singleton<StoryManager>
     {
         infected.gameObject.SetActive(false);
         yield return new WaitForSeconds(timerToStartTheAttack);
+        
+        InfectedEntrance entrancePoint = infectedEntrance[Random.Range(0, infectedEntrance.Count())];
+        infected.transform.position = entrancePoint.transform.position;
         infected.gameObject.SetActive(true);
+        entrancePoint.Entry();  
     }
     // Update is called once per frame
     void Update()
@@ -126,7 +137,7 @@ public class StoryManager : Singleton<StoryManager>
         texture.Apply();
 
         // Encode texture into PNG
-        byte[] bytes = texture.EncodeToPNG();
+        //byte[] bytes = texture.EncodeToPNG();
         Sprite frame = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
                                 new Vector2(0.5f, 0.5f), 8);
         spriteFrame.Add(frame);

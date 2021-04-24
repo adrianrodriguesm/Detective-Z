@@ -84,4 +84,7 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
         if (availableEnvironments.ContainsKey(environment))
             availableEnvironments[environment] = available;
     }
+
+
+
 }
