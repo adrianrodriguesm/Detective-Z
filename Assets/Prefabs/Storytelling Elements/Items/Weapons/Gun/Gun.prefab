@@ -22,7 +22,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemDeath
       value: 
-      objectReference: {fileID: 7832544187359839330, guid: 11534a6980383d64d9a2462a3716a80d,
+      objectReference: {fileID: 2551198767182600081, guid: d3d02006b3056a948a1bc9cf8b110ff5,
         type: 3}
     - target: {fileID: 2392963008027071648, guid: f81cc4a26f6168c46babee82ab803dec,
         type: 3}

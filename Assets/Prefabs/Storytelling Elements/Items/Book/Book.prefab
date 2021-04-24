@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2338710375785572391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 5.06, z: 0}
-  m_LocalScale: {x: 0.796673, y: 0.796673, z: 0.796673}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2338710376279859331}
   m_Father: {fileID: 0}
@@ -49,9 +49,9 @@ MonoBehaviour:
     type: 3}
   offsetX: 0.5
   offsetY: 1
-  itemFall: {fileID: 3114742752311421670, guid: 6a7fce51d0554ad41a45e5cf1db58a88,
+  itemFall: {fileID: 1911645411506193680, guid: 2d97be9d5be75a647b464c35d318a39f,
     type: 3}
-  itemUse: {fileID: 0}
+  itemUse: {fileID: 3114742752311421670, guid: 6a7fce51d0554ad41a45e5cf1db58a88, type: 3}
   itemDeath: {fileID: 3203748041003356671, guid: e9edc399bdf396b47a0895c64679ff62,
     type: 3}
   offsetDeadX: 0.5

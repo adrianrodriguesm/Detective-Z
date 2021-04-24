@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &918410138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 918410139}
+  - component: {fileID: 918410141}
+  - component: {fileID: 918410140}
+  m_Layer: 9
+  m_Name: Radius
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &918410139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918410138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1994954258887984898}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &918410141
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918410138}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.043730736}
+  serializedVersion: 2
+  m_Radius: 1.6151361
+--- !u!114 &918410140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918410138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056632dad6abe414b80f34a6678e4fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1994954258887984901
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +92,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1994954259847681138}
+  - {fileID: 918410139}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,7 +134,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.18017894}
@@ -112,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc3664453c948a489d015070aa31068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 120
   radiusAttack: 1
   layer:
     serializedVersion: 2
@@ -121,13 +181,15 @@ MonoBehaviour:
   distanceThresholdToAttack: 2
   infectedBlood: {fileID: 6859568609309188784, guid: a23b5dd84c200414ca09b160023fc12b,
     type: 3}
-  infectedBloodWalking:
-  - {fileID: 8954526457630077391, guid: 53d328197e7d5374b91ceb77f5a5f364, type: 3}
-  - {fileID: 8954526457630077391, guid: a12c0c59ad149904ea6022d70d6c2afb, type: 3}
-  - {fileID: 8954526457630077391, guid: b79dd284fc5454544a63d7eaf26dffeb, type: 3}
-  spacingBetweenWalkingBlood: 0.68
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
+  infectedBloodWalking:
+  - {fileID: 6859568609309188784, guid: a23b5dd84c200414ca09b160023fc12b, type: 3}
+  - {fileID: 8954526457630077391, guid: b79dd284fc5454544a63d7eaf26dffeb, type: 3}
+  - {fileID: 8954526457630077391, guid: a12c0c59ad149904ea6022d70d6c2afb, type: 3}
+  - {fileID: 8954526457630077391, guid: 53d328197e7d5374b91ceb77f5a5f364, type: 3}
+  - {fileID: 8954526457630077391, guid: 16fd552720a0e9e418c24c2afb07fa03, type: 3}
+  spacingBetweenWalkingBlood: 0.8
   timerBloodWalkingGradient: 0.206
   exitPoints:
   - {fileID: 0}
@@ -137,7 +199,7 @@ MonoBehaviour:
   deadInfectedAgent: {fileID: 4616559148926361949, guid: e69b869e4695e274dad98507dcffba7c,
     type: 3}
   targetDEBUG: {fileID: 0}
-  speed: 300
+  speed: 250
   nextWaypointDistance: 3
 --- !u!1 &1994954259847681137
 GameObject:
@@ -164,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994954259847681137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1994954258887984898}

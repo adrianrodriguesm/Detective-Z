@@ -33,7 +33,7 @@ public class Escape : InfectedAction
     {
         Move();
         m_Timer += Time.fixedDeltaTime;
-        if(m_Timer > m_Agent.timeToEscape)
+        if(m_Timer > m_Agent.timeToEscape && !m_Agent.Dead)
         {
             m_Agent.InstatiateDeadAgent();
         }

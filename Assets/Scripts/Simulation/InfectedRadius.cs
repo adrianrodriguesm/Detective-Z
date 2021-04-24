@@ -15,7 +15,6 @@ public class InfectedRadius : MonoBehaviour
     {
         if (collision.CompareTag("Agent") && !(infected.Action is AttackAgent))
         {
-            Debug.Log("DETECTED AGENT!");
             infected.Action = new AttackAgent(infected, collision.GetComponent<AIAgent>());
         }
     }

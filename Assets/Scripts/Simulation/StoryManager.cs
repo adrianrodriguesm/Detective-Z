@@ -128,7 +128,7 @@ public class StoryManager : Singleton<StoryManager>
         // Encode texture into PNG
         byte[] bytes = texture.EncodeToPNG();
         Sprite frame = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
-                                new Vector2(0.5f, 0.5f), 16);
+                                new Vector2(0.5f, 0.5f), 8);
         spriteFrame.Add(frame);
        // Destroy(texture);
         //For testing purposes, also write to a file in the project folder

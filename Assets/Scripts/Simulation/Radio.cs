@@ -10,7 +10,7 @@ public class Radio : MonoBehaviour
     InfectedAgent infected;
     bool activated = false;
     new AudioSource audio;
-    public GameObject clue;
+    Clue clue;
     public bool Active
     {
         get { return activated; }
@@ -21,7 +21,8 @@ public class Radio : MonoBehaviour
         infected = StoryManager.Instance.Infected;
         audio = GetComponent<AudioSource>();
         audio.enabled = false;
-        clue.SetActive(false);
+        clue = GetComponent<Clue>();
+        clue.Enable = false;
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class Radio : MonoBehaviour
         infected.SuspectTarget = transform;
         activated = true;
         audio.enabled = true;
-        clue.SetActive(true);
+        clue.Enable = true;
     }
 
 }

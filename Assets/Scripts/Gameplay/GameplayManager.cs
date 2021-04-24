@@ -9,13 +9,14 @@ public class GameplayManager : Singleton<GameplayManager>
     public Vector2 hotSpot = Vector2.zero;
     public GameObject player;
     CameraController2D cameraController;
-    UnityTemplateProjects.SimpleCameraController simpleCamera;
+    bool isGameplayStated;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         player.SetActive(false);
         cameraController = Camera.main.GetComponent<CameraController2D>();
+        isGameplayStated = false;
        // simpleCamera = Camera.main.GetComponent<UnityTemplateProjects.SimpleCameraController>();
        // cameraController.enabled = t;
     }
@@ -24,10 +25,16 @@ public class GameplayManager : Singleton<GameplayManager>
     {
         if(StoryManager.Instance.IsSimulationEnd())
         {
-            //simpleCamera.enabled = false;
-            //cameraController.enabled = true;
-            player.SetActive(true);
+            if (!isGameplayStated)
+            {
+                isGameplayStated = true;
+                player.SetActive(true);
+            }
+
+            if(Input.GetButtonDown("EndGame"))
+                Application.Quit();
         }
+      
     }
 
 
