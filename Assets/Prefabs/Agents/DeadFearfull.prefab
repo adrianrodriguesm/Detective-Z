@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7177338375960134867}
   - component: {fileID: 3794765191971023609}
   m_Layer: 0
-  m_Name: DeadInfected 1
+  m_Name: DeadFearfull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 3bf660de3f8b63d4bb4827cfc3d60aa6, type: 3}
+  m_Sprite: {fileID: -7426177932480358416, guid: 6f8b01e6c280d184f9688a3a929cf7f7,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

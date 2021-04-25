@@ -11,6 +11,7 @@ public class Radio : MonoBehaviour
     bool activated = false;
     new AudioSource audio;
     Clue clue;
+    bool soundPlaying = false;
     public bool Active
     {
         get { return activated; }
@@ -28,15 +29,20 @@ public class Radio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!soundPlaying && activated && StoryManager.Instance.IsSimulationEnd())
+        {
+            audio.enabled = true;
+            soundPlaying = true;
+        }
     }
+           
 
     public void ActivateRadio()
     {
         // Play audio
         infected.SuspectTarget = transform;
         activated = true;
-        audio.enabled = true;
+        
         clue.Enable = true;
     }
 

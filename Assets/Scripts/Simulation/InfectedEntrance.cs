@@ -7,6 +7,10 @@ public class InfectedEntrance : MonoBehaviour
 
     public GameObject beforeEntry;
     public GameObject afterEntry;
+    public bool Entered
+    {
+        get { return entered; }
+    }
     bool entered;
     // Start is called before the first frame update
     void Start()

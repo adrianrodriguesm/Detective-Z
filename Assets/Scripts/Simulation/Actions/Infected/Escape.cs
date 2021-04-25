@@ -12,6 +12,9 @@ public class Escape : InfectedAction
         float minDistance = Mathf.Infinity;
         foreach(var exitPoint in StoryManager.Instance.ExitPoints)
         {
+            if (exitPoint.Entered)
+                continue;
+
             float distance = Vector2.Distance(agent.transform.position, exitPoint.transform.position);
             if(distance < minDistance)
             {

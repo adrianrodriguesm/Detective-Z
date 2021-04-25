@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -7202410267674009821, guid: 784df64dc0437334bae290d183e135ba,
+  m_Sprite: {fileID: 7595232462096018200, guid: be6ddf5997424d24da76754b7eb5edcb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7689079104374209797}
   - component: {fileID: 7689079104374209798}
   - component: {fileID: 7689079104374209799}
+  - component: {fileID: 5345600803950545125}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -167,3 +168,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.28064966}
   serializedVersion: 2
   m_Radius: 0.78064966
+--- !u!81 &5345600803950545125
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689079104374209801}
+  m_Enabled: 1

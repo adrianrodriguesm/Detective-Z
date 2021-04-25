@@ -34,6 +34,7 @@ public class Car : MonoBehaviour
         get { return isBroken; }
         set { isBroken = value; }
     }
+    bool turnOnSound = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +62,15 @@ public class Car : MonoBehaviour
             }
 
         }
+        if(turnOnSound && StoryManager.Instance.IsSimulationEnd())
+        {
+            audio.enabled = true;
+            turnOnSound = false;
+        }
     }
     public void TurnOn(AIAgent agent)
     {
-        audio.enabled = true;
+        turnOnSound = true;
         transform.GetChild(0).gameObject.SetActive(false);
         doorOpen = Instantiate(doorOpen, transform);
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7177338375960134867}
   - component: {fileID: 3794765191971023609}
   m_Layer: 0
-  m_Name: DeadInfected
+  m_Name: DeadBrave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7677438004556402289, guid: 5475d699d1dc5c54792f738ba630d229,
+  m_Sprite: {fileID: 1814453362207827705, guid: 36b1b59ca1de8674a81b33a2892b9c55,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

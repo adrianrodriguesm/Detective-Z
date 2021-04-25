@@ -198,7 +198,6 @@ MonoBehaviour:
   timeToEscape: 10
   deadInfectedAgent: {fileID: 8209105817741315453, guid: 089348f66a6ac9b4882208dedc54ca10,
     type: 3}
-  targetDEBUG: {fileID: 0}
   speed: 250
   nextWaypointDistance: 3
 --- !u!1 &1994954259847681137
@@ -271,9 +270,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -8201215853234603416, guid: a7f22408fac9c064d8615f949cfb7360,
+  m_Sprite: {fileID: -472889466603578482, guid: 5475d699d1dc5c54792f738ba630d229,
     type: 3}
-  m_Color: {r: 0.26654458, g: 0.5566038, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

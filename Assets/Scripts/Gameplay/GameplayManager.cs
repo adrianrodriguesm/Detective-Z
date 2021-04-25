@@ -17,33 +17,30 @@ public class GameplayManager : Singleton<GameplayManager>
         player.SetActive(false);
         cameraController = Camera.main.GetComponent<CameraController2D>();
         isGameplayStated = false;
-       // simpleCamera = Camera.main.GetComponent<UnityTemplateProjects.SimpleCameraController>();
-       // cameraController.enabled = t;
     }
 
     private void Update()
     {
-        if(StoryManager.Instance.IsSimulationEnd())
+        if (Input.GetButtonDown("EndGame"))
+            Application.Quit();
+
+        if (StoryManager.Instance.IsSimulationEnd())
         {
             Cursor.visible = true;
             if (!isGameplayStated)
             {
                 isGameplayStated = true;
+                //SetAudioMute(true);
                 player.SetActive(true);
             }
-
-            if(Input.GetButtonDown("EndGame"))
-                Application.Quit();
         }
         else
         {
             //Cursor.lockState = CursorLockMode.locked;
             Cursor.visible = false;
+            //SetAudioMute(false);
         }
 
 
     }
-
-
-
 }
