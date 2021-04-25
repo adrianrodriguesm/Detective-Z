@@ -18,7 +18,8 @@ public class Item : MonoBehaviour
     public GameObject itemDeath;
     public float offsetDeadX = 1f;
     public float offsetDeadY = 1f;
-    
+    public static Vector2 lastInstantion = new Vector2(Mathf.Infinity, Mathf.Infinity);
+    public static float distance = 0.5f;
     public virtual void OnItemAdded(AIAgent agent)
     {
         agent.items.Add(this);
@@ -51,9 +52,16 @@ public class Item : MonoBehaviour
         if (!itemFall)
             return;
 
-        float offsetXDelta = Random.Range(-offsetX, offsetX);
-        float offsetYDelta = Random.Range(-offsetY, offsetY);
-        Instantiate(itemFall, new Vector3(agent.transform.position.x + offsetXDelta, agent.transform.position.y + offsetYDelta, agent.transform.position.z), Quaternion.identity);
+        Vector2 position = Vector2.zero;
+        do
+        {
+            float offsetXDelta = Random.Range(-offsetX, offsetX);
+            float offsetYDelta = Random.Range(-offsetY, offsetY);
+            position.x = agent.transform.position.x + offsetXDelta;
+            position.y = agent.transform.position.y + offsetYDelta;
+        } while (Vector2.Distance(position, lastInstantion) < distance);
+        lastInstantion = position;
+        Instantiate(itemFall, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
     }
 
     public void OnDeath(AIAgent agent)
@@ -61,9 +69,17 @@ public class Item : MonoBehaviour
         if (!itemDeath)
             return;
 
-        float offsetXDelta = Random.Range(-offsetDeadX, offsetDeadX);
-        float offsetYDelta = Random.Range(-offsetDeadY, offsetDeadY);
-        Instantiate(itemDeath, new Vector3(agent.transform.position.x + offsetXDelta, agent.transform.position.y + offsetYDelta, agent.transform.position.z), Quaternion.identity);
+        
+        Vector2 position = Vector2.zero;
+        do
+        {
+            float offsetXDelta = Random.Range(-offsetDeadX, offsetDeadX);
+            float offsetYDelta = Random.Range(-offsetDeadY, offsetDeadY);
+            position.x = agent.transform.position.x + offsetXDelta;
+            position.y = agent.transform.position.y + offsetYDelta;
+        } while (Vector2.Distance(position, lastInstantion) < distance);
+        lastInstantion = position;
+        Instantiate(itemDeath, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
     }
 
     
