@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradientClue:
   - {fileID: 1033774914276571212, guid: 60fed93ccb723f548bf1a48d9f02e9c5, type: 3}
-  loop: 1
+  - {fileID: 1033774914276571212, guid: 60fed93ccb723f548bf1a48d9f02e9c5, type: 3}
+  - {fileID: 1033774914276571212, guid: 60fed93ccb723f548bf1a48d9f02e9c5, type: 3}
+  loop: 0
   spacing: 0.7
-  gradientTimer: 0
+  gradientTimer: 3
