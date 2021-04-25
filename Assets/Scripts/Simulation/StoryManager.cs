@@ -55,7 +55,7 @@ public class StoryManager : Singleton<StoryManager>
         fixedDeltaTime = Time.fixedDeltaTime;
         Time.fixedDeltaTime *= Time.timeScale;
         spriteFrame = new List<Sprite>();
-      
+     
     }
 
     private void Start()
@@ -75,12 +75,13 @@ public class StoryManager : Singleton<StoryManager>
         infected.gameObject.SetActive(true);
         entrancePoint.Entry();  
     }
+
     // Update is called once per frame
     void Update()
     {
         if(IsSimulationEnd())
         {
-           
+            
             Time.fixedDeltaTime = fixedDeltaTime;
             Time.timeScale = 1f;
             if (Input.GetButtonDown("PlaySimulatedStory"))
@@ -105,6 +106,7 @@ public class StoryManager : Singleton<StoryManager>
             }
             return;
         }
+
         foreach (var agent in agents.ToList())
         {
            if(agent.IsDead())
@@ -127,25 +129,32 @@ public class StoryManager : Singleton<StoryManager>
     {
         // We should only read the screen buffer after rendering is complete
         yield return new WaitForEndOfFrame();
-
+        //simulationCamera.enabled = true;
         // Create a texture the size of the screen, RGB24 format
         int width = Screen.width;
         int height = Screen.height;
+        RenderTexture rt = new RenderTexture(width, height, 24);
+        Camera.main.targetTexture = rt;
+        // Set background color to black
+        Camera.main.backgroundColor = Color.black;
+        Camera.main.allowMSAA = false;
         Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
         texture.filterMode = FilterMode.Point;
+        Camera.main.Render();
+        RenderTexture.active = rt;
         // Read screen contents into the texture
         texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         texture.Apply();
-
+        Camera.main.targetTexture = null;
         // Encode texture into PNG
         //byte[] bytes = texture.EncodeToPNG();
         Sprite frame = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
                                 new Vector2(0.5f, 0.5f), 8);
         spriteFrame.Add(frame);
-       // Destroy(texture);
+        // Destroy(texture);
         //For testing purposes, also write to a file in the project folder
-        //File.WriteAllBytes(Application.dataPath + "/SimulationFrames/SavedScreen" + ++frameCounter + ".png", bytes);
-       
+        //File.WriteAllBytes(Application.dataPath + "/SimulationFrames/SavedScreen" + ".png", bytes);
+        //simulationCamera.enabled = false;
         yield return null;
     }
     public bool SomeAgentDied()
@@ -183,8 +192,10 @@ public class StoryManager : Singleton<StoryManager>
         if(timer > timerForReplay)
         {
             imageDisplay.enabled = true;
-            if (currIndex > spriteFrame.Count())
+            if (currIndex >= spriteFrame.Count())
                 currIndex = spriteFrame.Count() -1;
+            else if (currIndex <= 0)
+                currIndex = 0;
 
             imageDisplay.sprite = spriteFrame[currIndex++];
             timer = 0;
@@ -197,8 +208,10 @@ public class StoryManager : Singleton<StoryManager>
         if (timer > timerForReplay)
         {
             imageDisplay.enabled = true;
-            if (currIndex < 0)
+            if (currIndex <= 0)
                 currIndex = 0;
+            else if (currIndex >= spriteFrame.Count())
+                currIndex = spriteFrame.Count() - 1;
 
             imageDisplay.sprite = spriteFrame[currIndex--];
             timer = 0;
