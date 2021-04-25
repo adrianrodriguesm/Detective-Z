@@ -48,10 +48,6 @@ public class Attack : Action
                     agent.target = infected.transform;
                     AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
                 }
-                else if(!agent.HasWeapon(weapon) && agent.IsHurt())
-                {
-                    attackWithBody = true;
-                }
                 // Othewise find a weapon in environment
                 else
                 {
@@ -80,8 +76,8 @@ public class Attack : Action
                         foundWeapon = true;
                         // Check if the distance to the closest weapon is lower than the double of the distance to the infected
                         // otherwise attack with body (TODO: maybe force the execution of other action)
-                        /** /
-                        if (minDistance > 2 * Vector2.Distance(agent.transform.position, infected.transform.position))
+                        /**/
+                        if (minDistance > 1.5f * Vector2.Distance(agent.transform.position, infected.transform.position))
                         {
                             attackWithBody = true;
                             return;

@@ -19,6 +19,10 @@ public class StoryManager : Singleton<StoryManager>
     {
         get { return agents; }
     }
+    public List<AIAgent> DeadAIAgents
+    {
+        get { return deadAgents; }
+    }
     InfectedAgent infected;
     public InfectedAgent Infected
     {

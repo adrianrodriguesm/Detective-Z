@@ -25,6 +25,7 @@ public class GameplayManager : Singleton<GameplayManager>
     {
         if(StoryManager.Instance.IsSimulationEnd())
         {
+            Cursor.visible = true;
             if (!isGameplayStated)
             {
                 isGameplayStated = true;
@@ -34,7 +35,13 @@ public class GameplayManager : Singleton<GameplayManager>
             if(Input.GetButtonDown("EndGame"))
                 Application.Quit();
         }
-      
+        else
+        {
+            //Cursor.lockState = CursorLockMode.locked;
+            Cursor.visible = false;
+        }
+
+
     }
 
 
