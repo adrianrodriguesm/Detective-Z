@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Actions/GoToSafeRoom")]
 public class GoToSafeRoom : Action
 {
-    public Transform room;
+    public List<Transform> rooms;
+    [System.NonSerialized] Transform room;
     [Range(1,5)]
     public float distanceToArrive = 2f;
     private void OnEnable()
@@ -34,5 +35,6 @@ public class GoToSafeRoom : Action
 
     public override void OnActionPrepare(AIAgent agent)
     {
+        room = rooms[Random.Range(0, rooms.Count - 1)];
     }
 }

@@ -118,13 +118,17 @@ public class InfectedAgent : MonoBehaviour
         seeker = GetComponent<Seeker>();
         attackTypeRecived = new HashSet<AttackType>();
         // First Agent is randonly selected
-
         AIAgent targetAgent = null;
         float minDistance = Mathf.Infinity;
         foreach(var agent in agents)
         {
-            if (Vector2.Distance(agent.transform.position, transform.position) < minDistance)
+            float distance = Vector2.Distance(agent.transform.position, transform.position);
+            if (distance < minDistance)
+            {
                 targetAgent = agent;
+                minDistance = distance;
+            }
+                
         }
         currAction = new SeekAgent(this, targetAgent.transform);
 

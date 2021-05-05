@@ -9,6 +9,7 @@ public class SimulationCameraController : MonoBehaviour
 
     List<AIAgent> agents;
     PixelPerfectCamera pixelPerfectCamera;
+    InfectedAgent infected;
     [Tooltip("Time it takes to interpolate camera position 99% of the way to the target."), Range(0.001f, 1f)]
     public float positionLerpTime = 0.2f;
     void Start()
@@ -16,6 +17,8 @@ public class SimulationCameraController : MonoBehaviour
         agents = new List<AIAgent>();
         pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
         pixelPerfectCamera.assetsPPU = 8;
+        infected = StoryManager.Instance.Infected;
+
     }
 
     // Update is called once per frame
@@ -30,8 +33,13 @@ public class SimulationCameraController : MonoBehaviour
                 position += agent.transform.position;
             }
 
-
-            position = position / (agents.Count() + 1);
+            if(infected.gameObject.activeSelf)
+            {
+                position = infected.transform.position;
+                //position = position / (agents.Count() + 2);
+            }
+            else
+                position = position / (agents.Count() + 1);
 
 
             var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
