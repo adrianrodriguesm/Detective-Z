@@ -75,7 +75,7 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
         if (availableEnvironments.ContainsKey(environment))
             return availableEnvironments[environment];
 
-        Debug.LogAssertion("Environmet not exits!");
+        Debug.LogAssertion("Environmet not exits! " + environment);
         return false;
     }
 

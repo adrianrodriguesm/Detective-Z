@@ -17,11 +17,9 @@ MonoBehaviour:
   detectionLevel: 0.786
   attackAction: 0
   CanRepeat: 1
-  storytellingElement: {fileID: 11400000, guid: 31495de77f6ca304d85c23f85578be67,
-    type: 2}
+  peePants: {fileID: 6498060622744841441, guid: 58a58d28c0f58fb478d3a8816ec2631e,
+    type: 3}
   changeDirectionTimer: 5
-  waypoints:
-  - {fileID: 7200992348838394847, guid: 93ea6e461c4a5b341a439dda51ebdc5b, type: 3}
-  - {fileID: 8284782632801454042, guid: 00c665d76fdf25b438f48cc21f10c9c9, type: 3}
-  - {fileID: 5923879182029077744, guid: bd92cd02af08ccc438d78bc9f6b9d59d, type: 3}
-  - {fileID: 6505230369912390005, guid: 21fe108c13b88ff4b95d995df45a9858, type: 3}
+  waypointsObj:
+  - {fileID: 4915815537403559123, guid: 771db33d0f9bb0245b46802d7f3ae6cb, type: 3}
+  - {fileID: 6755954577983542400, guid: ba6786b160657fb4ca498912a2459898, type: 3}

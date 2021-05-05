@@ -6,9 +6,9 @@ using UnityEngine;
 
 public enum AttackType
 {
-    Body,
-    Knive,
-    Pistol,
+    Body = 0,
+    Knive = 1,
+    Pistol = 2,
 }
 
 public class InfectedAgent : MonoBehaviour
@@ -119,7 +119,13 @@ public class InfectedAgent : MonoBehaviour
         attackTypeRecived = new HashSet<AttackType>();
         // First Agent is randonly selected
 
-        AIAgent targetAgent = agents[Random.Range(0, agents.Count)];
+        AIAgent targetAgent = null;
+        float minDistance = Mathf.Infinity;
+        foreach(var agent in agents)
+        {
+            if (Vector2.Distance(agent.transform.position, transform.position) < minDistance)
+                targetAgent = agent;
+        }
         currAction = new SeekAgent(this, targetAgent.transform);
 
         

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
-    public SpriteRenderer radio;
     public EnvironmentType environment;
     // Turn on radio (audio)
     InfectedAgent infected;
@@ -14,7 +13,7 @@ public class Radio : MonoBehaviour
     bool soundPlaying = false;
     public bool Active
     {
-        get { return activated; }
+        get { return audio.enabled; }
     }
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,8 @@ public class Radio : MonoBehaviour
         audio = GetComponent<AudioSource>();
         audio.enabled = false;
         clue = GetComponent<Clue>();
-        clue.Enable = false;
+        if (clue)
+            clue.Enable = false;
     }
 
     // Update is called once per frame
@@ -42,8 +42,10 @@ public class Radio : MonoBehaviour
         // Play audio
         infected.SuspectTarget = transform;
         activated = true;
-        
-        clue.Enable = true;
+
+        if (clue)
+            clue.Enable = true;
+        //clue.Enable = true;
     }
 
 }

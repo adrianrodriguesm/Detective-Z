@@ -39,7 +39,8 @@ public class ActivateRadio : Action
         foreach(var radio in radios)
         {
             float distance = Vector2.Distance(agent.transform.position, radio.transform.position);
-            if(distance < minDistance)
+            float distanceToInfected = Vector2.Distance(StoryManager.Instance.Infected.transform.position, radio.transform.position);
+            if (distance < minDistance && (distanceToInfected > 10f || agent.Environment == radio.environment))
             {
                 this.radio = radio;
                 minDistance = distance;

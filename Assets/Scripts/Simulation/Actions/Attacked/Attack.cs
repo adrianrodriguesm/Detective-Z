@@ -13,7 +13,7 @@ public class Attack : Action
     [Range(0, 5)]
     public float distanceToAdd = 3f;
     [System.NonSerialized] Weapon weapon;
-    Transform weaponLocation;
+    [System.NonSerialized] Transform weaponLocation;
    
 
    [Header("Paremeter of body attack (in case of weapon not being assing or weapon impossible to use)")]
@@ -25,12 +25,12 @@ public class Attack : Action
     public float offsetRadiusY = 1f;
     public GameObject deadCharacter;
     [System.NonSerialized] bool attackWithBody = false;
-    [System.NonSerialized] bool foundWeapon = false;
-
     private void OnEnable()
     {
         if (weaponObject)
             weapon = weaponObject.GetComponent<Weapon>();
+
+
     }    
 
     public override void Execute(AIAgent agent)
@@ -42,7 +42,9 @@ public class Attack : Action
         {
             if (weapon)
             {
-                if (agent.HasWeapon(weapon))
+                Debug.Log(weapon);
+                if (agent.HasWeapon(weapon) &&
+                    ((agent.State.Equals(State.Attacked) && !attackAction) || attackAction))
                 {
                     // Updated target transform
                     agent.target = infected.transform;
@@ -51,16 +53,17 @@ public class Attack : Action
                 // Othewise find a weapon in environment
                 else
                 {
+                    /** /
                     if (!foundWeapon)
                     {
                         Debug.Log("Unkonw weapon location!");
                         var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree);
                         //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
                         float minDistance = Mathf.Infinity;
-
+                        AttackType attackType = (AttackType)Random.Range(0, 2);
                         foreach (var currWeapon in weapons)
                         {
-                            if (currWeapon.attackType == this.weapon.attackType)
+                            if (currWeapon.attackType == attackType)
                             {
                                 float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
                                 if (distance < minDistance)
@@ -76,15 +79,13 @@ public class Attack : Action
                         foundWeapon = true;
                         // Check if the distance to the closest weapon is lower than the double of the distance to the infected
                         // otherwise attack with body (TODO: maybe force the execution of other action)
-                        /**/
                         if (minDistance > 1.5f * Vector2.Distance(agent.transform.position, infected.transform.position))
                         {
                             attackWithBody = true;
                             return;
                         }
-                        /**/
-
                     }
+                    /**/
                     // Updated the agent target in order to find the weapon
                     agent.target = weaponLocation;
                     if (Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
@@ -94,7 +95,6 @@ public class Attack : Action
             }
             else if (!weapon && !attackAction && agent.HasWeapons())
             {
-                foundWeapon = true;
                 weapon = agent.TryGetWeapon();
                 // Updated target transform
                 agent.target = infected.transform;
@@ -155,6 +155,37 @@ public class Attack : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         infected = StoryManager.Instance.Infected;
-        foundWeapon = false;
+
+        if (!attackAction)
+            return;
+
+        Debug.Log("Unkonw weapon location!");
+        var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree);
+        //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
+        float minDistance = Mathf.Infinity;
+        AttackType attackType = (AttackType)Random.Range(1, 2);
+        foreach (var currWeapon in weapons)
+        {
+
+            float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
+            if (distance < minDistance)
+            {
+                this.weapon = currWeapon;
+                weaponLocation = currWeapon.transform;
+                minDistance = distance;
+
+            }
+                
+
+        }
+        // Check if the distance to the closest weapon is lower than the double of the distance to the infected
+        // otherwise attack with body (TODO: maybe force the execution of other action)
+        if (minDistance > 1.5f * Vector2.Distance(agent.transform.position, infected.transform.position))
+        {
+            attackWithBody = true;
+            weapon = null;
+            return;
+        }
+        
     }
 }

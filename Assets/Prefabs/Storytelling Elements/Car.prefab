@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 181634308992157346}
   - component: {fileID: 6443973370701223634}
   - component: {fileID: 1247507675}
+  - component: {fileID: 6361155851679499338}
   m_Layer: 15
   m_Name: Car
   m_TagString: Untagged
@@ -136,7 +137,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 2.4430351
+  MaxDistance: 2.96
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -220,6 +221,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6361155851679499338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181634308992157347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3124fe4a068135c47a955a071b083bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environment: 5
 --- !u!1 &181634309341266241
 GameObject:
   m_ObjectHideFlags: 0

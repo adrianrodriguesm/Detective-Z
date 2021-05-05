@@ -64,8 +64,7 @@ public class SearchWeapon : Action
                 weapon = weaponInEnv;
                 minDistance = distance;
                 weaponPosition = weaponInEnv.transform;
-                exitsInTheEnvironment = true;
-                
+                exitsInTheEnvironment = true; 
             }
                 
             
