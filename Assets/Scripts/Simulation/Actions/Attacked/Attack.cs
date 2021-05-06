@@ -143,6 +143,7 @@ public class Attack : Action
     {
         if (agent.IsDead())
         {
+            weapon = null;
             /** /
             var childGPX = agent.transform.Find("EnemyGPX");
             Destroy(childGPX.gameObject);

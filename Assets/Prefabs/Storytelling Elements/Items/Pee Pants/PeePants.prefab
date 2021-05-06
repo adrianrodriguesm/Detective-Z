@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4992327507216061430}
   - component: {fileID: 2231128969953191259}
   - component: {fileID: 8514882781451249525}
+  - component: {fileID: -2530041332230752084}
   m_Layer: 0
   m_Name: PeePants
   m_TagString: Untagged
@@ -94,5 +95,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences: []
   maxScale: 1.5
   tweenTime: 0.75
+--- !u!65 &-2530041332230752084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868210986546049836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

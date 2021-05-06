@@ -121,6 +121,7 @@ public class StoryManager : Singleton<StoryManager>
         }
         if (agents.Count == 0 && infected.IsDeadOrEscaped())
         {
+            infected.DisableCollider();
             // Generated sprite with scars due the different types of attacks
             infected.enabled = false;
         }

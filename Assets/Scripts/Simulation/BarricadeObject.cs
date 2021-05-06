@@ -13,13 +13,14 @@ public class BarricadeObject : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        tilemapAfterMoving.SetActive(true);
         tilemapAfterMoving.SetActive(false);
     }
 
     public void MoveObject()
     {
-        tilemapBeforeMoving.SetActive(false);
+        if(tilemapBeforeMoving)
+            tilemapBeforeMoving.SetActive(false);
+
         tilemapAfterMoving.SetActive(true);
     }
 }

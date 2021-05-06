@@ -186,8 +186,13 @@ public class InfectedAgent : MonoBehaviour
         }
     }
 
+    public void DisableCollider()
+    {
+        GetComponent<Collider2D>().enabled = false;
+    }
     public bool IsDeadOrEscaped()
     {
+
         return dead || escaped;
     }
 

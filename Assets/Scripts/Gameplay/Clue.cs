@@ -22,7 +22,7 @@ public class Clue : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!isEnable && !StoryManager.Instance.IsSimulationEnd())
+        if (!isEnable || !StoryManager.Instance.IsSimulationEnd())
             return;
         //Debug.Log("Enter " + gameObject.name);
         LeanTween.cancel(gameObject);
@@ -32,7 +32,7 @@ public class Clue : MonoBehaviour
     /**/
     private void OnMouseExit()
     {
-        if (!isEnable && !StoryManager.Instance.IsSimulationEnd())
+        if (!isEnable || !StoryManager.Instance.IsSimulationEnd())
             return;
         
         LeanTween.scale(gameObject, localScale, tweenTime).setEaseInSine();

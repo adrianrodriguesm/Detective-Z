@@ -15,13 +15,14 @@ MonoBehaviour:
   environment: 0
   state: 0
   detectionLevel: 0
-  storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
   itemObj: {fileID: 2338710375785572391, guid: 421a2d1e993688f489463aead3360e0d, type: 3}
+  useItem: 1
   distanceToAdd: 2.62
   pointsToUse:
   - {fileID: 2042492661458651254, guid: 836ec3a4fc8d8ba43978cf8917190b73, type: 3}
   - {fileID: 5214918939746602184, guid: df7f04432768be742891f26d968eadfa, type: 3}
+  - {fileID: 7753066315277319029, guid: 082d9fc5f2aea5248b0de270fc2c8e5c, type: 3}
   instatiationUseOffset: {x: 0, y: 0}
   distanceToUse: 1.87

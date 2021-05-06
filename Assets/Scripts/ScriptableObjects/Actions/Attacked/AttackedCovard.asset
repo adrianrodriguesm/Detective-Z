@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5d9f5fbd6f05c49bd008069be6a6d4, type: 3}
+  m_Name: AttackedCovard
+  m_EditorClassIdentifier: 
+  environment: 0
+  state: 3
+  detectionLevel: 0.42
+  attackAction: 0
+  CanRepeat: 0
+  weaponObject: {fileID: 0}
+  distanceToAdd: 1.5
+  damage: 3
+  radiusAttack: 1
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
+  offsetRadiusX: 0.5
+  offsetRadiusY: 0.5
+  deadCharacter: {fileID: 377364330430909328, guid: 8923a979a52b6164ea83dd579c91f036,
+    type: 3}
