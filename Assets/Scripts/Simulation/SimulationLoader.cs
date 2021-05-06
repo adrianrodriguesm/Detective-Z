@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SimulationLoader : MonoBehaviour
+public class SimulationLoader : Singleton<SimulationLoader>
 {
     InfectedAgent infected;
     Slider sliderLoader;

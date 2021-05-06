@@ -57,7 +57,7 @@ public class BarricadeRoom : Action
                 }
                 else
                 {
-                    agent.target = currObject.transformObj;
+                    agent.Target = currObject.transformObj;
                 }
 
             }

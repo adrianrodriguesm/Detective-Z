@@ -13,7 +13,7 @@ public class HideInCar : Action
     {
         if(!car.IsUsed)
         {
-            agent.target = targetTrf;
+            agent.Target = targetTrf;
             if (Vector2.Distance(targetTrf.position, agent.transform.position) < distanceToHide)
             { 
                 car.Hide(agent);
@@ -21,14 +21,14 @@ public class HideInCar : Action
         }
         else if(car.IsBroken)
         {
-            agent.target = infected.transform;   
+            agent.Target = infected.transform;   
         }
 
     }
 
     public override bool IsComplete(AIAgent agent)
     {
-        return !car;
+        return false;
     }
 
     public override void OnActionFinish(AIAgent agent)

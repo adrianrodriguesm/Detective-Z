@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3481239221839823692}
   - component: {fileID: 3481239221839823691}
   - component: {fileID: 3481239221839823694}
-  - component: {fileID: 3481239221839823690}
+  - component: {fileID: 1675540888877478001}
   m_Layer: 10
   m_Name: Covard_Agent
   m_TagString: Agent
@@ -73,7 +73,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.18078566}
@@ -93,14 +93,14 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1.5
   m_LinearDrag: 2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3481239221839823690
+--- !u!114 &1675540888877478001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,22 +112,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002b1f8755b970489dd9b085a3d9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 500
+  actions:
+  - action: {fileID: 11400000, guid: 54068bf86a5e026498b0ff31a4487a86, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: c9a62303ec1313044bcbaa73f23f9dd1, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: 8598e3b5919da914f9cca38564f94a6b, type: 2}
+    order: 1
+  speed: 800
   nextWaypointDistance: 2
   health: 100
   deltaSelector: 0.193
   blood: {fileID: 6859568609309188791, guid: 89d61056f68a408499a65b609b9b3ab0, type: 3}
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
-  deadCharacter: {fileID: 0}
+  deadCharacter: {fileID: 8209105817741315453, guid: ba0831161e94c704ab83d401cbf8c980,
+    type: 3}
   items:
   - {fileID: 6040867976620427328, guid: 378ba0fa6b9c20b4781a04284c0accc6, type: 3}
-  actions:
-  - {fileID: 11400000, guid: 8598e3b5919da914f9cca38564f94a6b, type: 2}
-  - {fileID: 11400000, guid: b6d5ac2d13b8b9745bd1b2fba77edd70, type: 2}
-  - {fileID: 11400000, guid: 724debc6f79cd47479523ba95579dbf9, type: 2}
-  - {fileID: 11400000, guid: 9f50a4cc108b8024786c0f17ff07c9bb, type: 2}
+  actionsM: []
   defaultAction: {fileID: 11400000, guid: 98dedc67a16c5de4ab869c6c8810179d, type: 2}
   objectsToInstatiateWalking: []
 --- !u!1 &3481239222648582850

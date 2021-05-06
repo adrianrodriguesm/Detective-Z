@@ -20,7 +20,7 @@ public class SearchItem : Action
         if (!exitsInTheEnvironment)
             return;
 
-        agent.target = itemTrf;
+        agent.Target = itemTrf;
 
         if (Vector2.Distance(agent.transform.position, itemTrf.position) < distanceToAdd)
         {

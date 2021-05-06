@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b9d0ad2ddd4774ca8893c2b154e513, type: 3}
   m_Name: Search Weapon
   m_EditorClassIdentifier: 
-  environment: 2
+  environment: 0
   state: 1
   detectionLevel: 0.161
-  storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
   weaponObj: {fileID: 8056653398807689082, guid: 5e6589fbd09e328499c8e0d5a9f24851,

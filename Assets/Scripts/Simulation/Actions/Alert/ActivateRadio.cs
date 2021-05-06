@@ -13,7 +13,7 @@ public class ActivateRadio : Action
         if (!radio)
             return;
 
-        agent.target = radio.transform;
+        agent.Target = radio.transform;
         if (Vector2.Distance(agent.transform.position, radio.transform.position) < 2f)
         {
             radio.ActivateRadio();

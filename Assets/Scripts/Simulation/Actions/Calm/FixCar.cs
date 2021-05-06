@@ -18,7 +18,7 @@ public class FixCar : Action
         if (fixing)
             return;
 
-        agent.target = cartrf;
+        agent.Target = cartrf;
         if(Vector2.Distance(agent.transform.position, cartrf.position) < car.distanceToFix)
         {
             fixing = true;

@@ -11,10 +11,34 @@ public enum State
     Seeking,
     Attacked
 }
+[System.Serializable]
+public class ActionOrder
+{
+    public Action action;
+    public int order;
+}
 public class AIAgent : MonoBehaviour
 {
     InfectedAgent infected;
-    public Transform target;
+    public List<ActionOrder> actions;
+    int currentOrder = 1;
+    ActionOrder currAction;
+    /**/
+    public Action Action
+    {
+        get { return currAction.action; }
+        set 
+        {
+            currentOrder = 1;
+            currAction.action = value; 
+        }
+    }
+    Transform target;
+    public Transform Target
+    {
+        get { return target; }
+        set { target = value; }
+    }
     [Header("Pathfinding parameters")]
     public float speed = 5f;
     public float nextWaypointDistance = 3f;
@@ -41,14 +65,10 @@ public class AIAgent : MonoBehaviour
     Rigidbody2D rb;
     // Action
     [Header("Set of actions that are going to be executed")]
-    public List<Action> actions;
+    public List<Action> actionsM;
     public DefaultAction defaultAction;
-    Action currAction;
-    public Action Action
-    {
-        get { return currAction; }
-        set { currAction = value; }
-    }
+
+    /**/
     // Environment
     EnvironmentType currentEnvironment;
     HashSet<EnvironmentType> lockEnvironments;
@@ -91,10 +111,10 @@ public class AIAgent : MonoBehaviour
     // Fist action is random
     void ChooseFirstAction()
     {
-        List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState).ToList();
+        List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState).ToList();
         currAction = possibleActions[Random.Range(0, possibleActions.Count)];
-        currAction.OnActionStart(this);
-        currAction.OnActionPrepare(this);
+        currAction.action.OnActionStart(this);
+        currAction.action.OnActionPrepare(this);
     }
     private void UpdatePath()
     {
@@ -114,7 +134,8 @@ public class AIAgent : MonoBehaviour
             && State == State.Calm)
         {
             currentState = State.Alert;
-            foreach(var item in items)
+            currentOrder = 0;
+            foreach (var item in items)
             {
                 item.OnStateChanged(this);
             }
@@ -134,7 +155,7 @@ public class AIAgent : MonoBehaviour
         {
            
             dead = true;
-            currAction.OnActionFinish(this);
+            currAction.action.OnActionFinish(this);
             foreach(Item item in items)
             {
                 item.gameObject.SetActive(false);
@@ -143,13 +164,13 @@ public class AIAgent : MonoBehaviour
         }
         // Process Actions
         // -- Choose action
-        if (currAction.IsComplete(this) || currentState != currAction.actionState)
+        if (currAction.action.IsComplete(this) || currentState != currAction.action.actionState)
         {
             //Debug.Log(gameObject.name + " Changed action");
             ChangedAction();
         }
         // -- Execute action
-        currAction.Execute(this);
+        currAction.action.Execute(this);
     }
 
     void ProcessMovement()
@@ -281,31 +302,36 @@ public class AIAgent : MonoBehaviour
 
     public void ChangedAction()
     {
-        currAction.OnActionFinish(this);
+        currAction.action.OnActionFinish(this);
         actions.Remove(currAction); 
 
-        List<Action> possibleActions = actions.Where(x => (x.environment == currentEnvironment || x.environment == EnvironmentType.Any) && x.state == currentState 
-                                        && !lockEnvironments.Contains(x.environment)).ToList();
+        List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState 
+                                        && !lockEnvironments.Contains(x.action.environment) && x.order > (currentOrder)).ToList();
 
-        if (currAction.CanRepeat && currAction != defaultAction)
+        if (currAction.action.CanRepeat && currAction.action != defaultAction)
             actions.Add(currAction);
 
-        currAction = null;
-        float currWellfareDif = Mathf.Infinity;
-        foreach (Action action in possibleActions)
+        currAction.action = null;
+        if (possibleActions.Count() > 0)
         {
-            float wellfareDif = action.detectionLevel;
-            if (wellfareDif < currWellfareDif)
-                currAction = action;
-
-            currWellfareDif = wellfareDif;
+            /**/
+            float order = Mathf.Infinity;
+            foreach (ActionOrder actionOrder in possibleActions)
+            {
+                if (order > actionOrder.order)
+                    order = actionOrder.order;
+            }
+            possibleActions = actions.Where(x => x.order == order).ToList();
+            /**/
+            currAction = possibleActions[Random.Range(0, possibleActions.Count())];
+            currentOrder++;
         }
 
-        if(!currAction)
-            currAction = defaultAction;
+        if (!currAction.action)
+            currAction.action = defaultAction;
         
-        currAction.OnActionStart(this);
-        currAction.OnActionPrepare(this);
+        currAction.action.OnActionStart(this);
+        currAction.action.OnActionPrepare(this);
 
     }
 

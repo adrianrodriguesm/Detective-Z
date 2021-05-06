@@ -18,6 +18,6 @@ MonoBehaviour:
   attackAction: 0
   CanRepeat: 0
   rooms:
-  - {fileID: 5214918939746602184, guid: df7f04432768be742891f26d968eadfa, type: 3}
-  - {fileID: 2875762345907276707, guid: 2dd6b06727f214e4ea10609562cf2069, type: 3}
+  - {fileID: 6924909795922402967, guid: 318333b5f46165d4b9ab60b9fb31bd0f, type: 3}
+  - {fileID: 2678619262640085004, guid: 4fc109a440245b5418ec69a0c54efe03, type: 3}
   distanceToArrive: 2

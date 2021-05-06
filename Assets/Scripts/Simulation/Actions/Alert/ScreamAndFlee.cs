@@ -23,7 +23,7 @@ public class ScreamAndFlee : Action
         if (dirTimer <= 0f)
         {
             int index = currWaypointIndex < waypoints.Count ? currWaypointIndex : 0;
-            agent.target = waypoints[index];
+            agent.Target = waypoints[index];
             ++currWaypointIndex;
             
             dirTimer = changeDirectionTimer;

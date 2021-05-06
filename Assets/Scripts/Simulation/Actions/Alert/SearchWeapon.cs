@@ -22,7 +22,7 @@ public class SearchWeapon : Action
         if (!exitsInTheEnvironment || found)
             return;
 
-        agent.target = weaponPosition;
+        agent.Target = weaponPosition;
 
         if (Vector2.Distance(agent.transform.position, weaponPosition.position) <= distanceToAdd)
         {

@@ -59,7 +59,7 @@ public class StoryManager : Singleton<StoryManager>
         fixedDeltaTime = Time.fixedDeltaTime;
         Time.fixedDeltaTime *= Time.timeScale;
         spriteFrame = new List<Sprite>();
-     
+        SimulationLoader.Instance.gameObject.SetActive(true);
     }
 
     private void Start()

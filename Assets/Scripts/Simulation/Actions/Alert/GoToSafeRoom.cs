@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Actions/GoToSafeRoom")]
 public class GoToSafeRoom : Action
 {
-    public List<Transform> rooms;
+    public List<Waypoint> rooms;
     [System.NonSerialized] Transform room;
     [Range(1,5)]
     public float distanceToArrive = 2f;
@@ -18,7 +18,7 @@ public class GoToSafeRoom : Action
 
     public override void Execute(AIAgent agent)
     {
-        agent.target = room;
+        agent.Target = room;
     }
 
 
@@ -35,6 +35,17 @@ public class GoToSafeRoom : Action
 
     public override void OnActionPrepare(AIAgent agent)
     {
-        room = rooms[Random.Range(0, rooms.Count - 1)];
+        foreach(var waypoint in rooms)
+        {
+            if (waypoint.environment.Equals(agent.Environment))
+            {
+                room = waypoint.waypoint;
+                return;
+            }
+                
+        }
+        if(!room)
+            room = rooms[Random.Range(0, rooms.Count - 1)].waypoint;
+       
     }
 }

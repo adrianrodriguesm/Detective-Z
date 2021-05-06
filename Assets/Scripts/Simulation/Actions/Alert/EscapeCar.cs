@@ -11,7 +11,7 @@ public class EscapeCar : Action
     [System.NonSerialized] bool triedToEscape = false;
     public override void Execute(AIAgent agent)
     {
-        agent.target = carTrf;
+        agent.Target = carTrf;
         if(Vector2.Distance(agent.transform.position, carTrf.position) < car.distanceToEnter)
         {
             triedToEscape = true;
@@ -21,7 +21,7 @@ public class EscapeCar : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        return triedToEscape;
+        return triedToEscape || car.IsUsed;
     }
 
     public override void OnActionFinish(AIAgent agent)

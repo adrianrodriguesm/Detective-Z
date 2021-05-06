@@ -20,7 +20,7 @@ public class GoToEnvironmentAndUseItem : Action
 
     public override void Execute(AIAgent agent)
     {
-        agent.target = targetTrf;
+        agent.Target = targetTrf;
         if(Vector2.Distance(agent.transform.position, targetTrf.position) <= distanceToUse)
         {
             item.OnItemUse(agent, new Vector3(targetTrf.position.x + instatiationOffset.x, targetTrf.position.y + instatiationOffset.y));

@@ -47,7 +47,7 @@ public class Attack : Action
                     ((agent.State.Equals(State.Attacked) && !attackAction) || attackAction))
                 {
                     // Updated target transform
-                    agent.target = infected.transform;
+                    agent.Target = infected.transform;
                     AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
                 }
                 // Othewise find a weapon in environment
@@ -87,7 +87,7 @@ public class Attack : Action
                     }
                     /**/
                     // Updated the agent target in order to find the weapon
-                    agent.target = weaponLocation;
+                    agent.Target = weaponLocation;
                     if (Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
                         weapon.OnItemAdded(agent);
                 }
@@ -97,7 +97,7 @@ public class Attack : Action
             {
                 weapon = agent.TryGetWeapon();
                 // Updated target transform
-                agent.target = infected.transform;
+                agent.Target = infected.transform;
                 AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
             }
             else
@@ -108,7 +108,7 @@ public class Attack : Action
         else
         {
             attackWithBody = true;
-            agent.target = infected.transform;
+            agent.Target = infected.transform;
             AttackAndClueGeneration(radiusAttack, AttackType.Body, agent);
         }
 

@@ -34,7 +34,7 @@ public class FindAndUseItem : Action
 
         if(!found)
         {
-            agent.target = itemTrf;
+            agent.Target = itemTrf;
 
             if (Vector2.Distance(agent.transform.position, itemTrf.position) <= distanceToAdd)
             {
@@ -45,7 +45,7 @@ public class FindAndUseItem : Action
         }
         else if(useItem)
         {
-            agent.target = pointToUse;
+            agent.Target = pointToUse;
             if (Vector2.Distance(agent.transform.position, pointToUse.position) <= distanceToUse)
             {
                 isFinish = true;

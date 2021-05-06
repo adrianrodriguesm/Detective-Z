@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1072966216566764483}
   - component: {fileID: 1072966216566764482}
   - component: {fileID: 1072966216566764493}
-  - component: {fileID: 1072966216566764492}
+  - component: {fileID: 3970412014469719524}
   m_Layer: 10
   m_Name: Carefull_Agent
   m_TagString: Agent
@@ -155,7 +155,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.004408121, y: -0.25574535}
@@ -182,7 +182,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1072966216566764492
+--- !u!114 &3970412014469719524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,22 +194,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002b1f8755b970489dd9b085a3d9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 500
+  actions:
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  speed: 800
   nextWaypointDistance: 2
   health: 50
   deltaSelector: 0.209
   blood: {fileID: 6859568609309188791, guid: 89d61056f68a408499a65b609b9b3ab0, type: 3}
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
-  deadCharacter: {fileID: 0}
+  deadCharacter: {fileID: 8209105817741315453, guid: 7c1e27a147b48704293bebc264713c86,
+    type: 3}
   items: []
-  actions:
-  - {fileID: 11400000, guid: 94ff8eb257716564ba3f2ab7db873a92, type: 2}
-  - {fileID: 11400000, guid: b6d5ac2d13b8b9745bd1b2fba77edd70, type: 2}
-  - {fileID: 11400000, guid: 74e6a93a419b10143b91c1928ed25baf, type: 2}
-  - {fileID: 11400000, guid: 4f3c4fa1a36bea247b79049fce14ae75, type: 2}
-  - {fileID: 11400000, guid: cc23f6c4366c7874c9486fa3f5c441e0, type: 2}
-  - {fileID: 11400000, guid: 5ecd49c0e1d245b44bdd6722699d3b24, type: 2}
+  actionsM: []
   defaultAction: {fileID: 11400000, guid: 98dedc67a16c5de4ab869c6c8810179d, type: 2}
   objectsToInstatiateWalking: []

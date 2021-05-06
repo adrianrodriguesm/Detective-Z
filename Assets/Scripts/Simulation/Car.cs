@@ -71,6 +71,7 @@ public class Car : MonoBehaviour
     public void TurnOn(AIAgent agent)
     {
         turnOnSound = true;
+        IsUsed = true;
         transform.GetChild(0).gameObject.SetActive(false);
         doorOpen = Instantiate(doorOpen, transform);
     }

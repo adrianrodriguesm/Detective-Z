@@ -7,7 +7,7 @@ public class DefaultAction : Action
 {
     public override void Execute(AIAgent agent)
     {
-        agent.target = agent.transform;
+        agent.Target = agent.transform;
     }
 
     public override bool IsComplete(AIAgent agent)

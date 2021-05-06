@@ -9,7 +9,7 @@ public class CalmAction : Action
    
     public override void Execute(AIAgent agent)
     {
-        agent.target = agent.transform;
+        agent.Target = agent.transform;
     }
 
 
