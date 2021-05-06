@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89744e51f8d174c4288473d67d30ef93, type: 3}
   m_Name: Barricade Room
   m_EditorClassIdentifier: 
-  environment: 2
+  environment: 0
   state: 1
   detectionLevel: 0.284
-  storytellingElement: {fileID: 0}
   attackAction: 0
   CanRepeat: 0
   distanceToMoveObject: 4

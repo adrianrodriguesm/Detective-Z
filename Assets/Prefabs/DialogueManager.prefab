@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2754115929241691357
+--- !u!1 &3523406321722086183
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2884134427856304931}
-  - component: {fileID: 6498060622744841441}
+  - component: {fileID: 3523406321722086177}
+  - component: {fileID: 3523406321722086176}
   m_Layer: 0
-  m_Name: Pee Pants
+  m_Name: DialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2884134427856304931
+  m_IsActive: 1
+--- !u!4 &3523406321722086177
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2754115929241691357}
+  m_GameObject: {fileID: 3523406321722086183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.48, y: 5.82, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6498060622744841441
+--- !u!114 &3523406321722086176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2754115929241691357}
+  m_GameObject: {fileID: 3523406321722086183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07212a24e7482484493e0085927cfe57, type: 3}
+  m_Script: {fileID: 11500000, guid: fa199aa9ed0e0674cb24b056fc996a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 7
-  itemAdded: {fileID: 0}
-  offsetX: 0.5
-  offsetY: 0.5
-  itemFall: {fileID: 0}
-  itemUse: {fileID: 0}
-  itemDeath: {fileID: 2868210986546049836, guid: ea19cbbf59a224040a1fed19a3378811,
-    type: 3}
-  offsetDeadX: 1
-  offsetDeadY: 1
+  titleText: {fileID: 0}
+  DialogueText: {fileID: 0}

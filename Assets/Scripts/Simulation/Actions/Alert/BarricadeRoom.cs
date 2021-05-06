@@ -18,7 +18,7 @@ public class BarricadeRoom : Action
     {
         // If the environment is lock and the moved objects are 0 that means that this
         // environment is already lock so this action will finish
-        if(!EnvironmentManager.Instance.IsEnvironmentAvailable(environment) && objectsMoved.Count == 0)
+        if(!EnvironmentManager.Instance.IsEnvironmentAvailable(agent.Environment) && objectsMoved.Count == 0)
         {
             objectsToMove.Clear();
             return;
@@ -51,7 +51,7 @@ public class BarricadeRoom : Action
                     currObject = null;
                     if (fistObjectMoved)
                     {
-                        EnvironmentManager.Instance.LockEnvironment(environmentOfTheRoom, false);
+                        EnvironmentManager.Instance.LockEnvironment(agent.Environment, false);
                         fistObjectMoved = false;
                     }
                 }

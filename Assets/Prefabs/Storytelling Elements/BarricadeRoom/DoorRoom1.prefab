@@ -47,7 +47,7 @@ MonoBehaviour:
   tilemapBeforeMoving: {fileID: 0}
   tilemapAfterMoving: {fileID: 63999653289276112}
   transformObj: {fileID: 2592376778198566783}
-  environment: 2
+  environment: 1
 --- !u!1 &63999653289276112
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2592376777169140123}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.51, y: -5.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
