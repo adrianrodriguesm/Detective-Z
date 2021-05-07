@@ -98,7 +98,7 @@ MonoBehaviour:
   dialogue:
     title: Knife
     sentences:
-    - Knife missing
+    - Knife missing.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &3791361584586242067

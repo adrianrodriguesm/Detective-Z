@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    title: Gun
+    title: 
     sentences:
     - "\rGunsmith with a missing gun."
   maxScale: 1.1

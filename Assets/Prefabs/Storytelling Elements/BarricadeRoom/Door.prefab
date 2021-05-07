@@ -108,6 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences:
+    - Broken door.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!114 &1955856034
@@ -122,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences: []
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1 &7108907229225289587
@@ -232,6 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences: []
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1 &7514310003300443745
@@ -404,6 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences:
+    - Broken table.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1001 &8826517584114940341

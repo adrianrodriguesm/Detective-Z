@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4399935651321944087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.34, y: -1.99, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,6 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences:
+    - Spilled juice.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &2173278095214614799

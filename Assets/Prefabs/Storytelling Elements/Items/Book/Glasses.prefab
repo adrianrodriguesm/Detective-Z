@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7672869429521128638}
   - component: {fileID: 8144485315872056776}
-  - component: {fileID: 9057631431849120775}
   - component: {fileID: 613621129289680469}
+  - component: {fileID: 825981223925483392}
   m_Layer: 0
   m_Name: Glasses
   m_TagString: Untagged
@@ -83,19 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &9057631431849120775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3203748041003356671}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.98367065, y: 0.46875, z: 1}
-  m_Center: {x: -0.023085326, y: 0, z: 0}
 --- !u!114 &613621129289680469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,5 +95,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences:
+    - Glasses.
   maxScale: 1.5
   tweenTime: 0.75
+--- !u!65 &825981223925483392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203748041003356671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

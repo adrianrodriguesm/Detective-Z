@@ -121,5 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences:
+    - A screwdriver.
   maxScale: 1.5
   tweenTime: 0.75
