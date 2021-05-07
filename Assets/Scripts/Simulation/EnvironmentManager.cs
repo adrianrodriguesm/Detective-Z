@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -85,6 +86,20 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
             availableEnvironments[environment] = available;
     }
 
+    public bool AreAgentAlertInEnvironment(EnvironmentType environment)
+    {
+        if (availableEnvironments.ContainsKey(environment))
+        {
+            List<AIAgent> agents = StoryManager.Instance.AIAgents.Where(x => x.Environment.Equals(environment)).ToList();
+            foreach(var agent in agents)
+            {
+                if (agent.State.Equals(State.Alert))
+                    return true;
+            }
+
+        }
+        return false;
+    }
 
 
 }

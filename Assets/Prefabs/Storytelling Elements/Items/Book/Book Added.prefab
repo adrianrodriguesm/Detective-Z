@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    title: 1
+    title: 
     sentences:
     - Seems that a book is missing.
   maxScale: 1.5

@@ -21,7 +21,7 @@ public class AIAgent : MonoBehaviour
 {
     InfectedAgent infected;
     public List<ActionOrder> actions;
-    int currentOrder = 1;
+    int currentOrder = 0;
     ActionOrder currAction;
     /**/
     public Action Action
@@ -29,7 +29,7 @@ public class AIAgent : MonoBehaviour
         get { return currAction.action; }
         set 
         {
-            currentOrder = 1;
+            currentOrder = 0;
             currAction.action = value; 
         }
     }
@@ -44,6 +44,7 @@ public class AIAgent : MonoBehaviour
     public float nextWaypointDistance = 3f;
     [Header("Agent's health")]
     public float health = 40f;
+    float minDistanceToDetectInfected = 10f;
     float initialHealth;
     bool dead = false;
     [Header("Action chooser delta")]
@@ -130,7 +131,9 @@ public class AIAgent : MonoBehaviour
             return;
 
         // Start Condition
-        if (infected.gameObject.activeSelf && (infected.Environment == currentEnvironment || StoryManager.Instance.SomeAgentDied())
+        if (infected.gameObject.activeSelf && (infected.Environment == currentEnvironment
+            || Vector2.Distance(infected.transform.position, transform.position) < minDistanceToDetectInfected
+            || EnvironmentManager.Instance.AreAgentAlertInEnvironment(Environment))
             && State == State.Calm)
         {
             currentState = State.Alert;
@@ -306,7 +309,7 @@ public class AIAgent : MonoBehaviour
         actions.Remove(currAction); 
 
         List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState 
-                                        && !lockEnvironments.Contains(x.action.environment) && x.order > (currentOrder)).ToList();
+                                        && !lockEnvironments.Contains(x.action.environment) && x.order > currentOrder).ToList();
 
         if (currAction.action.CanRepeat && currAction.action != defaultAction)
             actions.Add(currAction);
@@ -324,7 +327,7 @@ public class AIAgent : MonoBehaviour
             possibleActions = actions.Where(x => x.order == order).ToList();
             /**/
             currAction = possibleActions[Random.Range(0, possibleActions.Count())];
-            currentOrder++;
+            currentOrder = (int)order;
         }
 
         if (!currAction.action)
