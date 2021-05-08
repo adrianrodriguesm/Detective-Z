@@ -111,7 +111,8 @@ public class InfectedAgent : MonoBehaviour
         }
     }
 
-   
+    [Header("Intatiate when walking")]
+    public List<WalkingObject> objectsToInstatiateWalking;
     // Start is called before the first frame update
     void Start()
     {
@@ -169,7 +170,11 @@ public class InfectedAgent : MonoBehaviour
     void FixedUpdate()
     {
         currAction.OnUpdate();
+        // e.g Glass
+        foreach(var walkingObject in objectsToInstatiateWalking)
+            walkingObject.GenerateStorytellingElement(transform.position);
 
+        // TODO this should be a walking object
         if (attackTypeRecived.Count > 0)
         {
             if (Action is AttackAgent)

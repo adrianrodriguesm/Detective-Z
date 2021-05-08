@@ -21,7 +21,7 @@ public class EscapeCar : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        return triedToEscape || car.IsUsed;
+        return !car || triedToEscape || car.IsUsed;
     }
 
     public override void OnActionFinish(AIAgent agent)
@@ -32,6 +32,13 @@ public class EscapeCar : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         car = FindObjectOfType<Car>();
-        carTrf = car.doorEntry;
+        if(!car.Reserved)
+        {
+            carTrf = car.doorEntry;
+            car.Reserved = true;
+        }
+        else
+            car = null;
+
     }
 }

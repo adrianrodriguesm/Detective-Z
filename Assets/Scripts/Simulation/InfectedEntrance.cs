@@ -7,6 +7,7 @@ public class InfectedEntrance : MonoBehaviour
 
     public GameObject beforeEntry;
     public GameObject afterEntry;
+    public WalkingObject walkingObject;
     public bool Entered
     {
         get { return entered; }
@@ -18,12 +19,17 @@ public class InfectedEntrance : MonoBehaviour
         entered = false;
         if (beforeEntry)
             beforeEntry = Instantiate(beforeEntry, transform.position, Quaternion.identity);
+        
+        
     }
 
     public void Entry()
     {
         if (entered)
             return;
+
+        if (walkingObject)
+            StoryManager.Instance.Infected.objectsToInstatiateWalking.Add(walkingObject);
 
         entered = true;
         if (afterEntry)

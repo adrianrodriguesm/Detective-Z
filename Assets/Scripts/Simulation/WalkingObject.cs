@@ -14,7 +14,7 @@ public class WalkingObject : ScriptableObject
     public float spacing;
     [System.NonSerialized] int currIndex = 0;
     [System.NonSerialized] Vector3 lastIntatiation = Vector3.zero;
-    [Range(0,3)]
+    [Range(0,5)]
     public float gradientTimer;
     [System.NonSerialized] float currTimer;
     [System.NonSerialized] bool stoop = false;

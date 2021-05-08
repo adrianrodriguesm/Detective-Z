@@ -13,6 +13,12 @@ public class Car : MonoBehaviour
     AIAgent agent;
     InfectedAgent infected;
     new AudioSource audio;
+    bool reservedByAnAgent = false;
+    public bool Reserved
+    {
+        get { return reservedByAnAgent; }
+        set { reservedByAnAgent = value; }
+    }
     public Transform doorEntry;
     public Transform DoorEntry
     {

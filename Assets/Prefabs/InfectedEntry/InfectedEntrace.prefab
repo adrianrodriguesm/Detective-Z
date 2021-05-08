@@ -79,6 +79,7 @@ MonoBehaviour:
   beforeEntry: {fileID: 0}
   afterEntry: {fileID: 3657534424140198601, guid: 122aa18c7b69d6a4ebca65fb1b106391,
     type: 3}
+  walkingObject: {fileID: 11400000, guid: 2447ae2f2e615e942873c4ae9c2133ef, type: 2}
 --- !u!1 &8155262647135907276
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
     type: 3}
   afterEntry: {fileID: 7598186869606608615, guid: 5c1a02f9d3b33c844ae821aa60d9be1e,
     type: 3}
+  walkingObject: {fileID: 0}
 --- !u!1 &8155262647343995046
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,3 +174,4 @@ MonoBehaviour:
   beforeEntry: {fileID: 0}
   afterEntry: {fileID: 3657534424140198601, guid: 122aa18c7b69d6a4ebca65fb1b106391,
     type: 3}
+  walkingObject: {fileID: 11400000, guid: 2447ae2f2e615e942873c4ae9c2133ef, type: 2}

@@ -28,7 +28,7 @@ public class HideInCar : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        return false;
+        return !car;
     }
 
     public override void OnActionFinish(AIAgent agent)
@@ -39,10 +39,13 @@ public class HideInCar : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         car = FindObjectOfType<Car>();
-        if(car)
+        if (!car.Reserved)
         {
             infected = StoryManager.Instance.Infected;
             targetTrf = car.doorEntry;
+            car.Reserved = true;
         }
+        else
+            car = null;
     }
 }
