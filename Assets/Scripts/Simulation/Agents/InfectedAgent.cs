@@ -104,7 +104,10 @@ public class InfectedAgent : MonoBehaviour
         {
             suspectTarget = value;
             if(suspectTarget && Action is SeekAgent)
+            {
                 Action = new SeekAgent(this, suspectTarget);
+            }
+               
         }
     }
 
@@ -161,6 +164,7 @@ public class InfectedAgent : MonoBehaviour
             CurrWayPoint = 0;
         }
     }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -200,9 +204,8 @@ public class InfectedAgent : MonoBehaviour
     {
         Debug.Log("Agent Dead");
         dead = true;
-        var childGPX = transform.Find("InfectedGPX");
-        Destroy(childGPX.gameObject);
-        Instantiate(deadInfectedAgent, transform.position, Quaternion.identity, transform);
+        Destroy(gameObject);
+        Instantiate(deadInfectedAgent, transform.position, Quaternion.identity);
     }
 
     public void TakeDamage(AttackType type, AIAgent agent)

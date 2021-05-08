@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -35,9 +36,11 @@ public class GoToSafeRoom : Action
 
     public override void OnActionPrepare(AIAgent agent)
     {
+        List<Radio> radio = FindObjectsOfType<Radio>().ToList();
         foreach(var waypoint in rooms)
         {
-            if (waypoint.environment.Equals(agent.Environment))
+            var radioInEnvironment = radio.Where(x => x.Active && x.environment.Equals(agent.Environment));
+            if (waypoint.environment.Equals(agent.Environment) && radioInEnvironment.Count() == 0)
             {
                 room = waypoint.waypoint;
                 return;
@@ -45,7 +48,20 @@ public class GoToSafeRoom : Action
                 
         }
         if(!room)
-            room = rooms[Random.Range(0, rooms.Count - 1)].waypoint;
+        {
+            Waypoint point = null;
+            List<Radio> radioInEnvironment;
+            int count = 0;
+            do
+            {
+                point = rooms[Random.Range(0, rooms.Count)];
+                radioInEnvironment = radio.Where(x => x.Active && x.environment.Equals(point.environment)).ToList();
+                count++;
+            } while (radioInEnvironment.Count() > 0 && count < 4f);
+            room = point.waypoint;
+
+        }
+           
        
     }
 }

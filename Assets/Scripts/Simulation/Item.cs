@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum ItemType
@@ -18,7 +19,7 @@ public class Item : MonoBehaviour
     public GameObject itemDeath;
     public float offsetDeadX = 1f;
     public float offsetDeadY = 1f;
-    public static Vector2 lastInstantion = new Vector2(Mathf.Infinity, Mathf.Infinity);
+    public static List<Vector2> lastInstantion = new List<Vector2>();
     public static float distance = 0.5f;
     public virtual void OnItemAdded(AIAgent agent)
     {
@@ -59,9 +60,15 @@ public class Item : MonoBehaviour
             float offsetYDelta = Random.Range(-offsetY, offsetY);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
-        } while (Vector2.Distance(position, lastInstantion) < distance);
-        lastInstantion = position;
+        } while (CheckDistance(position));
+        lastInstantion.Add(position);
         Instantiate(itemFall, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
+    }
+
+    public bool CheckDistance(Vector2 position)
+    {
+        var objectsClose = lastInstantion.Where(x => Vector2.Distance(position, x) < distance);
+        return objectsClose.Count() > 0;
     }
 
     public void OnDeath(AIAgent agent)
@@ -77,8 +84,8 @@ public class Item : MonoBehaviour
             float offsetYDelta = Random.Range(-offsetDeadY, offsetDeadY);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
-        } while (Vector2.Distance(position, lastInstantion) < distance);
-        lastInstantion = position;
+        } while (CheckDistance(position));
+        lastInstantion.Add(position);
         Instantiate(itemDeath, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
     }
 

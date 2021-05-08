@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1243,6 +1243,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1742699681}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1208705355
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208705348}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 7595232462096018200, guid: be6ddf5997424d24da76754b7eb5edcb,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1296425502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2730279320010497978, guid: 6eddaecd5e9adeb44839bf26d27d14cc,
@@ -1592,6 +1643,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DoorRoom1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: Broken door.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba, type: 3}
@@ -2019,6 +2080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
         type: 3}
+      propertyPath: timeToEscape
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
       propertyPath: exitPoints.Array.data[0]
       value: 
       objectReference: {fileID: 17434607}
@@ -2041,6 +2107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7689079103227646119, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7689079104374209796, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
         type: 3}
       propertyPath: m_RootOrder
@@ -2095,6 +2166,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689079104374209799, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5751357
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689079104374209799, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.008682609
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689079104374209799, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.344337
       objectReference: {fileID: 0}
     - target: {fileID: 7689079104374209801, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
         type: 3}

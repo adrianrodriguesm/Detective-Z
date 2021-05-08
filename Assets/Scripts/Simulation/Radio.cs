@@ -13,7 +13,7 @@ public class Radio : MonoBehaviour
     bool soundPlaying = false;
     public bool Active
     {
-        get { return audio.enabled; }
+        get { return activated; }
     }
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class Radio : MonoBehaviour
         infected = StoryManager.Instance.Infected;
         audio = GetComponent<AudioSource>();
         audio.enabled = false;
+        activated = false;
         clue = GetComponent<Clue>();
         if (clue)
             clue.Enable = false;
