@@ -132,7 +132,7 @@ MonoBehaviour:
   offsetY: 1
   itemFall: {fileID: 8256694537027724759, guid: e79c59d2e50adce498378996cca8b4e8,
     type: 3}
-  itemUse: {fileID: 8517939676926125857, guid: af7535a5ed878c841a0e4fbe8102a425, type: 3}
+  itemUse: {fileID: 0}
   itemDeath: {fileID: 7015838383560413559, guid: 5c663a3a58c897b4da7bca15fda7cd71,
     type: 3}
   offsetDeadX: 1

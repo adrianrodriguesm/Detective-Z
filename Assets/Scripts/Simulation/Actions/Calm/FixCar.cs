@@ -39,7 +39,16 @@ public class FixCar : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         car = FindObjectOfType<Car>();
-        if (car)
+        if (car && !car.Reserved)
+        {
             cartrf = car.enginePoint;
+            car.Reserved = true;
+        }
+        else
+        {
+            car = null;
+            block = true;
+        }
+            
     }
 }

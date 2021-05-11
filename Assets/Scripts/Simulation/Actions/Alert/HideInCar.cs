@@ -11,6 +11,9 @@ public class HideInCar : Action
     [System.NonSerialized] InfectedAgent infected;
     public override void Execute(AIAgent agent)
     {
+        if (!car)
+            return;
+
         if(!car.IsUsed)
         {
             agent.Target = targetTrf;
@@ -46,6 +49,10 @@ public class HideInCar : Action
             car.Reserved = true;
         }
         else
+        {
             car = null;
+            block = true;
+        }
+            
     }
 }

@@ -213,12 +213,15 @@ public class InfectedAgent : MonoBehaviour
         Instantiate(deadInfectedAgent, transform.position, Quaternion.identity);
     }
 
-    public void TakeDamage(AttackType type, AIAgent agent)
+    public void TakeDamage(AttackType type, AIAgent agent, bool bleed)
     {
-        float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
-        float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
-        Instantiate(infectedBlood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
-
+        if(bleed)
+        {
+            float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
+            float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
+            Instantiate(infectedBlood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
+        }
+        
         InfectedAction action = currAction as AttackAgent;
         // If is attackes by an agent that is not a target
         if(action == null)

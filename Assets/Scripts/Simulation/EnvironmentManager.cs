@@ -34,7 +34,7 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
         tileMaps = new Dictionary<EnvironmentType, Tilemap>();
         foreach (var tileMap in maps)
         {
-            EnvironmentType type = tileMap.gameObject.GetComponent<Evironment>().environment;
+            EnvironmentType type = tileMap.gameObject.GetComponent<Environment>().environment;
             availableEnvironments.Add(type, true);
             tileMaps.Add(type, tileMap);
         }
@@ -86,6 +86,14 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
             availableEnvironments[environment] = available;
     }
 
+    public bool IsPointInsideTheEnvironment(EnvironmentType environment, Vector2 position)
+    {
+        if (tileMaps.ContainsKey(environment))
+        {
+            return tileMaps[environment].gameObject.GetComponent<Collider2D>().bounds.Contains(position);
+        }
+        return false;
+    }
     public bool AreAgentAlertInEnvironment(EnvironmentType environment)
     {
         if (availableEnvironments.ContainsKey(environment))

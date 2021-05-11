@@ -42,7 +42,7 @@ public class SearchWeapon : Action
 
     public override void OnActionFinish(AIAgent agent)
     {
-       
+
     }
 
     public override void OnActionPrepare(AIAgent agent)
@@ -53,11 +53,12 @@ public class SearchWeapon : Action
             return;
         }
         weapon = weaponObj.GetComponent<Weapon>();
-        var weapons = FindObjectsOfType<Weapon>().Where(x => x.attackType == weapon.attackType && x.IsFree);
+        var environmentManager = EnvironmentManager.Instance;
+        var weapons = FindObjectsOfType<Weapon>().Where(x => x.attackType == weapon.attackType && x.IsFree 
+                            && environmentManager.IsPointInsideTheEnvironment(agent.Environment, x.transform.position));
         float minDistance = Mathf.Infinity;
         foreach(Weapon weaponInEnv in weapons)
         {
-     
             float distance = Vector2.Distance(weaponInEnv.transform.position, agent.transform.position);
             if (distance < minDistance)
             {

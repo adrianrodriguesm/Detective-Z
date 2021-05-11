@@ -16,6 +16,8 @@ public abstract class Action : ScriptableObject
 
     public bool CanRepeat = false;
 
+    [System.NonSerialized] public bool block = false;
+
     public virtual void OnActionStart(AIAgent agent)
     {
         agent.DetectionLevel += detectionLevel;

@@ -15,7 +15,7 @@ public enum EnvironmentType
     Kitchen,
     Bathroom
 }
-public class Evironment : MonoBehaviour
+public class Environment : MonoBehaviour
 {
     public EnvironmentType environment;
     private void OnTriggerEnter2D(Collider2D other)

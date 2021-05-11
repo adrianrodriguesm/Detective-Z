@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 4dd3f17a43d874f43ac14bbe8ac2565f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Pee pants.
+    - Peed pants.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &-2530041332230752084

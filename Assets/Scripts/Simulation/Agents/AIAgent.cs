@@ -114,6 +114,7 @@ public class AIAgent : MonoBehaviour
     {
         List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState).ToList();
         currAction = possibleActions[Random.Range(0, possibleActions.Count)];
+        currentOrder++;
         currAction.action.OnActionStart(this);
         currAction.action.OnActionPrepare(this);
     }
@@ -309,7 +310,7 @@ public class AIAgent : MonoBehaviour
         actions.Remove(currAction); 
 
         List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState 
-                                        && !lockEnvironments.Contains(x.action.environment) && x.order > currentOrder).ToList();
+                                        && !lockEnvironments.Contains(x.action.environment) && x.order > currentOrder && !x.action.block).ToList();
 
         if (currAction.action.CanRepeat && currAction.action != defaultAction)
             actions.Add(currAction);
@@ -336,6 +337,18 @@ public class AIAgent : MonoBehaviour
         currAction.action.OnActionStart(this);
         currAction.action.OnActionPrepare(this);
 
+        if(currAction.action.block)
+        {
+            DecreaseCounter();
+            ChangedAction();
+        }
+
     }
 
+    public void DecreaseCounter()
+    {
+
+        currentOrder--;
+        currentOrder = currentOrder <= 0 ? 0 : currentOrder;
+    }
 }

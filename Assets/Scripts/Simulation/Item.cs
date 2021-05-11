@@ -19,8 +19,7 @@ public class Item : MonoBehaviour
     public GameObject itemDeath;
     public float offsetDeadX = 1f;
     public float offsetDeadY = 1f;
-    public static List<Vector2> lastInstantion = new List<Vector2>();
-    public static float distance = 0.5f;
+    
     public virtual void OnItemAdded(AIAgent agent)
     {
         agent.items.Add(this);
@@ -28,6 +27,7 @@ public class Item : MonoBehaviour
             return;
 
         transform.GetChild(0).gameObject.SetActive(false);
+        ItemManager.Instance.Positions.Add(transform.position);
         Instantiate(itemAdded, transform.position, Quaternion.identity);
     }
 
@@ -36,6 +36,7 @@ public class Item : MonoBehaviour
         if (!itemUse)
             return;
 
+        ItemManager.Instance.Positions.Add(position);
         Instantiate(itemUse, position, Quaternion.identity);
     }
 
@@ -44,6 +45,7 @@ public class Item : MonoBehaviour
         if (!itemUse)
             return;
 
+        ItemManager.Instance.Positions.Add(transform.position);
         Instantiate(itemUse, transform.position, Quaternion.identity);
     }
 
@@ -60,23 +62,23 @@ public class Item : MonoBehaviour
             float offsetYDelta = Random.Range(-offsetY, offsetY);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
-        } while (CheckDistance(position));
-        lastInstantion.Add(position);
+        } while (ItemManager.Instance.IsValidPosition(position));
+        ItemManager.Instance.Positions.Add(position);
         Instantiate(itemFall, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
     }
-
+    /** /
     public bool CheckDistance(Vector2 position)
     {
         var objectsClose = lastInstantion.Where(x => Vector2.Distance(position, x) < distance);
         return objectsClose.Count() > 0;
     }
-
+    /**/
     public void OnDeath(AIAgent agent)
     {
         if (!itemDeath)
             return;
 
-        
+        ItemManager.Instance.Positions.Add(agent.transform.position);
         Vector2 position = Vector2.zero;
         do
         {
@@ -84,8 +86,8 @@ public class Item : MonoBehaviour
             float offsetYDelta = Random.Range(-offsetDeadY, offsetDeadY);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
-        } while (CheckDistance(position));
-        lastInstantion.Add(position);
+        } while (ItemManager.Instance.IsValidPosition(position));
+        ItemManager.Instance.Positions.Add(position);
         Instantiate(itemDeath, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
     }
 

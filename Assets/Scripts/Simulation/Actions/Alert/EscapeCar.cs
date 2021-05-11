@@ -38,7 +38,11 @@ public class EscapeCar : Action
             car.Reserved = true;
         }
         else
+        {
             car = null;
+            block = true;
+        }
+           
 
     }
 }

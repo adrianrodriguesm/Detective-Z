@@ -128,8 +128,8 @@ public class Attack : Action
             Instantiate(storytellingElement, new Vector3(agent.transform.position.x + offsetX, agent.transform.position.y + offsetY, agent.transform.position.z), Quaternion.identity);
             /**/
             // If the agent is mainly fearfull it won't attack the infected
-
-            infected.TakeDamage(type, agent);
+            bool makeBleed = (type.Equals(AttackType.Body) && !attackAction) ? false : true;
+            infected.TakeDamage(type, agent, makeBleed);
         }
             
     }
