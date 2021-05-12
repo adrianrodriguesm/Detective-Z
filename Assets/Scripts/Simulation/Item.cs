@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
     public float offsetDeadX = 1f;
     public float offsetDeadY = 1f;
     public int maxIterations = 4;
+    static float instantiationDelta = 1f;
     
     public virtual void OnItemAdded(AIAgent agent)
     {
@@ -57,14 +58,12 @@ public class Item : MonoBehaviour
             return;
 
         Vector2 position = Vector2.zero;
-        int counter = 0;
         do
         {
-            float offsetXDelta = Random.Range(-offsetX, offsetX);
-            float offsetYDelta = Random.Range(-offsetY, offsetY);
+            float offsetXDelta = Random.Range(-instantiationDelta, instantiationDelta);
+            float offsetYDelta = Random.Range(-instantiationDelta, instantiationDelta);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
-            counter++;
         } while (ItemManager.Instance.IsValidPosition(position));
         ItemManager.Instance.Positions.Add(position);
         Instantiate(itemFall, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
@@ -83,14 +82,12 @@ public class Item : MonoBehaviour
 
         ItemManager.Instance.Positions.Add(agent.transform.position);
         Vector2 position = Vector2.zero;
-        int counter = 0;
         do
         {
-            float offsetXDelta = Random.Range(-offsetDeadX, offsetDeadX);
-            float offsetYDelta = Random.Range(-offsetDeadY, offsetDeadY);
+            float offsetXDelta = Random.Range(-instantiationDelta, instantiationDelta);
+            float offsetYDelta = Random.Range(-instantiationDelta, instantiationDelta);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
-            counter++;
         } while (ItemManager.Instance.IsValidPosition(position));
         ItemManager.Instance.Positions.Add(position);
         Instantiate(itemDeath, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);

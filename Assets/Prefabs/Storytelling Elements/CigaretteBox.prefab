@@ -98,7 +98,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Box of cigarettes.
+    - Cigarettes Box.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &-1257103542432721338

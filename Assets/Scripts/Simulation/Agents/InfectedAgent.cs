@@ -150,6 +150,11 @@ public class InfectedAgent : MonoBehaviour
         if (Seeker.IsDone())
             Seeker.StartPath(Rigidbody.position, Action.GetTargetPosition(), OnPathComplete);           
     }
+    
+    public Vector2 GetTargetPostion()
+    {
+        return Action.GetTargetPosition();
+    }
 
     public void ResetBloodWalking()
     {

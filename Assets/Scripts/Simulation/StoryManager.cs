@@ -136,6 +136,9 @@ public class StoryManager : Singleton<StoryManager>
         StartCoroutine(CaptureFrame());
 
     }
+
+   
+
     // Take a shot immediately
     IEnumerator CaptureFrame()
     {

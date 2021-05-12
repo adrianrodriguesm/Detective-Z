@@ -198,6 +198,7 @@ MonoBehaviour:
   rb: {fileID: 7689079104374209798}
   speed: 6
   animator: {fileID: 8373075014579209368}
+  environment: 0
 --- !u!212 &1208705355
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -236,7 +237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7595232462096018200, guid: be6ddf5997424d24da76754b7eb5edcb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

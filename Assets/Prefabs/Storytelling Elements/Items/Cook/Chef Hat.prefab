@@ -98,7 +98,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Chef hat.
+    - Chef Hat.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &-703076900807715039

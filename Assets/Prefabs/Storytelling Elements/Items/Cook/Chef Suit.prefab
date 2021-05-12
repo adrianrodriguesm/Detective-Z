@@ -98,7 +98,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Chef suit.
+    - Chef Apron.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &2585812006475480838

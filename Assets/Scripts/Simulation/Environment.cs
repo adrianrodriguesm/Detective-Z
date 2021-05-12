@@ -27,7 +27,7 @@ public class Environment : MonoBehaviour
             if(!EnvironmentManager.Instance.IsEnvironmentAvailable(environment))
             {
                 agent.AddLockEnvironment(environment);
-                agent.ChangedAction();
+                //agent.ChangedAction();
             }
         }
         else if(other.CompareTag("InfectedAgent"))

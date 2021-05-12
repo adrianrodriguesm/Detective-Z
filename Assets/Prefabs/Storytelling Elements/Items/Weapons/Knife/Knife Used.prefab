@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    title: Knife
+    title: 
     sentences:
-    - Knife missing.
+    - Knife Missing.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &3791361584586242067

@@ -23,7 +23,7 @@ public class Attack : Action
     [Header("Clue placement offset")]
     public float offsetRadiusX = 1f;
     public float offsetRadiusY = 1f;
-    public float distanceToWait = 2f;
+    public float distanceToWait = 5f;
     public GameObject deadCharacter;
     [System.NonSerialized] bool attackWithBody = false;
     private void OnEnable()
@@ -43,50 +43,17 @@ public class Attack : Action
         {
             if (weapon)
             {
-                Debug.Log(weapon);
+                //Debug.Log(weapon);
                 if (agent.HasWeapon(weapon) &&
                     ((agent.State.Equals(State.Attacked) && !attackAction) || attackAction))
                 {
                     // Updated target transform
-                    agent.Target = infected.transform;
-                    AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
+                    AttackAndUpdateTarget(agent, weapon.radiusAttack, weapon.attackType);
+
                 }
                 // Othewise find a weapon in environment
                 else
                 {
-                    /** /
-                    if (!foundWeapon)
-                    {
-                        Debug.Log("Unkonw weapon location!");
-                        var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree);
-                        //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
-                        float minDistance = Mathf.Infinity;
-                        AttackType attackType = (AttackType)Random.Range(0, 2);
-                        foreach (var currWeapon in weapons)
-                        {
-                            if (currWeapon.attackType == attackType)
-                            {
-                                float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
-                                if (distance < minDistance)
-                                {
-                                    this.weapon = currWeapon;
-                                    weaponLocation = currWeapon.transform;
-                                    minDistance = distance;
-
-                                }
-                            }
-
-                        }
-                        foundWeapon = true;
-                        // Check if the distance to the closest weapon is lower than the double of the distance to the infected
-                        // otherwise attack with body (TODO: maybe force the execution of other action)
-                        if (minDistance > 1.5f * Vector2.Distance(agent.transform.position, infected.transform.position))
-                        {
-                            attackWithBody = true;
-                            return;
-                        }
-                    }
-                    /**/
                     // Updated the agent target in order to find the weapon
                     agent.Target = weaponLocation;
                     if (Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
@@ -98,6 +65,7 @@ public class Attack : Action
             {
                 weapon = agent.TryGetWeapon();
                 // Updated target transform
+                AttackAndUpdateTarget(agent, weapon.radiusAttack, weapon.attackType);
                 agent.Target = infected.transform;
                 AttackAndClueGeneration(weapon.radiusAttack, weapon.attackType, agent);
             }
@@ -110,10 +78,24 @@ public class Attack : Action
         {
             attackWithBody = true;
             agent.Target = infected.transform;
-            AttackAndClueGeneration(radiusAttack, AttackType.Body, agent);
+            AttackAndUpdateTarget(agent, radiusAttack, AttackType.Body);
         }
 
         
+    }
+
+    private void AttackAndUpdateTarget(AIAgent agent, float radius, AttackType attackType)
+    {
+        if (infected.Action is AttackAgent && infected.GetTargetPostion() != (Vector2)agent.transform.position
+                       && Vector2.Distance(infected.transform.position, agent.transform.position) < distanceToWait)
+        {
+            agent.Target = agent.transform;
+        }
+        else
+        {
+            agent.Target = infected.transform;
+            AttackAndClueGeneration(radius, attackType, agent);
+        }
     }
 
     private void AttackAndClueGeneration(float radius, AttackType type, AIAgent agent)
@@ -123,12 +105,6 @@ public class Attack : Action
         Collider2D hit = Physics2D.OverlapCircle(agent.transform.position, radius, layer);
         if (hit)
         {
-            /** /
-            float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
-            float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
-            Instantiate(storytellingElement, new Vector3(agent.transform.position.x + offsetX, agent.transform.position.y + offsetY, agent.transform.position.z), Quaternion.identity);
-            /**/
-            // If the agent is mainly fearfull it won't attack the infected
             bool makeBleed = (type.Equals(AttackType.Body) && !attackAction) ? false : true;
             infected.TakeDamage(type, agent, makeBleed);
         }
@@ -143,15 +119,7 @@ public class Attack : Action
     public override void OnActionFinish(AIAgent agent)
     {
         if (agent.IsDead())
-        {
             weapon = null;
-            /** /
-            var childGPX = agent.transform.Find("EnemyGPX");
-            Destroy(childGPX.gameObject);
-            Instantiate(deadCharacter, agent.transform.position, Quaternion.identity, agent.transform);
-            /**/
-
-        }
     }
 
     public override void OnActionPrepare(AIAgent agent)
@@ -163,7 +131,6 @@ public class Attack : Action
 
         Debug.Log("Unkonw weapon location!");
         var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree);
-        //List<Weapon> weapons = new List<Weapon>(FindObjectsOfType<Weapon>()).Where(x => x.attackType == weapon.attackType);
         float minDistance = Mathf.Infinity;
         AttackType attackType = (AttackType)Random.Range(1, 2);
         foreach (var currWeapon in weapons)
@@ -180,8 +147,8 @@ public class Attack : Action
                 
 
         }
-        // Check if the distance to the closest weapon is lower than the double of the distance to the infected
-        // otherwise attack with body (TODO: maybe force the execution of other action)
+        // Check if the distance to the closest weapon is lower than the double 
+        // of the  distance to the infected otherwise attack with body 
         if (minDistance > 1.5f * Vector2.Distance(agent.transform.position, infected.transform.position))
         {
             attackWithBody = true;

@@ -109,5 +109,4 @@ public class EnvironmentManager : Singleton<EnvironmentManager>
         return false;
     }
 
-
 }
