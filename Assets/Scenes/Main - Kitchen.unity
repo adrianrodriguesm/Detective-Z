@@ -2104,6 +2104,16 @@ PrefabInstance:
       propertyPath: exitPoints.Array.data[2]
       value: 
       objectReference: {fileID: 225450365}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: timerBloodWalkingGradient
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994954258887984903, guid: d92dcce8590a9764b8a8c8777723b9bf,
+        type: 3}
+      propertyPath: spacingBetweenWalkingBlood
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92dcce8590a9764b8a8c8777723b9bf, type: 3}
 --- !u!1001 &1742699681
@@ -2290,7 +2300,7 @@ PrefabInstance:
     - target: {fileID: 3135572978925203606, guid: 75e1420ebabca8b4fb6fad52f922043f,
         type: 3}
       propertyPath: m_Name
-      value: DialogCanvas
+      value: DialogueCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e1420ebabca8b4fb6fad52f922043f, type: 3}
@@ -2875,6 +2885,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2542883306107403122, guid: d3c3cac05b99b124d9da4abcece51d71,
         type: 3}
+      propertyPath: distance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542883306107403122, guid: d3c3cac05b99b124d9da4abcece51d71,
+        type: 3}
       propertyPath: wallCollider
       value: 
       objectReference: {fileID: 71302398}
@@ -3344,7 +3359,7 @@ PrefabInstance:
         type: 3}
       propertyPath: actions.Array.data[3].action
       value: 
-      objectReference: {fileID: 11400000, guid: b6d5ac2d13b8b9745bd1b2fba77edd70,
+      objectReference: {fileID: 11400000, guid: a75326718855ab14f8a15405a4ecc52d,
         type: 2}
     - target: {fileID: 1675540888877478001, guid: 70046258f48d41444a90c77ae5941988,
         type: 3}

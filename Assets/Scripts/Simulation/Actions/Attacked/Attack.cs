@@ -23,6 +23,7 @@ public class Attack : Action
     [Header("Clue placement offset")]
     public float offsetRadiusX = 1f;
     public float offsetRadiusY = 1f;
+    public float distanceToWait = 2f;
     public GameObject deadCharacter;
     [System.NonSerialized] bool attackWithBody = false;
     private void OnEnable()

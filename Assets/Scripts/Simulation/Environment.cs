@@ -18,7 +18,7 @@ public enum EnvironmentType
 public class Environment : MonoBehaviour
 {
     public EnvironmentType environment;
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Agent"))
         {
@@ -32,9 +32,13 @@ public class Environment : MonoBehaviour
         }
         else if(other.CompareTag("InfectedAgent"))
         {
-
             InfectedAgent agent = other.GetComponent<InfectedAgent>();
             agent.Environment = environment;
+        }
+        else if(other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            player.environment = environment;
         }
            
     }
