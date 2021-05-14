@@ -176,7 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     title: 
-    sentences: []
+    sentences:
+    - TV Turn On.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!212 &7831751411126349515
@@ -194,6 +195,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

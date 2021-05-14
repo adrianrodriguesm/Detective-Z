@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b5d9f5fbd6f05c49bd008069be6a6d4, type: 3}
-  m_Name: AttackGun
+  m_Name: AttackedBrave
   m_EditorClassIdentifier: 
   environment: 0
-  state: 1
-  detectionLevel: 0.53
-  storytellingElement: {fileID: 0}
-  attackAction: 1
+  state: 3
+  detectionLevel: 0.42
+  attackAction: 0
   CanRepeat: 0
-  weaponObject: {fileID: 8056653398807689082, guid: 5e6589fbd09e328499c8e0d5a9f24851,
-    type: 3}
-  distanceToAdd: 3
+  weaponObject: {fileID: 0}
+  distanceToAdd: 1.5
   damage: 3
   radiusAttack: 1
   layer:
@@ -28,5 +26,6 @@ MonoBehaviour:
     m_Bits: 512
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
+  distanceToWait: 5
   deadCharacter: {fileID: 377364330430909328, guid: 8923a979a52b6164ea83dd579c91f036,
     type: 3}

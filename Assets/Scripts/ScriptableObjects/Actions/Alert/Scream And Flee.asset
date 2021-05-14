@@ -16,7 +16,7 @@ MonoBehaviour:
   state: 1
   detectionLevel: 0.786
   attackAction: 0
-  CanRepeat: 1
+  CanRepeat: 0
   peePants: {fileID: 6498060622744841441, guid: 58a58d28c0f58fb478d3a8816ec2631e,
     type: 3}
   changeDirectionTimer: 5

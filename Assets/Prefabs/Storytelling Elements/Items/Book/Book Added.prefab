@@ -48,7 +48,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Seems that a book is missing.
+    - Seems that a Book is Missing.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!212 &8809239296608820390
@@ -66,6 +66,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

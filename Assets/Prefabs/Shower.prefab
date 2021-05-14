@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8744066393406128236}
   - component: {fileID: 8744066394418675412}
   - component: {fileID: 5064067113703735901}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Shower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3124fe4a068135c47a955a071b083bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environment: 1
+  environment: 7
 --- !u!82 &8744066393406128236
 AudioSource:
   m_ObjectHideFlags: 0
@@ -187,6 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    title: 
+    sentences: []
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1 &3219926603127600364
@@ -199,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4244969879873414962}
   - component: {fileID: 1340399308620874066}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: RadioGPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,6 +238,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

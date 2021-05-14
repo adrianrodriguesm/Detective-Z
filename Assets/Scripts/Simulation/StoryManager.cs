@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,11 +11,39 @@ enum AnimationState
     Play, Stop, Pause, Rewind
 }
 
+public class ActionStorage
+{
+    public string Name;
+    public Type ActionType;
+
+    public ActionStorage(string name, Type actionType)
+    {
+        Name = name;
+        ActionType = actionType;
+    }
+    /** /
+    public static bool operator == (ActionStorage obj1, ActionStorage obj2)
+    {
+        return obj1.Name.Equals(obj2.Name) && obj1.ActionType == obj2.ActionType;
+    }
+   
+    public static bool operator != (ActionStorage obj1, ActionStorage obj2)
+    {
+        return !obj1.Name.Equals(obj2.Name) || obj1.ActionType != obj2.ActionType;
+    }
+    /**/
+}
+
 public class StoryManager : Singleton<StoryManager>
 {
     List<AIAgent> agents;
     List<AIAgent> deadAgents;
-    [HideInInspector]
+    List<ActionStorage> actionsExecuted;
+
+    public List<ActionStorage> ActionsExecuted
+    {
+        get { return actionsExecuted; }
+    }
     public List<AIAgent> AIAgents
     {
         get { return agents; }
@@ -55,6 +84,7 @@ public class StoryManager : Singleton<StoryManager>
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
         deadAgents = new List<AIAgent>();
+        actionsExecuted = new List<ActionStorage>();
         infected = FindObjectOfType<InfectedAgent>();
         infectedEntrance = FindObjectsOfType<InfectedEntrance>().ToList();
         StartCoroutine(PrepareInfectedAttack());
@@ -77,7 +107,7 @@ public class StoryManager : Singleton<StoryManager>
     {
         infected.gameObject.SetActive(false);
         yield return new WaitForSeconds(timerToStartTheAttack);
-        InfectedEntrance entrancePoint = infectedEntrance[Random.Range(0, infectedEntrance.Count())];
+        InfectedEntrance entrancePoint = infectedEntrance[UnityEngine.Random.Range(0, infectedEntrance.Count())];
         infected.transform.position = entrancePoint.transform.position;
         infected.gameObject.SetActive(true);
         entrancePoint.Entry();  
@@ -242,5 +272,15 @@ public class StoryManager : Singleton<StoryManager>
     void PauseSimulation()
     {
         
+    }
+    public void AddExecutedAction(Action action)
+    {
+        ActionStorage actionStorage = new ActionStorage(action.name, action.GetType());
+        ActionsExecuted.Add(actionStorage);
+    }
+    public bool WasActionExecuted(Action action)
+    {
+        bool result = ActionsExecuted.Where(x => x.Name.Equals(action.name) && x.ActionType == action.GetType()).Count() > 0;
+        return result;
     }
 }

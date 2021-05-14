@@ -13,12 +13,14 @@ public class DialogueManager : Singleton<DialogueManager>
     void Start()
     {
         sentences = new Queue<string>();
+        titleText.transform.parent.gameObject.SetActive(false);
     }
 
     public void BeginDialogue(Dialogue dialogue)
     {
         Debug.Log("Starting dialogue " + dialogue.title);
-        animator.SetBool("IsOpen", true);
+        //animator.SetBool("IsOpen", true);
+        titleText.transform.parent.gameObject.SetActive(true);
         titleText.text = dialogue.title;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -30,14 +32,16 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void EndDialogue()
     {
-        animator.SetBool("IsOpen", false);
+        // animator.SetBool("IsOpen", false);
+        titleText.transform.parent.gameObject.SetActive(false);
     }
 
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
-            animator.SetBool("IsOpen", false);
+            //animator.SetBool("IsOpen", false);
+
             return;
         }
 
@@ -53,7 +57,7 @@ public class DialogueManager : Singleton<DialogueManager>
         foreach (char letter in sentence.ToCharArray())
         {
             DialogueText.text += letter;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.04f);
         }
         yield return new WaitForSeconds(4f);
         DisplayNextSentence();

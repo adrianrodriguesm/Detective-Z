@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main - LR.unity
     guid: abd2666f81b2ba3479327f545b7034e3
   - enabled: 1
-    path: Assets/Scenes/Main - Kitchen.unity
+    path: Assets/Scenes/Main.unity
     guid: 31f0af0e110a9e94a94299e61959f681
   - enabled: 0
     path: Assets/Scenes/Main - Garden.unity

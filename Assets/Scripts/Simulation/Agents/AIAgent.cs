@@ -112,11 +112,17 @@ public class AIAgent : MonoBehaviour
     // Fist action is random
     void ChooseFirstAction()
     {
-        List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState).ToList();
+        List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState
+        && !StoryManager.Instance.WasActionExecuted(x.action)).ToList();
         currAction = possibleActions[Random.Range(0, possibleActions.Count)];
         currentOrder++;
         currAction.action.OnActionStart(this);
         currAction.action.OnActionPrepare(this);
+
+        if (!(currAction.action is DefaultAction) && !currAction.action.CanRepeat)
+        {
+            StoryManager.Instance.AddExecutedAction(currAction.action);
+        }
     }
     private void UpdatePath()
     {
@@ -200,25 +206,6 @@ public class AIAgent : MonoBehaviour
                 foreach (var storytellingElement in objectsToInstatiateWalking)
                     storytellingElement.GenerateStorytellingElement(transform.position);
             }
-
-            /** /
-            if(objectsToInstatiateWalking.Count > 0 && Vector2.Distance(transform.position, lastIntatiation) >= spacing)
-            {
-                foreach(var storytellingElement in objectsToInstatiateWalking)
-                {
-                    lastIntatiation = transform.position;
-                    Instantiate(storytellingElement, transform.position, Quaternion.identity);
-                }
-                
-            }
-
-            /** /
-            // Update the localScale of graphic in order to flip the sprite
-            if (force.x <= 0.01f)
-                enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
-            else if (force.x >= 0.01f)
-                enemyGFX.localScale = new Vector3(1f, 1f, 1f);
-            /**/
         }
     }
 
@@ -307,10 +294,11 @@ public class AIAgent : MonoBehaviour
     public void ChangedAction()
     {
         currAction.action.OnActionFinish(this);
-        actions.Remove(currAction); 
-
+        actions.Remove(currAction);
+        var storyManager = StoryManager.Instance;
         List<ActionOrder> possibleActions = actions.Where(x => (x.action.environment == currentEnvironment || x.action.environment == EnvironmentType.Any) && x.action.state == currentState 
-                                        && !lockEnvironments.Contains(x.action.environment) && x.order > currentOrder && !x.action.block).ToList();
+                                        && !lockEnvironments.Contains(x.action.environment) && x.order > currentOrder && !x.action.block
+                                        && !storyManager.WasActionExecuted(x.action)).ToList();
 
         if (currAction.action.CanRepeat && currAction.action != defaultAction)
             actions.Add(currAction);
@@ -341,6 +329,11 @@ public class AIAgent : MonoBehaviour
         {
             DecreaseCounter();
             ChangedAction();
+        }
+        
+        if(!(currAction.action is DefaultAction) && !currAction.action.CanRepeat)
+        {
+            storyManager.AddExecutedAction(currAction.action);
         }
 
     }
