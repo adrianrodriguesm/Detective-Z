@@ -24,6 +24,7 @@ public class Serializer
     public static void Serialize<T>(T obj)
     {
         string output = JsonUtility.ToJson(obj);
-        File.WriteAllText(Application.dataPath + "/Log/Log.json", output);
+        System.DateTime time = System.DateTime.Now;
+        File.WriteAllText(Application.dataPath + "/LOG-" + time.ToString("yyyyMMddHHmmss") + ".json", output);
     }
 }
