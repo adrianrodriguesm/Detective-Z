@@ -1,0 +1,122 @@
+{
+    "GameplayDuration": 20.079252243041993,
+    "NumberOfClueWithInteraction": 9,
+    "NumberOfClueWithoutInteraction": 14,
+    "Clues": 
+    [
+        {
+            "ClueName": "Window(Clone)",
+            "NumberOfInteraction": 2,
+            "Duration": 0.12326831370592118
+        },
+        {
+            "ClueName": "DeadCarefull(Clone)",
+            "NumberOfInteraction": 2,
+            "Duration": 1.6847448348999024
+        },
+        {
+            "ClueName": "GunFall(Clone)",
+            "NumberOfInteraction": 1,
+            "Duration": 1.441404104232788
+        },
+        {
+            "ClueName": "Chef Suit(Clone)",
+            "NumberOfInteraction": 1,
+            "Duration": 1.4662413597106934
+        },
+        {
+            "ClueName": "DeadFearfull(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "PeePants(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Nut(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "CigaretteBox(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Tornillo(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Cigarette(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "GunAdded(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Chef Hat(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "DeadBrave(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Glasses(Clone)",
+            "NumberOfInteraction": 1,
+            "Duration": 0.8409692645072937
+        },
+        {
+            "ClueName": "PenPaper(Clone)",
+            "NumberOfInteraction": 1,
+            "Duration": 1.1524202823638917
+        },
+        {
+            "ClueName": "Window(Clone)",
+            "NumberOfInteraction": 1,
+            "Duration": 1.711889386177063
+        },
+        {
+            "ClueName": "BookOpen(Clone)",
+            "NumberOfInteraction": 1,
+            "Duration": 1.292737364768982
+        },
+        {
+            "ClueName": "Kitchen Used(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Book Added(Clone)",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Radio",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "Door",
+            "NumberOfInteraction": 1,
+            "Duration": 1.4332693815231324
+        },
+        {
+            "ClueName": "TV",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        },
+        {
+            "ClueName": "BrokenDoor",
+            "NumberOfInteraction": 0,
+            "Duration": 0.0
+        }
+    ]}

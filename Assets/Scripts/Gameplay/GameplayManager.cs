@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameplayManager : Singleton<GameplayManager>
@@ -8,28 +9,38 @@ public class GameplayManager : Singleton<GameplayManager>
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     public GameObject player;
-    CameraController2D cameraController;
-    bool isGameplayStated;
+    bool isGameplayStarted;
+    float gameplayDuration = 0;
+    public float GameplayDuration
+    {
+        get { return gameplayDuration; }
+    }
     // Start is called before the first frame update
     void Start()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         player.SetActive(false);
-        cameraController = Camera.main.GetComponent<CameraController2D>();
-        isGameplayStated = false;
+
+        isGameplayStarted = false;
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("EndGame"))
+        {
+            GameplaySerialize serialize = GenerateSerializeData();
+            Serializer.Serialize(serialize);
             Application.Quit();
+        }
+            
 
         if (StoryManager.Instance.IsSimulationEnd())
         {
             Cursor.visible = true;
-            if (!isGameplayStated)
+            gameplayDuration += Time.deltaTime;
+            if (!isGameplayStarted)
             {
-                isGameplayStated = true;
+                isGameplayStarted = true;
                 //SetAudioMute(true);
                 player.SetActive(true);
             }
@@ -42,5 +53,24 @@ public class GameplayManager : Singleton<GameplayManager>
         }
 
 
+    }
+
+    GameplaySerialize GenerateSerializeData()
+    {
+        GameplaySerialize serializeObject = new GameplaySerialize();
+        serializeObject.GameplayDuration = gameplayDuration;
+        serializeObject.Clues = new List<ClueSerialize>();
+        List<Clue> clues = FindObjectsOfType<Clue>().ToList();
+        foreach(var clue in clues)
+        {
+            ClueSerialize serializeClue = clue.GenerateClueSerialize();
+            if (serializeClue.NumberOfInteraction > 0)
+                serializeObject.NumberOfClueWithInteraction++;
+            else
+                serializeObject.NumberOfClueWithoutInteraction++;
+
+            serializeObject.Clues.Add(serializeClue);
+        }
+        return serializeObject;
     }
 }
