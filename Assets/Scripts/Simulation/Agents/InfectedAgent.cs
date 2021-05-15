@@ -32,7 +32,10 @@ public class InfectedAgent : MonoBehaviour
     int bloodWalkingIndex = 0;
     [Header("Posibles exits point in which the infected can scape")]
     public List<Transform> exitPoints;
+    [Range(8,20)]
     public float timeToEscape = Mathf.Infinity;
+    [Range(0,7)]
+    public float deltaToEscape = 2f;
     [Header("Storytelling Elements")]
     public GameObject deadInfectedAgent;
     bool escaped = false;
@@ -117,7 +120,7 @@ public class InfectedAgent : MonoBehaviour
     void Start()
     {
         agents = FindObjectsOfType<AIAgent>().ToList();
-        
+        timeToEscape -= Random.Range(0, deltaToEscape);
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         attackTypeRecived = new HashSet<AttackType>();

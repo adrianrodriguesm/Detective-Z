@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum AnimationState
+public enum AnimationState
 {
     Play, Stop, Pause, Rewind
 }
@@ -69,11 +69,13 @@ public class StoryManager : Singleton<StoryManager>
     int currIndex = 0;
     public Image imageDisplay;
     AnimationState animationState;
+    public AnimationState AnimationState
+    {
+        get { return animationState; }
+    }
     float timer = 0;
     public float timerForReplay;
     List<InfectedEntrance> infectedEntrance;
-    SimulationData simulationFrameData;
-    public SimualtionDataLibrary simualtionDataLibrary;
     bool fisrtTime = true;
     public List<InfectedEntrance> ExitPoints
     {
@@ -92,7 +94,6 @@ public class StoryManager : Singleton<StoryManager>
         fixedDeltaTime = Time.fixedDeltaTime;
         Time.fixedDeltaTime *= Time.timeScale;
         spriteFrame = new List<Sprite>();
-        simulationFrameData = new SimulationData();
         SimulationLoader.Instance.gameObject.SetActive(true);
     }
 
@@ -196,7 +197,6 @@ public class StoryManager : Singleton<StoryManager>
         Sprite frame = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
                                 new Vector2(0.5f, 0.5f), 8);
         spriteFrame.Add(frame);
-        simulationFrameData.simulationRecorded.Add(frame);
         // Destroy(texture);
         //For testing purposes, also write to a file in the project folder
         //File.WriteAllBytes(Application.dataPath + "/SimulationFrames/SavedScreen" + ".png", bytes);

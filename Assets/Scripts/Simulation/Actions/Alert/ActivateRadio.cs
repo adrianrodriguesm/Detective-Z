@@ -40,7 +40,7 @@ public class ActivateRadio : Action
         {
             float distance = Vector2.Distance(agent.transform.position, radio.transform.position);
             float distanceToInfected = Vector2.Distance(StoryManager.Instance.Infected.transform.position, radio.transform.position);
-            if (distance < minDistance && (agent.Environment == radio.environment) && distanceToInfected > 3f)
+            if (distance < minDistance && distanceToInfected > 2f)
             {
                 this.radio = radio;
                 minDistance = distance;

@@ -41,7 +41,7 @@ public class Clue : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!isEnable || !StoryManager.Instance.IsSimulationEnd())
+        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || StoryManager.Instance.AnimationState != AnimationState.Stop)
             return;
         //Debug.Log("Enter " + gameObject.name);
         LeanTween.cancel(gameObject);
@@ -53,7 +53,7 @@ public class Clue : MonoBehaviour
     /**/
     private void OnMouseExit()
     {
-        if (!isEnable || !StoryManager.Instance.IsSimulationEnd())
+        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || StoryManager.Instance.AnimationState != AnimationState.Stop)
             return;
         
         LeanTween.scale(gameObject, localScale, tweenTime).setEaseInSine();

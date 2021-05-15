@@ -67,7 +67,7 @@ public class BarricadeRoom : Action
 
     public override bool IsComplete(AIAgent agent)
     {
-        return objectsToMove.Count == 0;
+        return objectsToMove.Count == 0 || agent.Environment == StoryManager.Instance.Infected.Environment;
     }
 
     public override void OnActionFinish(AIAgent agent)
