@@ -55,7 +55,8 @@ public class HideInCar : Action
 
     public bool FoundWeapon(AIAgent agent)
     {
-        var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree && x.environment == agent.Environment);
+        // TODO hacky code
+        var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree && (x.attackType.Equals(AttackType.Knive) || x.environment.Equals(EnvironmentType.Garden))); // Axe in garden
         float minDistance = Mathf.Infinity;
         AttackType attackType = (AttackType)Random.Range(1, 2);
         foreach (var currWeapon in weapons)

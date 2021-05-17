@@ -243,14 +243,35 @@ public class AIAgent : MonoBehaviour
         health -= damage;
         if (IsDead())
         {
-            foreach(var item in items)
-            {
-                item.OnDeath(this);
-            }
+            
             GetComponent<Collider2D>().enabled = false;
             var childGPX = transform.Find("EnemyGPX");
             Destroy(childGPX.gameObject);
-            Instantiate(deadCharacter, transform.position, Quaternion.identity);
+            /**/
+            if(!ItemManager.Instance.IsValidPosition(transform.position, .8f))
+            {
+                Instantiate(deadCharacter, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                float instantiationDelta = 1f;
+                Vector2 position = Vector2.zero;
+                do
+                {
+                    float offsetXDelta = Random.Range(-instantiationDelta, instantiationDelta);
+                    float offsetYDelta = Random.Range(-instantiationDelta, instantiationDelta);
+                    position.x = transform.position.x + offsetXDelta;
+                    position.y = transform.position.y + offsetYDelta;
+                } while (ItemManager.Instance.IsValidPosition(position, 0.8f));
+                transform.position = position;
+                Instantiate(deadCharacter, position, Quaternion.identity);
+            }
+            /**/
+            //Instantiate(deadCharacter, transform.position, Quaternion.identity);
+            foreach (var item in items)
+            {
+                item.OnDeath(this);
+            }
         }
            
     }

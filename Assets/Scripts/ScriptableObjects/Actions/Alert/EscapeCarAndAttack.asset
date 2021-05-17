@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b7abb5a400c554e9f9a3fa9581295c, type: 3}
-  m_Name: Hide In Car
+  m_Name: EscapeCarAndAttack
   m_EditorClassIdentifier: 
   environment: 0
   state: 1
-  detectionLevel: 0.187
-  storytellingElement: {fileID: 0}
+  detectionLevel: 0.344
   attackAction: 0
   CanRepeat: 0
   distanceToHide: 2
+  distanceToAdd: 2

@@ -24,4 +24,11 @@ public class ItemManager : Singleton<ItemManager>
         var collideWithPoint = wallCollider.Where(collider => collider.OverlapPoint(position));
         return objectsClose.Count() > 0 || collideWithPoint.Count() > 0;
     }
+
+    public bool IsValidPosition(Vector2 position, float distance)
+    {
+        var objectsClose = positionsTracker.Where(x => Vector2.Distance(position, x) < distance);
+        var collideWithPoint = wallCollider.Where(collider => collider.OverlapPoint(position));
+        return objectsClose.Count() > 0 || collideWithPoint.Count() > 0;
+    }
 }

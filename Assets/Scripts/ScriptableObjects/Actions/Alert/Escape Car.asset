@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environment: 0
   state: 1
-  detectionLevel: 0.296
-  storytellingElement: {fileID: 0}
+  detectionLevel: 0.534
   attackAction: 0
   CanRepeat: 0
