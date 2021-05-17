@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Glass
   m_EditorClassIdentifier: 
   gradientClue:
-  - {fileID: 561874360265738202, guid: aeb5ef3e6a45b724b943c9977e554647, type: 3}
+  - {fileID: 5038232066345042820, guid: ff5aec81154bb0443a32b6036d785a5d, type: 3}
+  - {fileID: 4612951541124753113, guid: f3e7dd43b991bf14b99869fc5524afc9, type: 3}
+  - {fileID: 4532515138374813700, guid: e86680979b38ab2458e91db0b49ffebd, type: 3}
   loop: 0
   spacing: 1.2
-  gradientTimer: 4
+  gradientTimer: 1.33

@@ -79,6 +79,7 @@ MonoBehaviour:
   beforeEntry: {fileID: 0}
   afterEntry: {fileID: 3657534424140198601, guid: 122aa18c7b69d6a4ebca65fb1b106391,
     type: 3}
+  exit: {fileID: 0}
   walkingObject: {fileID: 11400000, guid: 2447ae2f2e615e942873c4ae9c2133ef, type: 2}
 --- !u!1 &8155262647135907276
 GameObject:
@@ -105,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8155262647135907276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.498, y: 34.808, z: 0}
+  m_LocalPosition: {x: 4.498, y: 35.251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8155262645871837870}
@@ -125,9 +126,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beforeEntry: {fileID: 3286383233710848614, guid: 329407f0a8008ec45bb565dcbe6bdb31,
     type: 3}
-  afterEntry: {fileID: 7598186869606608615, guid: 5c1a02f9d3b33c844ae821aa60d9be1e,
+  afterEntry: {fileID: 3286383233710848614, guid: b81895ffc478e1a4798b66da3c2ffa93,
     type: 3}
-  walkingObject: {fileID: 0}
+  exit: {fileID: 7598186869606608615, guid: 5c1a02f9d3b33c844ae821aa60d9be1e, type: 3}
+  walkingObject: {fileID: 11400000, guid: 0a60b66bab9b0ef48ba5e76658f2328c, type: 2}
 --- !u!1 &8155262647343995046
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,4 +176,5 @@ MonoBehaviour:
   beforeEntry: {fileID: 0}
   afterEntry: {fileID: 3657534424140198601, guid: 122aa18c7b69d6a4ebca65fb1b106391,
     type: 3}
+  exit: {fileID: 0}
   walkingObject: {fileID: 11400000, guid: 2447ae2f2e615e942873c4ae9c2133ef, type: 2}

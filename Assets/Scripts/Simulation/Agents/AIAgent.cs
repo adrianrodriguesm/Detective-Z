@@ -20,6 +20,8 @@ public class ActionOrder
 public class AIAgent : MonoBehaviour
 {
     InfectedAgent infected;
+    // Action
+    [Header("Set of actions that are going to be executed")]
     public List<ActionOrder> actions;
     int currentOrder = 0;
     ActionOrder currAction;
@@ -64,9 +66,8 @@ public class AIAgent : MonoBehaviour
     Seeker seeker;
     // Movement
     Rigidbody2D rb;
-    // Action
-    [Header("Set of actions that are going to be executed")]
-    public List<Action> actionsM;
+
+
     public DefaultAction defaultAction;
 
     /**/
@@ -90,7 +91,11 @@ public class AIAgent : MonoBehaviour
     State currentState;
     public State State
     {
-        set { currentState = value; }
+        set 
+        {
+            currentOrder = 0;
+            currentState = value; 
+        }
         get { return currentState; }
     }
     [Header("Intatiate when walking")]

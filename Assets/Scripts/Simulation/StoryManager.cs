@@ -21,17 +21,6 @@ public class ActionStorage
         Name = name;
         ActionType = actionType;
     }
-    /** /
-    public static bool operator == (ActionStorage obj1, ActionStorage obj2)
-    {
-        return obj1.Name.Equals(obj2.Name) && obj1.ActionType == obj2.ActionType;
-    }
-   
-    public static bool operator != (ActionStorage obj1, ActionStorage obj2)
-    {
-        return !obj1.Name.Equals(obj2.Name) || obj1.ActionType != obj2.ActionType;
-    }
-    /**/
 }
 
 public class StoryManager : Singleton<StoryManager>

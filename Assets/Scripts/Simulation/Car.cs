@@ -65,6 +65,7 @@ public class Car : MonoBehaviour
                 isBroken = true;
                 doorOpen.SetActive(false);
                 doorBrokenAndOpen = Instantiate(doorBrokenAndOpen, transform);
+
             }
 
         }
@@ -84,6 +85,7 @@ public class Car : MonoBehaviour
     public void Hide(AIAgent agent)
     {
         isUsed = true;
+        turnOnSound = true;
         this.agent = agent;
         transform.GetChild(0).gameObject.SetActive(false);
         doorOpen = Instantiate(doorOpen, transform);

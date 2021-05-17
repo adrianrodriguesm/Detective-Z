@@ -7,6 +7,7 @@ public class InfectedEntrance : MonoBehaviour
 
     public GameObject beforeEntry;
     public GameObject afterEntry;
+    public GameObject exit;
     public WalkingObject walkingObject;
     public bool Entered
     {
@@ -34,6 +35,20 @@ public class InfectedEntrance : MonoBehaviour
         entered = true;
         if (afterEntry)
             afterEntry = Instantiate(afterEntry, transform.position, Quaternion.identity);
+
+        if (beforeEntry)
+            Destroy(beforeEntry);
+    }
+
+    public void Exit()
+    {
+        if (entered)
+            return;
+
+        entered = true;
+
+        if (exit)
+            afterEntry = Instantiate(exit, transform.position, Quaternion.identity);
 
         if (beforeEntry)
             Destroy(beforeEntry);

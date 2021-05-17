@@ -7,6 +7,7 @@ public class Weapon : Item
     public AttackType attackType;
     public float damage;
     public float radiusAttack;
+    public EnvironmentType environment;
 
     bool isFree = true;
     public bool IsFree

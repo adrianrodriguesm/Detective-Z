@@ -42,7 +42,7 @@ public class Escape : InfectedAction
         }
         if(Vector2.Distance(m_Agent.transform.position, m_Exit.transform.position) < m_ThresholdToEscape)
         {
-            m_Exit.Entry();
+            m_Exit.Exit();
             m_Agent.Escaped = true;
             m_Agent.gameObject.SetActive(false);
         }

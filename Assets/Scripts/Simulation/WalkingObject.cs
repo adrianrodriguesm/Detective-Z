@@ -18,11 +18,6 @@ public class WalkingObject : ScriptableObject
     public float gradientTimer;
     [System.NonSerialized] float currTimer;
     [System.NonSerialized] bool stoop = false;
-    public void UpdateTimer()
-    {
-        
-           
-    }
     // Called every frame
     public void GenerateStorytellingElement(Vector3 position)
     {
@@ -48,6 +43,13 @@ public class WalkingObject : ScriptableObject
             Instantiate(gradientClue[currIndex], position, Quaternion.identity);
            
         }
+    }
+
+    public void Reset()
+    {
+        currIndex = 0;
+        stoop = false;
+        lastIntatiation = Vector3.zero;
     }
 
 }

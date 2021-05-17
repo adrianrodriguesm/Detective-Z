@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1911645411506193902}
   - component: {fileID: 8640261534400074145}
   - component: {fileID: 8809239296608820390}
-  - component: {fileID: 2945775351273153691}
+  - component: {fileID: 5048548460011906080}
   m_Layer: 0
   m_Name: Book Added
   m_TagString: Untagged
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 7c2f7dbdba638c94a8b1b4a0b158c1e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 494c3f435ab201949b202349d0a4c06c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &2945775351273153691
+--- !u!65 &5048548460011906080
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,5 +113,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6875, y: 1.3125, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.7344997, y: 0.82953364, z: 0.2}
+  m_Center: {x: -0.029740334, y: -0.017348558, z: 0}

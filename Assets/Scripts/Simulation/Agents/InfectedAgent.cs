@@ -38,7 +38,9 @@ public class InfectedAgent : MonoBehaviour
     public float deltaToEscape = 2f;
     [Header("Storytelling Elements")]
     public GameObject deadInfectedAgent;
+    public WalkingObject infectedBloodWalk;
     bool escaped = false;
+    bool wasAttacked = false;
     public bool Escaped
     {
         get { return escaped; }
@@ -90,8 +92,6 @@ public class InfectedAgent : MonoBehaviour
         get { return environment; }
     }
 
-   
-    HashSet<AttackType> attackTypeRecived;
     InfectedAction currAction;
     public InfectedAction Action
     {
@@ -123,7 +123,6 @@ public class InfectedAgent : MonoBehaviour
         timeToEscape -= Random.Range(0, deltaToEscape);
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
-        attackTypeRecived = new HashSet<AttackType>();
         // First Agent is randonly selected
         AIAgent targetAgent = null;
         float minDistance = Mathf.Infinity;
@@ -183,6 +182,9 @@ public class InfectedAgent : MonoBehaviour
             walkingObject.GenerateStorytellingElement(transform.position);
 
         // TODO this should be a walking object
+        if (wasAttacked)
+            infectedBloodWalk.GenerateStorytellingElement(transform.position);
+        /** /
         if (attackTypeRecived.Count > 0)
         {
             if (Action is AttackAgent)
@@ -201,6 +203,7 @@ public class InfectedAgent : MonoBehaviour
             }
             currTimer += Time.fixedDeltaTime;
         }
+        /**/
     }
 
     public void DisableCollider()
@@ -236,6 +239,8 @@ public class InfectedAgent : MonoBehaviour
         {
             currAction = new AttackAgent(this, agent);
         }
-        attackTypeRecived.Add(type);
+        infectedBloodWalk.Reset();
+        wasAttacked = true;
+
     }
 }

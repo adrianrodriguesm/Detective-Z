@@ -17,5 +17,5 @@ MonoBehaviour:
   - {fileID: 6859568609309188784, guid: 668496ae38bc57b48b0ff2dcf6c9242c, type: 3}
   - {fileID: 6859568609309188784, guid: 325385c6ec0791343ae61f85b5d92275, type: 3}
   loop: 0
-  spacing: 0.5
+  spacing: 1.2
   gradientTimer: 1.69

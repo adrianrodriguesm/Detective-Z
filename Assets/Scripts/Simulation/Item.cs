@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Weapon, Drink, Book, Cigarette, Kitchen, Car, Ball, Pants
+    Weapon, Drink, Book, Cigarette, Kitchen, Car, Ball, Pants, Tools
 }
 public class Item : MonoBehaviour
 {
@@ -21,10 +21,16 @@ public class Item : MonoBehaviour
     public float offsetDeadY = 1f;
     public int maxIterations = 4;
     static float instantiationDelta = 1f;
+    bool isUsed = false;
+    public bool IsUsed
+    {
+        get { return isUsed; }
+    }
     
     public virtual void OnItemAdded(AIAgent agent)
     {
         agent.items.Add(this);
+        isUsed = true;
         if (!itemAdded)
             return;
 
@@ -92,22 +98,4 @@ public class Item : MonoBehaviour
         ItemManager.Instance.Positions.Add(position);
         Instantiate(itemDeath, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);
     }
-
-    
-    // Cigaratte
-    // -- OnActionChanged -- Leave Lit cigarette
-    // -- OnDeath         -- Packege of cigarette next to the body
-    // Glasses
-    // -- OnActionChanged -- Leave glasses
-    // -- OnDeath         -- Nothing
-    // Wine
-    // -- OnActionChanged -- Leave wine glass
-    // -- OnDeath         -- Wine stain on clothes
-    // Radio -- Action (e.g turn on radio)
-    // -- Atract infected
-    // Phone
-    // -- Send Message if the level of detection of a friend is hight and the owner of the 
-    // -- phone is mostly carefull (e.g Stop NameOfTheAction or he will find you)
-    // -- If the agent is not careful and recieve a message the phone will fall
-    // -- send a maximum of two messages
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -6,9 +7,15 @@ using UnityEngine;
 public class HideInCar : Action
 {
     public float distanceToHide = 2f;
+    public float distanceToAdd = 2f;
     [System.NonSerialized] Car car;
     [System.NonSerialized] Transform targetTrf;
     [System.NonSerialized] InfectedAgent infected;
+    [System.NonSerialized] Weapon weapon = null;
+    [System.NonSerialized] Transform weaponLocation;
+    [System.NonSerialized] bool fisrtTime = true;
+    [System.NonSerialized] bool weaponFound = true;
+    [System.NonSerialized] bool haveWeapon = false;
     public override void Execute(AIAgent agent)
     {
         if (!car)
@@ -22,11 +29,50 @@ public class HideInCar : Action
                 car.Hide(agent);
             }
         }
-        else if(car.IsBroken)
+        else if(car.IsBroken && !haveWeapon)
         {
-            agent.Target = infected.transform;   
+            if (fisrtTime)
+            {
+                weaponFound = FoundWeapon(agent);
+                fisrtTime = false;
+            }
+                
+            if(weaponFound)
+            {
+                agent.Target = weaponLocation;
+                if(Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
+                {
+                    weapon.OnItemAdded(agent);
+                    haveWeapon = true;
+                }
+                    
+            }  
         }
+        if (haveWeapon)
+            agent.Target = infected.transform;
 
+    }
+
+    public bool FoundWeapon(AIAgent agent)
+    {
+        var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree && x.environment == agent.Environment);
+        float minDistance = Mathf.Infinity;
+        AttackType attackType = (AttackType)Random.Range(1, 2);
+        foreach (var currWeapon in weapons)
+        {
+
+            float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
+            if (distance < minDistance)
+            {
+                this.weapon = currWeapon;
+                weaponLocation = currWeapon.transform;
+                minDistance = distance;
+
+            }
+
+
+        }
+        return weapon != null ? true : false;
     }
 
     public override bool IsComplete(AIAgent agent)

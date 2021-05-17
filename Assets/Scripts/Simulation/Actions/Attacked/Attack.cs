@@ -54,10 +54,19 @@ public class Attack : Action
                 // Othewise find a weapon in environment
                 else
                 {
-                    // Updated the agent target in order to find the weapon
-                    agent.Target = weaponLocation;
-                    if (Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
-                        weapon.OnItemAdded(agent);
+                    if(weapon.IsUsed)
+                    {
+                        weapon = null;
+                        attackWithBody = true;
+                    }
+                    else
+                    {
+                        // Updated the agent target in order to find the weapon
+                        agent.Target = weaponLocation;
+                        if (Vector2.Distance(agent.transform.position, weaponLocation.position) <= distanceToAdd)
+                            weapon.OnItemAdded(agent);
+                    }
+
                 }
 
             }
@@ -137,12 +146,14 @@ public class Attack : Action
         {
 
             float distance = Vector2.Distance(agent.transform.position, currWeapon.transform.position);
-            if (distance < minDistance)
+            if (distance < minDistance || currWeapon.environment == agent.Environment)
             {
                 this.weapon = currWeapon;
                 weaponLocation = currWeapon.transform;
                 minDistance = distance;
 
+                if (currWeapon.environment == agent.Environment)
+                    break;
             }
                 
 
