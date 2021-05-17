@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public Collider2D wallCollider;
+    public List<Collider2D> wallCollider;
     HashSet<Vector2> positionsTracker;
     private void Start()
     {
@@ -21,6 +21,7 @@ public class ItemManager : Singleton<ItemManager>
     public bool IsValidPosition(Vector2 position)
     {
         var objectsClose = positionsTracker.Where(x => Vector2.Distance(position, x) < distance);
-        return objectsClose.Count() > 0 || wallCollider.OverlapPoint(position);
+        var collideWithPoint = wallCollider.Where(collider => collider.OverlapPoint(position));
+        return objectsClose.Count() > 0 || collideWithPoint.Count() > 0;
     }
 }

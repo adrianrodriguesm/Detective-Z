@@ -24,12 +24,9 @@ public class InfectedAgent : MonoBehaviour
     public float offsetRadiusY = 1f;
     public List<GameObject> infectedBloodWalking;
     public float spacingBetweenWalkingBlood;
-    Vector2 lastBloodInstatiatePos = Vector2.zero;
     [Header("Timer for gradient of blood")]
     [Range(0, 10)]
     public float timerBloodWalkingGradient;
-    float currTimer = 0f;
-    int bloodWalkingIndex = 0;
     [Header("Posibles exits point in which the infected can scape")]
     public List<Transform> exitPoints;
     [Range(8,20)]
@@ -156,12 +153,6 @@ public class InfectedAgent : MonoBehaviour
     public Vector2 GetTargetPostion()
     {
         return Action.GetTargetPosition();
-    }
-
-    public void ResetBloodWalking()
-    {
-        currTimer = 0f;
-        bloodWalkingIndex = 0;
     }
 
     private void OnPathComplete(Path p)

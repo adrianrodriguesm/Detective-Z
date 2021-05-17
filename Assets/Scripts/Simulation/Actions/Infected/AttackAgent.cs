@@ -26,7 +26,6 @@ public class AttackAgent : InfectedAction
         {
             if(currTimer > timer)
             {
-                m_Agent.ResetBloodWalking();
                 if (StoryManager.Instance.AllAgentAreDead())
                 {
                     m_Agent.Action = new Escape(m_Agent);
