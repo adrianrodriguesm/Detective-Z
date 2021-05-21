@@ -73,6 +73,7 @@ public class StoryManager : Singleton<StoryManager>
     // Start is called before the first frame update
     void Awake()
     {
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
         agents = FindObjectsOfType<AIAgent>().ToList();
         deadAgents = new List<AIAgent>();
         actionsExecuted = new List<ActionStorage>();

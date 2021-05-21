@@ -1352,8 +1352,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 181634308992157346, guid: d894051f7811443408e46ca73623e88d,
         type: 3}
+      propertyPath: distanceToFix
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181634308992157346, guid: d894051f7811443408e46ca73623e88d,
+        type: 3}
       propertyPath: distanceToBreakTheDoor
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 181634308992157347, guid: d894051f7811443408e46ca73623e88d,
         type: 3}
