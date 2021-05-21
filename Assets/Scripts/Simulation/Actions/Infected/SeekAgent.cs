@@ -1,5 +1,6 @@
 ﻿using Pathfinding;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class SeekAgent : InfectedAction
@@ -32,8 +33,22 @@ public class SeekAgent : InfectedAction
             }
             else
             {
-                m_Agent.SuspectTarget = null;
-                m_TargetPosition = StoryManager.Instance.GetAgentToSeek().transform;
+                m_Agent.SuspectTarget.Remove(m_TargetPosition);
+                if(m_Agent.SuspectTarget.Count() > 0)
+                {
+                    float nearTarget = Mathf.Infinity;
+                    foreach(var transformTarget in m_Agent.SuspectTarget)
+                    {
+                        float distanceToTarget = Vector2.Distance(m_Agent.transform.position, transformTarget.position);
+                        if (distanceToTarget < nearTarget)
+                        {
+                            m_TargetPosition = transformTarget;
+                            nearTarget = distanceToTarget;
+                        }
+                    }
+                }
+                else
+                    m_TargetPosition = StoryManager.Instance.GetAgentToSeek().transform;
             }
            
         }

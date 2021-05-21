@@ -96,19 +96,11 @@ public class InfectedAgent : MonoBehaviour
         set { currAction = value; }
     }
 
-    Transform suspectTarget;
-    public Transform SuspectTarget
+    List<Transform> suspectTargets;
+    public List<Transform> SuspectTarget
     {
-        get { return suspectTarget; }
-        set 
-        {
-            suspectTarget = value;
-            if(suspectTarget && Action is SeekAgent)
-            {
-                Action = new SeekAgent(this, suspectTarget);
-            }
-               
-        }
+        get { return suspectTargets; }
+       
     }
 
     [Header("Intatiate when walking")]
@@ -120,6 +112,7 @@ public class InfectedAgent : MonoBehaviour
         timeToEscape -= Random.Range(0, deltaToEscape);
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        suspectTargets = new List<Transform>();
         // First Agent is randonly selected
         AIAgent targetAgent = null;
         float minDistance = Mathf.Infinity;
@@ -174,6 +167,17 @@ public class InfectedAgent : MonoBehaviour
 
         if (wasAttacked)
             infectedBloodWalk.GenerateStorytellingElement(transform.position);
+    }
+
+    public void AddSuspectTarget(Transform target)
+    {
+        suspectTargets.Add(target);
+        if (target && Action is SeekAgent)
+        {
+            Action = new SeekAgent(this, target);
+        }
+
+        
     }
 
     public void DisableCollider()

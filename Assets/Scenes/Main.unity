@@ -637,6 +637,10 @@ MonoBehaviour:
   - action: {fileID: 11400000, guid: b73fb8f7312804d49af24e96ad344f24, type: 2}
     order: 1
   - action: {fileID: 11400000, guid: 8598e3b5919da914f9cca38564f94a6b, type: 2}
+    order: 2
+  - action: {fileID: 11400000, guid: 9325e381b00b46742a9828099f389e38, type: 2}
+    order: 3
+  - action: {fileID: 11400000, guid: 8598e3b5919da914f9cca38564f94a6b, type: 2}
     order: 3
   speed: 800
   nextWaypointDistance: 2
@@ -1208,17 +1212,17 @@ PrefabInstance:
     - target: {fileID: 5130811004547016538, guid: 6ee799f1a8462dd4bba46e73d93a74dd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5130811005002549433, guid: 6ee799f1a8462dd4bba46e73d93a74dd,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5130811005599962302, guid: 6ee799f1a8462dd4bba46e73d93a74dd,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ee799f1a8462dd4bba46e73d93a74dd, type: 3}
@@ -1342,6 +1346,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1247507675, guid: d894051f7811443408e46ca73623e88d, type: 3}
+      propertyPath: m_Volume
+      value: 0.183
+      objectReference: {fileID: 0}
     - target: {fileID: 181634308992157346, guid: d894051f7811443408e46ca73623e88d,
         type: 3}
       propertyPath: distanceToBreakTheDoor
@@ -1824,7 +1832,7 @@ PrefabInstance:
     - target: {fileID: 8056653398807689085, guid: 5e6589fbd09e328499c8e0d5a9f24851,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.29
+      value: 13.02
       objectReference: {fileID: 0}
     - target: {fileID: 8056653398807689085, guid: 5e6589fbd09e328499c8e0d5a9f24851,
         type: 3}
@@ -2595,7 +2603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730297266, guid: 4e6e15f7d5d520b478490725792adcd0, type: 3}
       propertyPath: m_Volume
-      value: 0.296
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6043860976322817544, guid: 4e6e15f7d5d520b478490725792adcd0,
         type: 3}
@@ -3071,6 +3079,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1530987891757078260, guid: b4609de459a67b744bfc3a8b8534d134,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.186
+      objectReference: {fileID: 0}
     - target: {fileID: 5106856480400328008, guid: b4609de459a67b744bfc3a8b8534d134,
         type: 3}
       propertyPath: m_RootOrder

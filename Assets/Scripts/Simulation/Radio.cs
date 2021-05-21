@@ -41,7 +41,7 @@ public class Radio : MonoBehaviour
     public void ActivateRadio()
     {
         // Play audio
-        infected.SuspectTarget = transform;
+        infected.AddSuspectTarget(transform);
         activated = true;
 
         if (clue)

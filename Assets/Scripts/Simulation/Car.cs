@@ -56,7 +56,7 @@ public class Car : MonoBehaviour
         {
             if(!infectedTargetIsHideAgent && infected.Action.GetTargetPosition() == agent.transform.position)
             {
-                infected.SuspectTarget = doorBroken;
+                infected.AddSuspectTarget(doorBroken);
                 infectedTargetIsHideAgent = true;
             }
            

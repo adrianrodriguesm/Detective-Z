@@ -15,6 +15,5 @@ MonoBehaviour:
   environment: 0
   state: 1
   detectionLevel: 0.089
-  storytellingElement: {fileID: 0}
   attackAction: 0
-  CanRepeat: 0
+  CanRepeat: 1

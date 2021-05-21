@@ -69,8 +69,6 @@ public class AIAgent : MonoBehaviour
 
 
     public DefaultAction defaultAction;
-
-    /**/
     // Environment
     EnvironmentType currentEnvironment;
     HashSet<EnvironmentType> lockEnvironments;
@@ -344,9 +342,10 @@ public class AIAgent : MonoBehaviour
                                         && !lockEnvironments.Contains(x.action.environment) && x.order > currentOrder && !x.action.block
                                         && !storyManager.WasActionExecuted(x.action)).ToList();
 
+        /** /
         if (currAction.action.CanRepeat && currAction.action != defaultAction)
             actions.Add(currAction);
-
+        /**/
         currAction.action = null;
         if (possibleActions.Count() > 0)
         {

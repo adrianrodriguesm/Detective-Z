@@ -27,7 +27,7 @@ public class StoryManager : Singleton<StoryManager>
 {
     List<AIAgent> agents;
     List<AIAgent> deadAgents;
-    List<ActionStorage> actionsExecuted;
+    public List<ActionStorage> actionsExecuted;
 
     public List<ActionStorage> ActionsExecuted
     {

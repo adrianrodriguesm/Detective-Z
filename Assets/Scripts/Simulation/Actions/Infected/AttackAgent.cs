@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 
@@ -32,9 +33,20 @@ public class AttackAgent : InfectedAction
                     return;
                 }
                
-                if (m_Agent.SuspectTarget != null)
+                if (m_Agent.SuspectTarget.Count() > 0)
                 {
-                    m_Agent.Action = new SeekAgent(m_Agent, m_Agent.SuspectTarget);
+                    float nearTarget = Mathf.Infinity;
+                    Transform targetTransform = null;
+                    foreach (var transformTarget in m_Agent.SuspectTarget)
+                    {
+                        float distanceToTarget = Vector2.Distance(m_Agent.transform.position, transformTarget.position);
+                        if (distanceToTarget < nearTarget)
+                        {
+                            targetTransform = transformTarget;
+                            nearTarget = distanceToTarget;
+                        }
+                    }
+                    m_Agent.Action = new SeekAgent(m_Agent, targetTransform);
                 } 
                 else
                 {
