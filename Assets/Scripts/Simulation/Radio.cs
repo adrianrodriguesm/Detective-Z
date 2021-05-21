@@ -5,6 +5,12 @@ using UnityEngine;
 public class Radio : MonoBehaviour
 {
     public EnvironmentType environment;
+    bool isReserved = false;
+    public bool Reserved
+    {
+        get { return isReserved; }
+        set { isReserved = value; }
+    }
     // Turn on radio (audio)
     InfectedAgent infected;
     bool activated = false;

@@ -1353,7 +1353,7 @@ PrefabInstance:
     - target: {fileID: 181634308992157346, guid: d894051f7811443408e46ca73623e88d,
         type: 3}
       propertyPath: distanceToBreakTheDoor
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 181634308992157347, guid: d894051f7811443408e46ca73623e88d,
         type: 3}
@@ -2594,6 +2594,18 @@ TilemapCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 536444538}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1906858165 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6164885516315421016, guid: a78bdacb7cc42104ba97c85c15c28244,
+    type: 3}
+  m_PrefabInstance: {fileID: 6164885515898810790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1997724393 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6164885515384274266, guid: a78bdacb7cc42104ba97c85c15c28244,
+    type: 3}
+  m_PrefabInstance: {fileID: 6164885515898810790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2016279588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3240,7 +3252,7 @@ PrefabInstance:
     - target: {fileID: 2542883306107403122, guid: d3c3cac05b99b124d9da4abcece51d71,
         type: 3}
       propertyPath: wallCollider.Array.size
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2542883306107403122, guid: d3c3cac05b99b124d9da4abcece51d71,
         type: 3}
@@ -3307,6 +3319,16 @@ PrefabInstance:
       propertyPath: wallCollider.Array.data[12]
       value: 
       objectReference: {fileID: 1863757613}
+    - target: {fileID: 2542883306107403122, guid: d3c3cac05b99b124d9da4abcece51d71,
+        type: 3}
+      propertyPath: wallCollider.Array.data[13]
+      value: 
+      objectReference: {fileID: 1997724393}
+    - target: {fileID: 2542883306107403122, guid: d3c3cac05b99b124d9da4abcece51d71,
+        type: 3}
+      propertyPath: wallCollider.Array.data[14]
+      value: 
+      objectReference: {fileID: 1906858165}
     - target: {fileID: 2542883306107403123, guid: d3c3cac05b99b124d9da4abcece51d71,
         type: 3}
       propertyPath: m_RootOrder

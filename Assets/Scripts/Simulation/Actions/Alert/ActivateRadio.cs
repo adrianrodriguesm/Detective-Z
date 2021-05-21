@@ -34,7 +34,7 @@ public class ActivateRadio : Action
 
     public override void OnActionPrepare(AIAgent agent)
     {
-        var radios = FindObjectsOfType<Radio>().Where(x => !x.Active && EnvironmentManager.Instance.IsEnvironmentAvailable(x.environment));
+        var radios = FindObjectsOfType<Radio>().Where(x => !x.Active && !x.Reserved && EnvironmentManager.Instance.IsEnvironmentAvailable(x.environment));
         float minDistance = Mathf.Infinity;
         InfectedAgent infected = StoryManager.Instance.Infected;
         foreach (var radio in radios)
@@ -49,5 +49,7 @@ public class ActivateRadio : Action
                 if (agent.Environment == radio.environment) break;
             }
         }
+        if(radio)
+            radio.Reserved = true;
     }
 }
