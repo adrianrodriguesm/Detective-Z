@@ -10,7 +10,7 @@ public class SeekAgent : InfectedAction
     public SeekAgent(InfectedAgent agent, Transform targetPosition) : base(agent)
     {
         m_TargetPosition = targetPosition;
-        Debug.Log("Start seek agent action!");
+        //Debug.Log("Start seek agent action!");
     }
 
     public SeekAgent(InfectedAgent agent) : base(agent)

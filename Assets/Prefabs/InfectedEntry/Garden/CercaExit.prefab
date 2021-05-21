@@ -112,6 +112,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Fence with zombie blood.
+    - Fence With Zombie Blood.
   maxScale: 1.5
   tweenTime: 0.75

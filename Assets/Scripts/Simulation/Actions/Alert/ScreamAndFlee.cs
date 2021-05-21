@@ -48,7 +48,7 @@ public class ScreamAndFlee : Action
         if(!agent.objectsToInstatiateWalking.Contains(storytellingElement))
             agent.objectsToInstatiateWalking.Add(storytellingElement);
         /**/
-        agent.items.Add(peePants);
+        //agent.items.Add(peePants);
         float distance = -Mathf.Infinity;
         Vector2 infectedPos = StoryManager.Instance.Infected.transform.position;
         GameObject currWaypointsObj = null;

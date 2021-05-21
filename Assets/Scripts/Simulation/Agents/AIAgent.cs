@@ -181,8 +181,9 @@ public class AIAgent : MonoBehaviour
         // -- Choose action
         if (currAction.action.IsComplete(this) || currentState != currAction.action.actionState)
         {
-            //Debug.Log(gameObject.name + " Changed action");
+           
             ChangedAction();
+            Debug.Log(gameObject.name + " State: " + currentState + " Action: " + currAction.action.name);
         }
         // -- Execute action
         currAction.action.Execute(this);
@@ -247,8 +248,9 @@ public class AIAgent : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             var childGPX = transform.Find("EnemyGPX");
             Destroy(childGPX.gameObject);
+            float distance = 1.5f;
             /**/
-            if(!ItemManager.Instance.IsValidPosition(transform.position, .8f))
+            if(!StoryManager.Instance.IsAgentNear(this, distance) || !ItemManager.Instance.IsValidPosition(transform.position, distance))
             {
                 Instantiate(deadCharacter, transform.position, Quaternion.identity);
             }
@@ -256,22 +258,38 @@ public class AIAgent : MonoBehaviour
             {
                 float instantiationDelta = 1f;
                 Vector2 position = Vector2.zero;
+                int counter = 0;
+                int maxCount = 50;
                 do
                 {
+                    if (counter > maxCount)
+                    {
+                        instantiationDelta *= 1.2f;
+                        //distance = 2f;
+                    }
+                        
+
                     float offsetXDelta = Random.Range(-instantiationDelta, instantiationDelta);
                     float offsetYDelta = Random.Range(-instantiationDelta, instantiationDelta);
                     position.x = transform.position.x + offsetXDelta;
                     position.y = transform.position.y + offsetYDelta;
-                } while (ItemManager.Instance.IsValidPosition(position, 0.8f));
+                    counter++;
+                } while (ItemManager.Instance.IsValidPosition(position, distance));
                 transform.position = position;
                 Instantiate(deadCharacter, position, Quaternion.identity);
+                if(counter > maxCount)
+                {
+                    for(int i = 0; i < 8; i++)
+                    {
+                        offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
+                        offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
+                        Instantiate(blood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
+                    }
+                  
+                }
             }
-            /**/
-            //Instantiate(deadCharacter, transform.position, Quaternion.identity);
             foreach (var item in items)
-            {
                 item.OnDeath(this);
-            }
         }
            
     }
@@ -339,7 +357,7 @@ public class AIAgent : MonoBehaviour
                 if (order > actionOrder.order)
                     order = actionOrder.order;
             }
-            possibleActions = actions.Where(x => x.order == order).ToList();
+            possibleActions = possibleActions.Where(x => x.order == order).ToList();
             /**/
             currAction = possibleActions[Random.Range(0, possibleActions.Count())];
             currentOrder = (int)order;

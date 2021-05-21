@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 8954526457630077391, guid: 16fd552720a0e9e418c24c2afb07fa03, type: 3}
   loop: 0
   spacing: 1.2
-  gradientTimer: 1.5
+  gradientTimer: 1.7

@@ -10,7 +10,7 @@ public enum AnimationState
 {
     Play, Stop, Pause, Rewind
 }
-
+[System.Serializable]
 public class ActionStorage
 {
     public string Name;
@@ -269,7 +269,22 @@ public class StoryManager : Singleton<StoryManager>
     }
     public bool WasActionExecuted(Action action)
     {
-        bool result = ActionsExecuted.Where(x => x.Name.Equals(action.name) && x.ActionType == action.GetType()).Count() > 0;
+        bool result = ActionsExecuted.Where(x => String.Equals(x.Name, action.name)).Count() > 0;
         return result;
+    }
+
+    public bool IsAgentNear(AIAgent agent, float distance)
+    {
+        foreach(var agentInList in agents)
+        {
+            if (agent != agentInList && Vector2.Distance(agent.transform.position, agentInList.transform.position) < distance)
+                return true;
+        }
+        foreach (var agentInList in deadAgents)
+        {
+            if (agent != agentInList && Vector2.Distance(agent.transform.position, agentInList.transform.position) < distance)
+                return true;
+        }
+        return false;
     }
 }

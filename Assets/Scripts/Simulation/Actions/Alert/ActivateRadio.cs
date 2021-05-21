@@ -24,7 +24,7 @@ public class ActivateRadio : Action
     public override bool IsComplete(AIAgent agent)
     {
         // If there is not radio in the environment | Is activated | The environment of the radio is not available
-        return !radio || activated || (!EnvironmentManager.Instance.IsEnvironmentAvailable(radio.environment) && (agent.Environment != radio.environment)); 
+        return !radio || activated || (!EnvironmentManager.Instance.IsEnvironmentAvailable(radio.environment)); 
     }
 
     public override void OnActionFinish(AIAgent agent)
@@ -36,10 +36,11 @@ public class ActivateRadio : Action
     {
         var radios = FindObjectsOfType<Radio>().Where(x => !x.Active && EnvironmentManager.Instance.IsEnvironmentAvailable(x.environment));
         float minDistance = Mathf.Infinity;
-        foreach(var radio in radios)
+        InfectedAgent infected = StoryManager.Instance.Infected;
+        foreach (var radio in radios)
         {
             float distance = Vector2.Distance(agent.transform.position, radio.transform.position);
-            float distanceToInfected = Vector2.Distance(StoryManager.Instance.Infected.transform.position, radio.transform.position);
+            float distanceToInfected = Vector2.Distance(infected.transform.position, radio.transform.position);
             if (distance < minDistance && distanceToInfected > 2f)
             {
                 this.radio = radio;

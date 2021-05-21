@@ -112,7 +112,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Broken door.
+    - Broken Door.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!114 &1955856034
@@ -302,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7514310004355045508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.86, y: 16.849998, z: 0}
+  m_LocalPosition: {x: 3.86, y: 16.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7514310003300443746}
@@ -420,7 +420,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Broken table.
+    - Broken Table.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1001 &8826517584114940341
@@ -508,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 3543348230142465176, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.41
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 3543348230142465176, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}
@@ -549,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 3543348231784717384, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.97
+      value: 16.99
       objectReference: {fileID: 0}
     - target: {fileID: 3543348231784717386, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}

@@ -134,7 +134,6 @@ public class Attack : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         infected = StoryManager.Instance.Infected;
-
         if (!attackAction)
             return;
 

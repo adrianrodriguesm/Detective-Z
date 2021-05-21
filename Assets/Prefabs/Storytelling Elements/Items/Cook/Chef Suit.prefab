@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2395654337793187919}
   - component: {fileID: 8863610128166160525}
   - component: {fileID: 4818426245706355590}
-  - component: {fileID: 2585812006475480838}
+  - component: {fileID: 2536958030380283667}
   m_Layer: 0
   m_Name: Chef Suit
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
     - Chef Apron.
   maxScale: 1.5
   tweenTime: 0.75
---- !u!65 &2585812006475480838
+--- !u!65 &2536958030380283667
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,5 +113,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.40625, y: 1.40625, z: 0.3}
+  m_Size: {x: 1, y: 1, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}

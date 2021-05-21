@@ -168,33 +168,12 @@ public class InfectedAgent : MonoBehaviour
     void FixedUpdate()
     {
         currAction.OnUpdate();
-        // e.g Glass
+        // e.g Glass, Wood
         foreach(var walkingObject in objectsToInstatiateWalking)
             walkingObject.GenerateStorytellingElement(transform.position);
 
-        // TODO this should be a walking object
         if (wasAttacked)
             infectedBloodWalk.GenerateStorytellingElement(transform.position);
-        /** /
-        if (attackTypeRecived.Count > 0)
-        {
-            if (Action is AttackAgent)
-                return;
-
-            if (currTimer > timerBloodWalkingGradient)
-            {
-                currTimer = 0;
-                bloodWalkingIndex++;
-                bloodWalkingIndex = Mathf.Clamp(bloodWalkingIndex, 0, infectedBloodWalking.Count - 1);
-            }
-            if (bloodWalkingIndex < infectedBloodWalking.Count && Vector2.Distance(lastBloodInstatiatePos, transform.position) > spacingBetweenWalkingBlood)
-            {
-                lastBloodInstatiatePos = transform.position;
-                Instantiate(infectedBloodWalking[bloodWalkingIndex], transform.position, Quaternion.identity);
-            }
-            currTimer += Time.fixedDeltaTime;
-        }
-        /**/
     }
 
     public void DisableCollider()

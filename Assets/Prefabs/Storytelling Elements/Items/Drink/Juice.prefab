@@ -52,9 +52,11 @@ MonoBehaviour:
   itemFall: {fileID: 6188372433020920878, guid: 31dae3df282c2b240bd356e9a35e1726,
     type: 3}
   itemUse: {fileID: 4399935651321944087, guid: c4b3290ef32e67241b2433a7883699c0, type: 3}
-  itemDeath: {fileID: 0}
+  itemDeath: {fileID: 2868210986546049836, guid: ea19cbbf59a224040a1fed19a3378811,
+    type: 3}
   offsetDeadX: 1
   offsetDeadY: 1
+  maxIterations: 4
 --- !u!1 &6284135800091624849
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +103,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
