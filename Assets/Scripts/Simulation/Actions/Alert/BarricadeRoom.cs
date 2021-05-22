@@ -78,6 +78,9 @@ public class BarricadeRoom : Action
     public override void OnActionPrepare(AIAgent agent)
     {
         objectsToMove = EnvironmentManager.Instance.GetBarricadeObjects(agent.Environment);
+        if (objectsToMove == null)
+            block = true;
+
         objectsMoved = new List<BarricadeObject>();
     }
 }

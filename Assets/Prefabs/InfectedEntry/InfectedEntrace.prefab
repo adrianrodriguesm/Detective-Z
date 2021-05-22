@@ -128,7 +128,7 @@ MonoBehaviour:
     type: 3}
   afterEntry: {fileID: 3286383233710848614, guid: b81895ffc478e1a4798b66da3c2ffa93,
     type: 3}
-  exit: {fileID: 7598186869606608615, guid: 5c1a02f9d3b33c844ae821aa60d9be1e, type: 3}
+  exit: {fileID: 3286383233710848614, guid: b297f5cfae744af4eaf1e8b81fe705fd, type: 3}
   walkingObject: {fileID: 11400000, guid: 0a60b66bab9b0ef48ba5e76658f2328c, type: 2}
 --- !u!1 &8155262647343995046
 GameObject:

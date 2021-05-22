@@ -156,6 +156,7 @@ public class AIAgent : MonoBehaviour
 
 
         ProcessMovement();
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
         ProcessAction();
 
        
@@ -246,7 +247,7 @@ public class AIAgent : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             var childGPX = transform.Find("EnemyGPX");
             Destroy(childGPX.gameObject);
-            float distance = 1.5f;
+            float distance = 1.8f;
             /**/
             if(!StoryManager.Instance.IsAgentNear(this, distance) || !ItemManager.Instance.IsValidPosition(transform.position, distance))
             {
@@ -262,7 +263,7 @@ public class AIAgent : MonoBehaviour
                 {
                     if (counter > maxCount)
                     {
-                        instantiationDelta *= 1.2f;
+                        instantiationDelta *= 1.3f;
                         //distance = 2f;
                     }
                         

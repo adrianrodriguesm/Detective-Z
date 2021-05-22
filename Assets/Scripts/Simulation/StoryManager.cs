@@ -107,7 +107,7 @@ public class StoryManager : Singleton<StoryManager>
     // Update is called once per frame
     void Update()
     {
-        if(IsSimulationEnd())
+        if (IsSimulationEnd())
         {
             if(fisrtTime)
             {
