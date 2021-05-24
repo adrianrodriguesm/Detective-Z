@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Axe.
+    - an axe for chopping wood.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &2820024038704456696

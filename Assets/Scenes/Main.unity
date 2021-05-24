@@ -1863,6 +1863,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3728874558214853706, guid: 0073efe6f193c1d478b511b4160e3de0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 'this door was smashed to the ground.
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 7108907229225289587, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}
       propertyPath: m_IsActive
@@ -2089,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Broken Door.
+      value: "this door was smashed to the ground.\r"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba, type: 3}
@@ -2315,12 +2322,12 @@ PrefabInstance:
     - target: {fileID: 2407710259599123466, guid: a096b00e61c829b4aa7fe60d5a36fa37,
         type: 3}
       propertyPath: showNavGraphs
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2407710259599123466, guid: a096b00e61c829b4aa7fe60d5a36fa37,
         type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAAIexysySkbQIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z4jAM/SuMzwuTQJI2e9ullO6hH1O600suJlaIB8fO2E6BdvjvKzsJSVkuOJKe9PQk+4twaWrIrdJrzdmjYkB+Tog7kx+TwfkAR7pTcsM/oY9558yWLoj6mFdquUJ76GBGVWA1z3/JnXDBARobyQulqxXbwVIZa9BcUGEAXVpZh5Zo+pqQI/5NUwc54Wl+406feEqDyRmPOUgLehQazuIguk2jJOwg4XwWhHEUh1GHbIGNzAWtamCuiwE/v5mlAf7CuINHySz2AImddrHBbOFKKyG46YgSe6q9EJu6BA1OCcYp9u3JOS4l8F1pXYkx9rkoDNhOFE1Pd1yjfG1S8lu1mlbU7FuKH1Q0rsxiES8ST6tN+/hfxDT07kKr6qGvHAauii15vn+lp5waO5J9bL77Tr2RByr2dCvgvQT5pNZaNZKh0+rGQRsD87vh89LcsoR8P9hbqlfGph7E76fcz9j1cPb9H5eCV1svfdQaNkJ5wf1qgMbh/EHCfnFMlwKtjsVfA290N96wznHPtbHo6rqUjt5WNdqFkpXXzHXT2KXSEry5I12DpMKeXjCNvR7ilW9U9spzT91d6op3vv6KXEG8eYgPgivXizpchmVKdXgEUz43VnAJA2nneEKdlkrKdsfGmvSwTaMLmo9gu4az76tFCoi3LGdJlKQshngxvd3GES3iMEkhSSm+CH73uMQ+qXhpiXby4NTkkFzinvVPzGStae33nWl6WPPPSo0k57JQm1wDyOc2w4U4aCyCF5OtGEeBNmAtl37e5CsjQuV7YNklUeY7XR2tptmQJSM1/1DWWTKy9G9KRs7k/A9QSwMEFAAACAgAAAAh7OvQTm5tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFJaqmlSSnKKmYmZZYppqqmxrkWSqUlimqmhmWWqmWViSqpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7HKzJKRtAgAAEgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7OvQTm5tAAAAeAAAAAkAJAAAAAAAAAAAAAAAugIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
+      value: UEsDBBQAAAgIAAAAIexPeO1MeQIAACQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxsQ24t5YQ0kM+JqSTiy/CWmMNQvJIcoBk+O9dyTZ2KBfkt19v3670Rbg0FeRW6bXm7FExID9HxJ3Jj1FvfIAT3Sm54Z/Q+bxzZkvnRL3PK7VcIR66MKMOYDXPf8mdcM4BgrXkhdKHFdvBUhlrEC6oMIAmrayLlgh9jcgJ/8apCznjaTp3p088pcHogsccpAU9cA0nQRIv0nmStCHhdDILkzhO20B0mE8XaRQtVuNg7pPUMhf0UAFzHfW5pvNJ4H5h2qaKk0nkgCj0YRJ7byOCSeTIKCG4aakTe668NJuqBA1OG8YpKuHpOmFK4LvSukLD2OeiMGBbmTQ933GNgjZJyW/VqHygZt8Q/aCidmWiKJjGnlaT9vE/j3HDutDq8NBVDgNXxZY837/Sc06NHQxiCN99p17LIxV7uhXwXoJ8UmutasnQaHXtQmsD07v+89rcsoR83+MN1RuwrvoRdHPvpu56uPj+T0vBD1svfdwAG6G84H5ZQONw/iBhv0qmTYGoY/HXwBvdDXeuNdxzbSya2i6lo7dVtXauZOU1c93Udqm0BA+3pCuQVNjzC6axt0O8sQ3K3ljuqbtdbfHW1l2amxAP9/5BcGN6UcfrsEypjo9gyufaCi6hJ+0MT6jTUknZ7NhQky5sU+uC5oOwXc3Z99UiBSRblrNZPEtZAkk0XmyTmBZJOEthllJ8I/zucYl9UvHSEG3lwanJPrnEPesendFa08rvO9P0uOafBzWQnMtCbXINIJ+bDFfioLEIXky2YhwF2oC1XPp5k6+MCJXvgWXXRJnvdHWymmZ9loxU/ENZh2Rk6V+ZjFzI5R9QSwMEFAAACAgAAAAh7OvQTm5tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFJaqmlSSnKKmYmZZYppqqmxrkWSqUlimqmhmWWqmWViSqpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7E947Ux5AgAAJAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7OvQTm5tAAAAeAAAAAkAJAAAAAAAAAAAAAAAxgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB+AwAAAAA=
       objectReference: {fileID: 0}
     - target: {fileID: 2407710259599123467, guid: a096b00e61c829b4aa7fe60d5a36fa37,
         type: 3}

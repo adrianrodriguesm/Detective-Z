@@ -48,7 +48,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Seems That A Book Is Missing.
+    - someone probably grabbed a book from here.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!212 &8809239296608820390

@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Cigarettes Box.
+    - "cigarettes. this brand is expensive.\r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &-1257103542432721338

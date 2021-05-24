@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Knife Missing.
+    - it seems that a knife is missing.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &3791361584586242067

@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Weapon locker with a Missing Gun.
+    - "there\u2019s an extra space here for a gun. did someone take it?\r"
   maxScale: 1.1
   tweenTime: 0.75
 --- !u!65 &5338529128640742249

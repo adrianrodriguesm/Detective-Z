@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Toolbox.
+    - a rusty, old toolbox.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &-6268780877179731005

@@ -19367,7 +19367,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Kitchen Stove Turned On.
+    - the stove is still on.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &1540090876356137145

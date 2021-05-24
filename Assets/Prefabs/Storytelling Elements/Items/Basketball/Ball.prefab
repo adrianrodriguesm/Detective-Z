@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Basketball ball.
+    - "it\u2019s a basketball. \r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &6295940809986118848

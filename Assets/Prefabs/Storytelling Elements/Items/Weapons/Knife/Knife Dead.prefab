@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Knife.
+    - "there\u2019s a kitchen knife lying here.\r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &3200773972764323265

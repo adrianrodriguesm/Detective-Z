@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Reading Glasses.
+    - these are reading glasses.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &825981223925483392

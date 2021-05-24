@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4091912455306879538}
   - component: {fileID: 6565313764035810826}
-  - component: {fileID: -3124656839168311891}
   - component: {fileID: -8585590976335982397}
+  - component: {fileID: 2803279979803441096}
   m_Layer: 0
   m_Name: BookOpen
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 386a06d22ede074458bb0a008d64aa77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f427f1c73bfe19a4990663d605e65566, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &-3124656839168311891
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3114742752311421670}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9375, y: 1.1875, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-8585590976335982397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +99,19 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Open Book.
+    - it's an open book.
   maxScale: 1.5
   tweenTime: 0.75
+--- !u!65 &2803279979803441096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114742752311421670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}

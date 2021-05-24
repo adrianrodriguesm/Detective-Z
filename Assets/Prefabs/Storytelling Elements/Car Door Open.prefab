@@ -112,6 +112,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Car with the door open.
+    - the car door was left wide open.
   maxScale: 1.2
   tweenTime: 0.75

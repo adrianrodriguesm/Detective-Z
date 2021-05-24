@@ -177,7 +177,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - TV Turned On.
+    - "the TV is still turned on.\r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!212 &7831751411126349515

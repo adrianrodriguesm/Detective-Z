@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Axe Missing.
+    - seems like someone took one of the axes here.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &8831359731966857339

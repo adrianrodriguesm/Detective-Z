@@ -48,7 +48,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Pen and Paper.
+    - someone left a pen and some paper here.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!212 &3333410799774371017

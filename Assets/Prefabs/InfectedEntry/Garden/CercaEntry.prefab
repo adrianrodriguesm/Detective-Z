@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Broken Fence.
+    - this fence was broken.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1 &6587594196005173612

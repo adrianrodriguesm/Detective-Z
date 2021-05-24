@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - "A \rWrench."
+    - they had a wrench on them.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &2794956310645819526

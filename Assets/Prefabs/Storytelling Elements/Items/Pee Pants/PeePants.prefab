@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - These Pants Have Juice On Them.
+    - "are these pants wet with\u2026 juice?\r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &-2530041332230752084
