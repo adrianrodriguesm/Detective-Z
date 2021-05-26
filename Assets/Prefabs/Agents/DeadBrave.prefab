@@ -113,6 +113,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Toni's Dead Body.
+    - toni's dead body.
   maxScale: 1.5
   tweenTime: 0.75

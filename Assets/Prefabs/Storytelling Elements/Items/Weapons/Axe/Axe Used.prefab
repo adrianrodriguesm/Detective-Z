@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - seems like someone took one of the axes here.
+    - "seems like someone took one of \nthe axes here."
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &8831359731966857339

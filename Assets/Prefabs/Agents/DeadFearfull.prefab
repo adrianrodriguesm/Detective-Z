@@ -113,6 +113,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Wellington's Dead Body.
+    - wellington's dead body.
   maxScale: 1.5
   tweenTime: 0.75

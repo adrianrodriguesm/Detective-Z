@@ -113,6 +113,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Celi's Dead Body.
+    - celi's dead body.
   maxScale: 1.5
   tweenTime: 0.75

@@ -52,7 +52,12 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isBroken && isUsed && agent != null && infected.gameObject.activeSelf)  
+        if (turnOnSound && StoryManager.Instance.IsSimulationEnd())
+        {
+            audio.enabled = true;
+            turnOnSound = false;
+        }
+        else if (!isBroken && isUsed && agent != null && infected.gameObject.activeSelf)  
         {
             if(!infectedTargetIsHideAgent && infected.Action.GetTargetPosition() == agent.transform.position)
             {
@@ -69,11 +74,7 @@ public class Car : MonoBehaviour
             }
 
         }
-        if(turnOnSound && StoryManager.Instance.IsSimulationEnd())
-        {
-            audio.enabled = true;
-            turnOnSound = false;
-        }
+
     }
     public void TurnOn(AIAgent agent)
     {

@@ -76,6 +76,6 @@ public class SimulationLoader : Singleton<SimulationLoader>
             numberOfDeadAgents = currNumberOfDeadAgents;
         }
         sliderLoader.value = Mathf.Clamp01(progress);
-        text.text = "Generating Story.." + (progress * 100) + "%";
+        text.text = "generating story.." + (progress * 100) + "%";
     }
 }

@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - "they dropped their drink\u2026 seems like juice."
+    - "they dropped their drink\u2026seems like juice."
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &3622456111826416176

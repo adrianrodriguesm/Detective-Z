@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3286383233710848612}
   - component: {fileID: 3286383233710848613}
   - component: {fileID: 5808084107331831022}
+  - component: {fileID: 2070003111620061}
   m_Layer: 0
   m_Name: CercaExit
   m_TagString: Untagged
@@ -100,9 +101,22 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - "this fence seems to have some zombie blood on it.\r"
+    - "this fence seems to have some zombie \nblood on it.\r"
   maxScale: 1.5
   tweenTime: 0.75
+--- !u!65 &2070003111620061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286383233710848614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0764136, y: 3.897606, z: 0.1}
+  m_Center: {x: -0.012735605, y: -0.94880295, z: 0}
 --- !u!1 &6587594196005173612
 GameObject:
   m_ObjectHideFlags: 0
