@@ -111,6 +111,11 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
+    public bool IsLoopPlaying(string name)
+    {
+        return loopSources.ContainsKey(name);
+    }
+
     public void PlayOnce(string name)
     {
         PlayOnce(name, 1);

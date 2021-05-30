@@ -47,4 +47,23 @@ public class PlayerController : MonoBehaviour
        // Debug.Log(environment);
         
     }
+
+    public void ChangedEnvironment(EnvironmentType type)
+    {
+        Debug.Log("ChangedEnviroment " + type);
+        AudioPlayer player = SoundManager.Instance.AudioPlayer;
+        environment = type;
+        if (type.Equals(EnvironmentType.Garden))
+        {
+            SoundManager.Instance.PlayOutsideAmbientSound();
+        }
+        else
+        {
+            if(!player.IsLoopPlaying("AmbientWindInside"))
+            {
+                SoundManager.Instance.PlayInsideAmbientSound();
+            }
+               
+        }
+    }
 }
