@@ -24,20 +24,16 @@ public class SimulationCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!StoryManager.Instance.IsSimulationEnd())
+        if (!GameplayManager.Instance.GameplayStarted)
         {
             agents = StoryManager.Instance.AIAgents;
             Vector3 position = transform.position;
             foreach (var agent in agents)
-            {
                 position += agent.transform.position;
-            }
+            
 
             if(infected.gameObject.activeSelf)
-            {
                 position = infected.transform.position;
-                //position = position / (agents.Count() + 2);
-            }
             else
                 position = position / (agents.Count() + 1);
 

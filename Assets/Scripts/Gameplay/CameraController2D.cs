@@ -17,7 +17,7 @@ public class CameraController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(StoryManager.Instance.IsSimulationEnd())
+        if(GameplayManager.Instance.GameplayStarted)
         {
             pixelPerfectCamera.assetsPPU = 16;
             Vector3 newPosition = target.position;

@@ -99,9 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - 'someone dropped their hat here.
-
-'
+    - someone dropped their hat here.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &7340245752504888953

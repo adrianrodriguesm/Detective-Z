@@ -49,9 +49,8 @@ MonoBehaviour:
     type: 3}
   offsetX: 0.5
   offsetY: 0.5
-  itemFall: {fileID: 6188372433020920878, guid: 31dae3df282c2b240bd356e9a35e1726,
-    type: 3}
-  itemUse: {fileID: 4399935651321944087, guid: c4b3290ef32e67241b2433a7883699c0, type: 3}
+  itemFall: {fileID: 0}
+  itemUse: {fileID: 6188372433020920878, guid: 31dae3df282c2b240bd356e9a35e1726, type: 3}
   itemDeath: {fileID: 2868210986546049836, guid: ea19cbbf59a224040a1fed19a3378811,
     type: 3}
   offsetDeadX: 1

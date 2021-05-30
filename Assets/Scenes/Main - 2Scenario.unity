@@ -1507,9 +1507,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
+      propertyPath: randomSeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
+        type: 3}
       propertyPath: imageDisplay
       value: 
       objectReference: {fileID: 387516139}
+    - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
+        type: 3}
+      propertyPath: UsedRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: timerForReplay
@@ -1842,9 +1852,7 @@ PrefabInstance:
     - target: {fileID: 3728874558214853706, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 'this door was smashed to the ground.
-
-'
+      value: this door was smashed to the ground.
       objectReference: {fileID: 0}
     - target: {fileID: 7108907229225289587, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}

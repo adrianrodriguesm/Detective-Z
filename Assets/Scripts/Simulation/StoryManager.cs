@@ -52,8 +52,6 @@ public class StoryManager : Singleton<StoryManager>
     [Range(1,5)]
     public float timeScale;
     float fixedDeltaTime;
-   // float frameCounter = 0;
-
     List<Sprite> spriteFrame;
     int currIndex = 0;
     public Image imageDisplay;
@@ -70,6 +68,9 @@ public class StoryManager : Singleton<StoryManager>
     {
         get { return infectedEntrance; }
     }
+    public bool UsedRandomSeed = false;
+    public int randomSeed = 5;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -85,6 +86,8 @@ public class StoryManager : Singleton<StoryManager>
         Time.fixedDeltaTime *= Time.timeScale;
         spriteFrame = new List<Sprite>();
         SimulationLoader.Instance.gameObject.SetActive(true);
+        if (UsedRandomSeed)
+            UnityEngine.Random.InitState(randomSeed);
     }
 
     private void Start()
@@ -136,26 +139,28 @@ public class StoryManager : Singleton<StoryManager>
                 case AnimationState.Pause:
                     PauseSimulation(); break;
             }
-            return;
+            
         }
-
-        foreach (var agent in agents.ToList())
+        else
         {
-           if(agent.IsDead())
-           {
-               agents.Remove(agent);
-               deadAgents.Add(agent);
-           }
+            foreach (var agent in agents.ToList())
+            {
+                if (agent.IsDead())
+                {
+                    agents.Remove(agent);
+                    deadAgents.Add(agent);
+                }
+            }
+            if (agents.Count == 0 && infected.IsDeadOrEscaped())
+            {
+                infected.DisableCollider();
+                // Generated sprite with scars due the different types of attacks
+                infected.enabled = false;
+            }
         }
-        if (agents.Count == 0 && infected.IsDeadOrEscaped())
-        {
-            infected.DisableCollider();
-            // Generated sprite with scars due the different types of attacks
-            infected.enabled = false;
-        }
-        // Record story throught the generation of several frames
-        StartCoroutine(CaptureFrame());
-
+        if(!GameplayManager.Instance.GameplayStarted)
+            StartCoroutine(CaptureFrame());
+    
     }
 
    
@@ -203,7 +208,7 @@ public class StoryManager : Singleton<StoryManager>
     }
     public bool IsSimulationEnd()
     {
-        return agents.Count == 0 && infected.IsDeadOrEscaped();
+        return agents.Count == 0 && infected.IsDeadOrEscaped() ;
     }
 
     public AIAgent GetAgentToSeek()

@@ -156,7 +156,9 @@ public class AIAgent : MonoBehaviour
 
 
         ProcessMovement();
-        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        if(!StoryManager.Instance.UsedRandomSeed)
+            UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+
         ProcessAction();
 
        
@@ -266,8 +268,6 @@ public class AIAgent : MonoBehaviour
                         instantiationDelta *= 1.3f;
                         //distance = 2f;
                     }
-                        
-
                     float offsetXDelta = Random.Range(-instantiationDelta, instantiationDelta);
                     float offsetYDelta = Random.Range(-instantiationDelta, instantiationDelta);
                     position.x = transform.position.x + offsetXDelta;

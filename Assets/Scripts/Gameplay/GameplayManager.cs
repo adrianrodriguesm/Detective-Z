@@ -10,6 +10,11 @@ public class GameplayManager : Singleton<GameplayManager>
     public Vector2 hotSpot = Vector2.zero;
     public GameObject player;
     bool isGameplayStarted;
+    int counter = 0;
+    public bool GameplayStarted
+    {
+        get { return isGameplayStarted; }
+    }
     float gameplayDuration = 0;
     public float GameplayDuration
     {
@@ -36,6 +41,11 @@ public class GameplayManager : Singleton<GameplayManager>
 
         if (StoryManager.Instance.IsSimulationEnd())
         {
+            if(counter <= 0)
+            {
+                counter++;
+                return;
+            }
             Cursor.visible = true;
             gameplayDuration += Time.deltaTime;
             if (!isGameplayStarted)
