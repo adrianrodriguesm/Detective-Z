@@ -41,7 +41,7 @@ public class Clue : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || StoryManager.Instance.AnimationState != AnimationState.Stop)
+        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
             return;
         //Debug.Log("Enter " + gameObject.name);
         LeanTween.cancel(gameObject);
@@ -50,10 +50,21 @@ public class Clue : MonoBehaviour
         numberOfInteractions++;
         isInteracting = true;
     }
+
+    private void OnMouseOver()
+    {
+        if ( !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
+        {
+            LeanTween.cancel(gameObject);
+            DialogueManager.Instance.EndDialogue();
+            isInteracting = false;
+        }
+           
+    }
     /**/
     private void OnMouseExit()
     {
-        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || StoryManager.Instance.AnimationState != AnimationState.Stop)
+        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
             return;
         
         LeanTween.scale(gameObject, localScale, tweenTime).setEaseInSine();

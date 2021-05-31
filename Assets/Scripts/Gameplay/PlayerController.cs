@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
 
     public void ChangedEnvironment(EnvironmentType type)
     {
-        Debug.Log("ChangedEnviroment " + type);
         AudioPlayer player = SoundManager.Instance.AudioPlayer;
         environment = type;
         if (type.Equals(EnvironmentType.Garden))

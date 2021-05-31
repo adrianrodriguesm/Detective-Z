@@ -26,14 +26,23 @@ public class Item : MonoBehaviour
     {
         get { return isUsed; }
     }
-    
+    AudioSource itemUsedSound;
+    bool haveSound = false;
+    private void Start()
+    {
+        haveSound = TryGetComponent<AudioSource>(out itemUsedSound);
+        if (haveSound)
+            itemUsedSound.enabled = false;
+    }
+
     public virtual void OnItemAdded(AIAgent agent)
     {
         agent.items.Add(this);
         isUsed = true;
         if (!itemAdded)
             return;
-
+        if (haveSound)
+            itemUsedSound.enabled = true;
         transform.GetChild(0).gameObject.SetActive(false);
         ItemManager.Instance.Positions.Add(transform.position);
         Instantiate(itemAdded, transform.position, Quaternion.identity);

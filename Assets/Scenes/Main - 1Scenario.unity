@@ -1518,7 +1518,7 @@ PrefabInstance:
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: UsedRandomSeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
@@ -2966,7 +2966,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730297266, guid: 4e6e15f7d5d520b478490725792adcd0, type: 3}
       propertyPath: m_Volume
-      value: 0.8
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6043860976322817544, guid: 4e6e15f7d5d520b478490725792adcd0,
         type: 3}

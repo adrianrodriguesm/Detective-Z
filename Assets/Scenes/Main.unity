@@ -2913,7 +2913,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730297266, guid: 4e6e15f7d5d520b478490725792adcd0, type: 3}
       propertyPath: m_Volume
-      value: 0.8
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6043860976322817544, guid: 4e6e15f7d5d520b478490725792adcd0,
         type: 3}
@@ -4380,6 +4380,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[3].name
+      value: PlaySimulation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[4].name
+      value: StopSimulation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[5].name
+      value: RewindSimulation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e8f2eafad834b56418b1146aeb21a07f, type: 3}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[6].name
+      value: MainMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[3].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[4].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[5].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
+        type: 3}
+      propertyPath: AudioClips.Array.data[6].volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7943330994244163671, guid: 2c110766cbab79d4b8b45c98b207599c,
         type: 3}

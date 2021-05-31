@@ -229,6 +229,7 @@ public class StoryManager : Singleton<StoryManager>
 
     void PlaySimulation()
     {
+        SoundManager.Instance.PlaySimulation();
         timer += Time.unscaledDeltaTime;
         if(timer > timerForReplay)
         {
