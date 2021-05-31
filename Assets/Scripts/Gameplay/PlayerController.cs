@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;
     public EnvironmentType environment;
     bool isIdle = false;
+    AudioPlayer m_AudioPlayer;
     // Start is called before the first frame update
     void Start()
     {
         movement = Vector2.zero;
+        m_AudioPlayer = GetComponent<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Movement
-        if(!isIdle)
+        if(!isIdle && StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
             rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
        // Debug.Log(environment);
         
@@ -64,5 +66,15 @@ public class PlayerController : MonoBehaviour
             }
                
         }
+    }
+
+    public void PlayStepSound()
+    {
+        Debug.Log("Step in " + environment);
+        if (environment.Equals(EnvironmentType.Garden))
+            m_AudioPlayer.PlayOnceRandomClip("Grass");
+        else
+            m_AudioPlayer.PlayOnceRandomClip("Wood");
+
     }
 }

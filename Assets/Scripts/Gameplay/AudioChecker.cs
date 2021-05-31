@@ -25,6 +25,8 @@ namespace Assets.Scripts.Gameplay
             else if (!m_CurrentAnimationState.Equals(currAnimState) && currAnimState.Equals(AnimationState.Stop))
                 m_AudioSource.enabled = true;
 
+            m_CurrentAnimationState = currAnimState;
+
         }
     }
 }

@@ -140,13 +140,13 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    public void PlayOnceRandomClip(string name, float volumeScale)
+    public void PlayOnceRandomClip(string name)
     {
         if (randomClips.ContainsKey(name))
         {
             RandomAudioClipVolume clip = randomClips[name];
             var source = gameObject.AddComponent<AudioSource>();
-            source.volume = clip.volume * customVolumes[name] * volumeScale;
+            source.volume = clip.volume * customVolumes[name];
             source.clip = clip.SelectClipToPlay();
             source.loop = false;
             oneShotSources.Add(source);

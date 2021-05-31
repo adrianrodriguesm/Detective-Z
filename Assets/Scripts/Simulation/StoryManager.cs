@@ -70,7 +70,7 @@ public class StoryManager : Singleton<StoryManager>
     }
     public bool UsedRandomSeed = false;
     public int randomSeed = 5;
-
+    SoundManager m_SoundManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -85,6 +85,7 @@ public class StoryManager : Singleton<StoryManager>
         fixedDeltaTime = Time.fixedDeltaTime;
         Time.fixedDeltaTime *= Time.timeScale;
         spriteFrame = new List<Sprite>();
+        m_SoundManager = SoundManager.Instance;
         SimulationLoader.Instance.gameObject.SetActive(true);
         if (UsedRandomSeed)
             UnityEngine.Random.InitState(randomSeed);
@@ -120,13 +121,29 @@ public class StoryManager : Singleton<StoryManager>
             Time.fixedDeltaTime = fixedDeltaTime;
             Time.timeScale = 1f;
             if (Input.GetButtonDown("PlaySimulatedStory"))
+            {
                 animationState = AnimationState.Play;
+                m_SoundManager.PlayClickSound();
+            }
+               
             else if (Input.GetButtonDown("StopSimulatedStory"))
+            {
                 animationState = AnimationState.Stop;
+                m_SoundManager.PlayClickSound();
+            }
+                
             else if (Input.GetButtonDown("RewindSimulatedStory"))
+            {
                 animationState = AnimationState.Rewind;
+                m_SoundManager.PlayClickSound();
+            }
+                
             else if (Input.GetButtonDown("PauseSimulatedStory"))
+            {
                 animationState = AnimationState.Pause;
+                m_SoundManager.PlayClickSound();
+            }
+                
 
             switch (animationState)
             {

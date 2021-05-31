@@ -21,10 +21,12 @@ public class Radio : MonoBehaviour
     {
         get { return activated; }
     }
+    StoryManager m_StoryManager;
     // Start is called before the first frame update
     void Start()
     {
-        infected = StoryManager.Instance.Infected;
+        m_StoryManager = StoryManager.Instance;
+        infected = m_StoryManager.Infected;
         audio = GetComponent<AudioSource>();
         audio.enabled = false;
         activated = false;
@@ -36,11 +38,22 @@ public class Radio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!soundPlaying && activated && StoryManager.Instance.IsSimulationEnd())
+        if(GameplayManager.Instance.GameplayStarted)
         {
-            audio.enabled = true;
-            soundPlaying = true;
+            if (!soundPlaying && activated && m_StoryManager.AnimationState.Equals(AnimationState.Stop))
+            {
+                audio.enabled = true;
+                soundPlaying = true;
+            }
+            else if(!m_StoryManager.AnimationState.Equals(AnimationState.Stop))
+            {
+                audio.enabled = false;
+                soundPlaying = false;
+            }
         }
+
+
+
     }
            
 

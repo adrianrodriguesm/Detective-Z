@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameplayManager : Singleton<GameplayManager>
 {
+    public List<GameObject> ActiveWhenGameplayStart;
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
@@ -20,6 +21,12 @@ public class GameplayManager : Singleton<GameplayManager>
     {
         get { return gameplayDuration; }
     }
+
+    private void Awake()
+    {
+        foreach (var gameObject in ActiveWhenGameplayStart)
+            gameObject.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +34,7 @@ public class GameplayManager : Singleton<GameplayManager>
         player.SetActive(false);
 
         isGameplayStarted = false;
+
     }
 
     private void Update()
@@ -50,8 +58,12 @@ public class GameplayManager : Singleton<GameplayManager>
             gameplayDuration += Time.deltaTime;
             if (!isGameplayStarted)
             {
+                foreach (var gameObject in ActiveWhenGameplayStart)
+                    gameObject.SetActive(true);
+
                 isGameplayStarted = true;
                 //SetAudioMute(true);
+                SoundManager.Instance.DestroyAudioListener();
                 player.SetActive(true);
             }
         }

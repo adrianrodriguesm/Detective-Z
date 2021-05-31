@@ -10,15 +10,32 @@ public class SoundManager : Singleton<SoundManager>
         get { return m_AudioPlayer; }
     }
     PlayerController m_Player;
-    AudioListener m_Listener;
     bool m_First = false;
     AnimationState m_CurrentAnimationState;
+    float m_MainSoundStartVolume;
     // Start is called before the first frame update
     void Start()
     {
         m_AudioPlayer = GetComponent<AudioPlayer>();
         m_Player = FindObjectOfType<PlayerController>();
         PlayInsideAmbientSound();
+       
+    }
+
+    public void DestroyAudioListener()
+    {
+        if(transform.childCount > 0)
+            Destroy(transform.GetChild(0).gameObject);
+    }
+
+    public void PlayClickSound()
+    {
+        m_AudioPlayer.PlayOnce("Click");
+    }
+
+    public void PlayDialogueSound()
+    {
+        m_AudioPlayer.PlayOnce("DialagueTyping");
     }
 
     private void Update()
@@ -29,19 +46,22 @@ public class SoundManager : Singleton<SoundManager>
             {
                 m_Player = FindObjectOfType<PlayerController>();
                 m_AudioPlayer.PlayLoop("MainMusic");
+                m_MainSoundStartVolume = m_AudioPlayer.GetLoopVolumeScale("MainMusic");
                 if (m_Player.environment.Equals(EnvironmentType.Garden))
                     PlayOutsideAmbientSound();
                 else
                     PlayInsideAmbientSound();
 
-                DestroyImmediate(m_Listener);
+                
                 m_First = true;
             }
 
             AnimationState currAnimState = StoryManager.Instance.AnimationState;
             if(!m_CurrentAnimationState.Equals(currAnimState) && !currAnimState.Equals(AnimationState.Stop))
             {
-                m_AudioPlayer.StopLoop("MainMusic");
+                if(m_AudioPlayer.IsLoopPlaying("MainMusic"))
+                    m_AudioPlayer.StopLoop("MainMusic");
+
                 StopAmbientSound();
             }
             else if(!m_CurrentAnimationState.Equals(currAnimState) && currAnimState.Equals(AnimationState.Stop))
@@ -61,6 +81,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public void PlayOutsideAmbientSound()
     {
+        if (m_AudioPlayer.IsLoopPlaying("MainMusic"))
+            m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume / 4);
+
         if(m_AudioPlayer.IsLoopPlaying("AmbientWindInside"))
         {
             m_AudioPlayer.StopLoop("AmbientWindInside");
@@ -119,6 +142,9 @@ public class SoundManager : Singleton<SoundManager>
             m_AudioPlayer.StopLoop("AmbientWindOutsideExtras");
             m_AudioPlayer.StopLoop("AmbientWindOutside");
         }
+
+        if (m_AudioPlayer.IsLoopPlaying("MainMusic"))
+            m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume);
 
         m_AudioPlayer.PlayLoop("AmbientWindInside");
         m_AudioPlayer.PlayLoop("AmbientWindInsideExtras");

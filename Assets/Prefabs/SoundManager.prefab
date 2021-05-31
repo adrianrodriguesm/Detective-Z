@@ -1,5 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6757640952156854959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3443130466082736588}
+  - component: {fileID: 7974279165290381739}
+  m_Layer: 0
+  m_Name: Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3443130466082736588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757640952156854959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7943330994244163671}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &7974279165290381739
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757640952156854959}
+  m_Enabled: 1
 --- !u!1 &7943330994244163666
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +50,6 @@ GameObject:
   - component: {fileID: 7943330994244163671}
   - component: {fileID: 7943330994244163668}
   - component: {fileID: 7943330994244163669}
-  - component: {fileID: 570450995711476160}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -29,7 +67,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3443130466082736588}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -86,13 +125,8 @@ MonoBehaviour:
   - name: Click
     clip: {fileID: 8300000, guid: 53a0d3280ebc5064284f8bd8ed47c05a, type: 3}
     volume: 0.3
+  - name: DialagueTyping
+    clip: {fileID: 8300000, guid: 2886e33a15d83be47913826f984dd47c, type: 3}
+    volume: 0.06
   RandomAudioClips: []
   TimeStamp: 0
---- !u!81 &570450995711476160
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943330994244163666}
-  m_Enabled: 1

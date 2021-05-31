@@ -9,10 +9,12 @@ public class DialogueManager : Singleton<DialogueManager>
     public Text DialogueText;
     Queue<string> sentences;
     public Animator animator;
+    SoundManager m_SoundManager;
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        m_SoundManager = SoundManager.Instance;
         titleText.transform.parent.gameObject.SetActive(false);
     }
 
@@ -56,8 +58,12 @@ public class DialogueManager : Singleton<DialogueManager>
         yield return new WaitForSeconds(0.5f);
         foreach (char letter in sentence.ToCharArray())
         {
+            if (!titleText.transform.parent.gameObject.activeInHierarchy)
+                break;
+
             DialogueText.text += letter;
-            yield return new WaitForSeconds(0.04f);
+            m_SoundManager.PlayDialogueSound();
+            yield return new WaitForSeconds(0.06f);
         }
         yield return new WaitForSeconds(4f);
         DisplayNextSentence();

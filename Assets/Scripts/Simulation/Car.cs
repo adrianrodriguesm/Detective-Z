@@ -57,7 +57,7 @@ public class Car : MonoBehaviour
             audio.enabled = true;
             turnOnSound = false;
         }
-        else if (!isBroken && isUsed && agent != null && infected.gameObject.activeSelf)  
+        else if (!isBroken && isUsed && agent != null && infected != null && infected.gameObject.activeSelf)  
         {
             if(!infectedTargetIsHideAgent && infected.Action.GetTargetPosition() == agent.transform.position)
             {
