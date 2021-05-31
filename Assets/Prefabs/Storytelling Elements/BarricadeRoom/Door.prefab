@@ -112,7 +112,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - Broken Door.
+    - this door was smashed to the ground.
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!114 &1955856034
@@ -326,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6841874002320400267
 Transform:
   m_ObjectHideFlags: 0
@@ -605,6 +605,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3543348230142465178, guid: b61a69d89dfe9534fa6b5dc4c9023a78, type: 3}
     - {fileID: 302668597005671915, guid: b61a69d89dfe9534fa6b5dc4c9023a78, type: 3}
+    - {fileID: 3543348231784717386, guid: b61a69d89dfe9534fa6b5dc4c9023a78, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b61a69d89dfe9534fa6b5dc4c9023a78, type: 3}
 --- !u!4 &5427566025821029407 stripped
 Transform:

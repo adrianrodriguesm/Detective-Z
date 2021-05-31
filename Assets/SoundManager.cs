@@ -67,7 +67,8 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         m_AudioPlayer.PlayLoop("AmbientWindOutside");
-       
+        m_AudioPlayer.PlayLoop("AmbientWindOutsideExtras");
+
     }
 
     public void StopAmbientSound()
@@ -75,6 +76,7 @@ public class SoundManager : Singleton<SoundManager>
         if (m_AudioPlayer.IsLoopPlaying("AmbientWindOutside"))
         {
             m_AudioPlayer.StopLoop("AmbientWindOutside");
+            m_AudioPlayer.StopLoop("AmbientWindOutsideExtras");
         }
 
         if (m_AudioPlayer.IsLoopPlaying("AmbientWindInside"))
@@ -112,7 +114,10 @@ public class SoundManager : Singleton<SoundManager>
     public void PlayInsideAmbientSound()
     {
         if(m_AudioPlayer.IsLoopPlaying("AmbientWindOutside"))
+        {
+            m_AudioPlayer.StopLoop("AmbientWindOutsideExtras");
             m_AudioPlayer.StopLoop("AmbientWindOutside");
+        }
 
         m_AudioPlayer.PlayLoop("AmbientWindInside");
         m_AudioPlayer.PlayLoop("AmbientWindInsideExtras");

@@ -1863,18 +1863,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3728874558214853706, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: 'this door was smashed to the ground.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108907229225289587, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7514310003300443745, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}
       propertyPath: m_Name
@@ -1933,11 +1921,6 @@ PrefabInstance:
     - target: {fileID: 7514310003300443746, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7775361927425115985, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4383,69 +4366,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
         type: 3}
-      propertyPath: AudioClips.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[3].clip
+      propertyPath: AudioClips.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[3].name
-      value: PlaySimulation
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[4].name
-      value: StopSimulation
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[5].name
-      value: RewindSimulation
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e8f2eafad834b56418b1146aeb21a07f, type: 3}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[6].name
-      value: MainMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[3].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[4].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[5].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943330994244163669, guid: 2c110766cbab79d4b8b45c98b207599c,
-        type: 3}
-      propertyPath: AudioClips.Array.data[6].volume
-      value: 0.2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 2dff3e0c3617d0d4d9d4a2b4b1c76ed9, type: 3}
     - target: {fileID: 7943330994244163671, guid: 2c110766cbab79d4b8b45c98b207599c,
         type: 3}
       propertyPath: m_RootOrder

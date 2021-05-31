@@ -60,14 +60,32 @@ MonoBehaviour:
   FadeTime: 0.25
   AudioClips:
   - name: AmbientWindOutside
-    clip: {fileID: 8300000, guid: ab26ad52485ccaf43b8cf58b891628ca, type: 3}
-    volume: 0.7
+    clip: {fileID: 8300000, guid: b7466aa14cc12404aa55b88f4d824572, type: 3}
+    volume: 0.1
   - name: AmbientWindInside
     clip: {fileID: 8300000, guid: 8c35349682706cd4eb5931d918e84820, type: 3}
     volume: 0.1
   - name: AmbientWindInsideExtras
+    clip: {fileID: 8300000, guid: 8c35349682706cd4eb5931d918e84820, type: 3}
+    volume: 0.1
+  - name: PlaySimulation
+    clip: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    volume: 0.1
+  - name: StopSimulation
+    clip: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    volume: 0.1
+  - name: RewindSimulation
+    clip: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    volume: 0.1
+  - name: MainMusic
+    clip: {fileID: 8300000, guid: 447e8b6633c074f45858082c48f7d63b, type: 3}
+    volume: 0.2
+  - name: AmbientWindOutsideExtras
     clip: {fileID: 8300000, guid: fd9c71a0f509e2347a1fd00b8dc8ec45, type: 3}
     volume: 0.1
+  - name: Click
+    clip: {fileID: 8300000, guid: 53a0d3280ebc5064284f8bd8ed47c05a, type: 3}
+    volume: 0.3
   RandomAudioClips: []
   TimeStamp: 0
 --- !u!81 &570450995711476160
