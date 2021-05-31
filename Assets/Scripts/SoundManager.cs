@@ -82,7 +82,7 @@ public class SoundManager : Singleton<SoundManager>
     public void PlayOutsideAmbientSound()
     {
         if (m_AudioPlayer.IsLoopPlaying("MainMusic"))
-            m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume / 4);
+            m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume / 4, 0.35f);
 
         if(m_AudioPlayer.IsLoopPlaying("AmbientWindInside"))
         {
@@ -144,7 +144,7 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         if (m_AudioPlayer.IsLoopPlaying("MainMusic"))
-            m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume);
+            m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume, 0.35f);
 
         m_AudioPlayer.PlayLoop("AmbientWindInside");
         m_AudioPlayer.PlayLoop("AmbientWindInsideExtras");

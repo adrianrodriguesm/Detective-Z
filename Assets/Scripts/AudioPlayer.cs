@@ -255,11 +255,26 @@ public class AudioPlayer : MonoBehaviour
         {
             var source = loopSources[name];
             customVolumes[name] = volume;
-            source.volume = volume * clips[name].volume;
+            if(source.volume > volume)
+                StartCoroutine(FadeIn(source, volume * clips[name].volume, FadeTime));
+            else
+                StartCoroutine(FadeOutWithoutDestroy(source, volume * clips[name].volume, FadeTime));
         }
         else throw new AudioClipNotFoundException(name);
     }
-
+    public void SetLoopVolumeScale(string name, float volume, float fadeTime)
+    {
+        if (clips.ContainsKey(name))
+        {
+            var source = loopSources[name];
+            customVolumes[name] = volume;
+            if (source.volume > volume)
+                StartCoroutine(FadeIn(source, volume * clips[name].volume, FadeTime));
+            else
+                StartCoroutine(FadeOutWithoutDestroy(source, volume * clips[name].volume, fadeTime));
+        }
+        else throw new AudioClipNotFoundException(name);
+    }
     public float GetLoopVolumeScale(string name)
     {
         if (clips.ContainsKey(name))
@@ -299,8 +314,17 @@ public class AudioPlayer : MonoBehaviour
             yield return new WaitForEndOfFrame();
             t += Time.deltaTime;
         }
-
-
+    }
+    IEnumerator FadeOutWithoutDestroy(AudioSource source, float volume, float FadeTime)
+    {
+        float startVol = source.volume;
+        float t = 0;
+        while (t < FadeTime)
+        {
+            source.volume = Mathf.Lerp(startVol, volume, t / FadeTime);
+            yield return new WaitForEndOfFrame();
+            t += Time.deltaTime;
+        }
     }
     IEnumerator FadeOut(AudioSource source, float FadeTime)
     {
