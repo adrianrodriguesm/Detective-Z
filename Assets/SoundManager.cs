@@ -40,11 +40,13 @@ public class SoundManager : Singleton<SoundManager>
             AnimationState currAnimState = StoryManager.Instance.AnimationState;
             if(!m_CurrentAnimationState.Equals(currAnimState) && !currAnimState.Equals(AnimationState.Stop))
             {
+                m_AudioPlayer.StopLoop("MainMusic");
                 StopAmbientSound();
             }
             else if(!m_CurrentAnimationState.Equals(currAnimState) && currAnimState.Equals(AnimationState.Stop))
             {
                 StopSimulation();
+                m_AudioPlayer.PlayLoop("MainMusic");
                 if (m_Player.environment.Equals(EnvironmentType.Garden))
                     PlayOutsideAmbientSound();
                 else

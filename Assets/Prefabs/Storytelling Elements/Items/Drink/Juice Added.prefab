@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 59e89fc856db860419caa38253b8d7f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a690c766d71f7d44ca03999beddb78da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - this juice bottle has been spilled.
+    - "someone probably grabbed a bottle from here.\r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &4589706056001426963
