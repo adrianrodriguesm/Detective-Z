@@ -27,6 +27,7 @@ public class SoundManager : Singleton<SoundManager>
         {
             if(!m_First)
             {
+                m_Player = FindObjectOfType<PlayerController>();
                 m_AudioPlayer.PlayLoop("MainMusic");
                 if (m_Player.environment.Equals(EnvironmentType.Garden))
                     PlayOutsideAmbientSound();
