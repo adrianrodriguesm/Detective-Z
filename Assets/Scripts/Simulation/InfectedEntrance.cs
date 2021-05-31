@@ -14,10 +14,15 @@ public class InfectedEntrance : MonoBehaviour
         get { return entered; }
     }
     bool entered;
+    GameObject childAudio = null;
     // Start is called before the first frame update
     void Start()
     {
         entered = false;
+        if(transform.childCount > 0)
+            childAudio = transform.GetChild(0).gameObject;
+        if (childAudio)
+            childAudio.SetActive(false);
         if (beforeEntry)
             beforeEntry = Instantiate(beforeEntry, transform.position, Quaternion.identity);
         
@@ -31,6 +36,9 @@ public class InfectedEntrance : MonoBehaviour
 
         if (walkingObject)
             StoryManager.Instance.Infected.objectsToInstatiateWalking.Add(walkingObject);
+
+        if (childAudio)
+            childAudio.SetActive(true);
 
         entered = true;
         if (afterEntry)
@@ -46,6 +54,9 @@ public class InfectedEntrance : MonoBehaviour
             return;
 
         entered = true;
+
+        if (childAudio)
+            childAudio.SetActive(true);
 
         if (exit)
             afterEntry = Instantiate(exit, transform.position, Quaternion.identity);
