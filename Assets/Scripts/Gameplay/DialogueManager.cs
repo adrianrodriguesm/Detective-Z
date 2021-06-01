@@ -20,7 +20,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void BeginDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting dialogue " + dialogue.title);
+        //Debug.Log("Starting dialogue " + dialogue.title);
         //animator.SetBool("IsOpen", true);
         titleText.transform.parent.gameObject.SetActive(true);
         titleText.text = dialogue.title;

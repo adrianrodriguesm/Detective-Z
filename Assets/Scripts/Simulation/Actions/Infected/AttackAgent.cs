@@ -13,7 +13,7 @@ public class AttackAgent : InfectedAction
         agent.Target = targetAgent.transform;
         m_TargetAgent = targetAgent;
         m_TargetAgent.State = State.Attacked;
-        Debug.Log("Start attack agent action!");
+        //Debug.Log("Start attack agent action!");
     }
 
     public override void OnUpdate()

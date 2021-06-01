@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StepType
+{
+    None, Blood, Glass, Fence
+}
+
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -13,6 +18,12 @@ public class Player : MonoBehaviour
     AudioPlayer m_AudioPlayer;
     StoryManager m_StoryManager;
     SoundManager m_SoundManager;
+    StepType currOvelapStep;
+    public StepType Step
+    {
+        get { return currOvelapStep; }
+        set { currOvelapStep = value; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +63,7 @@ public class Player : MonoBehaviour
     {
         // Movement
         if(m_StoryManager.AnimationState.Equals(AnimationState.Stop) && !isIdle)
-        {
              rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
-        }
-           
-       
-        
     }
 
     public void ChangedEnvironment(EnvironmentType type)
@@ -65,26 +71,36 @@ public class Player : MonoBehaviour
         AudioPlayer player = m_SoundManager.AudioPlayer;
         environment = type;
         if (type.Equals(EnvironmentType.Garden))
-        {
             m_SoundManager.PlayOutsideAmbientSound();
-        }
-        else
-        {
-            if(!player.IsLoopPlaying("AmbientWindInside"))
-            {
-                m_SoundManager.PlayInsideAmbientSound();
-            }
-               
-        }
+        else if(!player.IsLoopPlaying("AmbientWindInside"))
+            m_SoundManager.PlayInsideAmbientSound(); 
     }
 
     public void PlayStepSound()
     {
-        Debug.Log("Step in " + environment);
+        //Debug.Log("STEPP TYPE : " + currOvelapStep);
         if (environment.Equals(EnvironmentType.Garden))
-            m_AudioPlayer.PlayOnceRandomClip("Grass");
+        {
+            switch(currOvelapStep)
+            {
+                case StepType.None: m_AudioPlayer.PlayOnceRandomClip("GrassRegular"); break;
+                case StepType.Blood: m_AudioPlayer.PlayOnceRandomClip("GrassBlood"); break;
+                case StepType.Fence: m_AudioPlayer.PlayOnceRandomClip("GrassFence"); break;
+                //case StepType.Glass: break;
+            }
+           
+        }  
         else
-            m_AudioPlayer.PlayOnceRandomClip("Wood");
-
+        {
+            switch (currOvelapStep)
+            {
+                case StepType.None: m_AudioPlayer.PlayOnceRandomClip("WoodRegular"); break;
+                case StepType.Blood: m_AudioPlayer.PlayOnceRandomClip("WoodBlood"); break;
+                case StepType.Glass: m_AudioPlayer.PlayOnceRandomClip("WoodGlass"); break;
+                //case StepType.Fence: break;
+            }
+            
+        }
+        currOvelapStep = StepType.None;
     }
 }
