@@ -22,7 +22,8 @@ public class Escape : InfectedAction
                 minDistance = distance;
             }
         }
-        Debug.Log("Escape action!");
+
+        m_Agent.Target = m_Exit.transform;
     }
     public override Vector3 GetTargetPosition()
     {
@@ -34,7 +35,7 @@ public class Escape : InfectedAction
 
     public override void OnUpdate()
     {
-        Move();
+        //Move();
         m_Timer += Time.fixedDeltaTime;
         if(m_Timer > m_Agent.timeToEscape && !m_Agent.Dead)
         {
@@ -46,5 +47,7 @@ public class Escape : InfectedAction
             m_Agent.Escaped = true;
             m_Agent.gameObject.SetActive(false);
         }
+
+        
     }
 }

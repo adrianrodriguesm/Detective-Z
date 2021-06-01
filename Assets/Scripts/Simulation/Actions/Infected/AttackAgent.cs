@@ -10,6 +10,7 @@ public class AttackAgent : InfectedAction
     float currTimer = 0f;
     public AttackAgent(InfectedAgent agent, AIAgent targetAgent) : base(agent)
     {
+        agent.Target = targetAgent.transform;
         m_TargetAgent = targetAgent;
         m_TargetAgent.State = State.Attacked;
         Debug.Log("Start attack agent action!");
@@ -17,7 +18,7 @@ public class AttackAgent : InfectedAction
 
     public override void OnUpdate()
     {
-        Move();
+        //Move();
 
         if (!m_TargetAgent.IsDead())
         {

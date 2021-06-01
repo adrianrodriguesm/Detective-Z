@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1215031556239027115, guid: 6f8b01e6c280d184f9688a3a929cf7f7,
+  m_Sprite: {fileID: -854657545987841082, guid: f06a22b0e39fb5043a5fc1cd341e0b1e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 1072966216566764482}
   - component: {fileID: 1072966216566764493}
   - component: {fileID: 3970412014469719524}
+  - component: {fileID: 430466872}
+  - component: {fileID: 430466873}
   m_Layer: 10
   m_Name: Carefull_Agent
   m_TagString: Agent
@@ -196,16 +198,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - action: {fileID: 0}
-    order: 0
-  - action: {fileID: 0}
-    order: 0
-  - action: {fileID: 0}
-    order: 0
-  - action: {fileID: 0}
-    order: 0
-  - action: {fileID: 0}
-    order: 0
+  - action: {fileID: 11400000, guid: b73fb8f7312804d49af24e96ad344f24, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: 9f50a4cc108b8024786c0f17ff07c9bb, type: 2}
+    order: 2
+  - action: {fileID: 11400000, guid: 94ff8eb257716564ba3f2ab7db873a92, type: 2}
+    order: 3
+  - action: {fileID: 11400000, guid: 9325e381b00b46742a9828099f389e38, type: 2}
+    order: 2
+  - action: {fileID: 11400000, guid: 4f3c4fa1a36bea247b79049fce14ae75, type: 2}
+    order: 5
+  - action: {fileID: 11400000, guid: cc23f6c4366c7874c9486fa3f5c441e0, type: 2}
+    order: 4
+  - action: {fileID: 11400000, guid: 54068bf86a5e026498b0ff31a4487a86, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: b6d5ac2d13b8b9745bd1b2fba77edd70, type: 2}
+    order: 6
+  - action: {fileID: 11400000, guid: a7cd14adabc50734895eebe7c8ab69b8, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: 54068bf86a5e026498b0ff31a4487a86, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: 7f32ac0f2754c6f489dd33e3f1f7c27d, type: 2}
+    order: 1
+  - action: {fileID: 11400000, guid: 338fc30aa6d50a8479b2027ab156215b, type: 2}
+    order: 1
   speed: 800
   nextWaypointDistance: 2
   health: 50
@@ -218,3 +234,53 @@ MonoBehaviour:
   items: []
   defaultAction: {fileID: 11400000, guid: 98dedc67a16c5de4ab869c6c8810179d, type: 2}
   objectsToInstatiateWalking: []
+--- !u!114 &430466872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072966216566764495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.5
+  height: 2
+  repathRate: 0.5
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 6
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 1
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &430466873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072966216566764495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}

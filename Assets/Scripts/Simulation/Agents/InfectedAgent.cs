@@ -71,6 +71,12 @@ public class InfectedAgent : MonoBehaviour
         get { return seeker; }
         set { seeker = value; }
     }
+    AIDestinationSetter m_DestinationSetter;
+    public Transform Target
+    {
+        get { return m_DestinationSetter.target; }
+        set { m_DestinationSetter.target = value; }
+    }
     // Movement
     [Header("Pathfinding parameters")]
     public float speed = 5f;
@@ -108,6 +114,7 @@ public class InfectedAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_DestinationSetter = GetComponent<AIDestinationSetter>();
         agents = FindObjectsOfType<AIAgent>().ToList();
         timeToEscape -= Random.Range(0, deltaToEscape);
         rb = GetComponent<Rigidbody2D>();
@@ -130,7 +137,7 @@ public class InfectedAgent : MonoBehaviour
 
         
 
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        //InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
     private void UpdatePath()

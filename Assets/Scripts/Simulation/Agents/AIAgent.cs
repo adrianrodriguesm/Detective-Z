@@ -36,10 +36,11 @@ public class AIAgent : MonoBehaviour
         }
     }
     Transform target;
+    AIDestinationSetter m_Setter;
     public Transform Target
     {
-        get { return target; }
-        set { target = value; }
+        get { return m_Setter.target; }
+        set { m_Setter.target = value; }
     }
     [Header("Pathfinding parameters")]
     public float speed = 5f;
@@ -103,13 +104,15 @@ public class AIAgent : MonoBehaviour
     void Start()
     {
         seeker = GetComponent<Seeker>();
+        m_Setter = GetComponent<AIDestinationSetter>();
         rb = GetComponent<Rigidbody2D>();
         infected = StoryManager.Instance.Infected;
         lockEnvironments = new HashSet<EnvironmentType>();
         objectsToInstatiateWalking = new List<WalkingObject>();
         ChooseFirstAction();
+        m_Setter.target = transform;
         // Call UpdatePath function every 0.4f in order to update the path
-        InvokeRepeating("UpdatePath", 0f, 0.4f);
+        //InvokeRepeating("UpdatePath", 0f, 0.4f);
         initialHealth = health;
     }
     // Fist action is random
@@ -155,7 +158,7 @@ public class AIAgent : MonoBehaviour
         }
 
 
-        ProcessMovement();
+        //ProcessMovement();
         if(!StoryManager.Instance.UsedRandomSeed)
             UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 

@@ -10,6 +10,7 @@ public class SeekAgent : InfectedAction
 
     public SeekAgent(InfectedAgent agent, Transform targetPosition) : base(agent)
     {
+        m_Agent.Target = targetPosition;
         m_TargetPosition = targetPosition;
         //Debug.Log("Start seek agent action!");
     }
@@ -17,11 +18,12 @@ public class SeekAgent : InfectedAction
     public SeekAgent(InfectedAgent agent) : base(agent)
     {
         m_TargetPosition = StoryManager.Instance.GetAgentToSeek().transform;
+        m_Agent.Target = m_TargetPosition;
     }
  
     public override void OnUpdate()
     {
-        Move();
+        //Move();
         float distance = Vector2.Distance(m_Agent.transform.position, m_TargetPosition.transform.position);
         if(distance < m_Agent.distanceThresholdToAttack)
         {
@@ -49,6 +51,8 @@ public class SeekAgent : InfectedAction
                 }
                 else
                     m_TargetPosition = StoryManager.Instance.GetAgentToSeek().transform;
+
+                m_Agent.Target = m_TargetPosition;
             }
            
         }
