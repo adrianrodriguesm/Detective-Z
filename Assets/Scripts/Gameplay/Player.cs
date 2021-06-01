@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     AudioPlayer m_AudioPlayer;
     StoryManager m_StoryManager;
     SoundManager m_SoundManager;
-    Vector2 m_PreviousMovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,35 +25,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!m_StoryManager.AnimationState.Equals(AnimationState.Stop))
+            return;
+        
         // Input
-        m_PreviousMovement = movement;
+        Vector2 lastMovement = movement;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+        if(movement.sqrMagnitude <= 0.001f)
+        {
+            animator.SetFloat("Horizontal", lastMovement.x);
+            animator.SetFloat("Vertical", lastMovement.y);
+            movement = lastMovement;
+            isIdle = true;
+        }
+        else
+        {
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            isIdle = false;
+        }
     }
 
     void FixedUpdate()
     {
         // Movement
-        if(m_StoryManager.AnimationState.Equals(AnimationState.Stop))
+        if(m_StoryManager.AnimationState.Equals(AnimationState.Stop) && !isIdle)
         {
-            animator.SetFloat("Speed", movement.sqrMagnitude);
-            if (movement.sqrMagnitude <= 0.001f)
-            {
-                animator.SetFloat("Horizontal", m_PreviousMovement.x);
-                animator.SetFloat("Vertical", m_PreviousMovement.y);
-                movement = m_PreviousMovement;
-                isIdle = true;
-            }
-            else
-            {
-                animator.SetFloat("Horizontal", movement.x);
-                animator.SetFloat("Vertical", movement.y);
-                isIdle = false;
-            }
-
-            if(!isIdle)
-                rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
+             rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
         }
            
        
