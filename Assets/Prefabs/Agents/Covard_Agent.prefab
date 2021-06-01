@@ -112,23 +112,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002b1f8755b970489dd9b085a3d9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  enemyGFX: {fileID: 2730430347888465623}
+  actions:
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
   speed: 800
   nextWaypointDistance: 2
   health: 50
+  deltaSelector: 0
+  blood: {fileID: 0}
+  offsetRadiusX: 0
+  offsetRadiusY: 0
+  deadCharacter: {fileID: 0}
   items:
   - {fileID: 5718610617716173209, guid: f247233054354c648807e76489488b21, type: 3}
-  actions:
-  - {fileID: 11400000, guid: 8598e3b5919da914f9cca38564f94a6b, type: 2}
-  - {fileID: 11400000, guid: b6d5ac2d13b8b9745bd1b2fba77edd70, type: 2}
-  - {fileID: 11400000, guid: 724debc6f79cd47479523ba95579dbf9, type: 2}
-  detectionRadious: 5
-  detectionLevel: 0
-  behaviour:
-    courage: 0
-    fearfull: 1
-    carefull: 0
+  defaultAction: {fileID: 0}
+  objectsToInstatiateWalking: []
 --- !u!1 &2730430347888465622
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,10 +177,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

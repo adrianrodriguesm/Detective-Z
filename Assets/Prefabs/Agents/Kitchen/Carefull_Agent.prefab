@@ -46,10 +46,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -194,7 +195,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002b1f8755b970489dd9b085a3d9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  actions:
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
   speed: 500
   nextWaypointDistance: 2
   health: 50
@@ -202,14 +215,7 @@ MonoBehaviour:
   blood: {fileID: 6859568609309188791, guid: 89d61056f68a408499a65b609b9b3ab0, type: 3}
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
+  deadCharacter: {fileID: 0}
   items: []
-  actions:
-  - {fileID: 11400000, guid: 94ff8eb257716564ba3f2ab7db873a92, type: 2}
-  - {fileID: 11400000, guid: b6d5ac2d13b8b9745bd1b2fba77edd70, type: 2}
-  - {fileID: 11400000, guid: 74e6a93a419b10143b91c1928ed25baf, type: 2}
-  - {fileID: 11400000, guid: 9325e381b00b46742a9828099f389e38, type: 2}
-  - {fileID: 11400000, guid: cc23f6c4366c7874c9486fa3f5c441e0, type: 2}
-  - {fileID: 11400000, guid: 5ecd49c0e1d245b44bdd6722699d3b24, type: 2}
   defaultAction: {fileID: 11400000, guid: 98dedc67a16c5de4ab869c6c8810179d, type: 2}
   objectsToInstatiateWalking: []
-  spacing: 0

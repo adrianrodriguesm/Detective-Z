@@ -7,11 +7,12 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CameraController2D : MonoBehaviour
 {
     public Transform target;
-    PixelPerfectCamera pixelPerfectCamera;
+    PixelPerfectCamera m_PixelPerfectCamera;
+    bool m_GameplayBegin = false;
     void Start()
     {
-        pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
-        pixelPerfectCamera.assetsPPU = 8;
+        m_PixelPerfectCamera = GetComponent<PixelPerfectCamera>();
+        
     }
 
     // Update is called once per frame
@@ -19,7 +20,12 @@ public class CameraController2D : MonoBehaviour
     {
         if(GameplayManager.Instance.GameplayStarted)
         {
-            pixelPerfectCamera.assetsPPU = 16;
+            if(!m_GameplayBegin)
+            {
+                m_PixelPerfectCamera.assetsPPU = 16;
+                m_GameplayBegin = true;
+            }
+            
             Vector3 newPosition = target.position;
             newPosition.z = transform.position.z;
             transform.position = newPosition;

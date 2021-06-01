@@ -112,7 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002b1f8755b970489dd9b085a3d9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  actions:
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
+  - action: {fileID: 0}
+    order: 0
   speed: 500
   nextWaypointDistance: 2
   health: 50
@@ -122,10 +128,6 @@ MonoBehaviour:
   offsetRadiusY: 0.5
   deadCharacter: {fileID: 0}
   items: []
-  actions:
-  - {fileID: 11400000, guid: 8d1a9fa9ee02e5a4494009a4269adb1b, type: 2}
-  - {fileID: 11400000, guid: 22ddf653f6e018049889caaa562400f5, type: 2}
-  - {fileID: 11400000, guid: 6ebe74bc815d2304bbb9fc6ae18a3624, type: 2}
   defaultAction: {fileID: 11400000, guid: 98dedc67a16c5de4ab869c6c8810179d, type: 2}
   objectsToInstatiateWalking: []
 --- !u!1 &4215662848245418979
@@ -174,10 +176,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

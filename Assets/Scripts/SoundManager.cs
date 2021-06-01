@@ -13,6 +13,7 @@ public class SoundManager : Singleton<SoundManager>
     bool m_First = false;
     AnimationState m_CurrentAnimationState;
     float m_MainSoundStartVolume;
+    public float FadeToSwitchBackgroundSounds = 0.35f;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +68,7 @@ public class SoundManager : Singleton<SoundManager>
             else if(!m_CurrentAnimationState.Equals(currAnimState) && currAnimState.Equals(AnimationState.Stop))
             {
                 StopSimulation();
-                m_AudioPlayer.PlayLoop("MainMusic");
+                m_AudioPlayer.PlayLoop("MainMusic", FadeToSwitchBackgroundSounds);
                 if (m_Player.environment.Equals(EnvironmentType.Garden))
                     PlayOutsideAmbientSound();
                 else
@@ -86,12 +87,12 @@ public class SoundManager : Singleton<SoundManager>
 
         if(m_AudioPlayer.IsLoopPlaying("AmbientWindInside"))
         {
-            m_AudioPlayer.StopLoop("AmbientWindInside");
-            m_AudioPlayer.StopLoop("AmbientWindInsideExtras");
+            m_AudioPlayer.StopLoop("AmbientWindInside", FadeToSwitchBackgroundSounds);
+            m_AudioPlayer.StopLoop("AmbientWindInsideExtras", FadeToSwitchBackgroundSounds);
         }
 
-        m_AudioPlayer.PlayLoop("AmbientWindOutside");
-        m_AudioPlayer.PlayLoop("AmbientWindOutsideExtras");
+        m_AudioPlayer.PlayLoop("AmbientWindOutside", FadeToSwitchBackgroundSounds);
+        m_AudioPlayer.PlayLoop("AmbientWindOutsideExtras", FadeToSwitchBackgroundSounds);
 
     }
 
@@ -139,14 +140,14 @@ public class SoundManager : Singleton<SoundManager>
     {
         if(m_AudioPlayer.IsLoopPlaying("AmbientWindOutside"))
         {
-            m_AudioPlayer.StopLoop("AmbientWindOutsideExtras");
-            m_AudioPlayer.StopLoop("AmbientWindOutside");
+            m_AudioPlayer.StopLoop("AmbientWindOutsideExtras", FadeToSwitchBackgroundSounds);
+            m_AudioPlayer.StopLoop("AmbientWindOutside", FadeToSwitchBackgroundSounds);
         }
 
         if (m_AudioPlayer.IsLoopPlaying("MainMusic"))
             m_AudioPlayer.SetLoopVolumeScale("MainMusic", m_MainSoundStartVolume, 0.35f);
 
-        m_AudioPlayer.PlayLoop("AmbientWindInside");
-        m_AudioPlayer.PlayLoop("AmbientWindInsideExtras");
+        m_AudioPlayer.PlayLoop("AmbientWindInside", FadeToSwitchBackgroundSounds);
+        m_AudioPlayer.PlayLoop("AmbientWindInsideExtras", FadeToSwitchBackgroundSounds);
     }
 }

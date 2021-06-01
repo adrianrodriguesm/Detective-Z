@@ -45,14 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6ddb986cda31e4cb41a6e8f3fdf594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemFall: {fileID: 0}
-  itemDeath: {fileID: 0}
+  type: 0
+  itemAdded: {fileID: 0}
   offsetX: 1
   offsetY: 1
+  itemFall: {fileID: 0}
+  itemUse: {fileID: 0}
+  itemDeath: {fileID: 0}
+  offsetDeadX: 1
+  offsetDeadY: 1
+  maxIterations: 4
   attackType: 2
   damage: 1.5
   radiusAttack: 1
-  isFree: 1
+  environment: 0
 --- !u!58 &4158962352308385432
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,10 +121,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
