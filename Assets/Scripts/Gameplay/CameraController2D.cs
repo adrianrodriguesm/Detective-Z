@@ -8,28 +8,19 @@ public class CameraController2D : MonoBehaviour
 {
     public Transform target;
     PixelPerfectCamera m_PixelPerfectCamera;
-    bool m_GameplayBegin = false;
     void Start()
     {
         m_PixelPerfectCamera = GetComponent<PixelPerfectCamera>();
-        
+        m_PixelPerfectCamera.assetsPPU = 16;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameplayManager.Instance.GameplayStarted)
-        {
-            if(!m_GameplayBegin)
-            {
-                m_PixelPerfectCamera.assetsPPU = 16;
-                m_GameplayBegin = true;
-            }
             
-            Vector3 newPosition = target.position;
-            newPosition.z = transform.position.z;
-            transform.position = newPosition;
-        }
-
+        Vector3 newPosition = target.position;
+        newPosition.z = transform.position.z;
+        transform.position = newPosition;
     }
 }

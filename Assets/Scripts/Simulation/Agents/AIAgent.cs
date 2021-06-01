@@ -25,7 +25,6 @@ public class AIAgent : MonoBehaviour
     public List<ActionOrder> actions;
     int currentOrder = 0;
     ActionOrder currAction;
-    /**/
     public Action Action
     {
         get { return currAction.action; }
@@ -35,16 +34,12 @@ public class AIAgent : MonoBehaviour
             currAction.action = value; 
         }
     }
-    Transform target;
     AIDestinationSetter m_Setter;
     public Transform Target
     {
         get { return m_Setter.target; }
         set { m_Setter.target = value; }
     }
-    [Header("Pathfinding parameters")]
-    public float speed = 5f;
-    public float nextWaypointDistance = 3f;
     [Header("Agent's health")]
     public float health = 40f;
     float minDistanceToDetectInfected = 10f;
@@ -59,16 +54,6 @@ public class AIAgent : MonoBehaviour
     public float offsetRadiusY;
     public GameObject deadCharacter;
     public List<Item> items;
-    // AI path
-    [HideInInspector]
-    Path path;
-    int currentWaypoint = 0;
-    // Responsable for creating the path
-    Seeker seeker;
-    // Movement
-    Rigidbody2D rb;
-
-
     public DefaultAction defaultAction;
     // Environment
     EnvironmentType currentEnvironment;
@@ -103,9 +88,7 @@ public class AIAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        seeker = GetComponent<Seeker>();
         m_Setter = GetComponent<AIDestinationSetter>();
-        rb = GetComponent<Rigidbody2D>();
         infected = StoryManager.Instance.Infected;
         lockEnvironments = new HashSet<EnvironmentType>();
         objectsToInstatiateWalking = new List<WalkingObject>();
@@ -130,13 +113,7 @@ public class AIAgent : MonoBehaviour
             StoryManager.Instance.AddExecutedAction(currAction.action);
         }
     }
-    private void UpdatePath()
-    {
-        // Check if the seeker is not currently calculating a path
-        // Generates a new a path
-        if (seeker.IsDone())
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
-    }
+
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -159,8 +136,15 @@ public class AIAgent : MonoBehaviour
 
 
         //ProcessMovement();
-        if(!StoryManager.Instance.UsedRandomSeed)
-            UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        if (State != State.Calm)
+        {
+            // Instatiate walking storytelling element
+            foreach (var storytellingElement in objectsToInstatiateWalking)
+                storytellingElement.GenerateStorytellingElement(transform.position);
+        }
+
+        if (!StoryManager.Instance.UsedRandomSeed)
+            Random.InitState(System.DateTime.Now.Millisecond);
 
         ProcessAction();
 
@@ -187,49 +171,10 @@ public class AIAgent : MonoBehaviour
         {
            
             ChangedAction();
-            Debug.Log(gameObject.name + " State: " + currentState + " Action: " + currAction.action.name);
+            //Debug.Log(gameObject.name + " State: " + currentState + " Action: " + currAction.action.name);
         }
         // -- Execute action
         currAction.action.Execute(this);
-    }
-
-    void ProcessMovement()
-    {
-        if (path == null || IsDead())
-            return;
-        // Process Movement
-        if (currentWaypoint < path.vectorPath.Count)
-        {
-            // Move the Agent
-            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Vector2 force = direction.normalized * speed * Time.fixedDeltaTime;
-            rb.AddForce(force);
-
-            // Update the waypoint
-            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-            if (distance < nextWaypointDistance)
-                currentWaypoint++;
-
-            if(State != State.Calm)
-            {
-                // Instatiate walking storytelling element
-                foreach (var storytellingElement in objectsToInstatiateWalking)
-                    storytellingElement.GenerateStorytellingElement(transform.position);
-            }
-        }
-    }
-
-    private void OnPathComplete(Path p)
-    {
-        if(IsDead())
-            CancelInvoke("UpdatePath");
-
-        if (!p.error)
-        {
-            path = p;
-            currentWaypoint = 0;
-        }
-        
     }
 
     public bool IsDead()

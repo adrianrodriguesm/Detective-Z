@@ -9,7 +9,7 @@ public class EnvironmentDetector : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController player = other.GetComponent<PlayerController>();
+            Player player = other.GetComponent<Player>();
             if (!player.environment.Equals(environment))
                 player.ChangedEnvironment(environment);
         }

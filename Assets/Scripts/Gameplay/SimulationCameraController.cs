@@ -12,39 +12,40 @@ public class SimulationCameraController : MonoBehaviour
     InfectedAgent infected;
     [Tooltip("Time it takes to interpolate camera position 99% of the way to the target."), Range(0.001f, 1f)]
     public float positionLerpTime = 0.2f;
+    StoryManager m_StoryManager;
     void Start()
     {
         agents = new List<AIAgent>();
+        m_StoryManager = StoryManager.Instance;
         pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
         pixelPerfectCamera.assetsPPU = 8;
-        infected = StoryManager.Instance.Infected;
+        infected = m_StoryManager.Infected;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GameplayManager.Instance.GameplayStarted)
-        {
-            agents = StoryManager.Instance.AIAgents;
-            Vector3 position = transform.position;
-            foreach (var agent in agents)
-                position += agent.transform.position;
+
+        agents = m_StoryManager.AIAgents;
+        Vector3 position = transform.position;
+        foreach (var agent in agents)
+            position += agent.transform.position;
             
 
-            if(infected.gameObject.activeSelf)
-                position = infected.transform.position;
-            else
-                position = position / (agents.Count() + 1);
+        if(infected != null && infected.gameObject.activeSelf)
+            position = infected.transform.position;
+        else
+            position = position / (agents.Count() + 1);
 
 
-            var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
-            float x = Mathf.Lerp(transform.position.x, position.x, positionLerpPct);
-            float y = Mathf.Lerp(transform.position.y, position.y, positionLerpPct);
+        var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
+        float x = Mathf.Lerp(transform.position.x, position.x, positionLerpPct);
+        float y = Mathf.Lerp(transform.position.y, position.y, positionLerpPct);
 
-            transform.position = new Vector3(x, y, -1f);
+        transform.position = new Vector3(x, y, -1f);
 
 
-        }
+        
     }
 }

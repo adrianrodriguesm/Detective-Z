@@ -11,7 +11,9 @@ public class GameplayManager : Singleton<GameplayManager>
     public Vector2 hotSpot = Vector2.zero;
     public GameObject player;
     bool isGameplayStarted;
-    int counter = 0;
+    StoryManager m_StoryManager;
+    SimulationCameraController m_SimulationCameraController;
+    CameraController2D m_GameplayCameraController;
     public bool GameplayStarted
     {
         get { return isGameplayStarted; }
@@ -26,14 +28,20 @@ public class GameplayManager : Singleton<GameplayManager>
     {
         foreach (var gameObject in ActiveWhenGameplayStart)
             gameObject.SetActive(false);
+
+        m_SimulationCameraController = FindObjectOfType<SimulationCameraController>();
+        m_GameplayCameraController = FindObjectOfType<CameraController2D>();
+        m_GameplayCameraController.enabled = false;
     }
     // Start is called before the first frame update
     void Start()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         player.SetActive(false);
-
+        Cursor.visible = false;
         isGameplayStarted = false;
+        m_StoryManager = StoryManager.Instance;
+       
 
     }
 
@@ -47,36 +55,30 @@ public class GameplayManager : Singleton<GameplayManager>
         }
             
 
-        if (StoryManager.Instance.IsSimulationEnd())
+        if (m_StoryManager.IsSimulationEnd())
         {
-            if(counter <= 0)
-            {
-                counter++;
-                return;
-            }
-            Cursor.visible = true;
             gameplayDuration += Time.deltaTime;
             if (!isGameplayStarted)
             {
-                foreach (var gameObject in ActiveWhenGameplayStart)
-                    gameObject.SetActive(true);
-
                 isGameplayStarted = true;
-                //SetAudioMute(true);
-                SoundManager.Instance.DestroyAudioListener();
-                player.SetActive(true);
+                StartCoroutine(ActivateGameplayObjects());
             }
         }
-        else
-        {
-            //Cursor.lockState = CursorLockMode.locked;
-            Cursor.visible = false;
-            //SetAudioMute(false);
-        }
-
-
     }
 
+    IEnumerator ActivateGameplayObjects()
+    {
+        SoundManager.Instance.DestroyAudioListener();
+        yield return new WaitForEndOfFrame();
+        foreach (var gameObject in ActiveWhenGameplayStart)
+            gameObject.SetActive(true);
+
+        player.SetActive(true);
+
+        m_SimulationCameraController.enabled = false;
+        m_GameplayCameraController.enabled = true;
+        Cursor.visible = true;
+    }
     GameplaySerialize GenerateSerializeData()
     {
         GameplaySerialize serializeObject = new GameplaySerialize();

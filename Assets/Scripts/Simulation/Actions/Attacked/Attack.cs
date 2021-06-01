@@ -137,7 +137,7 @@ public class Attack : Action
         if (!attackAction)
             return;
 
-        Debug.Log("Unkonw weapon location!");
+        //Debug.Log("Unkonw weapon location!");
         var weapons = FindObjectsOfType<Weapon>().Where(x => x.IsFree);
         float minDistance = Mathf.Infinity;
         AttackType attackType = (AttackType)Random.Range(1, 2);

@@ -30,7 +30,6 @@ public class SeekAgent : InfectedAction
             AIAgent targetAgent = m_TargetPosition.GetComponent<AIAgent>();
             if (targetAgent)
             {
-                
                 m_Agent.Action = new AttackAgent(m_Agent, targetAgent);
             }
             else

@@ -49,20 +49,6 @@ public class InfectedAgent : MonoBehaviour
         get { return dead; }
     }
     private List<AIAgent> agents;
-    // AI path
-    [HideInInspector]
-    public Path path;
-    public Path Path
-    {
-        get { return path; }
-        set { path = value; }
-    }
-    int currentWaypoint = 0;
-    public int CurrWayPoint
-    {
-        get { return currentWaypoint; }
-        set { currentWaypoint = value; }
-    }
 
     // Responsable for creating the path
     Seeker seeker;
@@ -78,16 +64,6 @@ public class InfectedAgent : MonoBehaviour
         set { m_DestinationSetter.target = value; }
     }
     // Movement
-    [Header("Pathfinding parameters")]
-    public float speed = 5f;
-    public float nextWaypointDistance = 3f;
-    Rigidbody2D rb;
-    public Rigidbody2D Rigidbody
-    {
-        set { rb = value; }
-        get { return rb; }
-    }
-    // TODO
     EnvironmentType environment = EnvironmentType.Any;
     public EnvironmentType Environment
     {
@@ -117,7 +93,6 @@ public class InfectedAgent : MonoBehaviour
         m_DestinationSetter = GetComponent<AIDestinationSetter>();
         agents = FindObjectsOfType<AIAgent>().ToList();
         timeToEscape -= Random.Range(0, deltaToEscape);
-        rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         suspectTargets = new List<Transform>();
         // First Agent is randonly selected
@@ -135,19 +110,6 @@ public class InfectedAgent : MonoBehaviour
         }
         currAction = new SeekAgent(this, targetAgent.transform);
 
-        
-
-        //InvokeRepeating("UpdatePath", 0f, 0.5f);
-    }
-
-    private void UpdatePath()
-    {
-        if (this == null)
-            return;
-        // Check if the seeker is not currently calculating a path
-        // Generates a new a path
-        if (Seeker.IsDone())
-            Seeker.StartPath(Rigidbody.position, Action.GetTargetPosition(), OnPathComplete);           
     }
     
     public Vector2 GetTargetPostion()
@@ -155,18 +117,10 @@ public class InfectedAgent : MonoBehaviour
         return Action.GetTargetPosition();
     }
 
-    private void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
-            Path = p;
-            CurrWayPoint = 0;
-        }
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
+
         currAction.OnUpdate();
         // e.g Glass, Wood
         foreach(var walkingObject in objectsToInstatiateWalking)
@@ -180,9 +134,7 @@ public class InfectedAgent : MonoBehaviour
     {
         suspectTargets.Add(target);
         if (target && Action is SeekAgent)
-        {
             Action = new SeekAgent(this, target);
-        }
 
         
     }
@@ -192,8 +144,7 @@ public class InfectedAgent : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
     }
     public bool IsDeadOrEscaped()
-    {
-
+    { 
         return dead || escaped;
     }
 
