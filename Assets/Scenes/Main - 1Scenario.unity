@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -621,41 +621,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4215662848218081219, guid: 5b9bcd390bfcc4c44a0e025b8d0fbe7b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b9bcd390bfcc4c44a0e025b8d0fbe7b, type: 3}
---- !u!1 &405187021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4215662848218081218, guid: 5b9bcd390bfcc4c44a0e025b8d0fbe7b,
-    type: 3}
-  m_PrefabInstance: {fileID: 405187020}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &405187022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405187021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5002b1f8755b970489dd9b085a3d9166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions:
-  - action: {fileID: 11400000, guid: 338fc30aa6d50a8479b2027ab156215b, type: 2}
-    order: 1
-  - action: {fileID: 11400000, guid: a7cd14adabc50734895eebe7c8ab69b8, type: 2}
-    order: 2
-  speed: 800
-  nextWaypointDistance: 2
-  health: 50
-  deltaSelector: 0.198
-  blood: {fileID: 6859568609309188791, guid: 89d61056f68a408499a65b609b9b3ab0, type: 3}
-  offsetRadiusX: 0.5
-  offsetRadiusY: 0.5
-  deadCharacter: {fileID: 8209105817741315453, guid: 15db55a45789c514a98bc39dacc7ba77,
-    type: 3}
-  items: []
-  defaultAction: {fileID: 11400000, guid: 98dedc67a16c5de4ab869c6c8810179d, type: 2}
-  objectsToInstatiateWalking: []
 --- !u!1 &410024368
 GameObject:
   m_ObjectHideFlags: 0
