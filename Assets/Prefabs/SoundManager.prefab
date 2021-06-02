@@ -107,7 +107,7 @@ MonoBehaviour:
     volume: 0.0956
   - name: AmbientWindInsideExtras
     clip: {fileID: 8300000, guid: 2dff3e0c3617d0d4d9d4a2b4b1c76ed9, type: 3}
-    volume: 0.0956
+    volume: 0
   - name: PlaySimulation
     clip: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
     volume: 0.1
@@ -118,7 +118,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8cb62c4577679da4f8d0695f272fc790, type: 3}
     volume: 0.1
   - name: MainMusic
-    clip: {fileID: 8300000, guid: 8c695fbfb6332204dae3d32dfe8eeace, type: 3}
+    clip: {fileID: 8300000, guid: 4c21e7da6183574468c8fa08aa7655d2, type: 3}
     volume: 0.096
   - name: AmbientWindOutsideExtras
     clip: {fileID: 8300000, guid: fd9c71a0f509e2347a1fd00b8dc8ec45, type: 3}
