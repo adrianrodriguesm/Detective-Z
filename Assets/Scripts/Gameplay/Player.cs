@@ -91,9 +91,14 @@ public class Player : MonoBehaviour
         {
             m_AudioPlayer.PlayOnceRandomClip("GrassRegular"); 
         }  
-        else if(environment.Equals(EnvironmentType.Kitchen) || environment.Equals(EnvironmentType.Bathroom))
+        else if(environment.Equals(EnvironmentType.Bathroom))
         {
-            m_AudioPlayer.PlayOnceRandomClip("CeramicaRegular");
+            m_AudioPlayer.PlayOnceRandomClip("BathroomRegular");
+            m_AudioPlayer.PlayOnceRandomClip("WoodRegular");
+        }
+        else if(environment.Equals(EnvironmentType.Kitchen))
+        {
+            //m_AudioPlayer.PlayOnceRandomClip("BathroomRegular");
             m_AudioPlayer.PlayOnceRandomClip("WoodRegular");
         }
         else

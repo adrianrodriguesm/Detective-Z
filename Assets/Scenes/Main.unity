@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d779165a426aa4ba832de4bc670504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnlyPlayOnce: 1
+  OnlyPlayOnce: 0
   Source: {fileID: 0}
 --- !u!1001 &114606860
 PrefabInstance:
@@ -3708,6 +3708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].name
+      value: BathroomRegular
+      objectReference: {fileID: 0}
     - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
       propertyPath: RandomAudioClips.Array.data[2].volume
       value: 0.005
