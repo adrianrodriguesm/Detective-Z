@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac33a0cc13709f48bdeaa086d93fb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeToSwitchBackgroundSounds: 0.35
+  FadeToSwitchBackgroundSounds: 0.3
 --- !u!114 &7943330994244163669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
     volume: 0.1
   - name: RewindSimulation
-    clip: {fileID: 8300000, guid: 71a8f763dcb025c4c851f4b66afd0f7e, type: 3}
+    clip: {fileID: 8300000, guid: 8cb62c4577679da4f8d0695f272fc790, type: 3}
     volume: 0.1
   - name: MainMusic
     clip: {fileID: 8300000, guid: 8c695fbfb6332204dae3d32dfe8eeace, type: 3}
@@ -128,7 +128,7 @@ MonoBehaviour:
     volume: 0.3
   - name: DialagueTyping
     clip: {fileID: 8300000, guid: 2886e33a15d83be47913826f984dd47c, type: 3}
-    volume: 0.06
+    volume: 0.02
   - name: AmbientWindOutsideDogs
     clip: {fileID: 8300000, guid: 83c8afed0c8d9844fbf9a60a7538065a, type: 3}
     volume: 0.075
