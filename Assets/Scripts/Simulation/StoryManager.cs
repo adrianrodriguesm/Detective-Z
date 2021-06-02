@@ -124,6 +124,7 @@ public class StoryManager : Singleton<StoryManager>
             {
                 animationState = AnimationState.Play;
                 m_SoundManager.PlayClickSound();
+                m_SoundManager.PlaySimulation();
             }
                
             else if (Input.GetButtonDown("StopSimulatedStory"))
@@ -136,12 +137,14 @@ public class StoryManager : Singleton<StoryManager>
             {
                 animationState = AnimationState.Rewind;
                 m_SoundManager.PlayClickSound();
+                m_SoundManager.RewindSimulation();
             }
                 
-            else if (Input.GetButtonDown("PauseSimulatedStory"))
+            else if (!animationState.Equals(AnimationState.Stop) && Input.GetButtonDown("PauseSimulatedStory"))
             {
                 animationState = AnimationState.Pause;
                 m_SoundManager.PlayClickSound();
+                m_SoundManager.PlaySimulation();
             }
                 
 
@@ -246,7 +249,6 @@ public class StoryManager : Singleton<StoryManager>
 
     void PlaySimulation()
     {
-        SoundManager.Instance.PlaySimulation();
         timer += Time.unscaledDeltaTime;
         if(timer > timerForReplay)
         {

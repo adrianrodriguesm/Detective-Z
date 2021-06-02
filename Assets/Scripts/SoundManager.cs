@@ -38,6 +38,11 @@ public class SoundManager : Singleton<SoundManager>
         m_AudioPlayer.PlayOnce("DialagueTyping");
     }
 
+    public float GetDialogueSoundLength()
+    {
+        return m_AudioPlayer.GetAudioClipLength("DialagueTyping");
+    }
+
     private void Update()
     {
         if (GameplayManager.Instance.GameplayStarted)
@@ -131,8 +136,8 @@ public class SoundManager : Singleton<SoundManager>
 
     public void RewindSimulation()
     {
-        if (m_AudioPlayer.IsLoopPlaying("RewindSimulation"))
-            m_AudioPlayer.StopLoop("RewindSimulation");
+        if (m_AudioPlayer.IsLoopPlaying("PlaySimulation"))
+            m_AudioPlayer.StopLoop("PlaySimulation");
 
         m_AudioPlayer.PlayLoop("RewindSimulation");
     }
