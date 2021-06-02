@@ -93,7 +93,8 @@ public class Player : MonoBehaviour
         }  
         else if(environment.Equals(EnvironmentType.Kitchen) || environment.Equals(EnvironmentType.Bathroom))
         {
-            m_AudioPlayer.PlayOnceRandomClip("CeramicaRegular"); 
+            m_AudioPlayer.PlayOnceRandomClip("CeramicaRegular");
+            m_AudioPlayer.PlayOnceRandomClip("WoodRegular");
         }
         else
         {

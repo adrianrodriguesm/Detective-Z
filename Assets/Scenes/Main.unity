@@ -3708,6 +3708,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].volume
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].clips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8db1a1b129102e2479e4f3f1d660f356, type: 3}
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7492b3a7dcd6510408145f615a81f263, type: 3}
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f32583ed4c352c14b9809bb29d1f7265, type: 3}
+    - target: {fileID: 1208705349, guid: 0c636d84cc68d8c4a9a8da7f736846d0, type: 3}
+      propertyPath: RandomAudioClips.Array.data[2].clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: c98b739ed067ebd4dab8a99324ccc3e6, type: 3}
     - target: {fileID: 7689079104374209796, guid: 0c636d84cc68d8c4a9a8da7f736846d0,
         type: 3}
       propertyPath: m_RootOrder
