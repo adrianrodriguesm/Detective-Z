@@ -5,6 +5,7 @@ using UnityEngine;
 public class Radio : MonoBehaviour
 {
     public EnvironmentType environment;
+    public List<GameObject> ObjectsToInstatiateWhenActive;
     bool isReserved = false;
     public bool Reserved
     {
@@ -22,6 +23,12 @@ public class Radio : MonoBehaviour
         get { return activated; }
     }
     StoryManager m_StoryManager;
+    private void Awake()
+    {
+        foreach(var obj in ObjectsToInstatiateWhenActive)
+            obj.SetActive(false);
+       
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +69,9 @@ public class Radio : MonoBehaviour
         // Play audio
         infected.AddSuspectTarget(transform);
         activated = true;
+
+        foreach (var obj in ObjectsToInstatiateWhenActive)
+            obj.SetActive(true);
 
         if (clue)
             clue.Enable = true;
