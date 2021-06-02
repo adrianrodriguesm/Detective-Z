@@ -63,7 +63,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
             DialogueText.text += letter;
             m_SoundManager.PlayDialogueSound();
-            yield return new WaitForSeconds(m_SoundManager.GetDialogueSoundLength());
+            yield return new WaitForSeconds(m_SoundManager.GetDialogueSoundLength() * 0.7f);
         }
         yield return new WaitForSeconds(4f);
         DisplayNextSentence();
