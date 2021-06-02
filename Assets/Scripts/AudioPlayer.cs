@@ -40,6 +40,7 @@ public class RandomAudioClipVolume
     public string name;
     public List<AudioClip> clips;
     [Range(0, 1)] public float volume = 1;
+    int LastIndex = -1;
 
     public RandomAudioClipVolume(string name, List<AudioClip> clips, float volume)
     {
@@ -49,7 +50,18 @@ public class RandomAudioClipVolume
     }
     public AudioClip SelectClipToPlay()
     {
-        return clips[Random.Range(0, clips.Count())];
+        if(LastIndex < 0 || clips.Count() == 1)
+            LastIndex = Random.Range(0, clips.Count());
+        else
+        {
+            int newIndex;
+            do
+            {
+                newIndex = Random.Range(0, clips.Count());
+            } while (newIndex == LastIndex);
+            LastIndex = newIndex;
+        }
+        return clips[LastIndex];
     }
 }
 
