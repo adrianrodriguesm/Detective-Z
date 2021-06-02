@@ -304,7 +304,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3cd23c66468ea3940bdb89e21b126f36, type: 3}
     - {fileID: 8300000, guid: 6f77b5232a1f4a74c956b6e839379ac8, type: 3}
     volume: 0.1
-  - name: GrassBlood
+  - name: CeramicaRegular
     clips:
     - {fileID: 8300000, guid: e1103fefa0bf30f4ca6fd20dfe4a3eab, type: 3}
     - {fileID: 8300000, guid: bc0dfa8b012711d4fa62aa1ed0b055d7, type: 3}
@@ -317,63 +317,26 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d695c914f42c246448b1595091d36b80, type: 3}
     - {fileID: 8300000, guid: d8ac8f984936a274cb0052e96fc1d4da, type: 3}
     volume: 0.1
-  - name: WoodBlood
+  - name: BloodStep
     clips:
-    - {fileID: 8300000, guid: a3887d65480641342bab41a4a8f32684, type: 3}
-    - {fileID: 8300000, guid: 33f52c164f794994aa2b5557887112b9, type: 3}
-    - {fileID: 8300000, guid: c7d7ed231a1dee047afd4a5ee0f7546f, type: 3}
-    - {fileID: 8300000, guid: 02f956facb736d6468315f3412c83bb6, type: 3}
-    - {fileID: 8300000, guid: 86e54c6d501092544835e5297ab1ff51, type: 3}
-    - {fileID: 8300000, guid: c583015d4acc6b14a8e72cf8e54dd6cb, type: 3}
-    - {fileID: 8300000, guid: e80903f904598944f92967a09092564f, type: 3}
-    - {fileID: 8300000, guid: 3124da9f244051444ad0efc26ea04956, type: 3}
-    - {fileID: 8300000, guid: f2f033a6e4f9b6246ab8bb0f54acf37d, type: 3}
-    - {fileID: 8300000, guid: 84c2c3acd3976e74b8d37766abac740b, type: 3}
-    volume: 0.1
-  - name: GrassFence
+    - {fileID: 8300000, guid: 77d3939cc66b31c48936ef387d2cb4ed, type: 3}
+    - {fileID: 8300000, guid: b43aa011383b2884f8219c219947b324, type: 3}
+    - {fileID: 8300000, guid: f3506fbcc470edc40987f21431967253, type: 3}
+    - {fileID: 8300000, guid: fc1bdae89528cb1458db15980511af53, type: 3}
+    volume: 0.05
+  - name: GlassStep
     clips:
-    - {fileID: 8300000, guid: 88a786a1be87b4240b94b6d673a3a5ba, type: 3}
-    - {fileID: 8300000, guid: d9dd7a53c02ebf0438df401b66d7e662, type: 3}
-    - {fileID: 8300000, guid: 94b47b99c0458bc4bbaf2145f5cd11bf, type: 3}
-    - {fileID: 8300000, guid: 656fca874b95eb04fb003f8cf9a8a344, type: 3}
-    - {fileID: 8300000, guid: ccb1ce77fdbe3cb48ab4b8779d83407e, type: 3}
-    - {fileID: 8300000, guid: 06b17e38fc000cc40bfb32dee3522041, type: 3}
-    - {fileID: 8300000, guid: b76c1c31af97ce04589166bc66f15941, type: 3}
-    - {fileID: 8300000, guid: 12005152690a6d7448830c6ec8739edb, type: 3}
-    - {fileID: 8300000, guid: 5297c460eb6e86047b4f7eed68c04360, type: 3}
-    - {fileID: 8300000, guid: e25e3de77a57b9f41be90d57098a4dac, type: 3}
-    - {fileID: 8300000, guid: ab97f140a56f30f45b84273806eaa906, type: 3}
-    - {fileID: 8300000, guid: 5d686ea16fe63ee419ddcfe80d17659c, type: 3}
-    - {fileID: 8300000, guid: a310a0b05436a9944b99c58123522bbc, type: 3}
-    - {fileID: 8300000, guid: d9d6b6d43601c884f9b0e7c5361e37ad, type: 3}
-    - {fileID: 8300000, guid: 3ab8e3270d3cdfc45a6f26f997b83bd9, type: 3}
-    - {fileID: 8300000, guid: f49a9ebc21559f245824d0899a830734, type: 3}
-    - {fileID: 8300000, guid: 1a3320fb2c8423544ab964726f38e7f3, type: 3}
-    - {fileID: 8300000, guid: 933e1a3c783ff5a438ccc8628395c0d4, type: 3}
-    - {fileID: 8300000, guid: 3cd23c66468ea3940bdb89e21b126f36, type: 3}
-    - {fileID: 8300000, guid: 6f77b5232a1f4a74c956b6e839379ac8, type: 3}
-    volume: 0.1
-  - name: WoodGlass
+    - {fileID: 8300000, guid: 2e0cc973a6226164daeaa5d189d87959, type: 3}
+    - {fileID: 8300000, guid: 2216d979e4bc3284e864e040e3e0ebe0, type: 3}
+    - {fileID: 8300000, guid: 569c03c5d2be63b4a8e7eebb9ce8e4bc, type: 3}
+    - {fileID: 8300000, guid: 85def5a861f055c46b36f9b6949d1cbd, type: 3}
+    - {fileID: 8300000, guid: 7d29c4171c8684a4984d48263be271f0, type: 3}
+    - {fileID: 8300000, guid: 84feb16173e9c7f4bae38144a252e0e3, type: 3}
+    volume: 0.05
+  - name: FenceStep
     clips:
-    - {fileID: 8300000, guid: 88a786a1be87b4240b94b6d673a3a5ba, type: 3}
-    - {fileID: 8300000, guid: d9dd7a53c02ebf0438df401b66d7e662, type: 3}
-    - {fileID: 8300000, guid: 94b47b99c0458bc4bbaf2145f5cd11bf, type: 3}
-    - {fileID: 8300000, guid: 656fca874b95eb04fb003f8cf9a8a344, type: 3}
-    - {fileID: 8300000, guid: ccb1ce77fdbe3cb48ab4b8779d83407e, type: 3}
-    - {fileID: 8300000, guid: 06b17e38fc000cc40bfb32dee3522041, type: 3}
-    - {fileID: 8300000, guid: b76c1c31af97ce04589166bc66f15941, type: 3}
-    - {fileID: 8300000, guid: 12005152690a6d7448830c6ec8739edb, type: 3}
-    - {fileID: 8300000, guid: 5297c460eb6e86047b4f7eed68c04360, type: 3}
-    - {fileID: 8300000, guid: e25e3de77a57b9f41be90d57098a4dac, type: 3}
-    - {fileID: 8300000, guid: ab97f140a56f30f45b84273806eaa906, type: 3}
-    - {fileID: 8300000, guid: 5d686ea16fe63ee419ddcfe80d17659c, type: 3}
-    - {fileID: 8300000, guid: a310a0b05436a9944b99c58123522bbc, type: 3}
-    - {fileID: 8300000, guid: d9d6b6d43601c884f9b0e7c5361e37ad, type: 3}
-    - {fileID: 8300000, guid: 3ab8e3270d3cdfc45a6f26f997b83bd9, type: 3}
-    - {fileID: 8300000, guid: f49a9ebc21559f245824d0899a830734, type: 3}
-    - {fileID: 8300000, guid: 1a3320fb2c8423544ab964726f38e7f3, type: 3}
-    - {fileID: 8300000, guid: 933e1a3c783ff5a438ccc8628395c0d4, type: 3}
-    - {fileID: 8300000, guid: 3cd23c66468ea3940bdb89e21b126f36, type: 3}
-    - {fileID: 8300000, guid: 6f77b5232a1f4a74c956b6e839379ac8, type: 3}
+    - {fileID: 8300000, guid: 1c803e14fccb3db4a8d6c50cce595c7f, type: 3}
+    - {fileID: 8300000, guid: 32ed018529368be45a9e6869232cce4c, type: 3}
+    - {fileID: 8300000, guid: 8f73cd60b2dcbb449935996d89dc9773, type: 3}
     volume: 0.1
   TimeStamp: 0

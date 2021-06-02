@@ -263,6 +263,7 @@ public class StoryManager : Singleton<StoryManager>
     }
     void RewindSimulation()
     {
+        SoundManager.Instance.RewindSimulation();
         timer += Time.unscaledDeltaTime;
         if (timer > timerForReplay)
         {
@@ -279,6 +280,7 @@ public class StoryManager : Singleton<StoryManager>
 
     void StopSimulation()
     {
+        SoundManager.Instance.PlaySimulation();
         currIndex = 0;
         imageDisplay.enabled = false;
     } 

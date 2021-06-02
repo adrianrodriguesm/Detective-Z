@@ -79,27 +79,25 @@ public class Player : MonoBehaviour
     public void PlayStepSound()
     {
         //Debug.Log("STEPP TYPE : " + currOvelapStep);
+        switch (currOvelapStep)
+        {
+            
+            case StepType.Blood: m_AudioPlayer.PlayOnceRandomClip("BloodStep"); break;
+            case StepType.Fence: m_AudioPlayer.PlayOnceRandomClip("FenceStep"); break;
+            case StepType.Glass: m_AudioPlayer.PlayOnceRandomClip("GlassStep"); break;
+                //case StepType.Glass: break;
+        }
         if (environment.Equals(EnvironmentType.Garden))
         {
-            switch(currOvelapStep)
-            {
-                case StepType.None: m_AudioPlayer.PlayOnceRandomClip("GrassRegular"); break;
-                case StepType.Blood: m_AudioPlayer.PlayOnceRandomClip("GrassBlood"); break;
-                case StepType.Fence: m_AudioPlayer.PlayOnceRandomClip("GrassFence"); break;
-                //case StepType.Glass: break;
-            }
-           
+            m_AudioPlayer.PlayOnceRandomClip("GrassRegular"); 
         }  
+        else if(environment.Equals(EnvironmentType.Kitchen) || environment.Equals(EnvironmentType.Bathroom))
+        {
+            m_AudioPlayer.PlayOnceRandomClip("CeramicaRegular"); 
+        }
         else
         {
-            switch (currOvelapStep)
-            {
-                case StepType.None: m_AudioPlayer.PlayOnceRandomClip("WoodRegular"); break;
-                case StepType.Blood: m_AudioPlayer.PlayOnceRandomClip("WoodBlood"); break;
-                case StepType.Glass: m_AudioPlayer.PlayOnceRandomClip("WoodGlass"); break;
-                //case StepType.Fence: break;
-            }
-            
+            m_AudioPlayer.PlayOnceRandomClip("WoodRegular");
         }
         currOvelapStep = StepType.None;
     }
