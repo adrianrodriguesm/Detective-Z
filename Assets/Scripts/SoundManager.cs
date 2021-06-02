@@ -50,7 +50,7 @@ public class SoundManager : Singleton<SoundManager>
             if(!m_First)
             {
                 m_Player = FindObjectOfType<Player>();
-                m_AudioPlayer.PlayLoop("MainMusic");
+                m_AudioPlayer.PlayLoop("MainMusic", 0);
                 m_MainSoundStartVolume = m_AudioPlayer.GetLoopVolumeScale("MainMusic");
                 if (m_Player.environment.Equals(EnvironmentType.Garden))
                     PlayOutsideAmbientSound();
@@ -72,7 +72,7 @@ public class SoundManager : Singleton<SoundManager>
             else if(!m_CurrentAnimationState.Equals(currAnimState) && currAnimState.Equals(AnimationState.Stop))
             {
                 StopSimulation();
-                m_AudioPlayer.PlayLoop("MainMusic", FadeToSwitchBackgroundSounds);
+                m_AudioPlayer.PlayLoop("MainMusic", 0);
                 if (m_Player.environment.Equals(EnvironmentType.Garden))
                     PlayOutsideAmbientSound();
                 else

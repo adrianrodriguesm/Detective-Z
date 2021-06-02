@@ -39,7 +39,11 @@ public class InfectedEntrance : MonoBehaviour
             StoryManager.Instance.Infected.objectsToInstatiateWalking.Add(walkingObject);
 
         for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(true);
+        {
+            if(transform.GetChild(i).name != "ZombieClip")
+                transform.GetChild(i).gameObject.SetActive(true);
+        }
+           
 
         entered = true;
         if (afterEntry)

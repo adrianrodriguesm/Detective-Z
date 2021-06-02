@@ -44,7 +44,7 @@ public class AIAgent : MonoBehaviour
     public float health = 40f;
     float minDistanceToDetectInfected = 10f;
     float initialHealth;
-    bool dead = false;
+    
     [Header("Blood asset when hurt")]
     public SpriteRenderer blood;
     public float offsetRadiusX;
@@ -82,7 +82,6 @@ public class AIAgent : MonoBehaviour
     [Header("Intatiate when walking")]
     public List<WalkingObject> objectsToInstatiateWalking;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_Setter = GetComponent<AIDestinationSetter>();
@@ -114,7 +113,7 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (dead)
+        if (health <= 0)
             return;
 
         // Start Condition
@@ -126,9 +125,8 @@ public class AIAgent : MonoBehaviour
             currentState = State.Alert;
             currentOrder = 0;
             foreach (var item in items)
-            {
                 item.OnStateChanged(this);
-            }
+            
         }
 
 
@@ -153,8 +151,6 @@ public class AIAgent : MonoBehaviour
     {
         if(IsDead())
         {
-           
-            dead = true;
             currAction.action.OnActionFinish(this);
             foreach(Item item in items)
             {
