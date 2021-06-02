@@ -139,10 +139,7 @@ MonoBehaviour:
     order: 2
   - action: {fileID: 11400000, guid: 4f3c4fa1a36bea247b79049fce14ae75, type: 2}
     order: 3
-  speed: 800
-  nextWaypointDistance: 2
   health: 100
-  deltaSelector: 0.193
   blood: {fileID: 6859568609309188791, guid: 89d61056f68a408499a65b609b9b3ab0, type: 3}
   offsetRadiusX: 0.5
   offsetRadiusY: 0.5
@@ -213,7 +210,7 @@ GameObject:
   - component: {fileID: 3481239222648582851}
   - component: {fileID: 3481239222648582852}
   m_Layer: 10
-  m_Name: EnemyGPX
+  m_Name: AgentGPX
   m_TagString: AgentGPX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +269,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2024838297734772387, guid: 6f8b01e6c280d184f9688a3a929cf7f7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

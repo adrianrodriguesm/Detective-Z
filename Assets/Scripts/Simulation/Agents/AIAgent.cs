@@ -45,9 +45,6 @@ public class AIAgent : MonoBehaviour
     float minDistanceToDetectInfected = 10f;
     float initialHealth;
     bool dead = false;
-    [Header("Action chooser delta")]
-    [Range(0.1f, 0.5f)]
-    public float deltaSelector;
     [Header("Blood asset when hurt")]
     public SpriteRenderer blood;
     public float offsetRadiusX;
@@ -195,7 +192,7 @@ public class AIAgent : MonoBehaviour
         {
             
             GetComponent<Collider2D>().enabled = false;
-            var childGPX = transform.Find("EnemyGPX");
+            var childGPX = transform.Find("AgentGPX");
             Destroy(childGPX.gameObject);
             float distance = 1.8f;
             /**/

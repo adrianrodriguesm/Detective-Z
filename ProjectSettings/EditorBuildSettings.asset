@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DEPRECATED/Main - Garden.unity
     guid: 08ed8cda15dd09e40b49c0a824d6a6fc
   - enabled: 0
-    path: Assets/Scenes/Main - 1Scenario.unity
+    path: Assets/Scenes/DEPRECATED/Main - 1Scenario.unity
     guid: bbd9ece9c060d7d4c8f68e5fc079a3c0
   - enabled: 0
-    path: Assets/Scenes/Main - 2Scenario.unity
+    path: Assets/Scenes/DEPRECATED/Main - 2Scenario.unity
     guid: aab79647a69a9f94ba38ed2e5e735ede
   m_configObjects: {}
