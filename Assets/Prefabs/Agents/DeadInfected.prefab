@@ -95,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 0.2}
+  m_Size: {x: 1, y: 2, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3794765191971023609
 MonoBehaviour:
@@ -112,6 +112,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - zombie's dead body.
+    - "the infected\u2019s body. properly dead. \nfor a second time, at least."
   maxScale: 1.5
   tweenTime: 0.75

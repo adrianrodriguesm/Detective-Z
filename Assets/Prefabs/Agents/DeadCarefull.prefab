@@ -113,6 +113,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - celi's dead body.
+    - "it\u2019s a body\u2026her id says celi."
   maxScale: 1.5
   tweenTime: 0.75

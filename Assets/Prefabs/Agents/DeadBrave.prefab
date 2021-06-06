@@ -113,6 +113,6 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - toni's dead body.
+    - "blond male in his 40s\u2026this is toni."
   maxScale: 1.5
   tweenTime: 0.75

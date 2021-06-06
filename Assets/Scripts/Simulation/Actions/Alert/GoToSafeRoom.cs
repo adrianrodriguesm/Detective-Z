@@ -57,7 +57,7 @@ public class GoToSafeRoom : Action
                 point = rooms[Random.Range(0, rooms.Count)];
                 radioInEnvironment = radio.Where(x => x.Active && x.environment.Equals(point.environment)).ToList();
                 count++;
-            } while (radioInEnvironment.Count() > 0 && count < 4f);
+            } while (radioInEnvironment.Count() > 0 && count < 4);
             room = point.waypoint;
 
         }

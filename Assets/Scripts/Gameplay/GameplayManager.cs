@@ -60,7 +60,7 @@ public class GameplayManager : Singleton<GameplayManager>
             gameplayDuration += Time.deltaTime;
             if (!isGameplayStarted)
             {
-                isGameplayStarted = true;
+               
                 StartCoroutine(ActivateGameplayObjects());
             }
         }
@@ -68,8 +68,11 @@ public class GameplayManager : Singleton<GameplayManager>
 
     IEnumerator ActivateGameplayObjects()
     {
+        for(int i = 0; i < 2; i++)
+            yield return new WaitForEndOfFrame();
+
+        isGameplayStarted = true;
         SoundManager.Instance.DestroyAudioListener();
-        yield return new WaitForEndOfFrame();
         foreach (var gameObject in ActiveWhenGameplayStart)
             gameObject.SetActive(true);
 

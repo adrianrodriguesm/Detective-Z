@@ -6,21 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/DEPRECATED/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 0
-    path: Assets/Scenes/DEPRECATED/Main - LR.unity
-    guid: abd2666f81b2ba3479327f545b7034e3
-  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 31f0af0e110a9e94a94299e61959f681
+  - enabled: 1
+    path: Assets/Scenes/Main A.unity
+    guid: 8718ff1a987869e4cb98294f54e328b7
   - enabled: 0
-    path: Assets/Scenes/DEPRECATED/Main - Garden.unity
-    guid: 08ed8cda15dd09e40b49c0a824d6a6fc
-  - enabled: 0
-    path: Assets/Scenes/DEPRECATED/Main - 1Scenario.unity
-    guid: bbd9ece9c060d7d4c8f68e5fc079a3c0
-  - enabled: 0
-    path: Assets/Scenes/DEPRECATED/Main - 2Scenario.unity
-    guid: aab79647a69a9f94ba38ed2e5e735ede
+    path: Assets/Scenes/Main B.unity
+    guid: abbb70cb945077e4591154eb4470751e
   m_configObjects: {}

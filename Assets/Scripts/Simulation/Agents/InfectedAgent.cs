@@ -22,14 +22,7 @@ public class InfectedAgent : MonoBehaviour
     public GameObject infectedBlood;
     public float offsetRadiusX = 1f;
     public float offsetRadiusY = 1f;
-    public List<GameObject> infectedBloodWalking;
-    public float spacingBetweenWalkingBlood;
-    [Header("Timer for gradient of blood")]
-    [Range(0, 10)]
-    public float timerBloodWalkingGradient;
-    [Header("Posibles exits point in which the infected can scape")]
-    public List<Transform> exitPoints;
-    [Range(8,20)]
+    [Range(0,20)]
     public float timeToEscape = Mathf.Infinity;
     [Range(0,7)]
     public float deltaToEscape = 2f;

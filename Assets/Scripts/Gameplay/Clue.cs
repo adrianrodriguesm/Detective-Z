@@ -26,10 +26,19 @@ public class Clue : MonoBehaviour
         set { isEnable = value; }
     }
     bool isInteracting = false;
+    SpriteRenderer m_SpriteRenderer;
+    int m_DefaultLayer;
+    private void Awake()
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_DefaultLayer = m_SpriteRenderer.sortingOrder;
+
+    }
     // Start is called before the first frame update
     void Start()
     {
         localScale = transform.localScale;
+      
     }
 
     private void Update()
@@ -49,6 +58,8 @@ public class Clue : MonoBehaviour
         DialogueManager.Instance.BeginDialogue(dialogue);
         numberOfInteractions++;
         isInteracting = true;
+        m_SpriteRenderer.sortingOrder = 20;
+        //Debug.Log("Layer Entry: " + m_SpriteRenderer.sortingOrder);
     }
 
     private void OnMouseOver()
@@ -64,12 +75,14 @@ public class Clue : MonoBehaviour
     /**/
     private void OnMouseExit()
     {
+        m_SpriteRenderer.sortingOrder = m_DefaultLayer;
         if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
             return;
         
         LeanTween.scale(gameObject, localScale, tweenTime).setEaseInSine();
         DialogueManager.Instance.EndDialogue();
         isInteracting = false;
+        //Debug.Log("Layer Exit: " + m_SpriteRenderer.sortingOrder);
     }
 
     public ClueSerialize GenerateClueSerialize()

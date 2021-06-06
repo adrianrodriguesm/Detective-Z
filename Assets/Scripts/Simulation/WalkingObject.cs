@@ -37,11 +37,10 @@ public class WalkingObject : ScriptableObject
             }
         }
 
-        if (Vector2.Distance(position, lastIntatiation) >= spacing)
+        if (Vector2.Distance(position, lastIntatiation) >= spacing && !ItemManager.Instance.CheckIfOverlapWithWall(position))
         {
             lastIntatiation = position;
             Instantiate(gradientClue[currIndex], position, Quaternion.identity);
-           
         }
     }
 

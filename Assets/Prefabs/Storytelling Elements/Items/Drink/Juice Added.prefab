@@ -99,7 +99,7 @@ MonoBehaviour:
   dialogue:
     title: 
     sentences:
-    - "someone probably grabbed a bottle from here.\r"
+    - "someone probably grabbed a \nbottle from here.\r"
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!65 &4589706056001426963

@@ -137,10 +137,10 @@ public class AIAgent : MonoBehaviour
             foreach (var storytellingElement in objectsToInstatiateWalking)
                 storytellingElement.GenerateStorytellingElement(transform.position);
         }
-
+        /**/
         if (!StoryManager.Instance.UsedRandomSeed)
             Random.InitState(System.DateTime.Now.Millisecond);
-
+        /**/
         ProcessAction();
 
        

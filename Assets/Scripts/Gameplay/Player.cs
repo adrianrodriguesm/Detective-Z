@@ -62,8 +62,10 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         // Movement
-        if(m_StoryManager.AnimationState.Equals(AnimationState.Stop) && !isIdle)
-             rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
+        if (m_StoryManager.AnimationState.Equals(AnimationState.Stop) && !isIdle)
+            rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
+        else
+            rb.MovePosition(rb.position);
     }
 
     public void ChangedEnvironment(EnvironmentType type)

@@ -71,10 +71,12 @@ public class StoryManager : Singleton<StoryManager>
     public bool UsedRandomSeed = false;
     public int randomSeed = 5;
     SoundManager m_SoundManager;
+    public InfectedEntrance ForceEntryPoint;
     // Start is called before the first frame update
     void Awake()
     {
-        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        if (UsedRandomSeed)
+            UnityEngine.Random.InitState(randomSeed);
         agents = FindObjectsOfType<AIAgent>().ToList();
         deadAgents = new List<AIAgent>();
         actionsExecuted = new List<ActionStorage>();
@@ -87,8 +89,7 @@ public class StoryManager : Singleton<StoryManager>
         spriteFrame = new List<Sprite>();
         m_SoundManager = SoundManager.Instance;
         SimulationLoader.Instance.gameObject.SetActive(true);
-        if (UsedRandomSeed)
-            UnityEngine.Random.InitState(randomSeed);
+
     }
 
     private void Start()
@@ -102,10 +103,11 @@ public class StoryManager : Singleton<StoryManager>
     {
         infected.gameObject.SetActive(false);
         yield return new WaitForSeconds(timerToStartTheAttack);
-        InfectedEntrance entrancePoint = infectedEntrance[UnityEngine.Random.Range(0, infectedEntrance.Count())];
-        infected.transform.position = entrancePoint.transform.position;
+        if(ForceEntryPoint == null)
+            ForceEntryPoint = infectedEntrance[UnityEngine.Random.Range(0, infectedEntrance.Count())];
+        infected.transform.position = ForceEntryPoint.transform.position;
         infected.gameObject.SetActive(true);
-        entrancePoint.Entry();  
+        ForceEntryPoint.Entry();  
     }
 
     // Update is called once per frame

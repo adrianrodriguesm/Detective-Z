@@ -202,8 +202,6 @@ MonoBehaviour:
   deadInfectedAgent: {fileID: 8209105817741315453, guid: 089348f66a6ac9b4882208dedc54ca10,
     type: 3}
   infectedBloodWalk: {fileID: 11400000, guid: 8fbc4536810d886459b998b51296e1a8, type: 2}
-  speed: 250
-  nextWaypointDistance: 3
   objectsToInstatiateWalking: []
 --- !u!114 &746521535
 MonoBehaviour:
