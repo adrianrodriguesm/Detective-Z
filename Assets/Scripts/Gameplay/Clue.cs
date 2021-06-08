@@ -34,11 +34,14 @@ public class Clue : MonoBehaviour
         m_DefaultLayer = m_SpriteRenderer.sortingOrder;
 
     }
+    StoryManager m_StoryManager;
+    DialogueManager m_DialogueManager;
     // Start is called before the first frame update
     void Start()
     {
         localScale = transform.localScale;
-      
+        m_StoryManager = StoryManager.Instance;
+        m_DialogueManager = DialogueManager.Instance;
     }
 
     private void Update()
@@ -50,12 +53,12 @@ public class Clue : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
+        if (!isEnable || !m_StoryManager.IsSimulationEnd() || !m_StoryManager.AnimationState.Equals(AnimationState.Stop))
             return;
         //Debug.Log("Enter " + gameObject.name);
         LeanTween.cancel(gameObject);
         LeanTween.scale(gameObject, Vector3.one * maxScale, tweenTime).setEaseInSine();
-        DialogueManager.Instance.BeginDialogue(dialogue);
+        m_DialogueManager.BeginDialogue(dialogue);
         numberOfInteractions++;
         isInteracting = true;
         m_SpriteRenderer.sortingOrder = 20;
@@ -64,10 +67,10 @@ public class Clue : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if ( !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
+        if ( !m_StoryManager.AnimationState.Equals(AnimationState.Stop))
         {
             LeanTween.cancel(gameObject);
-            DialogueManager.Instance.EndDialogue();
+            m_DialogueManager.EndDialogue();
             isInteracting = false;
         }
            
@@ -76,11 +79,11 @@ public class Clue : MonoBehaviour
     private void OnMouseExit()
     {
         m_SpriteRenderer.sortingOrder = m_DefaultLayer;
-        if (!isEnable || !StoryManager.Instance.IsSimulationEnd() || !StoryManager.Instance.AnimationState.Equals(AnimationState.Stop))
+        if (!isEnable || !m_StoryManager.IsSimulationEnd() || !m_StoryManager.AnimationState.Equals(AnimationState.Stop))
             return;
         
         LeanTween.scale(gameObject, localScale, tweenTime).setEaseInSine();
-        DialogueManager.Instance.EndDialogue();
+        m_DialogueManager.EndDialogue();
         isInteracting = false;
         //Debug.Log("Layer Exit: " + m_SpriteRenderer.sortingOrder);
     }

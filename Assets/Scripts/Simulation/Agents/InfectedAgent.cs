@@ -31,6 +31,11 @@ public class InfectedAgent : MonoBehaviour
     public WalkingObject infectedBloodWalk;
     bool escaped = false;
     bool wasAttacked = false;
+    AttackType m_LastAttackTypeReceived = AttackType.Body;
+    public AttackType LastAttackTypeReceived
+    {
+        get { return m_LastAttackTypeReceived; }
+    }
     public bool Escaped
     {
         get { return escaped; }
@@ -143,7 +148,7 @@ public class InfectedAgent : MonoBehaviour
 
     public void InstatiateDeadAgent()
     {
-        Debug.Log("Agent Dead");
+        //Debug.Log("Agent Dead");
         dead = true;
         Destroy(gameObject);
         Instantiate(deadInfectedAgent, transform.position, Quaternion.identity);
@@ -157,13 +162,12 @@ public class InfectedAgent : MonoBehaviour
             float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
             Instantiate(infectedBlood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
         }
-        
+        m_LastAttackTypeReceived = type;
         InfectedAction action = currAction as AttackAgent;
         // If is attackes by an agent that is not a target
         if(action == null)
-        {
             currAction = new AttackAgent(this, agent);
-        }
+        
         infectedBloodWalk.Reset();
         wasAttacked = true;
 

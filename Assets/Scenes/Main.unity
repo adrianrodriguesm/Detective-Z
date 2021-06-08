@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 5887272145410990831, guid: dca5b0bf95e374640b6e7f45623159ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5887272145410990831, guid: dca5b0bf95e374640b6e7f45623159ed,
         type: 3}
@@ -1253,7 +1253,7 @@ PrefabInstance:
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: timerForReplay
-      value: 0.06666667
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
@@ -1263,7 +1263,7 @@ PrefabInstance:
     - target: {fileID: 9184619856120338671, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338671, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
@@ -1725,16 +1725,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 811650458}
     m_Modifications:
-    - target: {fileID: 1206846796461365575, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5427566025821029404, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 7514310003300443745, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}
       propertyPath: m_Name
@@ -1795,8 +1785,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1955856034, guid: 0073efe6f193c1d478b511b4160e3de0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0073efe6f193c1d478b511b4160e3de0, type: 3}
 --- !u!1001 &1468199337
 PrefabInstance:
@@ -1874,11 +1863,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 811650458}
     m_Modifications:
-    - target: {fileID: 63999653251308518, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 2592376777169140120, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
         type: 3}
       propertyPath: m_RootOrder
@@ -1939,28 +1923,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenDoor_Room
       objectReference: {fileID: 0}
-    - target: {fileID: 6561284061978265277, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: dialogue.title
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: "this door was smashed to the ground.\r"
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5454362532960772440, guid: 473fe6954fa916d4a85dc8a5d13ea4ba, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba, type: 3}
 --- !u!1001 &1501114590
 PrefabInstance:
@@ -2259,7 +2222,7 @@ PrefabInstance:
     - target: {fileID: 2407710259599123466, guid: a096b00e61c829b4aa7fe60d5a36fa37,
         type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAAIexPeO1MeQIAACQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxsQ24t5YQ0kM+JqSTiy/CWmMNQvJIcoBk+O9dyTZ2KBfkt19v3670Rbg0FeRW6bXm7FExID9HxJ3Jj1FvfIAT3Sm54Z/Q+bxzZkvnRL3PK7VcIR66MKMOYDXPf8mdcM4BgrXkhdKHFdvBUhlrEC6oMIAmrayLlgh9jcgJ/8apCznjaTp3p088pcHogsccpAU9cA0nQRIv0nmStCHhdDILkzhO20B0mE8XaRQtVuNg7pPUMhf0UAFzHfW5pvNJ4H5h2qaKk0nkgCj0YRJ7byOCSeTIKCG4aakTe668NJuqBA1OG8YpKuHpOmFK4LvSukLD2OeiMGBbmTQ933GNgjZJyW/VqHygZt8Q/aCidmWiKJjGnlaT9vE/j3HDutDq8NBVDgNXxZY837/Sc06NHQxiCN99p17LIxV7uhXwXoJ8UmutasnQaHXtQmsD07v+89rcsoR83+MN1RuwrvoRdHPvpu56uPj+T0vBD1svfdwAG6G84H5ZQONw/iBhv0qmTYGoY/HXwBvdDXeuNdxzbSya2i6lo7dVtXauZOU1c93Udqm0BA+3pCuQVNjzC6axt0O8sQ3K3ljuqbtdbfHW1l2amxAP9/5BcGN6UcfrsEypjo9gyufaCi6hJ+0MT6jTUknZ7NhQky5sU+uC5oOwXc3Z99UiBSRblrNZPEtZAkk0XmyTmBZJOEthllJ8I/zucYl9UvHSEG3lwanJPrnEPesendFa08rvO9P0uOafBzWQnMtCbXINIJ+bDFfioLEIXky2YhwF2oC1XPp5k6+MCJXvgWXXRJnvdHWymmZ9loxU/ENZh2Rk6V+ZjFzI5R9QSwMEFAAACAgAAAAh7OvQTm5tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFJaqmlSSnKKmYmZZYppqqmxrkWSqUlimqmhmWWqmWViSqpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7E947Ux5AgAAJAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7OvQTm5tAAAAeAAAAAkAJAAAAAAAAAAAAAAAxgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB+AwAAAAA=
+      value: UEsDBBQAAAgIAAAAIexKO7UIZQIAAAcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzg1jE5vEvbWEkB7yMSGdXHwR1hprkCWPJAdIhv/elSxjh54Qu/tW771d64twaRoorNIrzdmjYkB+Tog7kx+TIfkAB7pVcs0/oa9558xWroj6mldqucJ47GBG1WA1L37JrXDFEQZbyUul6yXbwkIZazBcUmEAU1pZh5YY+pqQA/5cZQ5yxNPsxp0+8ZRFkxMeC5AW9Kg0nkZpcptlARDPpvM4TZKbAOtQrSwErRtgTsIATtKAukmnqS+UKC/URFOXLZQQ3AR2xB4br37dVKDByWecoljPyGmvgG8r64iPsc9lacAGJzQ93nGNnnVNyW/VGVlTs+uofVDRumuur6NZ4ml1bR//q7iKfbrUqn7ob44jd4uteLF7pceCGjvyehy++069lXsqdnQj4L0C+aRWWrWSYdLq1kFbA7O74e9Z3KKCYjfEO6oXwbYZTO9H2w/WaTh5/YeF4PXGW590gbVQ3nC/D6BxOH+QsN8WE1pg1LH4a+CNbsdrFRL3XBuLqaBSOnob1WpXSpbeM6emtQulJfhwIN2ApMIeX7CNvRziRW507UXmnroPKFwecv13cQHx4aE+ii5SL2p/Hpap1P4RTPXcWsElDKRd4gl9Wigpux0be9LD1q0uaTGCbVvOvq8WKSHdsILNk3nGUkivr243aULLNJ5nMM8oPgN+97hEnVS8dESDPTg1OTSXuGf9uzJZadr4fWea7lf8s1Yjy7ks1brQAPK563AmDhovwQ+TLRlHg9ZgLZd+3uQrJ0IVO2D5uVHulS4PVtN86JKThn8o6yI5WfiHJCcncvoHUEsDBBQAAAgIAAAAIezr0E5ubQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrRSWqppUkpyipmJmWWKaaqpsa5FkqlJYpqpoZllqpllYkqqUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAAIexKO7UIZQIAAAcFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAAIezr0E5ubQAAAHgAAAAJACQAAAAAAAAAAAAAALICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAagMAAAAA
       objectReference: {fileID: 0}
     - target: {fileID: 2407710259599123467, guid: a096b00e61c829b4aa7fe60d5a36fa37,
         type: 3}
@@ -2744,8 +2707,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1397337503}
   - {fileID: 1831657431}
+  - {fileID: 1397337503}
   - {fileID: 546336548}
   - {fileID: 608893336}
   - {fileID: 277954332}

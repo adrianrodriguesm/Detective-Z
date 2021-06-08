@@ -79,6 +79,8 @@ public class Item : MonoBehaviour
             float offsetYDelta = Random.Range(-instantiationDelta, instantiationDelta);
             position.x = agent.transform.position.x + offsetXDelta;
             position.y = agent.transform.position.y + offsetYDelta;
+            itemFall.transform.position = position;
+            Collider collider = itemFall.GetComponent<Collider>();
         } while (ItemManager.Instance.IsValidPosition(position));
         ItemManager.Instance.Positions.Add(position);
         Instantiate(itemFall, new Vector3(position.x, position.y, agent.transform.position.z), Quaternion.identity);

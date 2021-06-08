@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb9b1b774c76324eb6df359b88d0d51, type: 3}
+  m_Name: ReadBook B
+  m_EditorClassIdentifier: 
+  environment: 0
+  state: 0
+  detectionLevel: 0
+  attackAction: 0
+  CanRepeat: 0
+  itemObj: {fileID: 2338710375785572391, guid: 421a2d1e993688f489463aead3360e0d, type: 3}
+  useItem: 1
+  distanceToAdd: 2.62
+  pointsToUse:
+  - {fileID: 2042492661458651254, guid: 836ec3a4fc8d8ba43978cf8917190b73, type: 3}
+  instatiationUseOffset: {x: 0, y: 0}
+  distanceToUse: 1.87

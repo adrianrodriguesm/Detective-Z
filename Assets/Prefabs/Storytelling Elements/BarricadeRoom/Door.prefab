@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 33f0a5a2c5f0c6c4aa5a6376ed49ecb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,23 +113,6 @@ MonoBehaviour:
     title: 
     sentences:
     - this door was smashed to the ground.
-  maxScale: 1.5
-  tweenTime: 0.75
---- !u!114 &1955856034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5427566025917754666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d3b653d854c6844857f5579388b397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    title: 
-    sentences: []
   maxScale: 1.5
   tweenTime: 0.75
 --- !u!1 &7108907229225289587
@@ -433,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 3543348229936676265, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}
       propertyPath: m_Name
-      value: Wardrobe
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 3543348229936676265, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}
@@ -509,6 +492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543348230142465176, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.62
       objectReference: {fileID: 0}
     - target: {fileID: 3543348230142465176, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
         type: 3}
@@ -610,12 +598,6 @@ PrefabInstance:
 --- !u!4 &5427566025821029407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3543348229936676266, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
-    type: 3}
-  m_PrefabInstance: {fileID: 8826517584114940341}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5427566025917754666 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3543348230142465183, guid: b61a69d89dfe9534fa6b5dc4c9023a78,
     type: 3}
   m_PrefabInstance: {fileID: 8826517584114940341}
   m_PrefabAsset: {fileID: 0}

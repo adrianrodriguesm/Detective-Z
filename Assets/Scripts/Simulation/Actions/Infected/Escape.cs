@@ -35,12 +35,10 @@ public class Escape : InfectedAction
 
     public override void OnUpdate()
     {
-        //Move();
         m_Timer += Time.fixedDeltaTime;
-        if(m_Timer > m_Agent.timeToEscape && !m_Agent.Dead)
-        {
+        // TODO: Needs refactor
+        if(m_Agent.LastAttackTypeReceived.Equals(AttackType.Knive) &&  m_Timer > 1.5f && !m_Agent.Dead)
             m_Agent.InstatiateDeadAgent();
-        }
         if(Vector2.Distance(m_Agent.transform.position, m_Exit.transform.position) < m_ThresholdToEscape)
         {
             m_Exit.Exit();
