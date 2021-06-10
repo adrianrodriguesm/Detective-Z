@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 6561284061978265277}
   - component: {fileID: 2298731800720625911}
   - component: {fileID: 8650946991777582000}
+  - component: {fileID: 2043467689}
   m_Layer: 11
   m_Name: Door
   m_TagString: Untagged
@@ -256,3 +257,15 @@ MonoBehaviour:
     - "this door was smashed to the ground.\r"
   maxScale: 1.5
   tweenTime: 0.75
+--- !u!114 &2043467689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548451254972740482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb357233d909ef4b9311e99e529e7c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

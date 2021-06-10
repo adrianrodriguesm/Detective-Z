@@ -31,7 +31,7 @@ public class SimulationLoader : Singleton<SimulationLoader>
     // Update is called once per frame
     void Update()
     {
-        if(StoryManager.Instance.IsSimulationEnd())
+        if(GameplayManager.Instance.GameplayStarted)
             loaderCanvas.SetActive(false);
         else
             UpdateProgress();

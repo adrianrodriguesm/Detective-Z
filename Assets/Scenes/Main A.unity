@@ -1260,7 +1260,7 @@ PrefabInstance:
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: timerForReplay
-      value: 0.05
+      value: 0.058333334
       objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
@@ -1731,16 +1731,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 811650458}
     m_Modifications:
-    - target: {fileID: 1206846796461365575, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5427566025821029404, guid: 0073efe6f193c1d478b511b4160e3de0,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 7514310003300443745, guid: 0073efe6f193c1d478b511b4160e3de0,
         type: 3}
       propertyPath: m_Name
@@ -1801,8 +1791,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1955856034, guid: 0073efe6f193c1d478b511b4160e3de0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0073efe6f193c1d478b511b4160e3de0, type: 3}
 --- !u!1001 &1468199337
 PrefabInstance:
@@ -1880,11 +1869,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 811650458}
     m_Modifications:
-    - target: {fileID: 63999653251308518, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 2592376777169140120, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
         type: 3}
       propertyPath: m_RootOrder
@@ -1945,28 +1929,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenDoor_Room
       objectReference: {fileID: 0}
-    - target: {fileID: 6561284061978265277, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: dialogue.title
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650946991777582000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: "this door was smashed to the ground.\r"
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5454362532960772440, guid: 473fe6954fa916d4a85dc8a5d13ea4ba, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473fe6954fa916d4a85dc8a5d13ea4ba, type: 3}
 --- !u!1001 &1501114590
 PrefabInstance:

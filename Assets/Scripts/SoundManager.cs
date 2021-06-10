@@ -10,6 +10,7 @@ public class SoundManager : Singleton<SoundManager>
         get { return m_AudioPlayer; }
     }
     Player m_Player;
+    GameObject m_PlayerGameObject;
     bool m_First = false;
     AnimationState m_CurrentAnimationState;
     float m_MainSoundStartVolume;
@@ -49,7 +50,11 @@ public class SoundManager : Singleton<SoundManager>
         {
             if(!m_First)
             {
-                m_Player = FindObjectOfType<Player>();
+                GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+                if (!(playerGameObject && playerGameObject.activeSelf))
+                    return;
+
+                m_Player = playerGameObject.GetComponent<Player>();
                 m_AudioPlayer.PlayLoop("MainMusic", 0);
                 m_MainSoundStartVolume = m_AudioPlayer.GetLoopVolumeScale("MainMusic");
                 if (m_Player.environment.Equals(EnvironmentType.Garden))

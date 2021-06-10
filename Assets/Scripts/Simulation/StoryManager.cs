@@ -72,6 +72,7 @@ public class StoryManager : Singleton<StoryManager>
     public int randomSeed = 5;
     SoundManager m_SoundManager;
     public InfectedEntrance ForceEntryPoint;
+    GameObject m_Player;
     // Start is called before the first frame update
     void Awake()
     {
@@ -89,6 +90,7 @@ public class StoryManager : Singleton<StoryManager>
         spriteFrame = new List<Sprite>();
         m_SoundManager = SoundManager.Instance;
         SimulationLoader.Instance.gameObject.SetActive(true);
+        m_Player = GameObject.FindGameObjectWithTag("Player");
 
     }
 
@@ -180,7 +182,7 @@ public class StoryManager : Singleton<StoryManager>
                 infected.enabled = false;
             }
         }
-        if(!GameplayManager.Instance.GameplayStarted)
+        if(!GameplayManager.Instance.GameplayStarted && !m_Player.activeSelf)
             StartCoroutine(CaptureFrame());
     
     }

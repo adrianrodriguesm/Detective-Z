@@ -1278,7 +1278,7 @@ PrefabInstance:
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
       propertyPath: timerForReplay
-      value: 0.05
+      value: 0.05833333
       objectReference: {fileID: 0}
     - target: {fileID: 9184619856120338670, guid: e1168d99a155bfe47a082a618d90d06d,
         type: 3}
