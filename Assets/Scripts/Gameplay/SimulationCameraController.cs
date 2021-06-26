@@ -18,11 +18,11 @@ public class SimulationCameraController : MonoBehaviour
         agents = new List<AIAgent>();
         m_StoryManager = StoryManager.Instance;
         pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
-        pixelPerfectCamera.assetsPPU = 8;
+        pixelPerfectCamera.assetsPPU = 4;
         infected = m_StoryManager.Infected;
 
     }
-
+    /** /
     // Update is called once per frame
     void Update()
     {
@@ -48,4 +48,5 @@ public class SimulationCameraController : MonoBehaviour
 
         
     }
+    /**/
 }

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: d7aeabce949d429479dbc5b98b82c12c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4287e2cf34af844d85b1e04fd49d912, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
     - "cigarettes. this brand is expensive.\r"
   maxScale: 1.5
   tweenTime: 0.75
+  Sprite: {fileID: 0}
 --- !u!65 &-1257103542432721338
 BoxCollider:
   m_ObjectHideFlags: 0

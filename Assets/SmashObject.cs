@@ -18,7 +18,7 @@ public class SmashObject : MonoBehaviour
     }
     private void Update()
     {
-        if(!m_SpriteRenderer.enabled && Vector2.Distance(m_Infected.transform.position, transform.position) < 1f)
+        if(m_Infected != null && !m_SpriteRenderer.enabled && Vector2.Distance(m_Infected.transform.position, transform.position) < 2f)
             m_SpriteRenderer.enabled = true;
     }
 }

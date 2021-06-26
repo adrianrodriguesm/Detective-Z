@@ -46,7 +46,7 @@ public class AIAgent : MonoBehaviour
     float initialHealth;
     
     [Header("Blood asset when hurt")]
-    public SpriteRenderer blood;
+    public GameObject Blood;
     public float offsetRadiusX;
     public float offsetRadiusY;
     public GameObject deadCharacter;
@@ -182,7 +182,7 @@ public class AIAgent : MonoBehaviour
     {
         float offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
         float offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
-        Instantiate(blood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
+        Instantiate(Blood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
         health -= damage;
         if (IsDead())
         {
@@ -223,7 +223,7 @@ public class AIAgent : MonoBehaviour
                     {
                         offsetX = Random.Range(-offsetRadiusX, offsetRadiusX);
                         offsetY = Random.Range(-offsetRadiusY, offsetRadiusY);
-                        Instantiate(blood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
+                        Instantiate(Blood, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
                     }
                   
                 }

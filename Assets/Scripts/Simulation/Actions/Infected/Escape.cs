@@ -37,7 +37,7 @@ public class Escape : InfectedAction
     {
         m_Timer += Time.fixedDeltaTime;
         // TODO: Needs refactor
-        if(m_Agent.LastAttackTypeReceived.Equals(AttackType.Knive) &&  m_Timer > 1.25f && !m_Agent.Dead)
+        if(m_Agent.LastAttackTypeReceived.Equals(AttackType.Knive) &&  m_Timer > m_Agent.TimeToDie && !m_Agent.Dead)
             m_Agent.InstatiateDeadAgent();
         if(Vector2.Distance(m_Agent.transform.position, m_Exit.transform.position) < m_ThresholdToEscape)
         {

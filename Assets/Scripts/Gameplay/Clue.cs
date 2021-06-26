@@ -26,12 +26,13 @@ public class Clue : MonoBehaviour
         set { isEnable = value; }
     }
     bool isInteracting = false;
-    SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer Sprite;
     int m_DefaultLayer;
     private void Awake()
     {
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_DefaultLayer = m_SpriteRenderer.sortingOrder;
+        if(Sprite == null)
+            Sprite = GetComponent<SpriteRenderer>();
+        m_DefaultLayer = Sprite.sortingOrder;
 
     }
     StoryManager m_StoryManager;
@@ -61,7 +62,7 @@ public class Clue : MonoBehaviour
         m_DialogueManager.BeginDialogue(dialogue);
         numberOfInteractions++;
         isInteracting = true;
-        m_SpriteRenderer.sortingOrder = 20;
+        Sprite.sortingOrder = 20;
         //Debug.Log("Layer Entry: " + m_SpriteRenderer.sortingOrder);
     }
 
@@ -78,7 +79,7 @@ public class Clue : MonoBehaviour
     /**/
     private void OnMouseExit()
     {
-        m_SpriteRenderer.sortingOrder = m_DefaultLayer;
+        Sprite.sortingOrder = m_DefaultLayer;
         if (!isEnable || !m_StoryManager.IsSimulationEnd() || !m_StoryManager.AnimationState.Equals(AnimationState.Stop))
             return;
         

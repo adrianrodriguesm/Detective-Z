@@ -31,6 +31,7 @@ public class InfectedAgent : MonoBehaviour
     public WalkingObject infectedBloodWalk;
     bool escaped = false;
     bool wasAttacked = false;
+    public float TimeToDie = 1.25f;
     AttackType m_LastAttackTypeReceived = AttackType.Body;
     public AttackType LastAttackTypeReceived
     {

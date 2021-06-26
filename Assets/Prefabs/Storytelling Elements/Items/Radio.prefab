@@ -181,6 +181,7 @@ MonoBehaviour:
     - the radio was left turned on.
   maxScale: 1.5
   tweenTime: 0.75
+  Sprite: {fileID: 0}
 --- !u!65 &1941151580384697001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 225c85f5e4e027b49a27cf2ca779b262, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ea7344e9d1948d4fb62f11c4cdc02ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
