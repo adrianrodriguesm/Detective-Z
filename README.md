@@ -1,5 +1,5 @@
 # Detective Z
-Detective Z is an information game created from scratch whose foundations lays in a procedural way of generating environmental storytelling through a multi-agent simulation. The game was develop for my master thesis at IST in Lisbon. This the description of the game: 
+Detective Z is an information game created from scratch whose foundations lays in a procedural way of generating environmental storytelling through a multi-agent simulation. The game was developed for my master thesis at IST in Lisbon. This the description of the game: 
 
 *Zombies are part of our world.*
 
@@ -14,6 +14,10 @@ Detective Z is an information game created from scratch whose foundations lays i
 *You are Detective Z.*
 
 ![Detective Z gameplay capture.](/GameScreenhot.png)
+
+
+**Link to Video**: https://www.youtube.com/watch?v=Yo3Dzeu0JkA
+
 
 ## Gameplay
 Once the simulation is over, the player is placed in the scene and it will have the task of exploring the environment in order to discover what happened during the attack. For that, they will have to interact with the clues left in the environment and interpret the event that caused it to later connect them and create their own version of what happened during the attack.
@@ -38,3 +42,7 @@ After closing the game a log file will be generated inside the Detective Z_Data 
 * Fabio Diaz, game designer and writer.
 * Malbanyat, sound designer.
 * Marco Rios, artist.
+
+## Trird Party Resources
+* Assets pack: https://limezu.itch.io/moderninteriors
+* A* Pathfiding Project: https://arongranberg.com/astar/
